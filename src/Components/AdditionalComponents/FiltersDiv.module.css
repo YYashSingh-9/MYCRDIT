@@ -1,0 +1,42 @@
+.filterBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.inpBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.inpBox input {
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  height: 1.7rem;
+  padding: 0.2rem 0.6rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.inpBox button {
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  margin-left: 0.4rem;
+  transition: 0.2s ease-in-out;
+  padding: 0rem 0.2rem;
+  padding-top: 0.1rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.inpBox button:hover {
+  cursor: pointer;
+  background-color: white;
+}
+.searchIcn {
+  transform: scale(0.8);
+  color: rgb(0, 61, 0);
+}

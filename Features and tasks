@@ -1,0 +1,43 @@
+MYCRDIT prototype v1.0
+
+⚛ What's in this app;
+
+1. Types of logins -(a)Buyer (b)proprieter.
+2. All information about current unpaid/paid debts also mycredit points.
+3. UI contains -
+   🕳 Login/signup.
+   🕳 List of on-going debt Notes.
+   🕳 Create new debt note button.
+   🕳 Account information.
+   🕳 Debt Notes in details page.
+   🕳 Current crdit points(for buyers).
+
+⚛ How does this app works;
+
+.- Buyer purchases some goods from the proprieter, the proprieter then adds this entry of buyers name,code and debt info in his debt notes.
+Once the buyer clears his debt, the proprieter will check and remove this name from DN.
+The buyer will get notification of this and crdit points will be added in his account, also
+the information of this will be saved in history of this buyer
+
+⚛ Features to create and tasks to do;
+
+⚛ Front-end
+
+1. Create homepage of this app which shows list of DNs which are clickable.
+2. Create login/signup page.
+3. Create the functionality of signing up as a proprieter or buyer
+4. Create my account page as per the user(proprieter/buyer).
+5. Create functionality of clicking a debt note which will open a page with all the details of that particular DN
+6. Create DN details page, which will have a list of all the buyers with date and amount due, also option to add new debt with amount date, add option of check clear✅ and delete.
+7. Popup shows everytime we login/add/clears a debt from DN.
+8. Create functionality of editing account info.
+9. Popup shows everytime we change account details
+
+⚛ Back-end
+
+1. Create models of Users(propriters,buyer),debts.
+2. Create routes for all the requests related to users & debts.
+3. Create proper user authentication system (with JSON web token).
+4. Add security middlewares.
+5. Create functionality of adding, deleting, and clear checking debts of particular users.
+6. Create user login/signup/editing account info functionality
