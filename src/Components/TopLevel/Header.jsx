@@ -2,10 +2,7 @@ import { Box, Button, Toolbar, Typography } from "@mui/material";
 import classes from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-// font-family: "Manrope", sans-serif;
-// font-optical-sizing: auto;
-// font-weight: <weight>;
-// font-style: normal;
+
 const Header = () => {
   return (
     <>

@@ -1,0 +1,50 @@
+.mainContainer {
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headingPart {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.noteBtn {
+  outline: none;
+  background-color: darkgreen;
+  border: none;
+  border-radius: 1.5rem;
+  color: white;
+  height: 2.4rem;
+  padding: 0.1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.noteBtn:hover {
+  background-color: #1db954;
+  transition: 0.1s ease;
+}
+.noteBtn h4 {
+  font-size: 1rem;
+  margin: 0;
+}
+.noteIcn {
+  transform: scale(0.8);
+  margin-bottom: 0.2rem;
+}
+
+.headingPart h3 {
+  font-size: 1.1rem;
+  color: rgb(128, 128, 128);
+}
