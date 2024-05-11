@@ -37,12 +37,10 @@ const FilterDiv = () => {
             <button>
               <SearchIcon className={classes.searchIcn} />
             </button>
-          </Box>
-          <Box className={classes.inpBox}>
+
             <Typography
               variant="h7"
               marginRight={1}
-              marginLeft={5}
               sx={{ fontWeight: 500, color: "white" }}
             >
               Amount
