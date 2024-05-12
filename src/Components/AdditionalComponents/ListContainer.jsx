@@ -25,6 +25,9 @@ const ListContainer = () => {
         <ListItem />
         <ListItem />
         <ListItem />
+        <ListItem />
+        <ListItem />
+        <ListItem />
       </Box>
     </>
   );

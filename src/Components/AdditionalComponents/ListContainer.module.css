@@ -12,20 +12,47 @@
 .listItem h4 {
   margin: 0;
   font-size: 0.9rem;
+  font-weight: 400;
+  font-family: "poppins";
   color: rgb(61, 61, 61);
 }
+
 .listItem h3 {
   margin: 0;
+  font-family: "poppins";
+  font-weight: 400;
   font-size: 1.1rem;
   color: rgb(23, 23, 23);
 }
 
+.listItem:hover {
+  background-color: rgb(242, 242, 242);
+  cursor: pointer;
+}
 .listBox {
   overflow-y: scroll;
   height: auto;
-  max-height: 50vh;
+  max-height: 60vh;
   scrollbar-width: 0;
 }
 .listBox::-webkit-scrollbar {
   display: none;
+}
+
+.listBtn {
+  font-family: "poppins";
+  font-weight: 500;
+  outline: none;
+  border: 0.1rem solid darkgreen;
+  border-radius: 0.4rem;
+  padding: 0.3rem 1rem;
+  background-color: #1db954;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.listBtn:hover {
+  cursor: pointer;
+  background-color: #21cf5e;
+  transition: 0.1s ease;
 }
