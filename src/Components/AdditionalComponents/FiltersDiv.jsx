@@ -14,6 +14,7 @@ const FilterDiv = () => {
               fontWeight: 800,
               color: "white",
               fontFamily: "Manrope",
+              paddingTop: 1,
             }}
           >
             FILTER

@@ -18,10 +18,10 @@
 }
 .noteBtn {
   outline: none;
-  background-color: darkgreen;
-  border: none;
+  background-color: transparent;
+  border: 0.1rem solid #1db954;
   border-radius: 1.5rem;
-  color: white;
+  color: #1db954;
   height: 2.4rem;
   padding: 0.1rem 1rem;
   display: flex;
@@ -33,7 +33,8 @@
 }
 .noteBtn:hover {
   background-color: #1db954;
-  transition: 0.1s ease;
+  color: white;
+  transition: 0.2s ease;
 }
 .noteBtn h4 {
   font-size: 1rem;
