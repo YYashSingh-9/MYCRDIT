@@ -20,6 +20,7 @@ const DebtNotesContainer = () => {
             <EditIcon className={classes.noteIcn} />
           </button>
         </Grid>
+        <Grid item md={12} xs={12}></Grid>
       </Grid>
     </>
   );
