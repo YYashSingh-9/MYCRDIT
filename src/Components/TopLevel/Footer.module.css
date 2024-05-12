@@ -1,0 +1,14 @@
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storelinks img {
+  height: 5rem;
+  width: 17rem;
+}
+.storelinks {
+  display: flex;
+  align-items: center;
+}
