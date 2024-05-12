@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
+import ListContainer from "../AdditionalComponents/ListContainer";
 
 const DebtNotesContainer = () => {
   return (
@@ -20,7 +21,9 @@ const DebtNotesContainer = () => {
             <EditIcon className={classes.noteIcn} />
           </button>
         </Grid>
-        <Grid item md={12} xs={12}></Grid>
+        <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
+          <ListContainer />
+        </Grid>
       </Grid>
     </>
   );
