@@ -22,7 +22,7 @@
   border: 0.1rem solid #1db954;
   border-radius: 1.5rem;
   color: #1db954;
-  height: 2.4rem;
+  height: 2rem;
   padding: 0.1rem 1rem;
   display: flex;
   align-items: center;
@@ -37,15 +37,29 @@
   transition: 0.2s ease;
 }
 .noteBtn h4 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
+  font-weight: 500;
+  font-family: "poppins";
 }
 .noteIcn {
-  transform: scale(0.8);
+  transform: scale(0.7);
   margin-bottom: 0.2rem;
 }
 
 .headingPart h3 {
   font-size: 1.1rem;
   color: rgb(128, 128, 128);
+}
+
+.userTag {
+  height: 2rem;
+  border-radius: 0.4rem;
+  font-family: poppins;
+  outline: none;
+  border: 0.1rem solid #1db954;
+  padding: 0.3rem 1.3rem;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  box-shadow: #19a049 0px 4px 8px -2px, #19a049 0px 0px 0px 1px;
 }

@@ -27,25 +27,13 @@ const FilterDiv = () => {
           }}
         >
           <Box className={classes.inpBox}>
-            <Typography
-              variant="h7"
-              marginRight={1}
-              sx={{ fontWeight: 500, color: "white" }}
-            >
-              User ID
-            </Typography>
+            <h4>User ID</h4>
             <input placeholder="Enter a user ID" />
             <button>
               <SearchIcon className={classes.searchIcn} />
             </button>
 
-            <Typography
-              variant="h7"
-              marginRight={1}
-              sx={{ fontWeight: 500, color: "white" }}
-            >
-              Amount
-            </Typography>
+            <h4>Amount</h4>
             <input placeholder="Ex- 3,XXX" type="number" />
             <button>
               <SearchIcon className={classes.searchIcn} />

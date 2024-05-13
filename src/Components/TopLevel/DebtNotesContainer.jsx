@@ -14,8 +14,10 @@ const DebtNotesContainer = () => {
         className={classes.mainContainer}
       >
         <Grid item md={12} xs={12} className={classes.headingPart}>
-          <h3>Current running debts</h3>
-
+          <h3>
+            <span style={{ color: "darkgreen" }}> Modi Kirana's</span> book
+          </h3>
+          <button className={classes.userTag}>Proprietor</button>
           <button className={classes.noteBtn}>
             <h4>Create Note</h4>
             <EditIcon className={classes.noteIcn} />
