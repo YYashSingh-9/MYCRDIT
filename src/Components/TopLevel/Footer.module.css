@@ -10,6 +10,8 @@
 .storelinks img {
   height: 4rem;
   width: 12rem;
+  cursor: pointer;
+  margin-right: 0.4rem;
 }
 .storelinks {
   display: flex;
@@ -18,6 +20,11 @@
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+}
+.socialLinksPart a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 .storelinks h3 {
@@ -40,4 +47,21 @@
 }
 .icon {
   transform: scale(1.1);
+}
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footerText {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "poppins";
+  text-align: center;
+}
+.footerText h4 {
+  font-weight: 400;
+}
+.footerText h5 {
+  font-weight: 400;
 }
