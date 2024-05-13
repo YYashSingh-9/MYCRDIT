@@ -27,9 +27,9 @@ const Footer = () => {
             <img src={appleStoreImg} />
           </Box>
           <Box className={classes.socialLinksPart}>
-            <XIcon />
-            <InstagramIcon />
-            <FacebookIcon />
+            <XIcon className={classes.icon} />
+            <InstagramIcon className={classes.icon} />
+            <FacebookIcon className={classes.icon} />
           </Box>
         </Grid>
       </Grid>
