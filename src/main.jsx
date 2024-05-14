@@ -4,6 +4,8 @@ import App from "./App.jsx";
 import FNDPart from "./Components/TopLevel/FNDPart.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import mainStore from "./Store/mainStore.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={mainStore}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
