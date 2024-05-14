@@ -1,20 +1,22 @@
 import classes from "./NewNoteFormModal.module.css";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useSelector } from "react-redux";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { useDispatch } from "react-redux";
 
 const NewNoteFormModal = (props) => {
-  const modalState = props.mState;
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const modalState = useSelector((state) => state.sliceOne.formModalState);
+  const dispatch = useDispatch();
+  const handleClose = () => {
+    dispatch(sliceOneActions.modalToggler());
+  };
   return (
     <>
       <div>
         <Modal
-          open={open}
+          open={modalState}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"

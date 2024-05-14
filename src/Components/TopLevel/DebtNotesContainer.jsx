@@ -2,8 +2,15 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
+import { useDispatch } from "react-redux";
+import { sliceOneActions } from "../../Store/sliceOne";
 
 const DebtNotesContainer = () => {
+  const dispatch = useDispatch();
+  const openForm = () => {
+    dispatch(sliceOneActions.modalToggler());
+  };
+
   return (
     <>
       <Grid
@@ -18,7 +25,7 @@ const DebtNotesContainer = () => {
             <span style={{ color: "darkgreen" }}> Modi Kirana's</span> book
           </h3>
           <button className={classes.userTag}>Proprietor</button>
-          <button className={classes.noteBtn}>
+          <button className={classes.noteBtn} onClick={openForm}>
             <h4>Create Note</h4>
             <EditIcon className={classes.noteIcn} />
           </button>
