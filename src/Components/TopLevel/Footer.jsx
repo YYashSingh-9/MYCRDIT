@@ -31,9 +31,11 @@ const Footer = () => {
             <Link to={"https://twitter.com/Yash__9999"}>
               <XIcon className={classes.icon} />
             </Link>
+
             <Link to={"https://www.instagram.com/yasshwardhan_siingh/"}>
               <InstagramIcon className={classes.icon} />
             </Link>
+
             <Link
               to={"https://www.linkedin.com/in/yashwardhan-singh-083064291/"}
             >
