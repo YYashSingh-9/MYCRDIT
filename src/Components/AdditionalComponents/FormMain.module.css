@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+.title {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-family: "poppins";
+  font-weight: 300;
+  color: #404040;
+  font-size: 1rem;
+  border: 0.1rem solid #404040;
+  border-radius: 0.5rem;
+}
+.icn {
+  margin: 0rem 0.5rem;
+  transform: scale(1.2);
+}
+.title h3 {
+  margin: 0.5rem 0.5rem;
+  margin-left: 0;
+}
