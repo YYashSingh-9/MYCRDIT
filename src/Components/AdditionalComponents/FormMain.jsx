@@ -33,11 +33,7 @@ const FormMain = () => {
           <Form method="POST" className={classes.form_main}>
             <InputLabel htmlFor="Customer Name">Customer Name</InputLabel>
 
-            <TextField
-              id="outlined-basic"
-              label="Customer Name"
-              variant="outlined"
-            />
+            <TextField id="outlined" />
             <hr />
             <InputLabel htmlFor="Customer Number">Customer Number</InputLabel>
 

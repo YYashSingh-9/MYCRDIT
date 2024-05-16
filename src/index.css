@@ -18,6 +18,19 @@ body {
   margin: 0;
   padding: 0% 15%;
   min-height: 100vh;
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: green;
 }
 
 /* 1DB954 - spotify green */
