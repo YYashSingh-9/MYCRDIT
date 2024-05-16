@@ -27,8 +27,8 @@ const FilterDiv = () => {
           }}
         >
           <Box className={classes.inpBox}>
-            <h4>User ID</h4>
-            <input placeholder="Enter a user ID" />
+            <h4>Customer</h4>
+            <input placeholder="Customer Name" />
             <button>
               <SearchIcon className={classes.searchIcn} />
             </button>
