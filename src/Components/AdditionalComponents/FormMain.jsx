@@ -20,8 +20,7 @@ const FormMain = () => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        marginTop={2}
-        marginBottom={2}
+        className={classes.mainGrid}
       >
         <Grid item xs={12} sm={12} md={12} lg={12} className={classes.header}>
           <Box className={classes.title}>
@@ -37,26 +36,21 @@ const FormMain = () => {
             <hr />
             <InputLabel htmlFor="Customer Number">Customer Number</InputLabel>
 
-            <TextField
-              id="outlined-basic"
-              label="Customer Number"
-              variant="outlined"
-            />
+            <TextField id="outlined" />
             <hr />
             <InputLabel htmlFor="Product bought on credit">
-              Product bought on credit
+              Product bought on credit :-
             </InputLabel>
-
-            <TextField
-              id="outlined-basic"
-              label="Product Brand"
-              variant="outlined"
-            />
-            <TextField
-              id="outlined-basic"
-              label="Product Name"
-              variant="outlined"
-            />
+            <br />
+            <InputLabel htmlFor="Product bought on credit">
+              Brand of product
+            </InputLabel>
+            <TextField id="outlined" />
+            <hr />
+            <InputLabel htmlFor="Product bought on credit">
+              Product name
+            </InputLabel>
+            <TextField id="outlined" />
             <hr />
             <InputLabel htmlFor="Amount payable">Amount</InputLabel>
             <OutlinedInput
