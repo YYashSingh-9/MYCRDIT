@@ -30,29 +30,32 @@ const FormMain = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} className={classes.formDiv}>
           <Form method="POST" className={classes.form_main}>
-            <InputLabel htmlFor="Customer Name">Customer Name</InputLabel>
-
-            <TextField id="outlined" />
-            <hr />
-            <InputLabel htmlFor="Customer Number">Customer Number</InputLabel>
-
-            <TextField id="outlined" />
-            <hr />
-            <InputLabel htmlFor="Product bought on credit">
-              Product bought on credit :-
-            </InputLabel>
+            <label htmlFor="Customer Name">Customer Name</label>
             <br />
-            <InputLabel htmlFor="Product bought on credit">
-              Brand of product
-            </InputLabel>
+
             <TextField id="outlined" />
             <hr />
-            <InputLabel htmlFor="Product bought on credit">
-              Product name
-            </InputLabel>
+            <label htmlFor="Customer Number">Customer Number</label>
+            <br />
+
             <TextField id="outlined" />
             <hr />
-            <InputLabel htmlFor="Amount payable">Amount</InputLabel>
+
+            <label htmlFor="Product bought on credit">
+              Product bought on credit :-
+            </label>
+            <br />
+
+            <label htmlFor="Product bought on credit">Brand of product</label>
+            <br />
+            <TextField id="outlined" />
+            <hr />
+            <label htmlFor="Product bought on credit">Product name</label>
+            <br />
+            <TextField id="outlined" />
+            <hr />
+            <label htmlFor="Amount payable">Amount</label>
+            <br />
             <OutlinedInput
               id="Amount payable"
               startAdornment={
@@ -61,7 +64,8 @@ const FormMain = () => {
               label="Amount"
             />
             <hr />
-            <InputLabel htmlFor="Due date">Date</InputLabel>
+            <label htmlFor="Due date">Date</label>
+            <br />
             <input type="date" id="dueDate" name="Due Date" />
             <hr />
             <button type="submit">Save</button>

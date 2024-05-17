@@ -2,6 +2,7 @@ import { Box, Button, Toolbar, Typography } from "@mui/material";
 import classes from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,18 +10,21 @@ const Header = () => {
       <Box>
         <Toolbar className={classes.navbar}>
           <img src={logo} className={classes.logoImg} />
-          <Typography
-            variant="h4"
-            sx={{
-              color: "#404040",
-              marginLeft: 2,
-              fontWeight: 800,
-              fontSize: 30,
-              fontFamily: "Manrope",
-            }}
-          >
-            MY CRDIT
-          </Typography>
+
+          <Link to={"/"}>
+            <Typography
+              variant="h4"
+              sx={{
+                color: "#404040",
+                marginLeft: 2,
+                fontWeight: 800,
+                fontSize: 30,
+                fontFamily: "Manrope",
+              }}
+            >
+              MY CRDIT
+            </Typography>
+          </Link>
           <Box
             sx={{
               marginLeft: "auto",
