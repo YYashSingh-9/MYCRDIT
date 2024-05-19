@@ -1,0 +1,92 @@
+.headBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  margin-top: 1rem;
+}
+.title {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-family: "poppins";
+  font-weight: 300;
+  color: #404040;
+  font-size: 1rem;
+  border: 0.1rem solid #404040;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.title h3 {
+  font-family: "poppins";
+  margin: 0.5rem 0.5rem;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  color: #404040;
+  font-size: 1.1rem;
+  font-family: "poppins";
+}
+.row {
+  height: 3rem;
+  margin-top: 2rem;
+}
+.infoBox {
+  border-spacing: 0.7rem;
+}
+.row td {
+  font-weight: 400;
+  margin-left: 1rem;
+  border: 0.1rem solid rgb(221, 221, 221);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-spacing: 3rem;
+}
+.btnContainer {
+  width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 0.1rem solid rgb(221, 221, 221);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.btnContainer button {
+  width: 12rem;
+  height: 2rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  font-family: "poppins";
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: 0.2s ease;
+}
+.btnContainer button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.btnContainer :nth-child(1) {
+  background-color: rgb(241, 51, 51);
+}
+.btnContainer :nth-child(2) {
+  background-color: #1db954;
+}

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { useDispatch } from "react-redux";
 
-const NewNoteFormModal = (props) => {
+const DeleteConfirm = (props) => {
   const modalState = useSelector((state) => state.sliceOne.formModalState);
   const dispatch = useDispatch();
   const handleClose = () => {

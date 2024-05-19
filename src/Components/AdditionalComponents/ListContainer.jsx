@@ -1,5 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import classes from "./ListContainer.module.css";
+import { Link } from "react-router-dom";
 
 const ListItem = () => {
   return (
@@ -10,7 +11,9 @@ const ListItem = () => {
           <h4>14-05-12</h4>
         </Box>
         <Box>
-          <button className={classes.listBtn}>Check details</button>
+          <Link to={"mishra-ji-note/details"}>
+            <button className={classes.listBtn}>Check details</button>
+          </Link>
         </Box>
       </Box>
     </>

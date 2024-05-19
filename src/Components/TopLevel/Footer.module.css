@@ -37,6 +37,7 @@
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   padding-top: 1rem;
+  margin-top: 2rem;
 }
 .socialLinksPart {
   display: flex;
