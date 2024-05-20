@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initial_State = {
   formModalState: false,
+  accountType: "customer",
 };
 
 const sliceOne = createSlice({
@@ -10,6 +11,14 @@ const sliceOne = createSlice({
   reducers: {
     modalToggler(state, action) {
       state.formModalState = !state.formModalState;
+    },
+    accountTypeToggler(state, action) {
+      const accType = action.payload;
+      if (accType === "proprietor") {
+        state.accountType = "proprietor";
+      } else if (accType === "customer") {
+        state.accountType = "customer";
+      }
     },
   },
 });

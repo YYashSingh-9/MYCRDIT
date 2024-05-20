@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 const MainContainer = () => {
@@ -16,7 +16,7 @@ const MainContainer = () => {
             <Box className={classes.scoreCircle}>
               <h1>1</h1>
             </Box>
-            <h3>Your current MCrdit Score</h3>
+            <h3>Your current MYCrdit Score</h3>
           </Box>
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -24,7 +24,7 @@ const MainContainer = () => {
             <TipsAndUpdatesIcon />
             <h3>Tips:</h3>
           </Box>
-          <h4>Clear your debt bills on time to increase your MCrdit Score</h4>
+          <h4>Clear your debt bills on time to increase your MYCrdit Score</h4>
         </Grid>
       </Grid>
     </>
