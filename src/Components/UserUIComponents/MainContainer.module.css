@@ -9,4 +9,61 @@
   align-items: center;
   margin-bottom: 2rem;
   color: rgb(61, 61, 61);
+  font-family: "poppins";
+}
+.innerBox {
+  border: 0.1rem solid rgb(211, 211, 211);
+  width: 80%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+.outerBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreCircle {
+  padding: 2rem;
+  width: 10%;
+  height: 6rem;
+  border-radius: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: 0.5rem solid rgb(211, 211, 211);
+}
+.scoreCircle h1 {
+  font-size: 3rem;
+
+  margin: 0;
+  padding: 0;
+}
+.gridOuter {
+  width: 70%;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(211, 211, 211);
+  margin-bottom: 2rem;
+}
+.tipBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 5rem;
+  padding: 0rem 0.5rem;
+  background-color: #1db954;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  color: white;
+}
+.tipIcon {
+  color: rgb(254, 210, 87);
 }
