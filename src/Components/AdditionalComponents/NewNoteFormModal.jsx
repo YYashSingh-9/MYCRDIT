@@ -27,4 +27,4 @@ const DeleteConfirm = (props) => {
   );
 };
 
-export default NewNoteFormModal;
+export default DeleteConfirm;
