@@ -34,19 +34,21 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#1DB954",
-                borderRadius: "2rem",
-                ":hover": { bgcolor: "#1DB954" },
-              }}
-            >
-              <Typography variant="h7" mr={1}>
-                DETAILS
-              </Typography>
-              <AccountBoxIcon />
-            </Button>
+            <Link to={"/your-account-details"}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#1DB954",
+                  borderRadius: "2rem",
+                  ":hover": { bgcolor: "#1DB954" },
+                }}
+              >
+                <Typography variant="h7" mr={1}>
+                  DETAILS
+                </Typography>
+                <AccountBoxIcon />
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Box>

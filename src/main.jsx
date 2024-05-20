@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import FNDPart from "./Components/TopLevel/FNDPart.jsx";
 import FormMain from "./Components/AdditionalComponents/FormMain.jsx";
 import DebtDetailsPage from "./Components/TopLevel/DebtDetailsPage.jsx";
-import AccountInfoPart from "./Components/AdditionalComponents/AccountInfoPart.jsx";
+import AccountPage from "./Components/TopLevel/AccountPage.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       { path: "/", element: <FNDPart /> },
       { path: "/add-debt-note-form", element: <FormMain /> },
       { path: "/:id/details", element: <DebtDetailsPage /> },
-      { path: "/your-account-details", element: <AccountInfoPart /> },
+      { path: "/your-account-details", element: <AccountPage /> },
     ],
   },
 ]);
