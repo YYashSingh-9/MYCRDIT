@@ -43,7 +43,11 @@ const Header = () => {
                   ":hover": { bgcolor: "#1DB954" },
                 }}
               >
-                <Typography variant="h7" mr={1}>
+                <Typography
+                  variant="h7"
+                  mr={1}
+                  sx={{ fontFamily: "poppins", fontWeight: "400" }}
+                >
                   DETAILS
                 </Typography>
                 <AccountBoxIcon />
