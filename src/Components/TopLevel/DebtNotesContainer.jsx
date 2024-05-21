@@ -4,18 +4,13 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Link } from "react-router-dom";
 
 const DebtNotesContainer = () => {
   return (
     <>
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        className={classes.mainContainer}
-      >
+      <BasicCoverDiv>
         <Grid item md={12} xs={12} className={classes.headingPart}>
           <h3>
             <span style={{ color: "darkgreen" }}> Modi Kirana's</span> book
@@ -38,7 +33,7 @@ const DebtNotesContainer = () => {
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
           <ListContainer />
         </Grid>
-      </Grid>
+      </BasicCoverDiv>
     </>
   );
 };

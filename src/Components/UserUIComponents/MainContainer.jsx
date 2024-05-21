@@ -1,16 +1,12 @@
 import { Grid, Box, colors } from "@mui/material";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+
 const MainContainer = () => {
   return (
     <>
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        className={classes.main}
-      >
+      <BasicCoverDiv>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
           <h1>
             Home of <span style={{ color: "#1DB954" }}>Alokik Mishra </span>
@@ -46,7 +42,7 @@ const MainContainer = () => {
             {`(MCS)`}
           </h4>
         </Grid>
-      </Grid>
+      </BasicCoverDiv>
     </>
   );
 };
