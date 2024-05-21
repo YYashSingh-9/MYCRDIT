@@ -2,6 +2,7 @@ import classes from "./AccountInfoPart.module.css";
 import { Grid } from "@mui/material";
 import HistoryIcon from "@mui/icons-material/History";
 import TimelineIcon from "@mui/icons-material/Timeline";
+import HomeIcon from "@mui/icons-material/Home";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import { Link } from "react-router-dom";
 
@@ -71,6 +72,13 @@ const AccountInfoPart = (props) => {
               </button>
             </Link>
           )}
+          <br />
+          <Link to={"/"}>
+            <button>
+              <HomeIcon className={classes.icn} />
+              Home
+            </button>
+          </Link>
         </Grid>
       </Grid>
     </>
