@@ -43,30 +43,30 @@ const AccountInfoPart = (props) => {
           {accountType === "customer" ? (
             <Link to={"/"}>
               <button>
-                <HistoryIcon />
+                <HistoryIcon className={classes.icn} />
                 Check History
               </button>
             </Link>
           ) : (
             <Link to={"/"}>
               <button>
-                <HistoryIcon />
+                <HistoryIcon className={classes.icn} />
                 All Cleared Debts
               </button>
             </Link>
           )}
-
+          <br />
           {accountType === "customer" ? (
             <Link to={"/"}>
               <button>
-                <TimelineIcon />
+                <TimelineIcon className={classes.icn} />
                 Running debts
               </button>
             </Link>
           ) : (
             <Link to={"/"}>
               <button>
-                <AddBusinessIcon />
+                <AddBusinessIcon className={classes.icn} />
                 Shop Info
               </button>
             </Link>

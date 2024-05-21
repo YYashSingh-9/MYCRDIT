@@ -13,6 +13,7 @@ const AccountPage = () => {
         direction="column"
         alignItems="center"
         justifyContent="center"
+        className={classes.main}
       >
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.header}>
           <h1>Account of Prateek</h1>
