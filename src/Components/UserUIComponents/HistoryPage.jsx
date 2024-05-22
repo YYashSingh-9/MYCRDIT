@@ -1,8 +1,10 @@
 import classes from "./HistoryPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import { Link } from "react-router-dom";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const ListItem = (props) => {
   return (
@@ -78,6 +80,19 @@ const HistoryPage = () => {
             amt={250}
             btnTitle={"Cleared"}
           />
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.btnSection}
+          marginBottom={2}
+        >
+          <Link to={"/your-account-details"}>
+            <GeneralButton btn_title={"back"} />
+          </Link>
         </Grid>
       </BasicCoverDiv>
     </>

@@ -4,6 +4,7 @@ import HistoryIcon from "@mui/icons-material/History";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import HomeIcon from "@mui/icons-material/Home";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import GeneralButton from "./GeneralButton";
 import { Link } from "react-router-dom";
 
 const AccountInfoPart = (props) => {
@@ -43,41 +44,32 @@ const AccountInfoPart = (props) => {
         >
           {accountType === "customer" ? (
             <Link to={"/your-history-details"}>
-              <button>
-                <HistoryIcon className={classes.icn} />
-                Check History
-              </button>
+              <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
             </Link>
           ) : (
             <Link to={"/your-history-details"}>
-              <button>
-                <HistoryIcon className={classes.icn} />
-                All Cleared Debts
-              </button>
+              <GeneralButton
+                icnTitle={"history"}
+                btn_title={"All Cleared Debts"}
+              />
             </Link>
           )}
           <br />
           {accountType === "customer" ? (
             <Link to={"/"}>
-              <button>
-                <TimelineIcon className={classes.icn} />
-                Running debts
-              </button>
+              <GeneralButton
+                icnTitle={"runningDebt"}
+                btn_title={"Running debts"}
+              />
             </Link>
           ) : (
             <Link to={"/"}>
-              <button>
-                <AddBusinessIcon className={classes.icn} />
-                Shop Info
-              </button>
+              <GeneralButton icnTitle={"shopInfo"} btn_title={"Shop Info"} />
             </Link>
           )}
           <br />
           <Link to={"/"}>
-            <button>
-              <HomeIcon className={classes.icn} />
-              Home
-            </button>
+            <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
         </Grid>
       </Grid>

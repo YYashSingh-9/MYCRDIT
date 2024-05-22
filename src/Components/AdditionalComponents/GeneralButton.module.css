@@ -1,0 +1,25 @@
+.btn {
+  border: none;
+  height: 2.5rem;
+  width: 15rem;
+  margin: auto;
+  font-size: 1rem;
+  font-family: "poppins";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1db954;
+  border-radius: 0.5rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.icn {
+  margin-right: 0.2rem;
+}
