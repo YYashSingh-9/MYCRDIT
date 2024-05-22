@@ -42,14 +42,14 @@ const AccountInfoPart = (props) => {
           className={classes.accountBtnContainer}
         >
           {accountType === "customer" ? (
-            <Link to={"/"}>
+            <Link to={"/your-history-details"}>
               <button>
                 <HistoryIcon className={classes.icn} />
                 Check History
               </button>
             </Link>
           ) : (
-            <Link to={"/"}>
+            <Link to={"/your-history-details"}>
               <button>
                 <HistoryIcon className={classes.icn} />
                 All Cleared Debts
