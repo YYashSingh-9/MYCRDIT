@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initial_State = {
   formModalState: false,
   accountType: "proprietor",
+  customerLogin: false,
 };
 
 const sliceOne = createSlice({

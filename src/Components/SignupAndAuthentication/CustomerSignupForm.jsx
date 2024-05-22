@@ -5,7 +5,7 @@ import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 const CustomerSignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -76,12 +76,14 @@ const CustomerSignupForm = () => {
           xs={12}
           className={classes.toggleText}
         >
-          <h4 className={classes.formH4}>
-            Already signed up?{" "}
-            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-              Log in then
-            </span>
-          </h4>
+          <Link to={"/login"}>
+            <h4 className={classes.formH4}>
+              Already signed up?{" "}
+              <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+                Log in then
+              </span>
+            </h4>
+          </Link>
         </Grid>
       </BasicCoverDiv>
     </>

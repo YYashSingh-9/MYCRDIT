@@ -1,6 +1,6 @@
 import classes from "./ProprietorSignupForm.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 const ProprietorSignupForm = () => {
   return (
@@ -131,6 +131,14 @@ const ProprietorSignupForm = () => {
             <br />
             <TextField id="Outlined" />
             <br />
+            <label htmlFor="Proprietor name">Your Password.</label>
+            <br />
+            <TextField id="Outlined" />
+            <br />
+            <label htmlFor="Proprietor name">Confirm Password.</label>
+            <br />
+            <TextField id="Outlined" />
+            <br />
             <label htmlFor="question">What is your most selling product.</label>
             <br />
             <TextField id="Outlined" />
@@ -156,6 +164,23 @@ const ProprietorSignupForm = () => {
             <br />
             <button type="submit">Save</button>
           </Form>
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.toggleText}
+        >
+          <Link to={"/login"}>
+            <h4 className={classes.formH4}>
+              Already signed up?{" "}
+              <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+                Log in then
+              </span>
+            </h4>
+          </Link>
         </Grid>
       </BasicCoverDiv>
     </>
