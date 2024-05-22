@@ -25,7 +25,14 @@ const CustomerSignupForm = () => {
             </span>
           </h1>
         </Grid>
-        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.mainContainer}
+        >
           <Form method="POST" className={classes.form_main}>
             <label htmlFor="Customer Name">Your Name</label>
             <br />
@@ -56,8 +63,25 @@ const CustomerSignupForm = () => {
               label="Password"
             />
             <br />
-            <button type="submit">Save</button>
+            <button type="submit" className={classes.sendBtn}>
+              Save
+            </button>
           </Form>
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.toggleText}
+        >
+          <h4 className={classes.formH4}>
+            Already signed up?{" "}
+            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+              Log in then
+            </span>
+          </h4>
         </Grid>
       </BasicCoverDiv>
     </>
