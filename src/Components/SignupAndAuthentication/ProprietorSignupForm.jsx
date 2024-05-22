@@ -11,7 +11,7 @@ const ProprietorSignupForm = () => {
             Sign up as{" "}
             <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
               {" "}
-              Proprietor{" "}
+              Proprietor.{" "}
             </span>
           </h1>
         </Grid>
