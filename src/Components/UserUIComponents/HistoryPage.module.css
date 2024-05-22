@@ -1,0 +1,64 @@
+.detailsBox {
+  width: 80%;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  border: 0.1rem solid rgb(211, 211, 211);
+  height: 60vh;
+  max-height: 60vh;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+}
+.detailsBox::-webkit-scrollbar {
+  width: 0.5rem;
+  scroll-behavior: smooth;
+}
+.detailsBox::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.detailsBox::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: green;
+}
+.liBox {
+  width: 90%;
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 0.5rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+.info_left {
+  width: 70%;
+  padding-left: 2rem;
+}
+.liBox h4,
+h3 {
+  margin: 0.2rem;
+  font-family: "poppins";
+  font-weight: 400;
+}
+
+.info_right {
+  width: 30%;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.clearIndicatorBtn {
+  border-radius: 0.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-left: auto;
+  font-family: "poppins";
+  font-size: 0.9rem;
+}
+.cleartick {
+  color: #1db954;
+  margin-right: 0.5rem;
+}
