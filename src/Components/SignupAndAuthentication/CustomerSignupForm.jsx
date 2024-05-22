@@ -1,20 +1,63 @@
 import classes from "./CustomerSignupForm.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-
+import IconButton from "@mui/material/IconButton";
+import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useState } from "react";
+import { Form } from "react-router-dom";
 const CustomerSignupForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <BasicCoverDiv>
-        <Grid>
-          <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
-            <h1>
-              Sign up as{" "}
-              <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-                {" "}
-                Customer.{" "}
-              </span>
-            </h1>
-          </Grid>
+        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
+          <h1>
+            Sign up as{" "}
+            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+              {" "}
+              Customer.{" "}
+            </span>
+          </h1>
+        </Grid>
+        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
+          <Form method="POST" className={classes.form_main}>
+            <label htmlFor="Customer Name">Your Name</label>
+            <br />
+            <TextField id="outlined" />
+            <hr />
+            <label htmlFor="Customer Number">Contact Number</label>
+            <br />
+            <TextField id="outlined" />
+            <hr />
+
+            <label htmlFor="Customer Name">Your Password</label>
+            <br />
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+            <br />
+            <button type="submit">Save</button>
+          </Form>
         </Grid>
       </BasicCoverDiv>
     </>

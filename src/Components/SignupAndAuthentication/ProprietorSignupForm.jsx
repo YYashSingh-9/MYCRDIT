@@ -24,11 +24,11 @@ const ProprietorSignupForm = () => {
           className={classes.formContainer}
         >
           <Form method="POST" className={classes.form_main}>
-            <label htmlFor="Customer Name">Shop Name</label>
+            <label htmlFor="Shop Name">Shop Name</label>
             <br />
             <TextField id="outlined" />
             <hr />
-            <label htmlFor="Customer Number">Shop Address</label>
+            <label htmlFor="Shop address">Shop Address</label>
             <br />
             <TextField id="outlined" />
             <br />

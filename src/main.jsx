@@ -7,6 +7,7 @@ import DebtDetailsPage from "./Components/TopLevel/DebtDetailsPage.jsx";
 import AccountPage from "./Components/TopLevel/AccountPage.jsx";
 import HistoryPage from "./Components/UserUIComponents/HistoryPage.jsx";
 import ProprietorSignupForm from "./Components/SignupAndAuthentication/ProprietorSignupForm.jsx";
+import CustomerSignupForm from "./Components/SignupAndAuthentication/CustomerSignupForm.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/your-account-details", element: <AccountPage /> },
       { path: "/your-history-details", element: <HistoryPage /> },
       { path: "/proprietor-signup-form", element: <ProprietorSignupForm /> },
+      { path: "/customer-signup-form", element: <CustomerSignupForm /> },
     ],
   },
 ]);
