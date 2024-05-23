@@ -63,7 +63,7 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           ) : (
-            <Link to={"/"}>
+            <Link to={"/my-shop-info"}>
               <GeneralButton icnTitle={"shopInfo"} btn_title={"Shop Info"} />
             </Link>
           )}

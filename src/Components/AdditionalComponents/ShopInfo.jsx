@@ -3,6 +3,7 @@ import BasicCoverDiv from "./BasicCoverDiv";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
+import { useSelector } from "react-redux";
 
 const InfoPart = () => {
   return (
@@ -38,28 +39,40 @@ const InfoPart = () => {
 };
 
 const ShopInfo = () => {
+  const accType = useSelector((state) => state.sliceOne.accountType);
   return (
     <>
-      <BasicCoverDiv heading={"About your"} heading_highlight={"Shop."}>
-        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.mainInfo}>
-          <InfoPart />
-        </Grid>
-        <Grid
-          item
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          className={classes.btnSection}
-        >
-          <Link to={"/"}>
-            <button>
-              <EditIcon />
-              Edit
-            </button>
-          </Link>
-        </Grid>
-      </BasicCoverDiv>
+      {accType === "proprietor" ? (
+        <BasicCoverDiv heading={"About your"} heading_highlight={"Shop."}>
+          <Grid
+            item
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={classes.mainInfo}
+          >
+            <InfoPart />
+          </Grid>
+          <Grid
+            item
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={classes.btnSection}
+          >
+            <Link to={"/"}>
+              <button>
+                <EditIcon />
+                Edit
+              </button>
+            </Link>
+          </Grid>
+        </BasicCoverDiv>
+      ) : (
+        <p>Invalid link</p>
+      )}
     </>
   );
 };
