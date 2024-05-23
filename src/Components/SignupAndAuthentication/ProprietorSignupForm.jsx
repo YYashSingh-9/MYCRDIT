@@ -5,16 +5,7 @@ import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 const ProprietorSignupForm = () => {
   return (
     <>
-      <BasicCoverDiv>
-        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
-          <h1>
-            Sign up as{" "}
-            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-              {" "}
-              Proprietor.{" "}
-            </span>
-          </h1>
-        </Grid>
+      <BasicCoverDiv heading={"Signup as "} heading_highlight={"Proprietor."}>
         <Grid
           item
           lg={12}
