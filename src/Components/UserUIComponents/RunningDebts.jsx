@@ -20,6 +20,7 @@ const RunningDebtsPage = () => {
             date={"14-06-24"}
             amt={250}
             btnTitle={"pending"}
+            icnType={"pending"}
           />
         </Grid>
       </BasicCoverDiv>

@@ -56,7 +56,7 @@ const AccountInfoPart = (props) => {
           )}
           <br />
           {accountType === "customer" ? (
-            <Link to={"/"}>
+            <Link to={"/my-running-debts"}>
               <GeneralButton
                 icnTitle={"runningDebt"}
                 btn_title={"Running debts"}

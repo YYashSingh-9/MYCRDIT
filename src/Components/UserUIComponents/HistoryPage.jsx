@@ -55,36 +55,35 @@ const HistoryPage = () => {
             date={"14-06-24"}
             amt={250}
             btnTitle={"Cleared"}
+            icnType={"tick"}
           />
           <ListItem
             title={"Mishra ji,Sunflower oil"}
             date={"14-06-24"}
             amt={250}
             btnTitle={"Cleared"}
+            icnType={"tick"}
           />{" "}
           <ListItem
             title={"Mishra ji,Sunflower oil"}
             date={"14-06-24"}
             amt={250}
             btnTitle={"Cleared"}
-          />
-          <ListItem
-            title={"Mishra ji,Sunflower oil"}
-            date={"14-06-24"}
-            amt={250}
-            btnTitle={"Cleared"}
+            icnType={"tick"}
           />{" "}
           <ListItem
             title={"Mishra ji,Sunflower oil"}
             date={"14-06-24"}
             amt={250}
             btnTitle={"Cleared"}
+            icnType={"tick"}
           />{" "}
           <ListItem
             title={"Mishra ji,Sunflower oil"}
             date={"14-06-24"}
             amt={250}
             btnTitle={"Cleared"}
+            icnType={"tick"}
           />
         </Grid>
         <Grid
