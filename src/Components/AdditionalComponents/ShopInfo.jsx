@@ -43,7 +43,7 @@ const ShopInfo = () => {
   return (
     <>
       {accType === "proprietor" ? (
-        <BasicCoverDiv heading={"About your"} heading_highlight={"Shop."}>
+        <BasicCoverDiv heading={"About your"} heading_highlight={" Shop."}>
           <Grid
             item
             lg={12}
@@ -67,6 +67,9 @@ const ShopInfo = () => {
                 <EditIcon />
                 Edit
               </button>
+            </Link>
+            <Link to={"/your-account-details"}>
+              <button>Back</button>
             </Link>
           </Grid>
         </BasicCoverDiv>
