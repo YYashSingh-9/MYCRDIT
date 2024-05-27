@@ -62,3 +62,8 @@ h3 {
   color: #1db954;
   margin-right: 0.5rem;
 }
+
+.pending {
+  color: rgb(254, 210, 87);
+  margin-right: 0.5rem;
+}

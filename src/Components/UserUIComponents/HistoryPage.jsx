@@ -5,8 +5,9 @@ import { useSelector } from "react-redux";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
-const ListItem = (props) => {
+export const ListItem = (props) => {
   return (
     <>
       <Box className={classes.liBox}>
@@ -17,7 +18,12 @@ const ListItem = (props) => {
         <Box className={classes.info_right}>
           <h4>{`${props.amt}/-`}</h4>
           <button className={classes.clearIndicatorBtn}>
-            <DoneAllIcon className={classes.cleartick} />
+            {props.icnType === "tick" ? (
+              <DoneAllIcon className={classes.cleartick} />
+            ) : (
+              <PendingActionsIcon className={classes.pending} />
+            )}
+
             {props.btnTitle}
           </button>
         </Box>

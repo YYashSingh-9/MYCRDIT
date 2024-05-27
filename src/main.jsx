@@ -10,6 +10,7 @@ import ProprietorSignupForm from "./Components/SignupAndAuthentication/Proprieto
 import CustomerSignupForm from "./Components/SignupAndAuthentication/CustomerSignupForm.jsx";
 import LoginPage from "./Components/SignupAndAuthentication/LoginPage.jsx";
 import ShopInfo from "./Components/AdditionalComponents/ShopInfo.jsx";
+import RunningDebtsPage from "./Components/UserUIComponents/RunningDebts.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "/customer-signup-form", element: <CustomerSignupForm /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/my-shop-info", element: <ShopInfo /> },
+      { path: "/my-running-debts", element: <RunningDebtsPage /> },
     ],
   },
 ]);
