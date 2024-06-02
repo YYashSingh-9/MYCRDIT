@@ -69,8 +69,8 @@ const AccountInfoPart = (props) => {
           )}
           <br />
           {accountType === "customer" && (
-            <Link to={"/my-running-debts"}>
-              <GeneralButton icnTitle={"money"} btn_title={"My Crdit Score"} />
+            <Link to={"/my-current-score"}>
+              <GeneralButton icnTitle={"money"} btn_title={"MCS System"} />
             </Link>
           )}
           <br />

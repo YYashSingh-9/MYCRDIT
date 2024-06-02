@@ -11,6 +11,7 @@ import CustomerSignupForm from "./Components/SignupAndAuthentication/CustomerSig
 import LoginPage from "./Components/SignupAndAuthentication/LoginPage.jsx";
 import ShopInfo from "./Components/AdditionalComponents/ShopInfo.jsx";
 import RunningDebtsPage from "./Components/UserUIComponents/RunningDebts.jsx";
+import MCSPage from "./Components/UserUIComponents/MCSPage.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/my-shop-info", element: <ShopInfo /> },
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
+      { path: "/my-current-score", element: <MCSPage /> },
     ],
   },
 ]);

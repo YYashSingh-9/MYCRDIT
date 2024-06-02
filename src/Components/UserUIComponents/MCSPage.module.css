@@ -1,0 +1,10 @@
+.detailsBox {
+  width: 80%;
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.detailsBox h3 {
+  font-family: "poppins";
+  font-weight: 500;
+}
