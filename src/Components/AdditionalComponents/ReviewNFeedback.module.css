@@ -31,7 +31,8 @@
   width: 30rem;
   padding: 0.5rem;
 }
-.syvform button {
+.syvform button,
+.backbtn {
   width: 30%;
   outline: none;
   background-color: #1db954;
@@ -46,6 +47,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.form_main button:hover {
+.syvform button:hover,
+.backbtn:hover {
   background-color: rgb(36, 194, 92);
 }

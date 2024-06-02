@@ -4,7 +4,7 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import HomeIcon from "@mui/icons-material/Home";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-
+import RateReviewIcon from "@mui/icons-material/RateReview";
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
   return (
@@ -21,6 +21,7 @@ const GeneralButton = (props) => {
         {iconTitle === "money" && (
           <MonetizationOnIcon className={classes.icn} />
         )}
+        {iconTitle === "review" && <RateReviewIcon className={classes.icn} />}
         {props.btn_title}
       </button>
     </>

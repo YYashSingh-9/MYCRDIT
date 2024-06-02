@@ -1,9 +1,13 @@
 import classes from "./ReviewNFeedback.module.css";
 import BasicCoverDiv from "./BasicCoverDiv";
-import { Box, Grid, TextField } from "@mui/material";
-import { Form } from "react-router-dom";
+import { Grid, TextField } from "@mui/material";
+import { Form, Link } from "react-router-dom";
+import GeneralButton from "./GeneralButton";
+import { useSelector } from "react-redux";
 
 const ReviewNFeedback = () => {
+  const accType = useSelector((state) => state.sliceOne.accountType);
+  const linkTo = accType === "proprietor" ? "/your-account-details" : "/";
   return (
     <>
       <BasicCoverDiv heading={"Share Your"} heading_highlight={" View."}>
@@ -47,6 +51,9 @@ const ReviewNFeedback = () => {
             <br />
             <button type="submit">Send</button>
           </Form>
+          <Link to={linkTo}>
+            <button className={classes.backbtn}>Back</button>
+          </Link>
         </Grid>
       </BasicCoverDiv>
     </>
