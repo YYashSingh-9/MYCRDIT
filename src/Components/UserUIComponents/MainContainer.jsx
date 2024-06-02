@@ -2,6 +2,7 @@ import { Grid, Box, colors } from "@mui/material";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import { Link } from "react-router-dom";
 
 const MainContainer = () => {
   return (
@@ -41,6 +42,20 @@ const MainContainer = () => {
             Clear your debt bills on time to increase your MYCrdit Score{" "}
             {`(MCS)`}
           </h4>
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.reviewtextBtn}
+          marginTop={1}
+          marginBottom={1}
+        >
+          <Link to={"/review-form"}>
+            <h4>Share your review, feedback, and complain. Click here.</h4>
+          </Link>
         </Grid>
       </BasicCoverDiv>
     </>
