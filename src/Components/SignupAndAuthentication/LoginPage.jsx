@@ -2,9 +2,13 @@ import classes from "./LoginPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Grid, TextField } from "@mui/material";
 import { Form, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-const ProprietorUI = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { sliceOneActions } from "../../Store/sliceOne";
+const ProprietorUI = (props) => {
+  const onclickfn = () => {
+    props.onclick();
+    console.log("hehe");
+  };
   return (
     <>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
@@ -29,7 +33,15 @@ const ProprietorUI = () => {
         </Form>
       </Grid>
 
-      <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
+      <Grid
+        item
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+        className={classes.toggleText}
+        textAlign={"center"}
+      >
         <Link to={"/proprietor-signup-form"}>
           <h4 className={classes.formH4}>
             Not Signed up?{" "}
@@ -38,12 +50,23 @@ const ProprietorUI = () => {
             </span>
           </h4>
         </Link>
+
+        <h4 className={classes.formH4} onClick={onclickfn}>
+          A Customer ?{" "}
+          <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+            Login then
+          </span>
+        </h4>
       </Grid>
     </>
   );
 };
 
-const CustomerUI = () => {
+const CustomerUI = (props) => {
+  const onclickfn = () => {
+    props.onclick();
+    console.log("hehe");
+  };
   return (
     <Grid>
       {" "}
@@ -68,7 +91,16 @@ const CustomerUI = () => {
           <button type="submit">Login</button>
         </Form>
       </Grid>
-      <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
+      <Grid
+        item
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+        className={classes.toggleText}
+        display={"flex"}
+        justifyContent={"space-between"}
+      >
         <Link to={"/customer-signup-form"}>
           <h4 className={classes.formH4}>
             Not Signed up?{" "}
@@ -77,6 +109,13 @@ const CustomerUI = () => {
             </span>
           </h4>
         </Link>
+
+        <h4 className={classes.formH4} onClick={onclickfn}>
+          A proprietor ?{" "}
+          <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+            Login then
+          </span>
+        </h4>
       </Grid>
     </Grid>
   );
@@ -85,10 +124,22 @@ const LoginPage = () => {
   const customerLoginState = useSelector(
     (state) => state.sliceOne.customerLogin
   );
+  const accountType_UI = useSelector((state) => state.sliceOne.accountType);
+  const dispatch = useDispatch();
+  const toProprietor = () => {
+    dispatch(sliceOneActions.accountTypeToggler("proprietor"));
+  };
+  const toCustomer = () => {
+    dispatch(sliceOneActions.accountTypeToggler("customer"));
+  };
   return (
     <>
       <BasicCoverDiv>
-        {customerLoginState === true ? <CustomerUI /> : <ProprietorUI />}
+        {accountType_UI === "customer" ? (
+          <CustomerUI onclick={toProprietor} />
+        ) : (
+          <ProprietorUI onclick={toCustomer} />
+        )}
       </BasicCoverDiv>
     </>
   );
