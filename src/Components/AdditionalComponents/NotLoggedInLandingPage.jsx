@@ -12,7 +12,15 @@ const NotLoggedInLandingPage = () => {
         heading="You are not logged in, "
         heading_highlight="Login first to use."
       >
-        <Grid item lg={8} md={8} sm={10} xs={12} className={classes.btn_Grid}>
+        <Grid
+          item
+          lg={8}
+          md={8}
+          sm={10}
+          xs={12}
+          className={classes.btn_Grid}
+          mb={5}
+        >
           <FaceIcon className={classes.faceIcn} />
 
           <Link to={"/login"}>
