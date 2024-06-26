@@ -5,13 +5,13 @@ import GeneralButton from "./GeneralButton";
 import { Link } from "react-router-dom";
 import classes from "./NotLoggedInLandingPage.module.css";
 
-const NotLoggedInLandingPage = () => {
+const NotLoggedInLandingPage = (props) => {
+  const { heading, linkk, btnTitle } = props;
+
+  console.log(linkk);
   return (
     <>
-      <BasicCoverDiv
-        heading="You are not logged in, "
-        heading_highlight="Login first to use."
-      >
+      <BasicCoverDiv heading={heading} heading_highlight="Check and retry">
         <Grid
           item
           lg={8}
@@ -23,8 +23,8 @@ const NotLoggedInLandingPage = () => {
         >
           <FaceIcon className={classes.faceIcn} />
 
-          <Link to={"/login"}>
-            <GeneralButton btn_title={"login now"} />
+          <Link to={linkk}>
+            <GeneralButton btn_title={btnTitle} />
           </Link>
         </Grid>
       </BasicCoverDiv>
