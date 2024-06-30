@@ -27,7 +27,13 @@ const Filter_n_Debts = () => {
     <>
       {currentAcc_Type === "proprietor" && <ProprietorComponent />}
       {currentAcc_Type === "customer" && <UserAccountComponent />}
-      {currentAcc_Type === "null" && <NotLoggedInLandingPage />}
+      {currentAcc_Type === "null" && (
+        <NotLoggedInLandingPage
+          heading="Not logged in "
+          btnTitle="login"
+          linkk="/login"
+        />
+      )}
     </>
   );
 };
