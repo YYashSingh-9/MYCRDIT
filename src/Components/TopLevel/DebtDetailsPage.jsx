@@ -1,5 +1,6 @@
 import { Grid, Box } from "@mui/material";
 import classes from "./DebtDetails.module.css";
+import { Link } from "react-router-dom";
 
 const DebtDetailsPage = () => {
   return (
@@ -58,8 +59,11 @@ const DebtDetailsPage = () => {
           className={classes.btnContainer}
           marginTop={2}
         >
-          <button>Delete</button>
+          <button className={classes.del}>Delete</button>
           <button>Mark as paid</button>
+          <Link to={"/"}>
+            <button className={classes.lnkbtn}>Back</button>
+          </Link>
         </Grid>
       </Grid>
     </>

@@ -59,13 +59,18 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 2rem;
+  height: 2.5rem;
+  font-size: 0.9rem;
+  background-color: rgb(237, 237, 237);
+  border: none;
+  outline: none;
   border-radius: 0.5rem;
   font-family: "poppins";
+  font-weight: 500;
   outline: none;
-  border: 0.1rem solid #1db954;
+  /* border: 0.1rem solid #1db954; */
   padding: 0.3rem 1.3rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: not-allowed;
-  box-shadow: #19a049 0px 4px 8px -2px, #19a049 0px 0px 0px 1px;
+  /* box-shadow: #19a049 0px 4px 8px -2px, #19a049 0px 0px 0px 1px; */
 }

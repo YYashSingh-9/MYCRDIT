@@ -48,7 +48,7 @@ const Header = () => {
                   mr={1}
                   sx={{ fontFamily: "poppins", fontWeight: "400" }}
                 >
-                  DETAILS
+                  details
                 </Typography>
                 <AccountBoxIcon />
               </Button>

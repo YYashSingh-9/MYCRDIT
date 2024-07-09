@@ -44,16 +44,16 @@
   font-family: "poppins";
   font-weight: 400;
   outline: none;
-  border: 0.1rem solid darkgreen;
-  border-radius: 0.4rem;
-  padding: 0.3rem 0.7rem;
-  background-color: darkgreen;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
   color: white;
   font-size: 0.8rem;
+  background-color: #14863c;
 }
 
 .listBtn:hover {
+  background-color: #1db954;
   cursor: pointer;
-  background-color: #14863c;
   transition: 0.2s ease;
 }

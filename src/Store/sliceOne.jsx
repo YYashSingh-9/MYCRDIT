@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initial_State = {
   formModalState: false,
-  accountType: "null",
+  accountType: "proprietor",
   customerLogin: true,
 };
 

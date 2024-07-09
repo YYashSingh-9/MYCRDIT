@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import { useSelector } from "react-redux";
+import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 
 const InfoPart = () => {
   return (
@@ -74,7 +75,11 @@ const ShopInfo = () => {
           </Grid>
         </BasicCoverDiv>
       ) : (
-        <p>Invalid link</p>
+        <NotLoggedInLandingPage
+          heading="Some error occured "
+          btnTitle="Home"
+          linkk="/"
+        />
       )}
     </>
   );
