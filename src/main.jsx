@@ -13,6 +13,7 @@ import ShopInfo from "./Components/AdditionalComponents/ShopInfo.jsx";
 import RunningDebtsPage from "./Components/UserUIComponents/RunningDebts.jsx";
 import MCSPage from "./Components/UserUIComponents/MCSPage.jsx";
 import ReviewNFeedback from "./Components/AdditionalComponents/ReviewNFeedback.jsx";
+import EditForm from "./Components/MinorComponents/EditForm.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
       { path: "/my-current-score", element: <MCSPage /> },
       { path: "/review-form", element: <ReviewNFeedback /> },
+      { path: "/edit-shop-details", element: <EditForm /> },
     ],
   },
 ]);

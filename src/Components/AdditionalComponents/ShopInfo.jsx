@@ -63,7 +63,7 @@ const ShopInfo = () => {
             xs={12}
             className={classes.btnSection}
           >
-            <Link to={"/"}>
+            <Link to={"/edit-shop-details"}>
               <button>
                 <EditIcon />
                 Edit
