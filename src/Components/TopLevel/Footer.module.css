@@ -66,3 +66,33 @@
 .footerText h5 {
   font-weight: 400;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .storelinks img {
+    height: 2rem;
+    width: 6rem;
+    margin-right: 0rem;
+  }
+  .storelinks {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .storelinks h3 {
+    font-size: 1rem;
+    margin-right: 0rem;
+    display: block;
+  }
+  .footerTop {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+  .socialLinksPart {
+    margin-top: 1rem;
+    margin-right: 0rem;
+  }
+  .icon {
+    transform: scale(1);
+  }
+}

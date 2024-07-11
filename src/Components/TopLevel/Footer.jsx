@@ -46,7 +46,10 @@ const Footer = () => {
         <Grid item xs={12} md={12} lg={12} className={classes.footerBottom}>
           <Box className={classes.footerText}>
             <hr />
-            <h4>This is prototype v1.0, developed by Yasshwardhan Siingh</h4>
+            <h4>
+              This is prototype v1.0, developed by{" "}
+              <span style={{ color: "#1DB954" }}> Yasshwardhan Siingh</span>{" "}
+            </h4>
             <h5>
               <span style={{ textDecoration: "underline" }}>
                 Copyright 2024

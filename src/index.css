@@ -33,6 +33,14 @@ body::-webkit-scrollbar-thumb {
   background-color: green;
 }
 
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  body {
+    padding: 0% 1%;
+  }
+  body::-webkit-scrollbar {
+    width: 0rem;
+  }
+}
 /* 1DB954 - spotify green */
 /* 191414 - spotify black  */
 /* FFFFFF - spotify white  */
