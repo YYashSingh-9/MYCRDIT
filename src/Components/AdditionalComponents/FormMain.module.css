@@ -44,21 +44,9 @@
 
 .form_main button {
   width: 100%;
-  outline: none;
-  background-color: #1db954;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  color: white;
-  font-family: "poppins";
-  border: none;
-  cursor: pointer;
-  transition: 0.2s ease;
-  border-radius: 0.5rem;
-  margin-top: 0.4rem;
+  margin-top: 1rem;
 }
-.form_main button:hover {
-  background-color: rgb(36, 194, 92);
-}
+
 .form_main label {
   color: #404040;
   font-family: "poppins";

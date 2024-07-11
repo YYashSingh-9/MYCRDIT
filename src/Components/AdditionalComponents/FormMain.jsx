@@ -11,6 +11,7 @@ import classes from "./FormMain.module.css";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Form, Link } from "react-router-dom";
+import GeneralButton from "./GeneralButton";
 
 const FormMain = () => {
   return (
@@ -68,7 +69,10 @@ const FormMain = () => {
             <br />
             <input type="date" id="dueDate" name="Due Date" />
             <hr />
-            <button type="submit">Save</button>
+            <GeneralButton typeBtn="submit" btn_title="Save" />
+            <Link to={"/"}>
+              <GeneralButton btn_title="Back" />
+            </Link>
           </Form>
         </Grid>
       </Grid>

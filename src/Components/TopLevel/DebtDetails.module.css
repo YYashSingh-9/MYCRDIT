@@ -89,13 +89,16 @@
   background-color: #1db954;
 }
 
-.btnContainer a {
-  text-decoration: none;
-  background-color: none;
-}
 .lnkbtn {
   background-color: #1db954;
 }
+.lnkbtn:active,
+.btnContainer :nth-child(2):active {
+  background-color: #137a37;
+}
 .del {
   background-color: rgb(241, 51, 51);
+}
+.del:active {
+  background-color: rgb(182, 28, 28);
 }
