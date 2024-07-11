@@ -4,11 +4,9 @@ import { Grid, TextField } from "@mui/material";
 import { Form, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
+
 const ProprietorUI = (props) => {
-  const onclickfn = () => {
-    props.onclick();
-    console.log("hehe");
-  };
   return (
     <>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
@@ -29,7 +27,7 @@ const ProprietorUI = (props) => {
           <label htmlFor="number">Your Password</label>
           <br />
           <TextField id="outlined" />
-          <button type="submit">Login</button>
+          <GeneralButton typeBtn="submit" btn_title="Login" />
         </Form>
       </Grid>
 
@@ -51,7 +49,7 @@ const ProprietorUI = (props) => {
           </h4>
         </Link>
 
-        <h4 className={classes.formH4} onClick={onclickfn}>
+        <h4 className={classes.formH4}>
           A Customer ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             Login then
@@ -63,10 +61,6 @@ const ProprietorUI = (props) => {
 };
 
 const CustomerUI = (props) => {
-  const onclickfn = () => {
-    props.onclick();
-    console.log("hehe");
-  };
   return (
     <Grid>
       {" "}
@@ -88,7 +82,7 @@ const CustomerUI = (props) => {
           <label htmlFor="number">Your Password</label>
           <br />
           <TextField id="outlined" />
-          <button type="submit">Login</button>
+          <GeneralButton typeBtn="submit" btn_title="Login" />
         </Form>
       </Grid>
       <Grid
@@ -110,16 +104,19 @@ const CustomerUI = (props) => {
           </h4>
         </Link>
 
-        <h4 className={classes.formH4} onClick={onclickfn}>
-          A proprietor ?{" "}
-          <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-            Login then
-          </span>
-        </h4>
+        <Link to={"/proprietor-signup-form"}>
+          <h4 className={classes.formH4}>
+            A proprietor ?{" "}
+            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+              Login then
+            </span>
+          </h4>
+        </Link>
       </Grid>
     </Grid>
   );
 };
+
 const LoginPage = () => {
   const customerLoginState = useSelector(
     (state) => state.sliceOne.customerLogin

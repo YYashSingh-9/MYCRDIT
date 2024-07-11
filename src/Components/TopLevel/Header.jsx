@@ -3,8 +3,10 @@ import classes from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const accountType = useSelector((state) => state.sliceOne.accountType);
   return (
     <>
       <Box>
@@ -34,25 +36,27 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            <Link to={"/your-account-details"}>
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#1DB954",
-                  borderRadius: "2rem",
-                  ":hover": { bgcolor: "#1DB954" },
-                }}
-              >
-                <Typography
-                  variant="h7"
-                  mr={1}
-                  sx={{ fontFamily: "poppins", fontWeight: "400" }}
+            {accountType !== "null" && (
+              <Link to={"/your-account-details"}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#1DB954",
+                    borderRadius: "2rem",
+                    ":hover": { bgcolor: "#1DB954" },
+                  }}
                 >
-                  details
-                </Typography>
-                <AccountBoxIcon />
-              </Button>
-            </Link>
+                  <Typography
+                    variant="h7"
+                    mr={1}
+                    sx={{ fontFamily: "poppins", fontWeight: "400" }}
+                  >
+                    details
+                  </Typography>
+                  <AccountBoxIcon />
+                </Button>
+              </Link>
+            )}
           </Box>
         </Toolbar>
       </Box>

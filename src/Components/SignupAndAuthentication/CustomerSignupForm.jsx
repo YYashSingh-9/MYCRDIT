@@ -6,8 +6,6 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 import { Form, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 
 const CustomerSignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +14,6 @@ const CustomerSignupForm = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
 
   return (
     <>
@@ -68,6 +65,7 @@ const CustomerSignupForm = () => {
               label="Password"
             />
             <br />
+
             <button type="submit" className={classes.sendBtn}>
               Save
             </button>

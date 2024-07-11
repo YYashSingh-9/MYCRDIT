@@ -19,11 +19,14 @@
   padding: 0.5rem;
   font-size: 0.9rem;
 }
+
 .form_main label {
   color: #404040;
   font-family: "poppins";
   font-weight: 400;
+  margin-bottom: 1rem;
 }
+
 .form_main button {
   width: 100%;
   outline: none;
@@ -40,7 +43,11 @@
   margin-bottom: 1rem;
 }
 .form_main button:hover {
-  background-color: rgb(36, 194, 92);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.form_main button:active {
+  background-color: #137a37;
 }
 .toggleText {
   text-align: center;
