@@ -16,6 +16,9 @@
   transition: 0.2s ease;
   cursor: pointer;
 }
+.btn:active {
+  background-color: #137a37;
+}
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;

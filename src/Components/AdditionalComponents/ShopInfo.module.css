@@ -25,29 +25,5 @@
   align-items: center;
 }
 .btnSection button {
-  border: none;
-  width: 12rem;
-  height: 2rem;
-  margin: auto;
-  font-size: 1rem;
-  font-family: "poppins";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1db954;
-  border-radius: 0.5rem;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  transition: 0.2s ease;
-  cursor: pointer;
   margin-left: 1rem;
-}
-
-.btnSection button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-.btnSection button:active {
-  background-color: #168f40;
 }
