@@ -96,3 +96,14 @@
     transform: scale(1);
   }
 }
+@media only screen and (min-width: 392px) and (max-width: 576px) {
+  .storelinks img {
+    height: 3rem;
+    width: 9rem;
+  }
+
+  .storelinks h3 {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+}
