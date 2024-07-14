@@ -12,3 +12,12 @@
   color: rgb(61, 61, 61);
   font-family: "poppins";
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .mainGrid {
+    width: 90%;
+  }
+  .mainGrid h1 {
+    font-size: 1.4rem;
+  }
+}

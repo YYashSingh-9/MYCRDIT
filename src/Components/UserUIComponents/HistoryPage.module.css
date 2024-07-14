@@ -67,3 +67,48 @@ h3 {
   color: rgb(254, 210, 87);
   margin-right: 0.5rem;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .detailsBox {
+    width: 95%;
+  }
+  .detailsBox::-webkit-scrollbar {
+    width: 0rem;
+    scroll-behavior: smooth;
+  }
+  .detailsBox::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .detailsBox::-webkit-scrollbar-thumb {
+    border-radius: 0rem;
+    background-color: none;
+  }
+  .liBox {
+    height: 4.2rem;
+    width: 95%;
+  }
+  .liBox h4 {
+    margin: 0.1rem;
+    font-size: 0.8rem;
+  }
+  .liBox h3 {
+    font-size: 0.8rem;
+  }
+  .clearIndicatorBtn {
+    font-size: 0.7rem;
+  }
+  .cleartick {
+    margin-right: 0rem;
+    transform: scale(0.8);
+  }
+
+  .pending {
+    margin-right: 0.2rem;
+    transform: scale(0.8);
+  }
+  .info_left {
+    padding-left: 1rem;
+  }
+}

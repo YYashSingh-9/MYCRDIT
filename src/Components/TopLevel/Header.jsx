@@ -5,6 +5,36 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+const styles = {
+  heading: {
+    color: "#404040",
+    marginLeft: 2,
+    fontWeight: 800,
+    fontSize: 30,
+    fontFamily: "Manrope",
+    "@media only screen and (min-width: 280px) and (max-width: 576px)": {
+      fontSize: 22,
+      marginLeft: 1,
+    },
+  },
+  detailsButtonFont: {
+    fontFamily: "poppins",
+    fontWeight: "400",
+    "@media only screen and (min-width: 280px) and (max-width: 576px)": {
+      fontSize: 0,
+      display: "none",
+    },
+  },
+  detailBtn: {
+    backgroundColor: "#1DB954",
+    borderRadius: "2rem",
+    ":hover": { bgcolor: "#1DB954" },
+    "@media only screen and (min-width: 280px) and (max-width: 576px)": {
+      width: "1rem",
+    },
+  },
+};
+
 const Header = () => {
   const accountType = useSelector((state) => state.sliceOne.accountType);
   return (
@@ -14,16 +44,7 @@ const Header = () => {
           <img src={logo} className={classes.logoImg} />
 
           <Link to={"/"}>
-            <Typography
-              variant="h4"
-              sx={{
-                color: "#404040",
-                marginLeft: 2,
-                fontWeight: 800,
-                fontSize: 30,
-                fontFamily: "Manrope",
-              }}
-            >
+            <Typography variant="h4" sx={styles.heading}>
               MY CRDIT
             </Typography>
           </Link>
@@ -38,22 +59,11 @@ const Header = () => {
           >
             {accountType !== "null" && (
               <Link to={"/your-account-details"}>
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#1DB954",
-                    borderRadius: "2rem",
-                    ":hover": { bgcolor: "#1DB954" },
-                  }}
-                >
-                  <Typography
-                    variant="h7"
-                    mr={1}
-                    sx={{ fontFamily: "poppins", fontWeight: "400" }}
-                  >
+                <Button variant="contained" sx={styles.detailBtn}>
+                  <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
                     details
                   </Typography>
-                  <AccountBoxIcon />
+                  <AccountBoxIcon className={classes.icn} />
                 </Button>
               </Link>
             )}

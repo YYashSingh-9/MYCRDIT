@@ -48,7 +48,10 @@ const HistoryPage = () => {
         <BasicCoverDiv>
           <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
             <h1>
-              Your {accType === "proprietor" ? "cleared debts" : "History"}
+              Your{" "}
+              <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+                {accType === "proprietor" ? "cleared debts" : "History"}
+              </span>
             </h1>
           </Grid>
           <Grid

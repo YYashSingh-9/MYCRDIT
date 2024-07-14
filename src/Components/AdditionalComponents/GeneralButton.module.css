@@ -27,3 +27,13 @@
 .icn {
   margin-right: 0.2rem;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .btn {
+    border: none;
+    width: 10rem;
+    height: 1.8rem;
+    font-size: 0.8rem;
+  }
+}
