@@ -107,3 +107,30 @@
     width: 100%;
   }
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .storelinks img {
+    height: 3rem;
+    width: 9rem;
+  }
+  .icon {
+    transform: scale(1);
+  }
+  .storelinks h3 {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .storelinks {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .footerTop {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+  .socialLinksPart {
+    margin-top: 1rem;
+    margin-right: 0rem;
+  }
+}

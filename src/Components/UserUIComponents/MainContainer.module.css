@@ -105,3 +105,42 @@
     width: 25%;
   }
 }
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  .innerBox {
+    border: 0.1rem solid rgb(211, 211, 211);
+    width: 70%;
+  }
+  .scoreCircle {
+    width: 25%;
+    height: 6rem;
+  }
+  .tipBox {
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  .gridOuter h4 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .gridOuter {
+    width: 70%;
+    flex-wrap: wrap;
+  }
+  .reviewtextBtn h4 {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 645px) and (max-width: 768px) {
+  .scoreCircle {
+    width: 23%;
+  }
+}
+@media only screen and (min-width: 710px) and (max-width: 768px) {
+  .scoreCircle {
+    width: 21%;
+  }
+}

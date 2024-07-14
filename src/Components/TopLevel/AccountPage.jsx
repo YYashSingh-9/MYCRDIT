@@ -11,7 +11,12 @@ const AccountPage = () => {
     <>
       <BasicCoverDiv>
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.header}>
-          <h1>Account of Alokik</h1>
+          <h1>
+            Account of{" "}
+            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+              Alokik
+            </span>
+          </h1>
         </Grid>
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart accountType={accType} />

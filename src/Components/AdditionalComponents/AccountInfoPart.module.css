@@ -76,3 +76,22 @@
     font-size: 0.8rem;
   }
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .row {
+    height: 2.2rem;
+    margin-top: 0.5rem;
+  }
+  .infoBox {
+    border-spacing: 0.8rem;
+  }
+  .row td {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+  .accountBtnContainer button {
+    height: 2.9rem;
+    width: 11rem;
+    font-size: 0.9rem;
+  }
+}
