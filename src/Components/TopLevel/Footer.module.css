@@ -134,3 +134,31 @@
     margin-right: 0rem;
   }
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .storelinks img {
+    height: 3rem;
+    width: 9rem;
+  }
+  .icon {
+    transform: scale(1);
+  }
+  .storelinks h3 {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .storelinks {
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+  }
+  .footerTop {
+    flex-wrap: wrap;
+
+    text-align: center;
+    justify-content: center;
+  }
+  .socialLinksPart {
+    margin-top: 1rem;
+    margin-left: 3rem;
+  }
+}
