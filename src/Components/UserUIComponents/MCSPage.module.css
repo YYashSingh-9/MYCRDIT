@@ -8,3 +8,17 @@
   font-family: "poppins";
   font-weight: 500;
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .detailsBox {
+    width: 95%;
+    padding: 0.3rem;
+  }
+
+  .detailsBox h3 {
+    font-size: 0.9rem;
+  }
+  .detailsBox p {
+    font-size: 0.7rem;
+  }
+}

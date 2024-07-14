@@ -20,3 +20,22 @@
   border-radius: 0.5rem;
   background-color: green;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .detailsBox {
+    width: 95%;
+  }
+  .detailsBox::-webkit-scrollbar {
+    width: 0rem;
+    scroll-behavior: smooth;
+  }
+  .detailsBox::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .detailsBox::-webkit-scrollbar-thumb {
+    border-radius: 0rem;
+    background-color: none;
+  }
+}
