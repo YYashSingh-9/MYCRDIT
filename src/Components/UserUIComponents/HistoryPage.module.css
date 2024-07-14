@@ -112,3 +112,46 @@ h3 {
     padding-left: 1rem;
   }
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .detailsBox {
+    width: 80%;
+  }
+  .detailsBox::-webkit-scrollbar {
+    width: 0rem;
+    scroll-behavior: smooth;
+  }
+  .detailsBox::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .detailsBox::-webkit-scrollbar-thumb {
+    border-radius: 0rem;
+    background-color: none;
+  }
+  .liBox {
+    height: 4.5rem;
+    width: 95%;
+  }
+  .liBox h4 {
+    font-size: 0.9rem;
+  }
+  .liBox h3 {
+    font-size: 1rem;
+  }
+  .clearIndicatorBtn {
+    font-size: 0.7rem;
+  }
+  .cleartick {
+    margin-right: 0rem;
+    transform: scale(0.8);
+  }
+
+  .pending {
+    margin-right: 0.2rem;
+    transform: scale(0.8);
+  }
+  .info_left {
+    padding-left: 1rem;
+  }
+}

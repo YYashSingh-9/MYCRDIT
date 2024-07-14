@@ -22,3 +22,16 @@
     font-size: 0.7rem;
   }
 }
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .detailsBox {
+    width: 95%;
+    padding: 0.5rem;
+  }
+
+  .detailsBox h3 {
+    font-size: 1.1rem;
+  }
+  .detailsBox p {
+    font-size: 0.9rem;
+  }
+}

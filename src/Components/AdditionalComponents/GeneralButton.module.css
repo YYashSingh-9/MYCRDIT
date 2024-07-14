@@ -37,3 +37,12 @@
     font-size: 0.8rem;
   }
 }
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .btn {
+    border: none;
+    width: 10rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+}
