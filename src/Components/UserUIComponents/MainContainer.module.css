@@ -179,3 +179,70 @@
     height: 6rem;
   }
 }
+@media only screen and (min-width: 992px) and (max-width: 1130px) {
+  .scoreCircle {
+    width: 17%;
+    height: 6rem;
+  }
+  .tipBox {
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .gridOuter {
+    width: 70%;
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .gridOuter h4 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1065px) and (max-width: 1130px) {
+  .scoreCircle {
+    width: 16%;
+    height: 6rem;
+  }
+  .tipBox {
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  .gridOuter {
+    width: 70%;
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .gridOuter h4 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1130px) and (max-width: 1200px) {
+  .scoreCircle {
+    width: 15%;
+    height: 6rem;
+  }
+  .tipBox {
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  .gridOuter {
+    width: 70%;
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .gridOuter h4 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .scoreCircle {
+    width: 14%;
+    height: 6rem;
+  }
+  .tipBox {
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+}
