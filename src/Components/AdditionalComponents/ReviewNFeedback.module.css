@@ -30,6 +30,23 @@
   height: 8rem;
   width: 30rem;
   padding: 0.5rem;
+  overflow-y: scroll;
+}
+.formBox textarea:focus {
+  outline: 0.13rem solid rgb(23, 103, 232);
+}
+
+.formBox textarea::-webkit-scrollbar {
+  width: 0rem;
+  scroll-behavior: smooth;
+}
+.formBox textarea::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+.formBox textarea::-webkit-scrollbar-thumb {
+  border-radius: 0rem;
+  background-color: none;
 }
 .syvform button,
 .backbtn {
@@ -54,4 +71,75 @@
 .syvform button:active,
 .backbtn:active {
   background-color: #137a37;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .disclaimerBox {
+    width: 90%;
+    font-size: 0.8rem;
+  }
+
+  .syvform input {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8rem;
+    width: 12rem;
+  }
+  .syvform label {
+    margin-top: 2rem;
+  }
+  .formBox {
+    width: 90%;
+  }
+  .formBox textarea {
+    padding: 0.5rem 0.5rem;
+    height: 8rem;
+    width: 12rem;
+  }
+  .syvform button,
+  .backbtn {
+    width: 13.2rem;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 720px) {
+  .disclaimerBox {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
+  .syvform input {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8rem;
+    width: 15rem;
+  }
+  .syvform label {
+    margin-top: 2rem;
+  }
+  .formBox {
+    width: 80%;
+  }
+  .formBox textarea {
+    padding: 0.5rem 0.5rem;
+    height: 8rem;
+    width: 15rem;
+  }
+  .syvform button,
+  .backbtn {
+    width: 16.2rem;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 992px) {
+  .syvform input {
+    width: 25rem;
+  }
+  .formBox textarea {
+    padding: 0.5rem 0.5rem;
+    height: 8rem;
+    width: 25rem;
+  }
 }
