@@ -26,32 +26,6 @@
   padding-top: 1rem;
 }
 
-.accountBtnContainer button {
-  border: none;
-  height: 3rem;
-  width: 15rem;
-  margin: auto;
-  font-size: 1rem;
-  font-family: "poppins";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1db954;
-  border-radius: 0.5rem;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  transition: 0.2s ease;
-  cursor: pointer;
-}
-.accountBtnContainer button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-.icn {
-  margin-right: 0.2rem;
-}
-
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .mainGrid {
@@ -70,11 +44,6 @@
     padding: 0.2rem 0.5rem;
     font-size: 0.8rem;
   }
-  .accountBtnContainer button {
-    height: 2.4rem;
-    width: 10rem;
-    font-size: 0.8rem;
-  }
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 576px) and (max-width: 768px) {
@@ -88,10 +57,5 @@
   .row td {
     padding: 0.7rem 1rem;
     font-size: 1rem;
-  }
-  .accountBtnContainer button {
-    height: 2.9rem;
-    width: 11rem;
-    font-size: 0.9rem;
   }
 }

@@ -1,9 +1,9 @@
 .btn {
   border: none;
-  width: 12rem;
-  height: 2rem;
+  width: 13rem;
+  height: 3rem;
   margin: auto;
-  /* margin-bottom: 1rem; */
+  margin-top: 1rem;
   font-size: 1rem;
   font-family: "poppins";
   display: flex;
@@ -32,8 +32,8 @@
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .btn {
     border: none;
+    height: 2.4rem;
     width: 10rem;
-    height: 1.8rem;
     font-size: 0.8rem;
   }
 }
@@ -41,8 +41,8 @@
 @media only screen and (min-width: 576px) and (max-width: 768px) {
   .btn {
     border: none;
-    width: 10rem;
-    height: 2rem;
+    height: 2.9rem;
+    width: 11rem;
     font-size: 0.9rem;
   }
 }

@@ -6,6 +6,7 @@ import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import EditIcon from "@mui/icons-material/Edit";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RateReviewIcon from "@mui/icons-material/RateReview";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
@@ -27,7 +28,7 @@ const GeneralButton = (props) => {
         )}
         {iconTitle === "review" && <RateReviewIcon className={classes.icn} />}
         {iconTitle === "edit" && <EditIcon className={classes.icn} />}
-
+        {iconTitle === "account" && <AccountBoxIcon className={classes.icn} />}
         {props.btn_title}
       </button>
     </>

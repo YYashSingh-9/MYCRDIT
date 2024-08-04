@@ -61,7 +61,7 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
-          <br />
+
           {accountType === "customer" ? (
             <Link to={"/my-running-debts"}>
               <GeneralButton
@@ -74,7 +74,7 @@ const AccountInfoPart = (props) => {
               <GeneralButton icnTitle={"shopInfo"} btn_title={"Shop Info"} />
             </Link>
           )}
-          <br />
+
           {accountType === "customer" ? (
             <Link to={"/my-current-score"}>
               <GeneralButton icnTitle={"money"} btn_title={"MCS System"} />
@@ -87,9 +87,11 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
-          <br />
           <Link to={"/"}>
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
+          </Link>
+          <Link to={"/login"}>
+            <GeneralButton icnTitle={"account"} btn_title={"Logout"} />
           </Link>
         </Grid>
       </Grid>
