@@ -32,7 +32,7 @@
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .btn {
     border: none;
-    height: 2.4rem;
+    height: 2.2rem;
     width: 10rem;
     font-size: 0.8rem;
   }

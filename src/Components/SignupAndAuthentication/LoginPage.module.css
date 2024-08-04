@@ -36,3 +36,36 @@
 .formH4 {
   cursor: pointer;
 }
+.toggleText {
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+  text-align: center;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .form_main input {
+    width: 15rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .form_main {
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .form_main button {
+    height: 2rem;
+    font-size: 0.9rem;
+    width: 10rem;
+  }
+  .toggleText {
+    display: block;
+    text-align: center;
+  }
+  .toggleText h4 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 720px) {
+}

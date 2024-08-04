@@ -1,6 +1,6 @@
 import classes from "./LoginPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, Box } from "@mui/material";
 import { Form, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
@@ -8,7 +8,7 @@ import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const ProprietorUI = (props) => {
   return (
-    <>
+    <Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
         <h1>
           Log in as{" "}
@@ -31,15 +31,7 @@ const ProprietorUI = (props) => {
         </Form>
       </Grid>
 
-      <Grid
-        item
-        lg={12}
-        md={12}
-        sm={12}
-        xs={12}
-        className={classes.toggleText}
-        textAlign={"center"}
-      >
+      <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
         <Link to={"/proprietor-signup-form"}>
           <h4 className={classes.formH4}>
             Not Signed up?{" "}
@@ -49,14 +41,14 @@ const ProprietorUI = (props) => {
           </h4>
         </Link>
 
-        <h4 className={classes.formH4}>
+        <h4 className={classes.formH4} onClick={props.onclick}>
           A Customer ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             Login then
           </span>
         </h4>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
@@ -85,16 +77,7 @@ const CustomerUI = (props) => {
           <GeneralButton typeBtn="submit" btn_title="Login" />
         </Form>
       </Grid>
-      <Grid
-        item
-        lg={12}
-        md={12}
-        sm={12}
-        xs={12}
-        className={classes.toggleText}
-        display={"flex"}
-        justifyContent={"space-between"}
-      >
+      <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
         <Link to={"/customer-signup-form"}>
           <h4 className={classes.formH4}>
             Not Signed up?{" "}
@@ -104,14 +87,12 @@ const CustomerUI = (props) => {
           </h4>
         </Link>
 
-        <Link to={"/proprietor-signup-form"}>
-          <h4 className={classes.formH4}>
-            A proprietor ?{" "}
-            <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-              Login then
-            </span>
-          </h4>
-        </Link>
+        <h4 className={classes.formH4} onClick={props.onclick}>
+          A proprietor ?{" "}
+          <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+            Login then
+          </span>
+        </h4>
       </Grid>
     </Grid>
   );
