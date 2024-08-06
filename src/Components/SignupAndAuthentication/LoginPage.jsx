@@ -71,7 +71,7 @@ const CustomerUI = (props) => {
           <br />
           <TextField id="outlined" />
           <br />
-          <label htmlFor="number">Your Password</label>
+          <label htmlFor="password">Your Password</label>
           <br />
           <TextField id="outlined" />
           <GeneralButton typeBtn="submit" btn_title="Login" />

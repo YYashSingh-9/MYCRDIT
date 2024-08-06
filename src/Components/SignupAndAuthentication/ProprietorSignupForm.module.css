@@ -55,3 +55,58 @@
 .toggleText h4 {
   cursor: pointer;
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .formContainer {
+    width: 90%;
+  }
+  .form_main input {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.8rem;
+    width: 15rem;
+  }
+  .form_main {
+    padding: 1rem;
+    text-align: left;
+  }
+  .form_main label {
+    font-size: 0.8rem;
+  }
+  .stateSelector {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+  .form_main button {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+  .toggleText h4 {
+    font-size: 0.8rem;
+  }
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 576px) and (max-width: 720px) {
+  .form_main input {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.9rem;
+    width: 20rem;
+  }
+  .form_main {
+    padding: 1rem;
+    text-align: left;
+  }
+  .form_main label {
+    font-size: 0.9rem;
+  }
+  .stateSelector {
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+  .form_main button {
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+  .toggleText h4 {
+    font-size: 0.9rem;
+  }
+}
