@@ -116,6 +116,7 @@ const ProprietorSignupForm = () => {
             <label htmlFor="Contact number">Contact Number.</label>
             <br />
             <OutlinedInput
+              className={classes.phno}
               id="Contact-number"
               startAdornment={
                 <InputAdornment position="start">+91</InputAdornment>

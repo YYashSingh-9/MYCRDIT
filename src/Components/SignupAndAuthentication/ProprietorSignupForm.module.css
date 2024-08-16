@@ -55,6 +55,9 @@
 .toggleText h4 {
   cursor: pointer;
 }
+.phno {
+  width: 30rem;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .formContainer {
@@ -63,7 +66,7 @@
   .form_main input {
     padding: 0.3rem 0.3rem;
     font-size: 0.8rem;
-    width: 15rem;
+    width: 13rem;
   }
   .form_main {
     padding: 1rem;
@@ -75,6 +78,7 @@
   .stateSelector {
     padding: 0.3rem;
     font-size: 0.8rem;
+    width: 13rem;
   }
   .form_main button {
     padding: 0.3rem;
@@ -83,8 +87,11 @@
   .toggleText h4 {
     font-size: 0.8rem;
   }
+  .phno {
+    width: 14rem;
+  }
 }
-/* Responsive styling from here. */
+
 @media only screen and (min-width: 576px) and (max-width: 720px) {
   .form_main input {
     padding: 0.4rem 0.4rem;
@@ -108,5 +115,18 @@
   }
   .toggleText h4 {
     font-size: 0.9rem;
+  }
+  .phno {
+    width: 21rem;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 992px) {
+  .form_main input {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    width: 25rem;
+  }
+  .phno {
+    width: 26rem;
   }
 }
