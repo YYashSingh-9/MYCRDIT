@@ -43,7 +43,8 @@
 }
 
 .form_main button {
-  width: 100%;
+  width: 70%;
+  height: 3rem;
   margin-top: 1rem;
 }
 
