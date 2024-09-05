@@ -49,11 +49,10 @@
   padding: 0.4rem 0.8rem;
   color: white;
   font-size: 0.8rem;
-  background-color: #14863c;
-}
-
-.listBtn:hover {
   background-color: #1db954;
   cursor: pointer;
-  transition: 0.2s ease;
+}
+
+.listBtn:active {
+  background-color: #137a37;
 }

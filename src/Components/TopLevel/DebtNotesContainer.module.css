@@ -18,23 +18,21 @@
 }
 .noteBtn {
   outline: none;
-  background-color: transparent;
-  border: 0.1rem solid #1db954;
-  border-radius: 1.5rem;
-  color: #1db954;
-  height: 2rem;
-  padding: 0.1rem 1rem;
+  background-color: rgb(237, 237, 237);
+  border: none;
+  border-radius: 0.5rem;
+  color: #191414;
+  height: 2.5rem;
+  padding: 0.3rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-.noteBtn:hover {
-  background-color: #1db954;
-  color: white;
   transition: 0.2s ease;
+}
+
+.noteBtn:active {
+  background-color: rgb(170, 170, 170);
 }
 a {
   text-decoration: none;
@@ -60,6 +58,7 @@ a {
   align-items: center;
   justify-content: space-between;
   height: 2.5rem;
+  color: #191414;
   font-size: 0.9rem;
   background-color: rgb(237, 237, 237);
   border: none;
