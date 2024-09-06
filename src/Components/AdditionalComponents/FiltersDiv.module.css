@@ -73,8 +73,9 @@
   .inpBox h4 {
     display: none;
   }
-  .inpBox input {
+  .inputDiv input {
     height: 1.2rem;
+    font-size: 0.7rem;
     padding: 0.1rem 0.3rem;
   }
   .inpBox button {

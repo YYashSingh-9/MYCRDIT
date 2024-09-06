@@ -67,15 +67,26 @@ a {
   .headingPart h3 {
     font-size: 1.1rem;
     color: rgb(128, 128, 128);
+    margin-bottom: 1rem;
   }
 
   .userTag {
     height: 1.5rem;
     font-size: 0.8rem;
-    padding: 0.4rem 0.7rem;
+    padding: 0.9rem 1rem;
+    width: 9rem;
+    justify-content: center;
   }
   .noteIcn {
     transform: scale(0.9);
     margin-bottom: 0.2rem;
+  }
+  .headingPart {
+    display: block;
+    text-align: center;
+  }
+  .tags {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
