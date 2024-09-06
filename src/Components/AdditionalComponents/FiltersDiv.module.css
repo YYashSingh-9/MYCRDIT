@@ -56,6 +56,39 @@
   margin-right: 0.5rem;
 }
 
+.inputDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
+  .inpBox {
+    display: block;
+    padding: 0.54rem 0.54rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .inpBox h4 {
+    display: none;
+  }
+  .inpBox input {
+    height: 1.2rem;
+    padding: 0.1rem 0.3rem;
+  }
+  .inpBox button {
+    margin: 0rem 0.1rem 0rem 0.4rem;
+    padding: 0rem 0rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 2rem;
+  }
+  .searchIcn {
+    transform: scale(0.6);
+    color: rgb(0, 61, 0);
+  }
+  .inputDiv:nth-child(2) {
+    margin-top: 0.5rem;
+  }
 }

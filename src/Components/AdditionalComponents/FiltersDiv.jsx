@@ -2,6 +2,18 @@ import { Container, Box, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import classes from "./FiltersDiv.module.css";
 
+const HelperFilterInput = (props) => {
+  return (
+    <Box className={classes.inputDiv}>
+      <h4>{props.title}</h4>
+      <input placeholder={props.placeholder} />
+      <button>
+        <SearchIcon className={classes.searchIcn} />
+      </button>
+    </Box>
+  );
+};
+
 const styles = {
   heading: {
     fontWeight: 800,
@@ -30,17 +42,11 @@ const FilterDiv = () => {
           }}
         >
           <Box className={classes.inpBox}>
-            <h4>Customer</h4>
-            <input placeholder="Customer Name" />
-            <button>
-              <SearchIcon className={classes.searchIcn} />
-            </button>
-
-            <h4>Amount</h4>
-            <input placeholder="Ex- 3,XXX" type="number" />
-            <button>
-              <SearchIcon className={classes.searchIcn} />
-            </button>
+            <HelperFilterInput title="Customer" placeholder="Customer Name" />
+            <HelperFilterInput
+              title="Amount"
+              placeholder=" Amount/ ex - 3,XXX"
+            />
           </Box>
         </Container>
       </Box>
