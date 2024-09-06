@@ -7,6 +7,24 @@ import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Link } from "react-router-dom";
 
+const TagButton = (props) => {
+  const conditionalStyle = props.click ? classes.clickEffect : "";
+  return (
+    <>
+      <button className={`${classes.userTag} ${conditionalStyle}`}>
+        {props.iconTitle === "store" && (
+          <StorefrontIcon sx={{ marginRight: 1 }} />
+        )}
+        {props.iconTitle === "daily" && (
+          <InventoryIcon sx={{ marginRight: 1 }} />
+        )}{" "}
+        {props.iconTitle === "create" && <EditIcon sx={{ marginRight: 1 }} />}
+        {props.tagTitle}
+      </button>
+    </>
+  );
+};
+
 const DebtNotesContainer = () => {
   return (
     <>
@@ -15,20 +33,17 @@ const DebtNotesContainer = () => {
           <h3>
             <span style={{ color: "darkgreen" }}> Modi Kirana's</span> book
           </h3>
-          <button className={classes.userTag}>
-            <StorefrontIcon sx={{ marginRight: 1 }} />
-            Proprietor
-          </button>
-          <button className={classes.userTag}>
-            <InventoryIcon sx={{ marginRight: 1 }} />
-            Daily Needs
-          </button>
-          <Link to={"/add-debt-note-form"}>
-            <button className={classes.noteBtn}>
-              <h4>Create Note</h4>
-              <EditIcon className={classes.noteIcn} />
-            </button>
-          </Link>
+          <Box className={classes.tags}>
+            <TagButton iconTitle="store" tagTitle="Proprietor" />
+            <TagButton iconTitle="daily" tagTitle="Daily Needs" />
+            <Link to={"/add-debt-note-form"}>
+              <TagButton
+                iconTitle="create"
+                tagTitle="Create Note"
+                click={true}
+              />
+            </Link>
+          </Box>
         </Grid>
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
           <ListContainer />
