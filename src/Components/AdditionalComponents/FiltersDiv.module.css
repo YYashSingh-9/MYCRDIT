@@ -67,7 +67,7 @@
   .inpBox {
     display: block;
     padding: 0.54rem 0.54rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
     margin-top: 0.3rem;
   }
   .inpBox h4 {
@@ -90,5 +90,8 @@
   }
   .inputDiv:nth-child(2) {
     margin-top: 0.5rem;
+  }
+  .inputDiv {
+    width: 80vw;
   }
 }

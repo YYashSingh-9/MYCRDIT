@@ -21,7 +21,8 @@ const styles = {
     fontFamily: "Manrope",
     paddingTop: 1,
     "@media only screen and (min-width: 280px) and (max-width: 576px)": {
-      display: "none",
+      display: "block",
+      fontSize: 17,
     },
   },
 };
