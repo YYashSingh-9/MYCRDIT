@@ -113,3 +113,24 @@ a {
     margin-bottom: 1rem;
   }
 }
+@media only screen and (min-width: 721px) and (max-width: 992px) {
+  .tags {
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  .headingPart {
+    display: block;
+    text-align: center;
+  }
+  .userTag {
+    height: 2rem;
+    font-size: 0.9rem;
+    padding: 1.2rem 1rem;
+    width: 11rem;
+    justify-content: center;
+  }
+  .headingPart h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
