@@ -102,3 +102,29 @@
 .del:active {
   background-color: rgb(182, 28, 28);
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .title {
+    font-size: 0.8rem;
+  }
+  .infoContainer {
+    font-size: 0.7rem;
+  }
+  .row {
+    height: 2rem;
+    margin-top: 0.5rem;
+  }
+  .row td {
+    padding: 0.5rem 0.5rem;
+  }
+  .btnContainer button {
+    width: 4rem;
+    height: 1.8rem;
+    margin-left: 0.2rem;
+    border-radius: 0.4rem;
+    font-size: 0.6rem;
+  }
+  .btnContainer {
+    padding: 0.5rem;
+  }
+}

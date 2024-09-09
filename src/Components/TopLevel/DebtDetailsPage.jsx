@@ -60,7 +60,7 @@ const DebtDetailsPage = () => {
           marginTop={2}
         >
           <button className={classes.del}>Delete</button>
-          <button>Mark as paid</button>
+          <button> Paid </button>
           <Link to={"/"}>
             <button className={classes.lnkbtn}>Back</button>
           </Link>
