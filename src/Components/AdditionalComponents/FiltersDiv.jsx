@@ -24,6 +24,10 @@ const styles = {
       display: "block",
       fontSize: 17,
     },
+    "@media only screen and (min-width: 576px) and (max-width: 720px)": {
+      display: "block",
+      fontSize: 20,
+    },
   },
 };
 
