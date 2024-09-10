@@ -126,5 +126,58 @@
   }
   .btnContainer {
     padding: 0.5rem;
+    justify-content: space-around;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .title {
+    font-size: 0.9rem;
+  }
+  .infoContainer {
+    font-size: 0.8rem;
+  }
+  .row {
+    height: 2.5rem;
+    margin-top: 0.7rem;
+  }
+  .row td {
+    padding: 0.7rem 0.7rem;
+  }
+  .btnContainer button {
+    width: 8rem;
+    height: 1.8rem;
+    margin-left: 0.2rem;
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+  }
+  .btnContainer {
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+}
+@media only screen and (min-width: 721px) and (max-width: 992px) {
+  .title {
+    font-size: 1rem;
+  }
+  .infoContainer {
+    font-size: 0.9rem;
+  }
+  .row {
+    height: 3rem;
+    margin-top: 0.8rem;
+  }
+  .row td {
+    padding: 0.8rem 0.8rem;
+  }
+  .btnContainer button {
+    width: 10rem;
+    height: 2rem;
+    margin-left: 0.2rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .btnContainer {
+    justify-content: space-around;
+    padding: 0.5rem;
   }
 }
