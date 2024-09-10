@@ -42,8 +42,8 @@
 }
 
 .form_main button {
-  width: 70%;
-  height: 3rem;
+  width: 50%;
+  height: 2.4rem;
   margin-top: 1rem;
 }
 
@@ -81,5 +81,52 @@
   .icn {
     margin: 0rem 0.5rem;
     transform: scale(0.9);
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .form_main input {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.8rem;
+    width: 50vw;
+  }
+  .form_main button {
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+    height: 2.2rem;
+    width: 15rem;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 992px) {
+  .form_main input {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.8rem;
+    width: 50vw;
+  }
+  .form_main button {
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+    height: 2.2rem;
+    width: 15rem;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .form_main input {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.8rem;
+    width: 44vw;
+  }
+  .form_main button {
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    height: 2.2rem;
+    width: 15rem;
+  }
+}
+@media only screen and (min-width: 1201px) and (max-width: 1440px) {
+  .form_main button {
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    height: 2.2rem;
+    width: 20rem;
   }
 }
