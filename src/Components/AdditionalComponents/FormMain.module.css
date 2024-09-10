@@ -29,8 +29,7 @@
   padding: 2rem;
   border-radius: 1rem;
   margin-top: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .formDiv {
@@ -56,4 +55,31 @@
 .mainGrid {
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .title {
+    font-size: 0.8rem;
+  }
+  .formDiv {
+    width: 100%;
+  }
+  .form_main label {
+    font-size: 0.7rem;
+  }
+  .form_main input {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.7rem;
+    width: 60vw;
+  }
+  .form_main button {
+    border-radius: 0.4rem;
+    font-size: 0.7rem;
+    height: 1.8rem;
+    width: 10rem;
+  }
+  .icn {
+    margin: 0rem 0.5rem;
+    transform: scale(0.9);
+  }
 }
