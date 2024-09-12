@@ -19,6 +19,7 @@ body {
   padding: 0% 15%;
   min-height: 100vh;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 0.5rem;
