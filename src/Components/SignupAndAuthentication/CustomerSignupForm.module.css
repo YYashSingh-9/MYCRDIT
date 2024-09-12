@@ -21,27 +21,6 @@
   font-family: "poppins";
   font-weight: 400;
 }
-.sendBtn {
-  width: 100%;
-  outline: none;
-  background-color: #1db954;
-  padding: 0.5rem;
-  font-size: 1rem;
-  color: white;
-  font-family: "poppins";
-  border: none;
-  cursor: pointer;
-  transition: 0.2s ease;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-.sendBtn:hover {
-  background-color: rgb(36, 194, 92);
-}
-.sendBtn:active {
-  background-color: #137a37;
-}
 
 .toggleText {
   text-align: center;
@@ -56,4 +35,12 @@
 a {
   text-decoration: none;
   color: #404040;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .form_main input {
+    font-size: 0.7rem;
+    width: 15rem;
+    padding: 0.4rem 0.4rem;
+  }
 }

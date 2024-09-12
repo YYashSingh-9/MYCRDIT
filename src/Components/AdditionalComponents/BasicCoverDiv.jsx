@@ -19,6 +19,7 @@ const BasicCoverDiv = (props) => {
             </span>
           </h1>
         </Grid>
+
         {props.children}
       </Grid>
     </>

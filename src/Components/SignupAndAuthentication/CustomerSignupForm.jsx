@@ -6,6 +6,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 import { Form, Link } from "react-router-dom";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const CustomerSignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -66,9 +67,7 @@ const CustomerSignupForm = () => {
             />
             <br />
 
-            <button type="submit" className={classes.sendBtn}>
-              Save
-            </button>
+            <GeneralButton typeBtn="submit" btn_title="Save" />
           </Form>
         </Grid>
         <Grid
