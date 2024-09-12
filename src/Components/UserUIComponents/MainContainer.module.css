@@ -71,7 +71,7 @@
   }
   .scoreCircle {
     width: 45%;
-    height: 6rem;
+    height: 5rem;
   }
   .tipBox {
     justify-content: center;
@@ -90,9 +90,15 @@
     text-align: center;
   }
 }
+
 @media only screen and (min-width: 352px) and (max-width: 576px) {
   .scoreCircle {
     width: 40%;
+  }
+}
+@media (aspect-ratio: 375px / 667px) {
+  .scoreCircle {
+    height: 5rem;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 500px) {
