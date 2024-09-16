@@ -19,30 +19,37 @@ const AccountInfoPart = (props) => {
         justifyContent="center"
         className={classes.mainGrid}
       >
-        <Grid item lg={12} md={12} sm={12} sx={12} className={classes.levelBar}>
+        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.levelBar}>
           <UserLevelBar />
         </Grid>
-        <Grid item lg={12} md={12} sm={12} sx={12} className={classes.infoGrid}>
+        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.infoGrid}>
           <table className={classes.infoBox}>
-            <tr className={classes.row}>
-              <td>
-                {accountType === "customer" ? "Customer" : "Proprietor"} Name :
-              </td>
-              <td>Alokik Mishra</td>
-            </tr>
-            <tr className={classes.row}>
-              <td>
-                {accountType === "customer" ? "Customer" : "Proprietor"} Number
-                :
-              </td>
-              <td>9876498033</td>
-            </tr>
-            <tr className={classes.row}>
-              <td>
-                {accountType === "customer" ? "Customer" : "Proprietor"} ID :
-              </td>
-              <td>127484474HD138</td>
-            </tr>
+            <tbody>
+              <tr className={classes.row}>
+                <td>
+                  {accountType === "customer" ? "Customer" : "Proprietor"} Name
+                  :
+                </td>
+                <td>Alokik Mishra</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr className={classes.row}>
+                <td>
+                  {accountType === "customer" ? "Customer" : "Proprietor"}{" "}
+                  Number :
+                </td>
+                <td>9876498033</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr className={classes.row}>
+                <td>
+                  {accountType === "customer" ? "Customer" : "Proprietor"} ID :
+                </td>
+                <td>127484474HD138</td>
+              </tr>
+            </tbody>
           </table>
         </Grid>
 
@@ -51,7 +58,7 @@ const AccountInfoPart = (props) => {
           lg={12}
           md={12}
           sm={12}
-          sx={12}
+          xs={12}
           className={classes.accountBtnContainer}
         >
           {accountType === "customer" ? (
