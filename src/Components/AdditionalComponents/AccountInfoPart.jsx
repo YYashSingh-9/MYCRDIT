@@ -18,6 +18,14 @@ const AccountInfoPart = (props) => {
         justifyContent="center"
         className={classes.mainGrid}
       >
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          sx={12}
+          className={classes.levelBar}
+        ></Grid>
         <Grid item lg={12} md={12} sm={12} sx={12} className={classes.infoGrid}>
           <table className={classes.infoBox}>
             <tr className={classes.row}>
@@ -41,6 +49,7 @@ const AccountInfoPart = (props) => {
             </tr>
           </table>
         </Grid>
+
         <Grid
           item
           lg={12}
