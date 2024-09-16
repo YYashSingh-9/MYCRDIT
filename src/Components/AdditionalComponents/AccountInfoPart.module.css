@@ -28,7 +28,9 @@
   padding-top: 0.7rem;
   border-top: 0.1rem solid rgb(211, 211, 211);
 }
-
+.levelBar {
+  width: 94%;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .mainGrid {

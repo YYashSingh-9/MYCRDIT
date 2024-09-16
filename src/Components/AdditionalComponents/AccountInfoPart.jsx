@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import GeneralButton from "./GeneralButton";
 import { Link } from "react-router-dom";
+import UserLevelBar from "./UserLevelBar";
 
 const AccountInfoPart = (props) => {
   const accountType = props.accountType;
@@ -18,14 +19,9 @@ const AccountInfoPart = (props) => {
         justifyContent="center"
         className={classes.mainGrid}
       >
-        <Grid
-          item
-          lg={12}
-          md={12}
-          sm={12}
-          sx={12}
-          className={classes.levelBar}
-        ></Grid>
+        <Grid item lg={12} md={12} sm={12} sx={12} className={classes.levelBar}>
+          <UserLevelBar />
+        </Grid>
         <Grid item lg={12} md={12} sm={12} sx={12} className={classes.infoGrid}>
           <table className={classes.infoBox}>
             <tr className={classes.row}>
@@ -43,7 +39,7 @@ const AccountInfoPart = (props) => {
             </tr>
             <tr className={classes.row}>
               <td>
-                {accountType === "customer" ? "Customer" : "Proprietor"} ID
+                {accountType === "customer" ? "Customer" : "Proprietor"} ID :
               </td>
               <td>127484474HD138</td>
             </tr>

@@ -14,7 +14,7 @@ import { Box } from "@mui/material";
 // 3500 >= && <= 6500 -> Platinum
 
 const UserLevelBar = () => {
-  const scoreCount = 1200;
+  const scoreCount = 499;
   let levelBar_bg;
   if (scoreCount < 500) {
     levelBar_bg = classes.baseBg;
@@ -34,7 +34,12 @@ const UserLevelBar = () => {
 
   return (
     <>
-      <Box className={`{}`}></Box>
+      <Box className={`${classes.bar} ${levelBar_bg}`}>
+        <h3>Base Pro</h3>
+        {/* <TollIcon />
+         */}
+        <Brightness1Icon />
+      </Box>
     </>
   );
 };
