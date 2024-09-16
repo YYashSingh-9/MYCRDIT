@@ -13,13 +13,15 @@ import { Box } from "@mui/material";
 // 2200 >= && <= 3500 -> Gold
 // 3500 >= && <= 6500 -> Platinum
 
-const mcs_points = 499;
-let profile_Level;
-profile_Level = mcs_points < 500 && "Base";
-profile_Level = mcs_points >= 501 && mcs_points <= 1200 && "Bronze";
+const mcs_points = 502;
+let profile_Level = "";
+profile_Level = mcs_points < 500 ? "Base" : "";
+profile_Level = mcs_points >= 501 && mcs_points <= 1200 ? "Bronze" : "";
 profile_Level = mcs_points >= 1201 && mcs_points <= 2200 && "Silver";
 profile_Level = mcs_points >= 2201 && mcs_points <= 3500 && "Gold";
 profile_Level = mcs_points >= 3501 && mcs_points <= 6500 && "Platinum";
+
+console.log(profile_Level);
 
 const UserLevelBar = () => {
   let levelBar_bg;
@@ -49,7 +51,7 @@ const UserLevelBar = () => {
           </Box>
         </Box>
         <Box className={`${classes.inner_bar} ${levelBar_bg}`}>
-          <h3>Base Pro</h3>
+          <h3>{profile_Level} Pro</h3>
           {/* <TollIcon />
            */}
           <Brightness1Icon />
