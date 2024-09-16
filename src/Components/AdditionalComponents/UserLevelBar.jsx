@@ -13,32 +13,47 @@ import { Box } from "@mui/material";
 // 2200 >= && <= 3500 -> Gold
 // 3500 >= && <= 6500 -> Platinum
 
+const mcs_points = 499;
+let profile_Level;
+profile_Level = mcs_points < 500 && "Base";
+profile_Level = mcs_points >= 501 && mcs_points <= 1200 && "Bronze";
+profile_Level = mcs_points >= 1201 && mcs_points <= 2200 && "Silver";
+profile_Level = mcs_points >= 2201 && mcs_points <= 3500 && "Gold";
+profile_Level = mcs_points >= 3501 && mcs_points <= 6500 && "Platinum";
+
 const UserLevelBar = () => {
-  const scoreCount = 499;
   let levelBar_bg;
-  if (scoreCount < 500) {
+  if (mcs_points < 500) {
     levelBar_bg = classes.baseBg;
   }
-  if (scoreCount >= 501 && scoreCount <= 1200) {
+  if (mcs_points >= 501 && mcs_points <= 1200) {
     levelBar_bg = classes.bronzeBg;
   }
-  if (scoreCount >= 1201 && scoreCount <= 2200) {
+  if (mcs_points >= 1201 && mcs_points <= 2200) {
     levelBar_bg = classes.silverBg;
   }
-  if (scoreCount >= 2201 && scoreCount <= 3500) {
+  if (mcs_points >= 2201 && mcs_points <= 3500) {
     levelBar_bg = classes.goldBg;
   }
-  if (scoreCount >= 3501 && scoreCount <= 6500) {
+  if (mcs_points >= 3501 && mcs_points <= 6500) {
     levelBar_bg = classes.platinumBg;
   }
 
   return (
     <>
-      <Box className={`${classes.bar} ${levelBar_bg}`}>
-        <h3>Base Pro</h3>
-        {/* <TollIcon />
-         */}
-        <Brightness1Icon />
+      <Box className={classes.bar}>
+        <Box className={classes.heading}>
+          <Box className={classes.uppr}>
+            <h3>Your MyCrdit Score :</h3>
+            <h3> {mcs_points}</h3>
+          </Box>
+        </Box>
+        <Box className={`${classes.inner_bar} ${levelBar_bg}`}>
+          <h3>Base Pro</h3>
+          {/* <TollIcon />
+           */}
+          <Brightness1Icon />
+        </Box>
       </Box>
     </>
   );
