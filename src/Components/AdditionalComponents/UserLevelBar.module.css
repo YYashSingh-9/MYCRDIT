@@ -42,14 +42,20 @@
   background-color: rgb(42, 42, 42);
 }
 .bronzeBg {
-  background-color: #cd7f32;
+  background-color: #af4706;
 }
 .silverBg {
   background-color: #c0c0c0;
 }
+.silverBg h3 {
+  color: rgb(30, 30, 30);
+}
 .goldBg {
-  background-color: #ffd700;
+  background-color: #ffae00;
 }
 .platinumBg {
   background-color: #e5e4e2;
+}
+.platinumBg h3 {
+  color: rgb(30, 30, 30);
 }
