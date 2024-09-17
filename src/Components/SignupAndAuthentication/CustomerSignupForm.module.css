@@ -36,12 +36,25 @@ a {
   text-decoration: none;
   color: #404040;
 }
+.pwInput {
+  width: 31rem;
+  padding: 0.1rem 0rem;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .form_main input {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     width: 15rem;
-    padding: 0.4rem 0.4rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .pwInput {
+    width: 15.5rem;
+  }
+  .form_main {
+    padding: 0.7rem;
+  }
+  .form_main label {
+    font-size: 0.9rem;
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
@@ -50,11 +63,17 @@ a {
     width: 20rem;
     padding: 0.5rem 0.5rem;
   }
+  .pwInput {
+    width: 21rem;
+  }
 }
 @media only screen and (min-width: 721px) and (max-width: 992px) {
   .form_main input {
     font-size: 0.9rem;
     width: 23rem;
     padding: 0.6rem 0.6rem;
+  }
+  .pwInput {
+    width: 24rem;
   }
 }

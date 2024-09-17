@@ -49,6 +49,7 @@ const CustomerSignupForm = () => {
             <label htmlFor="Customer Name">Your Password</label>
             <br />
             <OutlinedInput
+              className={classes.pwInput}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
