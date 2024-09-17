@@ -36,6 +36,9 @@
   .mainGrid {
     width: 100%;
   }
+  .levelBar {
+    width: 95%;
+  }
   .row {
     height: 2rem;
     margin-top: 0.5rem;

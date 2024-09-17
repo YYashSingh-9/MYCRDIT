@@ -59,3 +59,17 @@
 .platinumBg h3 {
   color: rgb(30, 30, 30);
 }
+.icns {
+  color: rgb(30, 30, 30);
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .heading {
+    font-size: 0.7rem;
+    padding: 0.2rem;
+  }
+  .inner_bar {
+    height: 1.5rem;
+    font-size: 0.7rem;
+  }
+}

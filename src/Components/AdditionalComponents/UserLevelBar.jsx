@@ -53,11 +53,11 @@ const UserLevelBar = () => {
           {profile_Level === "Base" && <Brightness1Icon />}
           {profile_Level === "Bronze" && <AlbumIcon />}
           {profile_Level === "Silver" && (
-            <PaymentsIcon style={{ color: "rgb(30, 30, 30)" }} />
+            <PaymentsIcon className={classes.icns} />
           )}
           {profile_Level === "Gold" && <TollIcon />}
           {profile_Level === "Platinum" && (
-            <Brightness5Icon style={{ color: "rgb(30, 30, 30)" }} />
+            <Brightness5Icon className={classes.icns} />
           )}
         </Box>
       </Box>
