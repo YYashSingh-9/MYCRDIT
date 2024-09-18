@@ -1,15 +1,14 @@
 import classes from "./AccountInfoPart.module.css";
-import { Grid } from "@mui/material";
-import HistoryIcon from "@mui/icons-material/History";
-import TimelineIcon from "@mui/icons-material/Timeline";
-import HomeIcon from "@mui/icons-material/Home";
-import AddBusinessIcon from "@mui/icons-material/AddBusiness";
-import GeneralButton from "./GeneralButton";
 import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { useSelector } from "react-redux";
+import GeneralButton from "./GeneralButton";
 import UserLevelBar from "./UserLevelBar";
+import { Box } from "@mui/material";
 
 const AccountInfoPart = (props) => {
   const accountType = props.accountType;
+
   return (
     <>
       <Grid
@@ -80,6 +79,8 @@ const AccountInfoPart = (props) => {
                 icnTitle={"runningDebt"}
                 btn_title={"Running debts"}
               />
+              {/* {notificationState} */}
+              {/* <Box className={classes.notificationBall_2}>1</Box> */}
             </Link>
           ) : (
             <Link to={"/my-shop-info"}>

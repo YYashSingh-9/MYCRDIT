@@ -18,8 +18,8 @@
   margin-left: auto;
   margin-top: -2rem;
   margin-left: -1.5rem;
-
-  background-color: rgb(252, 67, 67);
+  display: inline;
+  background-color: 9999;
   transform: scale(0.8);
   color: rgb(236, 36, 21);
 }

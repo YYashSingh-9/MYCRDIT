@@ -31,6 +31,17 @@
 .levelBar {
   width: 94%;
 }
+.notificationBall_2 {
+  height: 0.9rem;
+  width: 0.9rem;
+  font-size: 0.6rem;
+  background-color: rgb(252, 67, 67);
+  color: white;
+  border-radius: 1rem;
+  margin-left: auto;
+  text-align: center;
+  padding-top: 0;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .mainGrid {

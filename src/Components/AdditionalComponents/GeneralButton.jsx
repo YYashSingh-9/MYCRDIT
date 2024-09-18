@@ -7,30 +7,41 @@ import EditIcon from "@mui/icons-material/Edit";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
   const btnType = props.typeBtn ? props.typeBtn : "button";
-
+  const notificationState = useSelector(
+    (state) => state.sliceOne.isNotificationOn
+  );
   return (
     <>
-      <button className={classes.btn} type={btnType}>
-        {iconTitle === "home" && <HomeIcon className={classes.icn} />}
-        {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
-        {iconTitle === "runningDebt" && (
-          <TimelineIcon className={classes.icn} />
+      <Box className={classes.btnParent}>
+        <button className={classes.btn} type={btnType}>
+          {iconTitle === "home" && <HomeIcon className={classes.icn} />}
+          {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
+          {iconTitle === "runningDebt" && (
+            <TimelineIcon className={classes.icn} />
+          )}
+          {iconTitle === "shopInfo" && (
+            <AddBusinessIcon className={classes.icn} />
+          )}
+          {iconTitle === "money" && (
+            <MonetizationOnIcon className={classes.icn} />
+          )}
+          {iconTitle === "review" && <RateReviewIcon className={classes.icn} />}
+          {iconTitle === "edit" && <EditIcon className={classes.icn} />}
+          {iconTitle === "account" && (
+            <AccountBoxIcon className={classes.icn} />
+          )}
+          {props.btn_title}
+        </button>
+        {iconTitle === "runningDebt" && notificationState && (
+          <Box className={classes.notificationBall_2}>100</Box>
         )}
-        {iconTitle === "shopInfo" && (
-          <AddBusinessIcon className={classes.icn} />
-        )}
-        {iconTitle === "money" && (
-          <MonetizationOnIcon className={classes.icn} />
-        )}
-        {iconTitle === "review" && <RateReviewIcon className={classes.icn} />}
-        {iconTitle === "edit" && <EditIcon className={classes.icn} />}
-        {iconTitle === "account" && <AccountBoxIcon className={classes.icn} />}
-        {props.btn_title}
-      </button>
+      </Box>
     </>
   );
 };
