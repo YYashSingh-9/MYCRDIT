@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import classes from "InitialSlider.module.css";
+import classes from "./InitialSlider.module.css";
 
 const InitialSlider = () => {
   return (
