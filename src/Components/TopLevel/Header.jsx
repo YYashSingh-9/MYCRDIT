@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import NotificationsIcon from "@mui/icons-material/Notifications";
 const styles = {
   heading: {
     color: "#404040",
@@ -37,6 +37,9 @@ const styles = {
 
 const Header = () => {
   const accountType = useSelector((state) => state.sliceOne.accountType);
+  const notificationState = useSelector(
+    (state) => state.sliceOne.isNotificationOn
+  );
   return (
     <>
       <Box>
@@ -66,6 +69,9 @@ const Header = () => {
                   <AccountBoxIcon className={classes.icn} />
                 </Button>
               </Link>
+            )}
+            {notificationState && (
+              <Box className={classes.notificationBall}></Box>
             )}
           </Box>
         </Toolbar>

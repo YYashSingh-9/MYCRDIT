@@ -4,6 +4,7 @@ const initial_State = {
   formModalState: false,
   accountType: "customer",
   customerLogin: true,
+  isNotificationOn: true,
 };
 
 const sliceOne = createSlice({

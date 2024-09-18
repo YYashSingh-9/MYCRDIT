@@ -11,6 +11,19 @@
   padding-top: 0.5rem;
 }
 
+.notificationBall {
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 0.5rem;
+  margin-left: auto;
+  margin-top: -2rem;
+  margin-left: -1.5rem;
+
+  background-color: rgb(252, 67, 67);
+  transform: scale(0.8);
+  color: rgb(236, 36, 21);
+}
+
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .logoImg {
