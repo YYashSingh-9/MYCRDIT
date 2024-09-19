@@ -1,6 +1,6 @@
 .mainSlider {
   width: 100%;
-  height: 46vw;
+  height: 120vh;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   position: absolute;
@@ -10,20 +10,21 @@
   border-radius: 1rem;
   z-index: -9999;
   opacity: 0;
+  overflow-y: hidden;
 }
 .displayOn {
   display: none;
 }
 @keyframes slides {
   0% {
-    transform: translate(0%, 3%);
+    transform: translate(0%, 0%);
     z-index: 9999;
     opacity: 1;
   }
 
   100% {
     display: block;
-    transform: translate(100%, 3%);
+    transform: translate(100%, 0%);
     z-index: 9999;
     opacity: 1;
   }

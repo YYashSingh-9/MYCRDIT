@@ -1,9 +1,10 @@
 import { Grid } from "@mui/material";
 import classes from "./BasicCoverDiv.module.css";
-
+import InitialSlider from "./InitialSlider";
 const BasicCoverDiv = (props) => {
   return (
     <>
+      <InitialSlider />
       <Grid
         container
         direction="column"

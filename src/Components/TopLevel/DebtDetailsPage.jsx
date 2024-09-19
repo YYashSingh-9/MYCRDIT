@@ -6,6 +6,7 @@ import InitialSlider from "../AdditionalComponents/InitialSlider";
 const DebtDetailsPage = () => {
   return (
     <>
+      <InitialSlider />
       <Grid
         container
         direction="column"
@@ -13,7 +14,6 @@ const DebtDetailsPage = () => {
         alignItems="center"
         className={classes.main}
       >
-        <InitialSlider />
         <Grid item lg={12} sm={12} md={12} xs={12} className={classes.headBar}>
           <header className={classes.title}>
             <h3>Debt Note of Mishra ji</h3>

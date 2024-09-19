@@ -10,7 +10,6 @@ const AccountPage = () => {
 
   return (
     <>
-      <InitialSlider />
       <BasicCoverDiv heading="Account of" heading_highlight=" Alokik">
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart accountType={accType} />
