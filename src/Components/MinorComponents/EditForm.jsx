@@ -3,13 +3,11 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Box, TextField } from "@mui/material";
 import classes from "./EditForm.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import InitialSlider from "../AdditionalComponents/InitialSlider";
 
 const EditForm = () => {
   return (
     <>
       <BasicCoverDiv heading={"Update your"} heading_highlight={" Information"}>
-        {/* <InitialSlider /> */}
         <Form method="POST" className={classes.form_main}>
           <label htmlFor="Shop Name">Shop Name</label>
           <br />

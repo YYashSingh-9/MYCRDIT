@@ -12,10 +12,12 @@ import FiberNewIcon from "@mui/icons-material/FiberNew";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Form, Link } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
+import InitialSlider from "./InitialSlider";
 
 const FormMain = () => {
   return (
     <>
+      <InitialSlider />
       <Grid
         container
         direction="column"
