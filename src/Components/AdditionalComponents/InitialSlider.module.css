@@ -1,28 +1,61 @@
 .mainSlider {
-  width: 70%;
-  height: 70vw;
+  width: 100%;
+  height: 46vw;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  z-index: 999999;
   position: absolute;
   animation-name: slides;
-  animation-duration: 1.5s;
-  right: -100%;
+  animation-duration: 0.3s;
+  transition: ease;
   border-radius: 1rem;
+  z-index: -9999;
   opacity: 0;
 }
-
+.displayOn {
+  display: none;
+}
 @keyframes slides {
   0% {
-    right: 0%;
+    transform: translate(0%, 3%);
+    z-index: 9999;
     opacity: 1;
   }
+
   100% {
-    right: -100%;
-    opacity: 0.8;
+    display: block;
+    transform: translate(100%, 3%);
+    z-index: 9999;
+    opacity: 1;
   }
 }
 
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
+  .mainSlider {
+    width: 100%;
+    height: 100%;
+    animation-duration: 0.3s;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .mainSlider {
+    width: 100%;
+    height: 100%;
+    animation-duration: 0.3s;
+  }
+}
+@media only screen and (min-width: 721px) and (max-width: 992px) {
+  .mainSlider {
+    width: 100%;
+    height: 100%;
+    animation-duration: 0.3s;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .mainSlider {
+    width: 100%;
+    height: 100%;
+    animation-duration: 0.4s;
+  }
 }
