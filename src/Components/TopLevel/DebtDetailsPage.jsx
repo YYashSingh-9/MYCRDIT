@@ -1,6 +1,7 @@
 import { Grid, Box } from "@mui/material";
 import classes from "./DebtDetails.module.css";
 import { Link } from "react-router-dom";
+import InitialSlider from "../AdditionalComponents/InitialSlider";
 
 const DebtDetailsPage = () => {
   return (
@@ -12,6 +13,7 @@ const DebtDetailsPage = () => {
         alignItems="center"
         className={classes.main}
       >
+        <InitialSlider />
         <Grid item lg={12} sm={12} md={12} xs={12} className={classes.headBar}>
           <header className={classes.title}>
             <h3>Debt Note of Mishra ji</h3>

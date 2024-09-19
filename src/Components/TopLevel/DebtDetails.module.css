@@ -27,6 +27,7 @@
 .infoContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
   padding: 2rem;

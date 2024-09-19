@@ -51,7 +51,6 @@
     animation-duration: 0.3s;
   }
 }
-
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .mainSlider {
     width: 100%;

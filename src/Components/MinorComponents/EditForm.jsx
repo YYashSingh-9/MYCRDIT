@@ -2,7 +2,7 @@ import { Form, Link } from "react-router-dom";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Box, TextField } from "@mui/material";
 import classes from "./EditForm.module.css";
-
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 const EditForm = () => {
   return (
     <>
@@ -39,9 +39,9 @@ const EditForm = () => {
           <TextField id="outlined" />
           <hr />
           <Box className={classes.btnBox}>
-            <button type="submit">Save</button>
+            <GeneralButton typeBtn="submit" btn_title="Save" />
             <Link to={"/my-shop-info"}>
-              <button type="submit">back</button>
+              <GeneralButton typeBtn="button" btn_title="Back" />
             </Link>
           </Box>
         </Form>
