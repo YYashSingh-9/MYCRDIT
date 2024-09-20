@@ -5,12 +5,12 @@ MYCRDIT prototype v1.0
 1. Types of logins -(a)Buyer (b)proprieter.
 2. All information about current unpaid/paid debts also mycredit points.
 3. UI contains -
-   🕳 Login/signup.
-   🕳 List of on-going debt Notes.
-   🕳 Create new debt note button.
-   🕳 Account information.
-   🕳 Debt Notes in details page.
-   🕳 Current crdit points(for buyers).
+   🕳 Login/signup.✔✔
+   🕳 List of on-going debt Notes.✔✔
+   🕳 Create new debt note button.✔✔
+   🕳 Account information.✔✔
+   🕳 Debt Notes in details page.✔✔
+   🕳 Current crdit points(for buyers).✔✔
 
 ⚛ How does this app works
 
@@ -23,12 +23,12 @@ the information of this will be saved in history of this buyer
 
 ⚛ Front-end
 
-1. Create homepage of this app which shows list of DNs which are clickable.
-2. Create login/signup page.
+1. Create homepage of this app which shows list of DNs which are clickable.✔
+2. Create login/signup page.✔
 3. Create the functionality of signing up as a proprieter or buyer
-4. Create my account page as per the user(proprieter/buyer).
-5. Create functionality of clicking a debt note which will open a page with all the details of that particular DN
-6. Create DN details page, which will have a list of all the buyers with date and amount due, also option to add new debt with amount date, add option of check clear✅ and delete.
+4. Create my account page as per the user(proprieter/buyer).✔
+5. Create functionality of clicking a debt note which will open a page with all the details of that particular DN ✔
+6. Create DN details page, which will have a list of all the buyers with date and amount due, option of check clear✅ and delete.✔
 7. Popup shows everytime we login/add/clears a debt from DN.
 8. Create functionality of editing account info.
 9. Popup shows everytime we change account details
@@ -41,3 +41,7 @@ the information of this will be saved in history of this buyer
 4. Add security middlewares.
 5. Create functionality of adding, deleting, and clear checking debts of particular users.
 6. Create user login/signup/editing account info functionality
+
+In V1.1 update:-
+
+1. Dedicated Account book of a buyer.
