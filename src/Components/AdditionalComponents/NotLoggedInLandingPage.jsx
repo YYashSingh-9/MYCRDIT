@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import classes from "./NotLoggedInLandingPage.module.css";
 
 const NotLoggedInLandingPage = (props) => {
-  const { heading, linkk, btnTitle } = props;
+  const { heading, linkk, btnTitle, highlight_text } = props;
 
   console.log(linkk);
   return (
     <>
-      <BasicCoverDiv heading={heading} heading_highlight="Check and retry">
+      <BasicCoverDiv heading={heading} heading_highlight={highlight_text}>
         <Grid
           item
           lg={12}

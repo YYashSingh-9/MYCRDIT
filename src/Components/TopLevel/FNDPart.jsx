@@ -29,7 +29,8 @@ const Filter_n_Debts = () => {
       {currentAcc_Type === "customer" && <UserAccountComponent />}
       {currentAcc_Type === "null" && (
         <NotLoggedInLandingPage
-          heading="Not logged in "
+          heading="Not logged in, "
+          highlight_text="check and retry."
           btnTitle="login"
           linkk="/login"
         />
