@@ -1,5 +1,9 @@
 .btn_Grid {
-  height: 100vh;
+  height: 5rem;
+  width: 50%;
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 0.5rem;
+  padding: 0rem 2rem;
   text-align: center;
 }
 .faceIcn {
@@ -7,4 +11,40 @@
   transform: scale(7);
   margin-bottom: 5rem;
   color: "#1DB954";
+}
+.endliner {
+  background-color: rgb(211, 211, 211);
+  height: 0.1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 12.5rem;
+  width: 50%;
+  outline: none;
+  border: none;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .faceIcn {
+    transform: scale(3);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .btn_Grid {
+    height: 5rem;
+    width: 95%;
+  }
+  .endliner {
+    margin-top: 7rem;
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .faceIcn {
+    transform: scale(5);
+  }
+}
+@media only screen and (min-width: 721px) and (max-width: 992px) {
+  .faceIcn {
+    transform: scale(6);
+  }
 }

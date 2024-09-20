@@ -14,11 +14,12 @@ const NotLoggedInLandingPage = (props) => {
       <BasicCoverDiv heading={heading} heading_highlight="Check and retry">
         <Grid
           item
-          lg={8}
-          md={8}
-          sm={10}
+          lg={12}
+          md={12}
+          sm={12}
           xs={12}
           className={classes.btn_Grid}
+          sx={{ height: "100vh" }}
           mb={5}
         >
           <FaceIcon className={classes.faceIcn} />
@@ -26,6 +27,7 @@ const NotLoggedInLandingPage = (props) => {
           <Link to={linkk}>
             <GeneralButton btn_title={btnTitle} />
           </Link>
+          <hr className={classes.endliner} />
         </Grid>
       </BasicCoverDiv>
     </>
