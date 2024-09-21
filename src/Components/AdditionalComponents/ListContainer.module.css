@@ -56,7 +56,10 @@
 .listBtn:active {
   background-color: #137a37;
 }
-
+.titles h3,
+.titles h4 {
+  color: #191414;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .listItem h4 {

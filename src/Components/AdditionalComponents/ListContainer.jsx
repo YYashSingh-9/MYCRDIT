@@ -6,9 +6,16 @@ const ListItem = () => {
   return (
     <>
       <Box item xs={12} md={12} className={classes.listItem}>
-        <Box>
-          <h3>Mishra ji,sunflower oil</h3>
-          <h4>14-05-12</h4>
+        <Box className={classes.titles}>
+          <Box sx={{ display: "flex" }}>
+            <h3 style={{ fontWeight: "600", marginRight: 7 }}>Note Title : </h3>
+            <h3>Mishra ji, kingfisher beer</h3>
+          </Box>
+
+          <Box sx={{ display: "flex" }}>
+            <h4 style={{ fontWeight: "600", marginRight: 7 }}>Amount : </h4>
+            <h4>250/-</h4>
+          </Box>
         </Box>
         <Box>
           <Link to={"mishra-ji-note/details"}>

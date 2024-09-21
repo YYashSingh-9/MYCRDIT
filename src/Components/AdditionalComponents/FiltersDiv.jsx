@@ -47,7 +47,7 @@ const FilterDiv = () => {
           }}
         >
           <Box className={classes.inpBox}>
-            <HelperFilterInput title="Customer" placeholder="Customer Name" />
+            <HelperFilterInput title="Cr Note title" placeholder="Note title" />
             <HelperFilterInput
               title="Amount"
               placeholder=" Amount/ ex - 3,XXX"
