@@ -23,27 +23,12 @@
   font-family: "poppins";
   margin: 0.5rem 0.5rem;
 }
-
-.infoContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  border: 0.1rem solid rgb(221, 221, 221);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  color: #404040;
-  font-size: 1.1rem;
-  font-family: "poppins";
-  margin: auto;
-}
 .parentContainer {
   width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
   padding: 2rem;
+  max-height: 70vh;
+  border-radius: 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -53,147 +38,19 @@
 .parentContainer::-webkit-scrollbar-track {
   display: none;
 }
-.row {
-  height: 3rem;
-  margin-top: 2rem;
-}
-.infoBox {
-  border-spacing: 0.7rem;
-}
-.row td {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-left: 1rem;
-  border: 0.1rem solid rgb(221, 221, 221);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-spacing: 3rem;
-}
-.btnContainer {
-  width: 84%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border: 0.1rem solid rgb(221, 221, 221);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  margin: auto;
-  margin-top: 2rem;
-}
-.btnContainer button {
-  width: 11rem;
-  height: 2rem;
-  margin-left: 1rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: none;
-  font-size: 0.9rem;
-  font-family: "poppins";
-  color: white;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  transition: 0.2s ease;
-}
-.btnContainer button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-
-.btnContainer :nth-child(2) {
-  background-color: #1db954;
-}
-
-.lnkbtn {
-  background-color: #1db954;
-}
-.lnkbtn:active,
-.btnContainer :nth-child(2):active {
-  background-color: #137a37;
-}
-.del {
-  background-color: rgb(241, 51, 51);
-}
-.del:active {
-  background-color: rgb(182, 28, 28);
-}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .title {
     font-size: 0.8rem;
-  }
-  .infoContainer {
-    font-size: 0.7rem;
-  }
-  .row {
-    height: 2rem;
-    margin-top: 0.5rem;
-  }
-  .row td {
-    padding: 0.5rem 0.5rem;
-  }
-  .btnContainer button {
-    width: 4rem;
-    height: 1.8rem;
-    margin-left: 0.2rem;
-    border-radius: 0.4rem;
-    font-size: 0.6rem;
-  }
-  .btnContainer {
-    padding: 0.5rem;
-    justify-content: space-around;
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
   .title {
     font-size: 0.9rem;
   }
-  .infoContainer {
-    font-size: 0.8rem;
-  }
-  .row {
-    height: 2.5rem;
-    margin-top: 0.7rem;
-  }
-  .row td {
-    padding: 0.7rem 0.7rem;
-  }
-  .btnContainer button {
-    width: 8rem;
-    height: 1.8rem;
-    margin-left: 0.2rem;
-    border-radius: 0.4rem;
-    font-size: 0.8rem;
-  }
-  .btnContainer {
-    justify-content: space-around;
-    padding: 0.5rem;
-  }
 }
 @media only screen and (min-width: 721px) and (max-width: 992px) {
   .title {
     font-size: 1rem;
-  }
-  .infoContainer {
-    font-size: 0.9rem;
-  }
-  .row {
-    height: 3rem;
-    margin-top: 0.8rem;
-  }
-  .row td {
-    padding: 0.8rem 0.8rem;
-  }
-  .btnContainer button {
-    width: 10rem;
-    height: 2rem;
-    margin-left: 0.2rem;
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
-  }
-  .btnContainer {
-    justify-content: space-around;
-    padding: 0.5rem;
   }
 }
