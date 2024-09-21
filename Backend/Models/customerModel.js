@@ -24,6 +24,13 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide confirm password. "],
     minlength: [8, "Password must be 8 character long. "],
-    validate: {},
+    validate: {
+      validator: function (el) {
+        return el === this.password;
+      },
+    },
   },
 });
+
+const Customer = mongoose.model("Customer", customerSchema);
+module.exports = Customer;
