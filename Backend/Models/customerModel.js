@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
+const bcrypt = require("bcrypt");
 
 const customerSchema = new mongoose.Schema({
   customerName: {
@@ -31,6 +31,25 @@ const customerSchema = new mongoose.Schema({
     },
   },
 });
+
+customerSchema.pre("save", async function (next) {
+  // if password is not entered then return
+  if (!this.isModified("password")) return next();
+
+  // Hashing password
+  this.password = await bcrypt.hash(this.password, 12);
+
+  // No requirement to save confirm password
+  this.confirmPassword = undefined;
+  next();
+});
+
+customerSchema.methods.correctPassword = async function (
+  enteredPassword,
+  userPassword
+) {
+  return bcrypt.compare(enteredPassword, userPassword);
+};
 
 const Customer = mongoose.model("Customer", customerSchema);
 module.exports = Customer;
