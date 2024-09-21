@@ -25,9 +25,9 @@ const DebtDetailsPage = () => {
           sm={12}
           md={12}
           xs={12}
-          className={classes.infoContainer}
+          className={classes.parentContainer}
         >
-          <Box>
+          <Box className={classes.infoContainer}>
             <table className={classes.infoBox}>
               <tr className={classes.row}>
                 <td>Customer Name :</td>
@@ -51,8 +51,16 @@ const DebtDetailsPage = () => {
               </tr>
             </table>
           </Box>
+          <Box className={classes.btnContainer}>
+            <button className={classes.del}>Delete</button>
+            <button> Paid </button>
+            <Link to={"/"}>
+              <button className={classes.lnkbtn}>Back</button>
+            </Link>
+          </Box>
+          <hr style={{ width: "80%", marginTop: "1rem" }} />
         </Grid>
-        <Grid
+        {/* <Grid
           item
           lg={12}
           sm={12}
@@ -66,7 +74,7 @@ const DebtDetailsPage = () => {
           <Link to={"/"}>
             <button className={classes.lnkbtn}>Back</button>
           </Link>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

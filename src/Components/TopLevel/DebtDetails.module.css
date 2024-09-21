@@ -38,6 +38,20 @@
   color: #404040;
   font-size: 1.1rem;
   font-family: "poppins";
+  margin: auto;
+}
+.parentContainer {
+  width: 80%;
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 2rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.parentContainer::-webkit-scrollbar {
+  display: none;
+}
+.parentContainer::-webkit-scrollbar-track {
+  display: none;
 }
 .row {
   height: 3rem;
@@ -47,6 +61,7 @@
   border-spacing: 0.7rem;
 }
 .row td {
+  font-size: 1rem;
   font-weight: 400;
   margin-left: 1rem;
   border: 0.1rem solid rgb(221, 221, 221);
@@ -55,7 +70,7 @@
   border-spacing: 3rem;
 }
 .btnContainer {
-  width: 80%;
+  width: 84%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 0.1rem solid rgb(221, 221, 221);
   border-radius: 1rem;
@@ -63,8 +78,8 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  margin: auto;
   margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 .btnContainer button {
   width: 11rem;
