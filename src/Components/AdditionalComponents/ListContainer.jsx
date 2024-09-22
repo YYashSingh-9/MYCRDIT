@@ -8,7 +8,18 @@ const ListItem = () => {
       <Box item xs={12} md={12} className={classes.listItem}>
         <Box className={classes.titles}>
           <Box sx={{ display: "flex" }}>
-            <h3 style={{ fontWeight: "600", marginRight: 7 }}>Note Title : </h3>
+            <h3
+              style={{
+                fontWeight: "600",
+                marginRight: 7,
+                backgroundColor: "rgb(237, 237, 237)",
+                paddingLeft: "0.5rem",
+                paddingRight: "0.5rem",
+                borderRadius: "0.5rem",
+              }}
+            >
+              Note Title :{" "}
+            </h3>
             <h3>Mishra ji, kingfisher beer</h3>
           </Box>
 
