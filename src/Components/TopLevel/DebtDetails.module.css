@@ -27,6 +27,8 @@
   width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
   padding: 2rem;
+  padding-left: 10%;
+  padding-right: 10%;
   max-height: 70vh;
   border-radius: 1rem;
   overflow-y: scroll;

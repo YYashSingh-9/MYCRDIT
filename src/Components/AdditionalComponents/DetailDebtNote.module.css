@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
 
   padding: 0.5rem;
@@ -14,7 +14,7 @@
   margin: auto;
 }
 .btnContainer {
-  width: 60%;
+  width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
   border-radius: 1rem;
   display: flex;
@@ -29,6 +29,7 @@
   border: 0.1rem solid rgb(221, 221, 221);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 2rem;
+  width: 100%;
 }
 .row {
   height: 3rem;
@@ -73,6 +74,9 @@
 
 .lnkbtn {
   background-color: #1db954;
+}
+.lnkbtn a {
+  color: white;
 }
 .lnkbtn:active,
 .btnContainer :nth-child(2):active {
