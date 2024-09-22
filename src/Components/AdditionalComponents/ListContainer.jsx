@@ -10,12 +10,12 @@ const ListItem = () => {
           <Box sx={{ display: "flex" }}>
             <h3
               style={{
-                fontWeight: "600",
+                fontWeight: "500",
                 marginRight: 7,
                 backgroundColor: "rgb(237, 237, 237)",
                 paddingLeft: "0.5rem",
                 paddingRight: "0.5rem",
-                borderRadius: "0.5rem",
+                borderRadius: "0.4rem",
               }}
             >
               Note Title :{" "}
@@ -23,8 +23,19 @@ const ListItem = () => {
             <h3>Mishra ji, kingfisher beer</h3>
           </Box>
 
-          <Box sx={{ display: "flex" }}>
-            <h4 style={{ fontWeight: "600", marginRight: 7 }}>Amount : </h4>
+          <Box sx={{ display: "flex", marginTop: 1 }}>
+            <h4
+              style={{
+                fontWeight: "500",
+                marginRight: 7,
+                backgroundColor: "rgb(237, 237, 237)",
+                paddingLeft: "0.5rem",
+                paddingRight: "0.5rem",
+                borderRadius: "0.3rem",
+              }}
+            >
+              Amount :{" "}
+            </h4>
             <h4>250/-</h4>
           </Box>
         </Box>
