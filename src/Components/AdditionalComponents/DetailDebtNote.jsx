@@ -40,12 +40,12 @@ const DetailedNote = (props) => {
         <Box className={classes.btnContainer}>
           <button className={classes.del}>Delete</button>
           <button> Paid </button>
-          <Link to={"/"}>
-            <button className={classes.lnkbtn}>Back</button>
-          </Link>
+          <button className={classes.lnkbtn}>
+            <Link to={"/"}>Back</Link>
+          </button>
         </Box>
-        <hr style={{ width: "80%", marginTop: "1rem" }} />
       </Grid>
+      <hr style={{ width: "80%", marginTop: "1rem" }} />
     </>
   );
 };
