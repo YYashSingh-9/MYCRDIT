@@ -13,6 +13,12 @@
   font-family: "poppins";
   margin: auto;
 }
+.noteTitle h3 {
+  color: #404040;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
 .btnContainer {
   width: 80%;
   border: 0.1rem solid rgb(221, 221, 221);
