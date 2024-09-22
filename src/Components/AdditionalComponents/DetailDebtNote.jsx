@@ -14,7 +14,7 @@ const DetailedNote = (props) => {
         className={classes.parentContainer}
       >
         <span className={classes.noteTitle}>
-          <h3>Customer account Note no - 1</h3>
+          <h3>Customer account Debt no - 1</h3>
         </span>
         <Box className={classes.infoContainer}>
           <table className={classes.infoBox}>
