@@ -10,7 +10,7 @@ import {
 import classes from "./FormMain.module.css";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
 import { useNavigate } from "react-router-dom";

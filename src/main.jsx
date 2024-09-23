@@ -26,7 +26,11 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <FNDPart /> },
       { path: "/add-debt-note-form", element: <FormMain /> },
-      { path: "/:id/details", element: <DebtDetailsPage /> },
+      {
+        path: "/:id/details",
+        element: <DebtDetailsPage />,
+        children: [{ path: "/:id/details/add-note", element: <FormMain /> }],
+      },
       { path: "/your-account-details", element: <AccountPage /> },
       { path: "/your-history-details", element: <HistoryPage /> },
       { path: "/proprietor-signup-form", element: <ProprietorSignupForm /> },
