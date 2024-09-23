@@ -1,8 +1,11 @@
 import { Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import classes from "./DetailDebtNote.module.css";
+import { useNavigate } from "react-router-dom";
 
 const DetailedNote = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Grid
@@ -46,7 +49,7 @@ const DetailedNote = (props) => {
           <button className={classes.del}>Delete</button>
           <button> Paid </button>
           <button className={classes.lnkbtn}>
-            <Link to={"/"}>Back</Link>
+            <Link to={navigate(-1)}>Back</Link>
           </button>
         </Box>
       </Grid>
