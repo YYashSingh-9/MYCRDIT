@@ -32,7 +32,7 @@ const DebtDetailsPage = () => {
               Add to this a/c
             </button>
           </Link>
-          <Link to={navigate(-1)}>
+          <Link to={"/"}>
             <button>
               <ArrowLeft className={classes.iccn} />
               Back

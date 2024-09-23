@@ -29,8 +29,13 @@
   padding: 2rem;
   padding-left: 10%;
   padding-right: 10%;
-  height: auto;
+  max-height: 100vh;
   border-radius: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.parentContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .addBtn {

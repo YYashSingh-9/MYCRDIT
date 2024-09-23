@@ -13,8 +13,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Form, Link } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
+import { useNavigate } from "react-router-dom";
 
 const FormMain = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <InitialSlider />
@@ -72,7 +75,7 @@ const FormMain = () => {
             <input type="date" id="dueDate" name="Due Date" />
             <hr />
             <GeneralButton typeBtn="submit" btn_title="Save" />
-            <Link to={"/"}>
+            <Link to={".."}>
               <GeneralButton btn_title="Back" />
             </Link>
           </Form>
