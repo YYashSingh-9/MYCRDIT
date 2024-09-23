@@ -13,7 +13,7 @@
   font-family: "poppins";
   color: #404040;
   font-size: 1rem;
-  border: 0.125rem solid #404040;
+  border: 0.1rem solid #404040;
   border-radius: 0.5rem;
   margin-bottom: 3rem;
 }
@@ -42,7 +42,9 @@
 .addBtn button {
   width: 11rem;
   height: 2rem;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.5rem;
   outline: none;
   border: none;
@@ -54,6 +56,9 @@
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   transition: 0.2s ease;
   background-color: #1db954;
+}
+.iccn {
+  transform: scale(0.8);
 }
 .addBtn button:active {
   background-color: #137a37;
