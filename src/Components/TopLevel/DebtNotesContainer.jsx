@@ -51,8 +51,8 @@ const DebtNotesContainer = () => {
       </BasicCoverDiv>
       <hr
         style={{
-          width: "60vw",
-          height: "0.2rem ",
+          width: "50vw",
+          height: "0.5rem ",
           backgroundColor: "rgb(30, 30, 30)",
           borderRadius: "1rem",
           outline: "none",
