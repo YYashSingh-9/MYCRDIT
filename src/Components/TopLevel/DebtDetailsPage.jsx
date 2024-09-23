@@ -20,7 +20,7 @@ const DebtDetailsPage = () => {
             <h3>Debt Note of Mishra ji</h3>
           </header>
         </Grid>
-        <Grid item lg={12} sm={12} md={12} xs={12} className={classes.headBar}>
+        <Grid item lg={12} sm={12} md={12} xs={12} className={classes.addBtn}>
           <button>Add to this a/c</button>
         </Grid>
         <Grid

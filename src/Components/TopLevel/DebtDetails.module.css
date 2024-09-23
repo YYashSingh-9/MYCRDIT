@@ -11,15 +11,15 @@
   align-items: center;
   margin: auto;
   font-family: "poppins";
-  font-weight: 300;
   color: #404040;
   font-size: 1rem;
-  border: 0.1rem solid #404040;
+  border: 0.125rem solid #404040;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .title h3 {
+  font-weight: 400;
   font-family: "poppins";
   margin: 0.5rem 0.5rem;
 }
@@ -39,6 +39,32 @@
 }
 .parentContainer::-webkit-scrollbar-track {
   display: none;
+}
+
+.addBtn {
+  text-align: left;
+  width: 80%;
+  padding-bottom: 1rem;
+  margin-top: 3rem;
+}
+.addBtn button {
+  width: 11rem;
+  height: 2rem;
+
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  font-family: "poppins";
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: 0.2s ease;
+  background-color: #1db954;
+}
+.addBtn button:active {
+  background-color: #137a37;
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
