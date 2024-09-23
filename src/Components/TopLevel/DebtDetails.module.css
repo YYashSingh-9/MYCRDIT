@@ -29,16 +29,8 @@
   padding: 2rem;
   padding-left: 10%;
   padding-right: 10%;
-  max-height: 70vh;
+  height: auto;
   border-radius: 1rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.parentContainer::-webkit-scrollbar {
-  display: none;
-}
-.parentContainer::-webkit-scrollbar-track {
-  display: none;
 }
 
 .addBtn {

@@ -50,7 +50,7 @@ const DetailedNote = (props) => {
           </button>
         </Box>
       </Grid>
-      <hr style={{ width: "80%", marginTop: "1rem" }} />
+      <hr style={{ width: "80%", marginTop: "2rem", marginBottom: "2rem" }} />
     </>
   );
 };
