@@ -54,7 +54,7 @@ const DebtDetailsPage = () => {
               <Link to="/:id/details/add-note">
                 <button>
                   <EditIcon className={classes.iccn} />
-                  Add to this a/c
+                  Add
                 </button>
               </Link>
               <Link to={".."}>

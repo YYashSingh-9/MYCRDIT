@@ -79,6 +79,17 @@
     width: 99%;
     padding: 1rem;
   }
+  .addBtn {
+    margin: 0;
+    width: 99%;
+  }
+  .addBtn button {
+    height: 1.8rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    width: 6rem;
+  }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
   .title {

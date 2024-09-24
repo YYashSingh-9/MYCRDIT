@@ -117,14 +117,14 @@
   .row td {
     font-size: 0.7rem;
     margin-left: 0rem;
-    padding: 0.3rem 0.3rem;
+    padding: 0.3rem 0.4rem;
   }
   .btnContainer button {
-    width: 4rem;
+    width: 5rem;
     height: 1.8rem;
     margin-left: 0.2rem;
     border-radius: 0.4rem;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .btnContainer {
     padding: 0.5rem;
