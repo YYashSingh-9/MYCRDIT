@@ -13,11 +13,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Form, Link, useLocation } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
-import { useNavigate } from "react-router-dom";
 
 const FormMain = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <InitialSlider />
