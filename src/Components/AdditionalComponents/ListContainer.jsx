@@ -8,34 +8,12 @@ const ListItem = () => {
       <Box item xs={12} md={12} className={classes.listItem}>
         <Box className={classes.titles}>
           <Box sx={{ display: "flex" }}>
-            <h3
-              style={{
-                fontWeight: "500",
-                marginRight: 7,
-                backgroundColor: "rgb(237, 237, 237)",
-                paddingLeft: "0.5rem",
-                paddingRight: "0.5rem",
-                borderRadius: "0.4rem",
-              }}
-            >
-              Note Title :{" "}
-            </h3>
+            <span className={classes.subTitle_one}>Note Title : </span>
             <h3>Mishra ji, kingfisher beer</h3>
           </Box>
 
           <Box sx={{ display: "flex", marginTop: 1 }}>
-            <h4
-              style={{
-                fontWeight: "500",
-                marginRight: 7,
-                backgroundColor: "rgb(237, 237, 237)",
-                paddingLeft: "0.5rem",
-                paddingRight: "0.5rem",
-                borderRadius: "0.3rem",
-              }}
-            >
-              Amount :{" "}
-            </h4>
+            <span className={classes.subTitle_two}>Amount : </span>
             <h4>250/-</h4>
           </Box>
         </Box>
