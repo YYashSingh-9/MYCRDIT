@@ -138,19 +138,23 @@
   .infoContainer {
     font-size: 0.8rem;
   }
+  .noteTitle h3 {
+    font-size: 1.1rem;
+  }
   .row {
     height: 2.5rem;
     margin-top: 0.7rem;
   }
   .row td {
-    padding: 0.7rem 0.7rem;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
   }
   .btnContainer button {
     width: 8rem;
     height: 1.8rem;
     margin-left: 0.2rem;
     border-radius: 0.4rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .btnContainer {
     justify-content: space-around;

@@ -95,6 +95,20 @@
   .title {
     font-size: 0.9rem;
   }
+  .parentContainer {
+    width: 100%;
+  }
+  .addBtn {
+    margin: 0;
+    width: 100%;
+  }
+  .addBtn button {
+    height: 2rem;
+    margin: auto;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    width: 10rem;
+  }
 }
 @media only screen and (min-width: 721px) and (max-width: 992px) {
   .title {
