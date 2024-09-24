@@ -24,7 +24,7 @@
   margin: 0.5rem 0.5rem;
 }
 .parentContainer {
-  width: 80%;
+  width: 100%;
   border: 0.1rem solid rgb(221, 221, 221);
   padding: 2rem;
   padding-left: 10%;
@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   padding-bottom: 1rem;
   margin-top: 3rem;
 }
@@ -113,5 +113,12 @@
 @media only screen and (min-width: 721px) and (max-width: 992px) {
   .title {
     font-size: 1rem;
+  }
+  .parentContainer {
+    width: 100%;
+  }
+  .addBtn {
+    margin: 0;
+    width: 100%;
   }
 }
