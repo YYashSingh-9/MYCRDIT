@@ -8,7 +8,7 @@ const ListItem = () => {
       <Box item xs={12} md={12} className={classes.listItem}>
         <Box className={classes.titles}>
           <Box sx={{ display: "flex" }}>
-            <span className={classes.subTitle_one}>Note Title : </span>
+            <span className={classes.subTitle_one}>Title : </span>
             <h3>Mishra ji, kingfisher beer</h3>
           </Box>
 
