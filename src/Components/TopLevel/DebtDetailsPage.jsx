@@ -64,6 +64,18 @@ const DebtDetailsPage = () => {
                 </button>
               </Link>
             </Grid>
+            <hr
+              style={{
+                width: "100%",
+                height: "0.1rem ",
+                backgroundColor: "rgb(211, 211, 211 )",
+                borderRadius: "1rem",
+                outline: "none",
+                border: "none",
+                marginTop: "0rem",
+                marginBottom: "1rem",
+              }}
+            />
             <Grid
               item
               lg={12}
