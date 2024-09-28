@@ -78,3 +78,6 @@ const proprietorSchema = mongoose.Schema({
     unique: true,
   },
 });
+
+const Proprietor = mongoose.model("Proprietor", proprietorSchema);
+module.exports = Proprietor;
