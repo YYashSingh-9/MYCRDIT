@@ -55,4 +55,14 @@ const proprietorSchema = mongoose.Schema({
       return el === this.password;
     },
   },
+  mostSellingProduct: {
+    type: String,
+    minLength: [5, "Better description required"],
+    maxLength: [20, "Product name getting too long"],
+  },
+  leastSellingProduct: {
+    type: String,
+    minLength: [5, "Better description required."],
+    maxLength: [20, "Product name getting too long"],
+  },
 });
