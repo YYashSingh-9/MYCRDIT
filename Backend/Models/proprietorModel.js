@@ -72,10 +72,8 @@ const proprietorSchema = mongoose.Schema({
   },
   proprietorGST: {
     type: Number,
-    required: [true, "GST number is required"],
     minLength: [15, "15 digit number is required"],
     maxLength: [15, "15 digit number is required"],
-    unique: true,
   },
 });
 
