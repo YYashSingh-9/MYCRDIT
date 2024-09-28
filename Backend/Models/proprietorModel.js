@@ -65,4 +65,16 @@ const proprietorSchema = mongoose.Schema({
     minLength: [5, "Better description required."],
     maxLength: [20, "Product name getting too long"],
   },
+  proprietorDemand: {
+    type: String,
+    minLength: [5, "Better description required."],
+    maxLength: [50, "Max characters reached"],
+  },
+  proprietorGST: {
+    type: Number,
+    required: [true, "GST number is required"],
+    minLength: [15, "15 digit number is required"],
+    maxLength: [15, "15 digit number is required"],
+    unique: true,
+  },
 });
