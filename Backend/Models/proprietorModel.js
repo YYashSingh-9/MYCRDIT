@@ -49,4 +49,10 @@ const proprietorSchema = mongoose.Schema({
       return el === this.password;
     },
   },
+  confirmPassword: {
+    type: String,
+    required: [true, "Please enter password"],
+    minLength: [5, "Password must be at lease 5 characters long"],
+    maxLength: [16, "Password must not exceed 16 characters."],
+  },
 });
