@@ -48,6 +48,19 @@ const ProprietorUI = (props) => {
           </span>
         </h4>
       </Grid>
+      <Grid
+        item
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+        className={classes.quickinText}
+      >
+        <Box className={classes.quickinTitle}>
+          <h4 className={classes.formH4}>Powered by</h4>
+          <img src={quickinLogo} className={classes.quickinImg} />
+        </Box>
+      </Grid>
     </Grid>
   );
 };
