@@ -5,7 +5,7 @@ import { Form, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-
+import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 const ProprietorUI = (props) => {
   return (
     <Grid>
@@ -78,21 +78,27 @@ const CustomerUI = (props) => {
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
-        <Link to={"/customer-signup-form"}>
+        <h4 className={classes.formH4}>
+          Powered by
+          <img src={quickinLogo} />
+        </h4>
+
+        {/* .... Below part was original before quickin authentication update */}
+        {/* <Link to={"/customer-signup-form"}>
           <h4 className={classes.formH4}>
             Not Signed up?{" "}
             <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
               sign up then
             </span>
           </h4>
-        </Link>
+        </Link> */}
 
-        <h4 className={classes.formH4} onClick={props.onclick}>
+        {/* <h4 className={classes.formH4} onClick={props.onclick}>
           A proprietor ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             Login then
           </span>
-        </h4>
+        </h4> */}
       </Grid>
     </Grid>
   );
