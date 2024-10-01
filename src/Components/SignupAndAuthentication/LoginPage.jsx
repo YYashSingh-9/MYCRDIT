@@ -58,7 +58,7 @@ const CustomerUI = (props) => {
       {" "}
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
         <h1>
-          Log in as{" "}
+          Start as{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             {" "}
             Customer
@@ -71,10 +71,13 @@ const CustomerUI = (props) => {
           <br />
           <TextField id="outlined" />
           <br />
-          <label htmlFor="password">Your Password</label>
+
+          {/* .... Below part was original before quickin authentication update */}
+          {/* <label htmlFor="password">Your Password</label>
           <br />
-          <TextField id="outlined" />
-          <GeneralButton typeBtn="submit" btn_title="Login" />
+          <TextField id="outlined" /> */}
+
+          <GeneralButton typeBtn="submit" btn_title="Start" />
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
