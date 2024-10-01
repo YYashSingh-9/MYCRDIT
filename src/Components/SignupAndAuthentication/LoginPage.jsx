@@ -78,10 +78,10 @@ const CustomerUI = (props) => {
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
-        <h4 className={classes.formH4}>
-          Powered by
-          <img src={quickinLogo} />
-        </h4>
+        <Box className={classes.quickinTitle}>
+          <h4 className={classes.formH4}>Powered by</h4>
+          <img src={quickinLogo} className={classes.quickinImg} />
+        </Box>
 
         {/* .... Below part was original before quickin authentication update */}
         {/* <Link to={"/customer-signup-form"}>

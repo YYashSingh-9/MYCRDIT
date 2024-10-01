@@ -35,6 +35,8 @@
 }
 .formH4 {
   cursor: pointer;
+  margin: 0rem;
+  font-family: "poppins";
 }
 .toggleText {
   display: flex;
@@ -42,6 +44,16 @@
 }
 .header {
   text-align: center;
+}
+.quickinTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+.quickinImg {
+  height: 1.7rem;
+  margin-left: 0.5rem;
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
