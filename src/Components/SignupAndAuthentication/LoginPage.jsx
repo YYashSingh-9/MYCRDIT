@@ -81,11 +81,6 @@ const CustomerUI = (props) => {
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
-        <Box className={classes.quickinTitle}>
-          <h4 className={classes.formH4}>Powered by</h4>
-          <img src={quickinLogo} className={classes.quickinImg} />
-        </Box>
-
         {/* .... Below part was original before quickin authentication update */}
         {/* <Link to={"/customer-signup-form"}>
           <h4 className={classes.formH4}>
@@ -95,13 +90,25 @@ const CustomerUI = (props) => {
             </span>
           </h4>
         </Link> */}
-
-        {/* <h4 className={classes.formH4} onClick={props.onclick}>
+        <h4 className={classes.formH4} onClick={props.onclick}>
           A proprietor ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             Login then
           </span>
-        </h4> */}
+        </h4>
+      </Grid>
+      <Grid
+        item
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+        className={classes.quickinText}
+      >
+        <Box className={classes.quickinTitle}>
+          <h4 className={classes.formH4}>Powered by</h4>
+          <img src={quickinLogo} className={classes.quickinImg} />
+        </Box>
       </Grid>
     </Grid>
   );

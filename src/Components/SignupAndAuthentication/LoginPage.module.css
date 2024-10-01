@@ -35,14 +35,18 @@
 }
 .formH4 {
   cursor: pointer;
-  margin: 0rem;
+  margin: 1rem 0rem;
   font-family: "poppins";
 }
 .toggleText {
   display: flex;
+  justify-content: space-between;
+}
+.quickinText {
+  margin-top: 1rem;
+  display: flex;
   justify-content: center;
 }
-
 .header {
   text-align: center;
 }
@@ -58,9 +62,15 @@
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
+  .quickinText {
+    margin-top: 4rem;
+  }
   .quickinImg {
-    height: 1.5rem;
+    height: 1.2rem;
     margin-left: 0.5rem;
+  }
+  .quickinTitle h4 {
+    font-size: 0.8rem;
   }
   .form_main input {
     width: 15rem;
@@ -79,6 +89,7 @@
   .toggleText {
     display: block;
     text-align: center;
+    margin-bottom: 2rem;
   }
   .toggleText h4 {
     font-size: 0.8rem;
