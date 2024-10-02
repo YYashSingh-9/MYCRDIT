@@ -44,7 +44,7 @@ const ProprietorUI = (props) => {
         <h4 className={classes.formH4} onClick={props.onclick}>
           A Customer ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-            Authenticate then
+            Authenticate
           </span>
         </h4>
       </Grid>
@@ -106,7 +106,7 @@ const CustomerUI = (props) => {
         <h4 className={classes.formH4} onClick={props.onclick}>
           A proprietor ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-            Authenticate then
+            Authenticate
           </span>
         </h4>
       </Grid>
