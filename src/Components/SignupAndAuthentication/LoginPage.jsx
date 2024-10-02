@@ -44,7 +44,7 @@ const ProprietorUI = (props) => {
         <h4 className={classes.formH4} onClick={props.onclick}>
           A Customer ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-            Login then
+            Authenticate then
           </span>
         </h4>
       </Grid>
@@ -71,7 +71,7 @@ const CustomerUI = (props) => {
       {" "}
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
         <h1>
-          Start as{" "}
+          Authenticate as{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
             {" "}
             Customer
@@ -90,7 +90,7 @@ const CustomerUI = (props) => {
           <br />
           <TextField id="outlined" /> */}
 
-          <GeneralButton typeBtn="submit" btn_title="Start" />
+          <GeneralButton typeBtn="submit" btn_title="Authenticate" />
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
@@ -106,7 +106,7 @@ const CustomerUI = (props) => {
         <h4 className={classes.formH4} onClick={props.onclick}>
           A proprietor ?{" "}
           <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-            Login then
+            Authenticate then
           </span>
         </h4>
       </Grid>
