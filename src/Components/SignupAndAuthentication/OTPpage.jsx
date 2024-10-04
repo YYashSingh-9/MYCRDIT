@@ -11,7 +11,7 @@ const OTPpage = () => {
       <BasicCoverDiv heading={"Enter your"} heading_highlight={"OTP"}>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.main}>
           <Form method="POST" className={classes.form_main}>
-            <label htmlFor="number">OTP </label>
+            <label htmlFor="number">One time password : </label>
             <br />
             <TextField id="outlined" />
             <br />
