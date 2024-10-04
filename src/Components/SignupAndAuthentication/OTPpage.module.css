@@ -10,3 +10,64 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.quickinText {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.quickinTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+.quickinImg {
+  height: 1.7rem;
+  margin-left: 0.5rem;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .quickinText {
+    margin-top: 4rem;
+  }
+  .quickinImg {
+    height: 1.2rem;
+    margin-left: 0.5rem;
+  }
+  .quickinTitle h4 {
+    font-size: 0.8rem;
+  }
+  .form_main input {
+    width: 15rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .form_main {
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .toggleText {
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .toggleText h4 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 720px) {
+  .form_main input {
+    width: 20rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .form_main button {
+    height: 2rem;
+    font-size: 1rem;
+    width: 15rem;
+  }
+  .toggleText h4 {
+    font-size: 0.8rem;
+  }
+}

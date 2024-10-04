@@ -8,7 +8,7 @@ import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 const OTPpage = () => {
   return (
     <>
-      <BasicCoverDiv heading={"Enter your"} heading_highlight={"OTP"}>
+      <BasicCoverDiv heading={"Enter your"} heading_highlight={" OTP"}>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.main}>
           <Form method="POST" className={classes.form_main}>
             <label htmlFor="number">One time password : </label>
