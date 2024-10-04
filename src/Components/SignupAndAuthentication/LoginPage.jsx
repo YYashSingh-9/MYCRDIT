@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
+import InitialSlider from "../AdditionalComponents/InitialSlider";
+
 const ProprietorUI = (props) => {
   return (
     <Grid>
+      <InitialSlider />
+
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
         <h1>
           Log in as{" "}
@@ -68,7 +72,7 @@ const ProprietorUI = (props) => {
 const CustomerUI = (props) => {
   return (
     <Grid>
-      {" "}
+      <InitialSlider />{" "}
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
         <h1>
           Authenticate as{" "}
@@ -141,6 +145,7 @@ const LoginPage = () => {
   };
   return (
     <>
+      <InitialSlider />
       <BasicCoverDiv>
         {accountType_UI === "customer" ? (
           <CustomerUI onclick={toProprietor} />
