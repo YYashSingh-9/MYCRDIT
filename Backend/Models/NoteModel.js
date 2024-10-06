@@ -38,6 +38,9 @@ const noteSchema = mongoose.Schema({
     type: Date,
     required: [true, "Please provide current date."],
   },
+  cleared: {
+    type: Boolean,
+  },
 });
 
 const DebtNote = mongoose.model("DebtNote", noteSchema);
