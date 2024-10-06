@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const proprietorSchema = mongoose.Schema({
   ProprietorName: {
@@ -76,6 +77,13 @@ const proprietorSchema = mongoose.Schema({
     maxLength: [15, "15 digit number is required"],
   },
 });
+
+proprietorSchema.methods.correctPassword = async function (
+  enteredPassword,
+  user_password
+) {
+  return bcrypt.compare(enteredPassword, user_password);
+};
 
 const Proprietor = mongoose.model("Proprietor", proprietorSchema);
 module.exports = Proprietor;
