@@ -5,11 +5,12 @@
 }
 .form_main {
   border: 0.1rem solid rgb(221, 221, 221);
-  padding: 2rem;
+  padding: 5rem 2rem;
   border-radius: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
 .quickinText {
   margin-top: 1rem;
   display: flex;
