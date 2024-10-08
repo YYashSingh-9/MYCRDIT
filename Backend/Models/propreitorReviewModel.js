@@ -33,3 +33,9 @@ const proprietorReviewSchema = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
   },
 });
+
+const ProprietorReview = mongoose.model(
+  "ProprietorReview",
+  proprietorReviewSchema
+);
+module.exports = ProprietorReview;
