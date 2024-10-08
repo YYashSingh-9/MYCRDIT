@@ -15,5 +15,10 @@ const paidNoteSchema = mongoose.Schema({
   },
   thirtyDayPayment: {
     type: Boolean,
+    required: [true, "30 day payment information required."],
+  },
+  lengthOfDebt: {
+    type: Number,
+    required: [true, "Total number of days required."],
   },
 });
