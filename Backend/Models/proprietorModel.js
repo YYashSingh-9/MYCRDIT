@@ -40,6 +40,7 @@ const proprietorSchema = mongoose.Schema({
     type: String,
     required: [true, "Please provide contact number"],
     minLength: [10, "Check your number."],
+    unique: true,
   },
   password: {
     type: String,

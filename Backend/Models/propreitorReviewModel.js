@@ -29,4 +29,7 @@ const proprietorReviewSchema = mongoose.Schema({
     minLength: [30, "Minimum 30 characters are required."],
     maxLength: [280, "Maxmimum 280 characters limit reached."],
   },
+  proprietorId: {
+    type: mongoose.Schema.ObjectId,
+  },
 });
