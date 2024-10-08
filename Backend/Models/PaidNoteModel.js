@@ -22,3 +22,6 @@ const paidNoteSchema = mongoose.Schema({
     required: [true, "Total number of days required."],
   },
 });
+
+const PaidNote = mongoose.model("PaidNote", paidNoteSchema);
+module.exports = PaidNote;
