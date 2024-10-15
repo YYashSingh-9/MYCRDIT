@@ -7,7 +7,7 @@ import Brightness1Icon from "@mui/icons-material/Brightness1"; // -> Base
 import { Box } from "@mui/material";
 
 // Levels (testing)
-// >500 -> Base
+// >500 -> Base.
 // 500 >= && <= 1200 ->Bronze
 // 1201 >= && <= 2200 -> Silver
 // 2200 >= && <= 3500 -> Gold
