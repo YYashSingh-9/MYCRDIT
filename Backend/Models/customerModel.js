@@ -19,7 +19,9 @@ const customerSchema = new mongoose.Schema({
 // --- IMPORTANT NOTE HERE --- //
 // Password and it's authentication has been dropped due to testing of the " Quick in" concept
 // Below are the previous code for password system..
+// Customer name will be automatically be added with route middleware (for prototype version)
 
+// -------------------------------------//
 //   password: {
 //     type: String,
 //     required: [true, "You must have a password. "],
