@@ -14,44 +14,49 @@ const customerSchema = new mongoose.Schema({
     minlength: [10, "10 character number is required. "],
     required: true,
   },
-  password: {
-    type: String,
-    required: [true, "You must have a password. "],
-    minlength: [8, "Password must be 8 characters long. "],
-    select: false,
-  },
-  confirmPassword: {
-    type: String,
-    required: [true, "Please provide confirm password. "],
-    minlength: [8, "Password must be 8 character long. "],
-    maxLength: [16, "Password must not exceed 16 characters."],
-
-    validate: {
-      validator: function (el) {
-        return el === this.password;
-      },
-    },
-  },
 });
 
-customerSchema.pre("save", async function (next) {
-  // if password is not entered then return
-  if (!this.isModified("password")) return next();
+// --- IMPORTANT NOTE HERE --- //
+// Password and it's authentication has been dropped due to testing of the " Quick in" concept
+// Below are the previous code for password system..
 
-  // Hashing password
-  this.password = await bcrypt.hash(this.password, 12);
+//   password: {
+//     type: String,
+//     required: [true, "You must have a password. "],
+//     minlength: [8, "Password must be 8 characters long. "],
+//     select: false,
+//   },
+//   confirmPassword: {
+//     type: String,
+//     required: [true, "Please provide confirm password. "],
+//     minlength: [8, "Password must be 8 character long. "],
+//     maxLength: [16, "Password must not exceed 16 characters."],
 
-  // No requirement to save confirm password
-  this.confirmPassword = undefined;
-  next();
-});
+//     validate: {
+//       validator: function (el) {
+//         return el === this.password;
+//       },
+//     },
+//   },
+// customerSchema.pre("save", async function (next) {
+//   // if password is not entered then return
+//   if (!this.isModified("password")) return next();
 
-customerSchema.methods.correctPassword = async function (
-  enteredPassword,
-  userPassword
-) {
-  return bcrypt.compare(enteredPassword, userPassword);
-};
+//   // Hashing password
+//   this.password = await bcrypt.hash(this.password, 12);
 
+//   // No requirement to save confirm password
+//   this.confirmPassword = undefined;
+//   next();
+// });
+
+// customerSchema.methods.correctPassword = async function (
+//   enteredPassword,
+//   userPassword
+// ) {
+//   return bcrypt.compare(enteredPassword, userPassword);
+// };
+
+// ---------------------------------------------------------//
 const Customer = mongoose.model("Customer", customerSchema);
 module.exports = Customer;
