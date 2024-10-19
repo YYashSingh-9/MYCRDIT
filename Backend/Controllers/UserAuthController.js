@@ -14,3 +14,5 @@ exports.customerAuthentication = async (req, res, next) => {
     data: data,
   });
 };
+
+exports.proprietorAuthentication = async () => {};
