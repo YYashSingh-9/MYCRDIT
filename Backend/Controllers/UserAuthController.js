@@ -15,4 +15,6 @@ exports.customerAuthentication = async (req, res, next) => {
   });
 };
 
-exports.proprietorAuthentication = async () => {};
+exports.proprietorAuthentication = async (req, res, next) => {
+  const data = await proprietor.create(req.body);
+};
