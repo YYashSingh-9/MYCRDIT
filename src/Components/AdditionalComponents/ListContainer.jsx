@@ -3,6 +3,13 @@ import classes from "./ListContainer.module.css";
 import { Link } from "react-router-dom";
 
 const ListItem = () => {
+  const acceptanceStatus = true;
+  const statusIndicator = acceptanceStatus ? (
+    <h4 style={{ color: "#1DB954" }}>Confirmed</h4>
+  ) : (
+    <h4 style={{ color: "rgb(254, 210, 87)" }}>Pending</h4>
+  );
+
   return (
     <>
       <Box item xs={12} md={12} className={classes.listItem}>
