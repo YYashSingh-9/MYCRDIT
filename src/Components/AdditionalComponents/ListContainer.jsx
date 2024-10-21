@@ -16,6 +16,10 @@ const ListItem = () => {
             <span className={classes.subTitle_two}>Amount : </span>
             <h4>250/-</h4>
           </Box>
+          <Box sx={{ display: "flex", marginTop: 1 }}>
+            <span className={classes.subTitle_two}>Accepted : </span>
+            <h4>Confirmed</h4>
+          </Box>
         </Box>
         <Box>
           <Link to={"mishra-ji-note/details"}>
