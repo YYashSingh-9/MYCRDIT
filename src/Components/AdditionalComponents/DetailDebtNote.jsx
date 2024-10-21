@@ -42,6 +42,10 @@ const DetailedNote = (props) => {
                 <td>Date of Purchase</td>
                 <td>14-05-2024</td>
               </tr>
+              <tr className={classes.row}>
+                <td>Accepted</td>
+                <td>True</td>
+              </tr>
             </tbody>
           </table>
         </Box>
