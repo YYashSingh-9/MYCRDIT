@@ -41,6 +41,9 @@ const noteSchema = mongoose.Schema({
   cleared: {
     type: Boolean,
   },
+  acceptanceStatus: {
+    type: Boolean,
+  },
 });
 
 const DebtNote = mongoose.model("DebtNote", noteSchema);
