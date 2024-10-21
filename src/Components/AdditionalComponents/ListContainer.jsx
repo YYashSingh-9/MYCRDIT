@@ -3,11 +3,11 @@ import classes from "./ListContainer.module.css";
 import { Link } from "react-router-dom";
 
 const ListItem = () => {
-  const acceptanceStatus = true;
+  const acceptanceStatus = false;
   const statusIndicator = acceptanceStatus ? (
     <h4 style={{ color: "#1DB954" }}>Confirmed</h4>
   ) : (
-    <h4 style={{ color: "rgb(254, 210, 87)" }}>Pending</h4>
+    <h4 style={{ color: "#f14a27" }}>Pending</h4>
   );
 
   return (
@@ -25,7 +25,7 @@ const ListItem = () => {
           </Box>
           <Box sx={{ display: "flex", marginTop: 1 }}>
             <span className={classes.subTitle_two}>Accepted : </span>
-            <h4>Confirmed</h4>
+            {statusIndicator}
           </Box>
         </Box>
         <Box>
