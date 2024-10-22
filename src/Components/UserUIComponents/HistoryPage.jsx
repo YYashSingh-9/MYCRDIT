@@ -10,6 +10,7 @@ import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPa
 
 export const ListItem = (props) => {
   const acceptanceStatus = false;
+
   return (
     <>
       <Box className={classes.liBox}>
@@ -17,18 +18,25 @@ export const ListItem = (props) => {
           <h3>{props.title}</h3>
           <h4>{props.date}</h4>
         </Box>
-        <Box className={classes.info_right}>
-          <h4>{`${props.amt}/-`}</h4>
-          <button className={classes.clearIndicatorBtn}>
-            {props.icnType === "tick" ? (
-              <DoneAllIcon className={classes.cleartick} />
-            ) : (
-              <PendingActionsIcon className={classes.pending} />
-            )}
+        {acceptanceStatus === true ? (
+          <Box className={classes.info_right}>
+            <h4>{`${props.amt}/-`}</h4>
+            <button className={classes.clearIndicatorBtn}>
+              {props.icnType === "tick" ? (
+                <DoneAllIcon className={classes.cleartick} />
+              ) : (
+                <PendingActionsIcon className={classes.pending} />
+              )}
 
-            {props.btnTitle}
-          </button>
-        </Box>
+              {props.btnTitle}
+            </button>
+          </Box>
+        ) : (
+          <Box className={classes.info_right}>
+            <button className={classes.acceptbtn}>Accept</button>
+            <button className={classes.rejectbtn}>Reject</button>
+          </Box>
+        )}
       </Box>
     </>
   );
