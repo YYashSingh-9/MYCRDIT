@@ -1,11 +1,20 @@
 import { Box, Grid } from "@mui/material";
 import classes from "./ListContainer.module.css";
 import { Link } from "react-router-dom";
-
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 const ListItem = () => {
-  const acceptanceStatus = false;
+  const acceptanceStatus = true;
   const statusIndicator = acceptanceStatus ? (
-    <h4 style={{ color: "#1DB954" }}>Confirmed</h4>
+    <span
+      style={{
+        color: "#1DB954",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <h4 style={{ color: "#1DB954", marginRight: 2 }}>Confirmed</h4>
+      <DoneAllIcon style={{ transform: "scale(0.7)" }} />
+    </span>
   ) : (
     <h4 style={{ color: "#f14a27" }}>Pending</h4>
   );
