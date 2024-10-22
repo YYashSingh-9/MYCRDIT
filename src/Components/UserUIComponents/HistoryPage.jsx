@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 export const ListItem = (props) => {
   const acceptanceStatus = false;
@@ -37,6 +38,7 @@ export const ListItem = (props) => {
             <button className={classes.rejectbtn}>Reject</button>
           </Box>
         )}
+        {acceptanceStatus === false}
       </Box>
     </>
   );
