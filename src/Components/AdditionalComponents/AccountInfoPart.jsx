@@ -100,6 +100,7 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
+          {accountType === "customer" && <Link to={"/my-note-requests"}></Link>}
           <Link to={"/"}>
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
