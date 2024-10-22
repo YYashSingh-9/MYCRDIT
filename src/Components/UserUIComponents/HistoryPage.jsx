@@ -9,6 +9,7 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 
 export const ListItem = (props) => {
+  const acceptanceStatus = false;
   return (
     <>
       <Box className={classes.liBox}>
