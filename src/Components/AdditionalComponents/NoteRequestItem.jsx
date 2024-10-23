@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import classes from "./NoteRequestItem.module.css";
 
-const NoteRequestItem = () => {
+const NoteRequestItem = (props) => {
   return (
     <>
       <Box className={classes.liBox}>
