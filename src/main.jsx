@@ -15,6 +15,7 @@ import MCSPage from "./Components/UserUIComponents/MCSPage.jsx";
 import ReviewNFeedback from "./Components/AdditionalComponents/ReviewNFeedback.jsx";
 import EditForm from "./Components/MinorComponents/EditForm.jsx";
 import OTPpage from "./Components/SignupAndAuthentication/OTPpage.jsx";
+import NoteRequestPage from "./Components/UserUIComponents/NoteRequestPage.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       { path: "/my-current-score", element: <MCSPage /> },
       { path: "/review-form", element: <ReviewNFeedback /> },
       { path: "/edit-shop-details", element: <EditForm /> },
+      { path: "/my-note-requests", element: <NoteRequestPage /> },
     ],
   },
 ]);
