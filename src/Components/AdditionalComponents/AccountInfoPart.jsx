@@ -60,6 +60,14 @@ const AccountInfoPart = (props) => {
           xs={12}
           className={classes.accountBtnContainer}
         >
+          {accountType === "customer" && (
+            <Link to={"/my-note-requests"}>
+              <GeneralButton
+                icnTitle={"pending requests"}
+                btn_title={"Requests"}
+              />
+            </Link>
+          )}
           {accountType === "customer" ? (
             <Link to={"/your-history-details"}>
               <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
@@ -100,14 +108,7 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
-          {accountType === "customer" && (
-            <Link to={"/my-note-requests"}>
-              <GeneralButton
-                icnTitle={"pending requests"}
-                btn_title={"Requests"}
-              />
-            </Link>
-          )}
+
           <Link to={"/"}>
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
