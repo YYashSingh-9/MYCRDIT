@@ -12,11 +12,11 @@ const NoteRequestItem = (props) => {
         <Box className={classes.info_right}>
           <h4>{`${props.amt}/-`}</h4>
           <button className={classes.clearIndicatorBtn}>
-            {props.icnType === "tick" ? (
+            {/* {props.icnType === "tick" ? (
               <DoneAllIcon className={classes.cleartick} />
             ) : (
               <PendingActionsIcon className={classes.pending} />
-            )}
+            )} */}
 
             {props.btnTitle}
           </button>
