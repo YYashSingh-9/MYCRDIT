@@ -64,7 +64,7 @@ const AccountInfoPart = (props) => {
             <Link to={"/my-note-requests"}>
               <GeneralButton
                 icnTitle={"pending requests"}
-                btn_title={"Requests"}
+                btn_title={"Check Requests"}
               />
             </Link>
           )}
