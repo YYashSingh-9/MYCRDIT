@@ -41,7 +41,6 @@ h3 {
   font-family: "poppins";
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .rejectbtn {
   background-color: rgb(241, 51, 51);
@@ -54,4 +53,9 @@ h3 {
 }
 .acceptbtn {
   background-color: #1db954;
+}
+
+.btn_icn {
+  margin-left: 0.2rem;
+  transform: scale(0.8);
 }
