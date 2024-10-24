@@ -38,12 +38,15 @@ const GeneralButton = (props) => {
             <AccountBoxIcon className={classes.icn} />
           )}
           {iconTitle === "pending requests" && (
-            <AccountBoxIcon className={classes.icn} />
+            <ListAltIcon className={classes.icn} />
           )}
           {props.btn_title}
         </button>
         {iconTitle === "runningDebt" && notificationState && (
           <Box className={classes.notificationBall_2}>100</Box>
+        )}
+        {iconTitle === "pending requests" && notificationState && (
+          <Box className={classes.notificationBall_2}>10</Box>
         )}
       </Box>
     </>
