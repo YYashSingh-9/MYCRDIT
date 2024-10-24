@@ -11,8 +11,13 @@ const NoteRequestItem = (props) => {
         </Box>
 
         <Box className={classes.info_right}>
-          <button className={classes.acceptbtn}>Accept</button>
+          <button className={` ${classes.btn}${classes.acceptbtn} `}>
+            Accept
+          </button>
           <button className={classes.rejectbtn}>Reject</button>
+          <button className={` ${classes.btn}${classes.rejectbtn} `}>
+            Reject
+          </button>
         </Box>
       </Box>
     </>
