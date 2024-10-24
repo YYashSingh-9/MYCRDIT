@@ -7,7 +7,7 @@ const NoteRequestPage = () => {
   return (
     <>
       <BasicCoverDiv heading={"Your"} heading_highlight={" Pending requests."}>
-        <NoteRequestItem />
+        <NoteRequestItem title={"Modi kirana parle g"} date={"14-5-25"} />
       </BasicCoverDiv>
     </>
   );
