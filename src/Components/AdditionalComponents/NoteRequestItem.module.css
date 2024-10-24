@@ -27,15 +27,21 @@ h3 {
   width: 30%;
   text-align: right;
   padding-right: 1rem;
+  display: flex;
 }
 .btn {
   border: none;
   outline: none;
   border-radius: 0.3rem;
   color: white;
+  width: 10rem;
   padding: 0.6rem 2rem;
   margin: 0rem 0.5rem;
   cursor: pointer;
+  font-family: "poppins";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .rejectbtn {
   background-color: rgb(241, 51, 51);
