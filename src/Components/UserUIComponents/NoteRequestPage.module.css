@@ -1,8 +1,12 @@
 .innerCover {
-  width: 100%;
+  width: 90%;
   height: 60vh;
   max-height: 60vh;
   overflow-y: scroll;
+  border: 0.1rem solid rgb(211, 211, 211);
+  margin: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .innerCover::-webkit-scrollbar {
