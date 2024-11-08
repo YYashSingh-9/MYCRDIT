@@ -20,3 +20,10 @@
     padding: 0.8rem;
   }
 }
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .innerCover {
+    max-width: 100%;
+    margin: 0rem;
+    padding: 0.8rem;
+  }
+}
