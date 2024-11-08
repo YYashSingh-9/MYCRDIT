@@ -68,6 +68,7 @@ h3 {
 
   .info_right {
     width: 50%;
+    text-align: center;
   }
   .liBox h4 {
     font-size: 0.7rem;

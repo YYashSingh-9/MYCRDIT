@@ -17,7 +17,7 @@ const NoteRequestItem = (props) => {
             <CheckCircleIcon className={classes.btn_icn} />
           </button>
           <button className={` ${classes.btn} ${classes.rejectbtn} `}>
-            Reject
+            Decline
             <CancelIcon className={classes.btn_icn} />
           </button>
         </Box>
