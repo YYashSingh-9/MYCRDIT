@@ -23,7 +23,7 @@ const NoteRequestPage = () => {
         </Box>
         <Box mb={1.5}>
           <Link to={"/your-account-details"}>
-            <GeneralButton btn_title="Back" iconTitle={"back"} />
+            <GeneralButton iconTitle="bacck" btn_title="Back" />
           </Link>
         </Box>
       </BasicCoverDiv>

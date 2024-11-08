@@ -11,6 +11,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { ArrowLeft } from "@mui/icons-material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
@@ -23,6 +24,7 @@ const GeneralButton = (props) => {
     <>
       <Box className={classes.btnParent}>
         <button className={classes.btn} type={btnType}>
+          {iconTitle === "bacck" && <ArrowBackIcon className={classes.icn} />}
           {iconTitle === "home" && <HomeIcon className={classes.icn} />}
           {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
           {iconTitle === "runningDebt" && (
@@ -42,7 +44,7 @@ const GeneralButton = (props) => {
           {iconTitle === "pending requests" && (
             <ListAltIcon className={classes.icn} />
           )}
-          {iconTitle === "back" && <ArrowLeft className={classes.icn} />}
+
           {props.btn_title}
         </button>
         {iconTitle === "runningDebt" && notificationState && (
