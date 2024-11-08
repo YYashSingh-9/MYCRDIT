@@ -42,6 +42,7 @@ const GeneralButton = (props) => {
           {iconTitle === "pending requests" && (
             <ListAltIcon className={classes.icn} />
           )}
+          {iconTitle === "back" && <ArrowLeft className={classes.icn} />}
           {props.btn_title}
         </button>
         {iconTitle === "runningDebt" && notificationState && (
@@ -50,7 +51,6 @@ const GeneralButton = (props) => {
         {iconTitle === "pending requests" && notificationState && (
           <Box className={classes.notificationBall_2}>10</Box>
         )}
-        {iconTitle === "back" && <ArrowLeft className={classes.icn} />}
       </Box>
     </>
   );
