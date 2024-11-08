@@ -63,23 +63,43 @@ h3 {
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .info_left {
-    width: 50%;
-  }
-
-  .info_right {
-    width: 50%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0rem;
     text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .liBox {
+    padding: 0.2rem 0rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    width: 99%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .info_right {
+    width: 100%;
+    justify-content: space-around;
+    padding-right: 0;
   }
   .liBox h4 {
     font-size: 0.7rem;
+    width: 100%;
   }
   .liBox h3 {
     font-size: 0.8rem;
+    width: 100%;
   }
   .btn {
-    width: 4.5rem;
+    justify-content: center;
+    width: 6rem;
     padding: 0.2rem 0.5rem;
     margin: 0rem 0.2rem;
+    margin-bottom: 0.5rem;
     font-size: 0.7rem;
   }
   .btn_icn {

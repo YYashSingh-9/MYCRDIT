@@ -12,3 +12,10 @@
 .innerCover::-webkit-scrollbar {
   display: none;
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .innerCover {
+    max-width: 100%;
+    margin: 0rem;
+  }
+}
