@@ -10,6 +10,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
+import { ArrowLeft } from "@mui/icons-material";
 
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
@@ -17,6 +18,7 @@ const GeneralButton = (props) => {
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
+
   return (
     <>
       <Box className={classes.btnParent}>
@@ -48,6 +50,7 @@ const GeneralButton = (props) => {
         {iconTitle === "pending requests" && notificationState && (
           <Box className={classes.notificationBall_2}>10</Box>
         )}
+        {iconTitle === "back" && <ArrowLeft className={classes.icn} />}
       </Box>
     </>
   );
