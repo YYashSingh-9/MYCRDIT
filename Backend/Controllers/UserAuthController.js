@@ -2,6 +2,8 @@ const customer = require("./Models/customerModel");
 const proprietor = require("./Models/proprietorModel");
 const jwt = require("jsonwebtoken");
 
+const signtoken = (id) => {};
+
 exports.customerAuthentication = async (req, res, next) => {
   const data = await customer.create(req.body);
 
