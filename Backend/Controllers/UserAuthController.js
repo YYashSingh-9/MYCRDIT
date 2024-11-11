@@ -1,5 +1,5 @@
-const customer = require("./Models/customerModel");
-const proprietor = require("./Models/proprietorModel");
+const customer = require("../Models/customerModel");
+const proprietor = require("../Models/proprietorModel");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });

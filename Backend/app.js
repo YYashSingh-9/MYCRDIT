@@ -4,6 +4,7 @@ const xss = require("xss");
 const mongosanitize = require("express-mongo-sanitize");
 const cookieParser = require("cookie-parser");
 const rateLimiter = require("express-rate-limit");
+const customerRouter = require("./Routers/CustomerRouter");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,7 +21,9 @@ const limiter = rateLimiter({
     "Request limits reached from this IP Address, try again after some time.",
 });
 
-app.use("/mycrdit/api/customer", limiter);
+app.use("/mycrdit/api", limiter);
 
-app.use((err, req, res, next) => {});
+//Routes
+app.use("/mycrdit/api/customer", customerRouter);
+// app.use((err, req, res, next) => {});
 module.exports = app;
