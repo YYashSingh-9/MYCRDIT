@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 app.use(mongosanitize());
-app.use(xss());
+// app.use(xss());
 
 const limiter = rateLimiter({
   max: 100,
