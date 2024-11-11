@@ -4,7 +4,10 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: "./config.env" });
 
-const db = process.env.DATABASE.replace("<password>", process.env.DATABASE_PW);
+const db = process.env.DATABASE.replace(
+  "<db_password>",
+  process.env.DATABASE_PW
+);
 
 mongoose
   .connect(db)
