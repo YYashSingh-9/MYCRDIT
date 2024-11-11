@@ -20,7 +20,7 @@ const limiter = rateLimiter({
     "Request limits reached from this IP Address, try again after some time.",
 });
 
-app.use("/mycrdit/api", limiter);
+app.use("/mycrdit/api/customer", limiter);
 
 app.use((err, req, res, next) => {});
 module.exports = app;
