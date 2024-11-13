@@ -17,9 +17,18 @@ const cookieAndToken = (res, user, statuscode) => {
   const cookieOptions = {
     httpOnly: true,
     sameSite: "none",
-    expires: new Date(),
+    expire: new Date(
+      Date.now() + 24 * 60 * 60 * 1000 + process.env.JWT_EXPIRES_IN
+    ),
   };
-  res.cookie("jwt", token);
+
+  if (process.env.NODE_ENV === "Production") cookieOptions.secure = true;
+  res.cookie("jwt", token, cookieOptions);
+  res.status(statuscode).json({
+    status: "Success",
+    data: user,
+    token,
+  });
 };
 
 exports.customerAuthentication = async (req, res, next) => {
@@ -28,11 +37,7 @@ exports.customerAuthentication = async (req, res, next) => {
   if (!data) {
     return next(new Error("unable to create account"));
   }
-
-  res.status(200).json({
-    status: "Success",
-    data: data,
-  });
+  cookieAndToken(res, data, 200);
 };
 
 exports.proprietorAuthentication = async (req, res, next) => {
