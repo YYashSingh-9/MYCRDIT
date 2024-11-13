@@ -2,6 +2,7 @@ const customer = require("../Models/customerModel");
 const proprietor = require("../Models/proprietorModel");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const Proprietor = require("../Models/proprietorModel");
 dotenv.config({ path: "./config.env" });
 
 //Helper functions..
@@ -56,4 +57,12 @@ exports.proprietorAuthentication = async (req, res, next) => {
     next(new Error("Unable to create account, please retry"));
   }
   cookieAndToken(res, data, 200);
+};
+
+exports.proprietorVerification = async (req, res, next) => {
+  const { contactNumber, password } = req.body;
+  if (!contactNumber && password)
+    return next(new Error("Credentials are missing."));
+
+  const user = await proprietor.find();
 };
