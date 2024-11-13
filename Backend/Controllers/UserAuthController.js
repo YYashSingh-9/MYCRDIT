@@ -31,7 +31,7 @@ const cookieAndToken = (res, user, statuscode) => {
   });
 };
 
-exports.customerAuthentication = async (req, res, next) => {
+exports.customerVerification = async (req, res, next) => {
   const data = await customer.create(req.body);
 
   if (!data) {
