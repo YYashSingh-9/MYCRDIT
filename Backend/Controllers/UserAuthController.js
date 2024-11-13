@@ -25,18 +25,27 @@ const cookieAndToken = (res, user, statuscode) => {
   if (process.env.NODE_ENV === "Production") cookieOptions.secure = true;
   res.cookie("jwt", token, cookieOptions);
   res.status(statuscode).json({
-    status: "Success",
+    status: "Successful request.",
     data: user,
     token,
   });
 };
 
-exports.customerVerification = async (req, res, next) => {
+exports.customerAuthentication = async (req, res, next) => {
   const data = await customer.create(req.body);
 
   if (!data) {
     return next(new Error("unable to create account"));
   }
+  cookieAndToken(res, data, 200);
+};
+
+exports.customerVerification = async (req, res, next) => {
+  const { contactNumber } = req.body;
+  if (!contactNumber) next(new Error("Contact number is missing, retry."));
+
+  const data = await customer.find({ contactNumber });
+
   cookieAndToken(res, data, 200);
 };
 

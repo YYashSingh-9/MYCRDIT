@@ -4,6 +4,6 @@ const customerRouter = express.Router();
 
 customerRouter
   .route("/signup-user")
-  .post(userAuthController.customerVerification);
+  .post(userAuthController.customerAuthentication);
 
 module.exports = customerRouter;
