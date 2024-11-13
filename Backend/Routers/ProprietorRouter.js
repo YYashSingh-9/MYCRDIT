@@ -5,3 +5,5 @@ const proprietorRouter = express.Router();
 proprietorRouter
   .route("/proprietor-authentication")
   .post(userAuthController.proprietorAuthentication);
+
+module.exports = proprietorRouter;
