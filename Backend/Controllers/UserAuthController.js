@@ -12,7 +12,9 @@ const signtoken = (id) => {
   return token;
 };
 
-const cookieAndToken = () => {};
+const cookieAndToken = (res, user, statuscode) => {
+  const token = signtoken(user.id);
+};
 
 exports.customerAuthentication = async (req, res, next) => {
   const data = await customer.create(req.body);
