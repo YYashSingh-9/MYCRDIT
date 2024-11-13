@@ -35,7 +35,7 @@ exports.customerAuthentication = async (req, res, next) => {
   const data = await customer.create(req.body);
 
   if (!data) {
-    return next(new Error("unable to create account"));
+    return next(new Error("unable to create account, please retry"));
   }
   cookieAndToken(res, data, 200);
 };
@@ -51,4 +51,8 @@ exports.customerVerification = async (req, res, next) => {
 
 exports.proprietorAuthentication = async (req, res, next) => {
   const data = await proprietor.create(req.body);
+
+  if (!data) {
+    next(new Error("Unable to create account, please retry"));
+  }
 };
