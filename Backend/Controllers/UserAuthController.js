@@ -14,6 +14,12 @@ const signtoken = (id) => {
 
 const cookieAndToken = (res, user, statuscode) => {
   const token = signtoken(user.id);
+  const cookieOptions = {
+    httpOnly: true,
+    sameSite: "none",
+    expires: new Date(),
+  };
+  res.cookie("jwt", token);
 };
 
 exports.customerAuthentication = async (req, res, next) => {
