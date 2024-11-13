@@ -6,4 +6,8 @@ customerRouter
   .route("/signup-user")
   .post(userAuthController.customerAuthentication);
 
+customerRouter
+  .route("/verification-user")
+  .get(userAuthController.customerVerification);
+
 module.exports = customerRouter;
