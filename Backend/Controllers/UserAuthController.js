@@ -55,4 +55,5 @@ exports.proprietorAuthentication = async (req, res, next) => {
   if (!data) {
     next(new Error("Unable to create account, please retry"));
   }
+  cookieAndToken(res, data, 200);
 };
