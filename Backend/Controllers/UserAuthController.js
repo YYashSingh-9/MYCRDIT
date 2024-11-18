@@ -2,6 +2,7 @@ const customer = require("../Models/customerModel");
 const proprietor = require("../Models/proprietorModel");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const { promisify } = require("util");
 const Proprietor = require("../Models/proprietorModel");
 dotenv.config({ path: "./config.env" });
 
@@ -76,6 +77,21 @@ exports.proprietorVerification = async (req, res, next) => {
 };
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
-exports.protect = (req, res, next) => {
+exports.protect = async (req, res, next) => {
   console.log(req.headers);
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+
+  const decodedToken = await promisify(jwt.verify)(
+    token,
+    process.env.JWT_SECRET_CODE
+  );
+  console.log(decodedToken);
+
+  const user = await proprietor.findById(decodedToken.id);
 };
