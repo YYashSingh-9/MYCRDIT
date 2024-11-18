@@ -64,6 +64,6 @@ exports.proprietorVerification = async (req, res, next) => {
   if (!contactNumber && password)
     return next(new Error("Credentials are missing."));
 
-  const user = await proprietor.find();
+  const user = await proprietor.findOne({ contactNumber }).select("+password");
   if (!user) return next(new Error("Could not login. Try again later."));
 };
