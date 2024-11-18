@@ -74,3 +74,6 @@ exports.proprietorVerification = async (req, res, next) => {
   console.log(pwCorrect);
   cookieAndToken(res, user, 200);
 };
+
+//PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
+const protect = (req, res, next) => {};
