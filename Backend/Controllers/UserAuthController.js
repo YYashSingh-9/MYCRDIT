@@ -67,4 +67,10 @@ exports.proprietorVerification = async (req, res, next) => {
   const user = await proprietor.findOne({ contactNumber }).select("+password");
   console.log(user);
   if (!user) return next(new Error("Could not login. Try again later."));
+
+  const pwCorrect = await user.correctPassword(password, user.password);
+  if (!pwCorrect) return next(new Error("Password incorrect retry."));
+
+  console.log(pwCorrect);
+  cookieAndToken(res, user, 200);
 };
