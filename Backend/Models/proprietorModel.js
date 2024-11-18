@@ -79,6 +79,19 @@ const proprietorSchema = mongoose.Schema({
   },
 });
 
+proprietorSchema.pre("save", async function (next) {
+  //1.
+  if (!this.isModified("password")) return next();
+
+  //2.
+  this.password = await bcrypt.hash(this.password, 12);
+
+  //3.
+  this.passwordConfirm = undefined;
+
+  //4.
+  next();
+});
 proprietorSchema.methods.correctPassword = async function (
   enteredPassword,
   user_password
