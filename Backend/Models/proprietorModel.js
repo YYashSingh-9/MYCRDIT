@@ -87,7 +87,7 @@ proprietorSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
 
   //3.
-  this.passwordConfirm = undefined;
+  this.confirmPassword = undefined;
 
   //4.
   next();
