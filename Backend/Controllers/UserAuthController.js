@@ -76,4 +76,6 @@ exports.proprietorVerification = async (req, res, next) => {
 };
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
-const protect = (req, res, next) => {};
+exports.protect = (req, res, next) => {
+  console.log(req.headers);
+};
