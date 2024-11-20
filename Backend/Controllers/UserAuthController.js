@@ -34,34 +34,34 @@ const cookieAndToken = (res, user, statuscode) => {
   });
 };
 
-exports.customerAuthentication = async (req, res, next) => {
+exports.customerAuthentication = catchAsync(async (req, res, next) => {
   const data = await customer.create(req.body);
 
   if (!data) {
     return next(new Error("unable to create account, please retry"));
   }
   cookieAndToken(res, data, 200);
-};
+});
 
-exports.customerVerification = async (req, res, next) => {
+exports.customerVerification = catchAsync(async (req, res, next) => {
   const { contactNumber } = req.body;
   if (!contactNumber) next(new Error("Contact number is missing, retry."));
 
   const data = await customer.find({ contactNumber });
 
   cookieAndToken(res, data, 200);
-};
+});
 
-exports.proprietorAuthentication = async (req, res, next) => {
+exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
 
   if (!data) {
     next(new Error("Unable to create account, please retry"));
   }
   cookieAndToken(res, data, 200);
-};
+});
 
-exports.proprietorVerification = async (req, res, next) => {
+exports.proprietorVerification = catchAsync(async (req, res, next) => {
   const { contactNumber, password } = req.body;
   if (!contactNumber && password)
     return next(new Error("Credentials are missing."));
@@ -75,10 +75,10 @@ exports.proprietorVerification = async (req, res, next) => {
 
   console.log(pwCorrect);
   cookieAndToken(res, user, 200);
-};
+});
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
-exports.protect = async (req, res, next) => {
+exports.protect = catchAsync(async (req, res, next) => {
   console.log(req.headers);
   let token;
   if (
@@ -97,4 +97,4 @@ exports.protect = async (req, res, next) => {
 
   req.user = user;
   next();
-};
+});
