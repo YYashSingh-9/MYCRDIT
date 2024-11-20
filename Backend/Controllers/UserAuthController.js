@@ -1,5 +1,6 @@
 const customer = require("../Models/customerModel");
 const proprietor = require("../Models/proprietorModel");
+const catchAsync = require("../Utilities/catchAsync");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { promisify } = require("util");
