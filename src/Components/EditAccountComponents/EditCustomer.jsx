@@ -4,7 +4,8 @@ import { TextField, Box } from "@mui/material";
 import { Form } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 
-const EditCustomer = () => {
+const EditCustomer = (props) => {
+  const { titleNHtmlFor, btnLink } = props;
   return (
     <>
       <BasicCoverDiv heading={"Update your"} heading_highlight={" Information"}>
@@ -47,6 +48,7 @@ const EditCustomer = () => {
           </Box>
         </Form>
       </BasicCoverDiv>
+      <Box>{titleNHtmlFor.map((el, i) => {})}</Box>
     </>
   );
 };
