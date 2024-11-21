@@ -48,7 +48,19 @@ const EditCustomer = (props) => {
           </Box>
         </Form>
       </BasicCoverDiv>
-      <Box>{titleNHtmlFor.map((el, i) => {})}</Box>
+      <Box>
+        {titleNHtmlFor.map((el, i) => {
+          return (
+            <>
+              <label htmlFor={el.titleNHtmlFor}>{el.titleNHtmlFor}</label>
+              <br />
+
+              <TextField id="outlined" />
+              <hr />
+            </>
+          );
+        })}
+      </Box>
     </>
   );
 };
