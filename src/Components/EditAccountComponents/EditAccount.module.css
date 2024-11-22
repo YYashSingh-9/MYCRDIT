@@ -1,0 +1,42 @@
+.form_main {
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.form_main input {
+  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  width: 30rem;
+}
+
+.form_main label {
+  color: #404040;
+  font-family: "poppins";
+  font-weight: 400;
+}
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .form_main input {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.8rem;
+    width: 12rem;
+  }
+  .form_main label {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .form_main input {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.9rem;
+    width: 20rem;
+  }
+  .form_main label {
+    font-size: 0.9rem;
+  }
+}
