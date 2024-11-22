@@ -1,9 +1,16 @@
 import EditAccount from "../EditAccountComponents";
 
 const CustomerAccountEdit = () => {
-  const titles = [""];
+  const titles = ["Customer Name", "Customer Number", "Customer ID"];
 
-  return <></>;
+  return (
+    <>
+      <EditAccount
+        titleNHtmlFor={titles}
+        bck_btnLink={"/your-account-details"}
+      />
+    </>
+  );
 };
 
-export default UserAccountEdit;
+export default CustomerAccountEdit;

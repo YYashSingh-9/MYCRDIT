@@ -5,7 +5,7 @@ import { Form } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const EditCustomer = (props) => {
-  const { titleNHtmlFor, btnLink } = props;
+  const { titleNHtmlFor, bck_btnLink } = props;
   return (
     <>
       <BasicCoverDiv heading={"Update your"} heading_highlight={" Information"}>
