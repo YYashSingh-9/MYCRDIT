@@ -68,31 +68,46 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
+
+          {accountType === "customer" ? (
+            <Link to={"/your-history-details"}>
+              <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
+            </Link>
+          ) : (
+            <Link to={"/your-history-details"}>
+              <GeneralButton
+                icnTitle={"history"}
+                btn_title={"All Cleared Debts"}
+              />
+            </Link>
+          )}
+          {accountType === "customer" ? (
+            <Link to={"/my-current-score"}>
+              <GeneralButton icnTitle={"money"} btn_title={"MCS System"} />
+            </Link>
+          ) : (
+            <Link to={"/review-form"}>
+              <GeneralButton
+                icnTitle={"review"}
+                btn_title={"Share your view"}
+              />
+            </Link>
+          )}
           {accountType === "customer" ? (
             <Link to={"/edit-customer-info"}>
-              <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
+              <GeneralButton
+                icnTitle={"edit account"}
+                btn_title={"Edit account"}
+              />
             </Link>
           ) : (
-            <Link to={"/your-history-details"}>
+            <Link to={"/edit-proprietor-info"}>
               <GeneralButton
-                icnTitle={"history"}
-                btn_title={"All Cleared Debts"}
+                icnTitle={"edit account"}
+                btn_title={"Edit account"}
               />
             </Link>
           )}
-          {accountType === "customer" ? (
-            <Link to={"/your-history-details"}>
-              <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
-            </Link>
-          ) : (
-            <Link to={"/your-history-details"}>
-              <GeneralButton
-                icnTitle={"history"}
-                btn_title={"All Cleared Debts"}
-              />
-            </Link>
-          )}
-
           {accountType === "customer" ? (
             <Link to={"/my-running-debts"}>
               <GeneralButton
@@ -105,19 +120,6 @@ const AccountInfoPart = (props) => {
           ) : (
             <Link to={"/my-shop-info"}>
               <GeneralButton icnTitle={"shopInfo"} btn_title={"Shop Info"} />
-            </Link>
-          )}
-
-          {accountType === "customer" ? (
-            <Link to={"/my-current-score"}>
-              <GeneralButton icnTitle={"money"} btn_title={"MCS System"} />
-            </Link>
-          ) : (
-            <Link to={"/review-form"}>
-              <GeneralButton
-                icnTitle={"review"}
-                btn_title={"Share your view"}
-              />
             </Link>
           )}
 
