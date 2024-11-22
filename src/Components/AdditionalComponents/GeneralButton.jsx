@@ -8,6 +8,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { ArrowLeft } from "@mui/icons-material";
@@ -43,6 +44,9 @@ const GeneralButton = (props) => {
           )}
           {iconTitle === "pending requests" && (
             <ListAltIcon className={classes.icn} />
+          )}
+          {iconTitle === "edit account" && (
+            <DriveFileRenameOutlineIcon className={classes.icn} />
           )}
 
           {props.btn_title}

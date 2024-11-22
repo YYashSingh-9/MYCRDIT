@@ -69,6 +69,18 @@ const AccountInfoPart = (props) => {
             </Link>
           )}
           {accountType === "customer" ? (
+            <Link to={"/edit-customer-info"}>
+              <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
+            </Link>
+          ) : (
+            <Link to={"/your-history-details"}>
+              <GeneralButton
+                icnTitle={"history"}
+                btn_title={"All Cleared Debts"}
+              />
+            </Link>
+          )}
+          {accountType === "customer" ? (
             <Link to={"/your-history-details"}>
               <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
             </Link>
