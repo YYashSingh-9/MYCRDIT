@@ -1,5 +1,5 @@
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import classes from "./EditCustomer.module.css";
+import classes from "./EditAccount.module.css";
 import { TextField, Box } from "@mui/material";
 import { Form } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";

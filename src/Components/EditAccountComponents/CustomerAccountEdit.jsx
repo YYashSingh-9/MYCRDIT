@@ -1,4 +1,4 @@
-import EditAccount from "../EditAccountComponents";
+import EditAccount from "../EditAccountComponents/EditAccount";
 
 const CustomerAccountEdit = () => {
   const titles = ["Customer Name", "Customer Number", "Customer ID"];

@@ -16,6 +16,7 @@ import ReviewNFeedback from "./Components/AdditionalComponents/ReviewNFeedback.j
 import EditForm from "./Components/MinorComponents/EditForm.jsx";
 import OTPpage from "./Components/SignupAndAuthentication/OTPpage.jsx";
 import NoteRequestPage from "./Components/UserUIComponents/NoteRequestPage.jsx";
+import CustomerAccountEdit from "./Components/EditAccountComponents/CustomerAccountEdit.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
       { path: "/review-form", element: <ReviewNFeedback /> },
       { path: "/edit-shop-details", element: <EditForm /> },
       { path: "/my-note-requests", element: <NoteRequestPage /> },
+      { path: "/edit-customer-info", element: <CustomerAccountEdit /> },
     ],
   },
 ]);
