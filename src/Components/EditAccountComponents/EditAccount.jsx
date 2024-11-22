@@ -24,7 +24,7 @@ const EditCustomer = (props) => {
 
           <Box className={classes.btnBox}>
             <GeneralButton typeBtn="submit" btn_title="Save" />
-            <Link to={"/my-shop-info"}>
+            <Link to={bck_btnLink}>
               <GeneralButton typeBtn="button" btn_title="Back" />
             </Link>
           </Box>

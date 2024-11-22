@@ -5,7 +5,10 @@ const ProprietorAccountEdit = () => {
 
   return (
     <>
-      <EditAccount />
+      <EditAccount
+        titleNHtmlFor={titles}
+        bck_btnLink={"your-account-details"}
+      />
     </>
   );
 };
