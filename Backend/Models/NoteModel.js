@@ -6,6 +6,10 @@ const noteSchema = mongoose.Schema({
     required: true,
     minLength: [5, "Minimum 5 characters are required."],
   },
+  proprietorId: {
+    type: mongoose.Schema.ObjectId,
+    required: true,
+  },
   customerName: {
     type: String,
     required: [true, "Provde customer name."],
