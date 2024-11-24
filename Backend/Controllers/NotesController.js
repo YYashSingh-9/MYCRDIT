@@ -27,3 +27,5 @@ exports.createNote = catchAsync(async (req, res, next) => {
     data: doc,
   });
 });
+
+exports.notePaidController = catchAsync(async (req, res, next) => {});
