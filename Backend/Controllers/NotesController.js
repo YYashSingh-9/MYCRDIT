@@ -3,7 +3,7 @@ const paidNote = require("../Models/paidNoteModel");
 const catchAsync = require("../Utilities/catchAsync");
 
 //Proprietor
-const allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
+exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
   const { propId } = req.body;
 
   if (!propId) return next(new Error("Proprietor Id missing"));
@@ -14,3 +14,5 @@ const allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
     status: "Success",
   });
 });
+
+exports.createNote = catchAsync(async (req, res, next) => {});
