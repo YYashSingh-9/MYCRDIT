@@ -15,4 +15,15 @@ exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createNote = catchAsync(async (req, res, next) => {});
+exports.createNote = catchAsync(async (req, res, next) => {
+  if (!req.body)
+    return next(
+      new Error("Content required to create note is missing, retry.")
+    );
+
+  const doc = await debtNote.create(req.body);
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
