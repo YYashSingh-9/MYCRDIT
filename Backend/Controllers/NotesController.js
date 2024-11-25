@@ -51,7 +51,7 @@ exports.createNoteMiddleware = (req, res, next) => {
 
   const dummyDoc1 = { ...doc };
 
-  const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: true };
+  const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: false };
 
   req.body = dummydoc2;
   console.log(dummydoc2);

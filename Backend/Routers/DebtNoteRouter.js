@@ -7,5 +7,8 @@ NoteRouter.route("/get-all-notes").get(
   NotesController.allRunningNotes_proprietor
 );
 
-NoteRouter.route("/create-note").post(NotesController.createNote);
+NoteRouter.route("/create-note").post(
+  NotesController.createNoteMiddleware,
+  NotesController.createNote
+);
 module.exports = NoteRouter;
