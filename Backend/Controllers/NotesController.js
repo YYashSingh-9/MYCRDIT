@@ -55,5 +55,6 @@ exports.createNoteMiddleware = (req, res, next) => {
 
   req.body = dummydoc2;
   console.log(dummydoc2);
+  console.log(dummyDoc1);
   next();
 };
