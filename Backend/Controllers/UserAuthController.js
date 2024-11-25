@@ -4,7 +4,6 @@ const catchAsync = require("../Utilities/catchAsync");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { promisify } = require("util");
-const Proprietor = require("../Models/proprietorModel");
 dotenv.config({ path: "./config.env" });
 
 //Helper functions..

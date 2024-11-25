@@ -8,10 +8,11 @@ exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
 
   if (!propId) return next(new Error("Proprietor Id missing"));
 
-  const doc = debtNote.find({ proprietorId: { $in: propId } });
+  const doc = await debtNote.find({ proprietorId: { $in: propId } });
 
   res.status(200).json({
     status: "Success",
+    data: doc,
   });
 });
 
@@ -54,7 +55,5 @@ exports.createNoteMiddleware = (req, res, next) => {
   const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: false };
 
   req.body = dummydoc2;
-  console.log(dummydoc2);
-  console.log(dummyDoc1);
   next();
 };
