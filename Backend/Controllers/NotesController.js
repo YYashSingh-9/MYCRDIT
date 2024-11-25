@@ -42,4 +42,6 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
       new: True,
     }
   );
+  console.log(note);
+  next();
 });
