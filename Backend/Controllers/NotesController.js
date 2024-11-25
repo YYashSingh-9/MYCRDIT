@@ -32,17 +32,17 @@ exports.createNote = catchAsync(async (req, res, next) => {
 exports.notePaidController = catchAsync(async (req, res, next) => {
   const { id } = req.body;
 
-  console.log(req.body, "💖💖💖", req);
+  console.log(req.body, "💖💖💖", req.user);
 
   if (!id) return next(new Error("Some credentials are missing, retry."));
 
   //1.
   const doc = await debtNote.findOneAndUpdate(
     { _id: id },
-    { cleared: True },
+    { cleared: true },
     {
-      runValidators: True,
-      new: True,
+      runValidators: true,
+      new: true,
     }
   );
   console.log(doc);

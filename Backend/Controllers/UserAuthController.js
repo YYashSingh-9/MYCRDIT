@@ -90,13 +90,15 @@ exports.protect = catchAsync(async (req, res, next) => {
   if (!token) {
     return next(new Error("Can't indentify token, retry"));
   }
-  const decodedToken = await promisify(jwt.verify)(
-    token,
-    process.env.JWT_SECRET_CODE
-  );
-
+  // const decodedToken = await promisify(jwt.verify)(
+  //   token,
+  //   process.env.JWT_SECRET_CODE
+  // );
+  const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
+  console.log(decodedToken);
   const user = await proprietor.findById(decodedToken.id);
 
   req.user = user;
+  console.log(user, req.user);
   next();
 });
