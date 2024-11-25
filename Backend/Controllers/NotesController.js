@@ -45,3 +45,15 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
   console.log(note);
   next();
 });
+
+exports.createNoteMiddleware = (req, res, next) => {
+  const doc = req.body;
+
+  const dummyDoc1 = { ...doc };
+
+  const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: true };
+
+  req.body = dummydoc2;
+  console.log(dummydoc2);
+  next();
+};
