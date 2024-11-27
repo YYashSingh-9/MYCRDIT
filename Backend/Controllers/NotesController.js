@@ -34,7 +34,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
 
   if (!id) return next(new Error("Some credentials are missing, retry."));
 
-  //1.
+  //1. changing cleared status.
   const doc = await debtNote.findOneAndUpdate(
     { proprietorId: id },
     { cleared: true },
@@ -43,7 +43,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
       new: true,
     }
   );
-  //2. adding this to paidNoteModel
+  //2. adding this to paidNoteModel.
 
   res.status(200).json({
     status: "Success",
