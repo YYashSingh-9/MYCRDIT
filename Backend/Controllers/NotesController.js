@@ -43,7 +43,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
       new: true,
     }
   );
-  console.log(doc);
+  //2. adding this to paidNoteModel
 
   res.status(200).json({
     status: "Success",
@@ -61,3 +61,6 @@ exports.createNoteMiddleware = (req, res, next) => {
   req.body = dummydoc2;
   next();
 };
+
+//2. CUSTOMER
+exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {});
