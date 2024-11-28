@@ -30,13 +30,14 @@ exports.createNote = catchAsync(async (req, res, next) => {
 });
 
 exports.notePaidController = catchAsync(async (req, res, next) => {
-  const { id } = req.body;
+  const { debtNote_Id } = req.body;
 
-  if (!id) return next(new Error("Some credentials are missing, retry."));
+  if (!debtNote_Id)
+    return next(new Error("Some credentials are missing, retry."));
 
   //1. changing cleared status.
   const doc = await debtNote.findOneAndUpdate(
-    { proprietorId: id },
+    { proprietorId: debtNote_Id },
     { cleared: true },
     {
       runValidators: true,
@@ -44,10 +45,11 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
     }
   );
   //2. adding this to paidNoteModel.
+  const doc2 = await paidNote.create(req.body);
 
   res.status(200).json({
     status: "Success",
-    data: doc,
+    data: doc2,
   });
 });
 
