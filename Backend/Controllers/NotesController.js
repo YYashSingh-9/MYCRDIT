@@ -54,10 +54,26 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
 });
 
 exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
-  const { paymentDate } = req.body;
+  const { paymentDate, debtNote_Id } = req.body;
+  let seconds, minutes, hours, days;
   const dummyObj = {};
 
-  const date_1 = new Date(paymentDate);
+  //1.
+  const doc = await debtNote.findById(debtNote_Id);
+
+  //2.
+  const date_Old = new Date(doc.date); // Date of note creation
+  const date_New = new Date(paymentDate); // Date of payment
+
+  //3.
+  const totalMilliseconds = date_New - date_Old;
+  seconds = parseInt(Math.floor(totalMilliseconds / 1000));
+  minutes = parseInt(Math.floor(seconds / 60));
+  hours = parseInt(Math.floor(minutes / 60));
+  days = parseInt(Math.floor(hours / 24));
+
+  const lengthOfPayment = days;
+  const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
 });
 
 exports.createNoteMiddleware = (req, res, next) => {
