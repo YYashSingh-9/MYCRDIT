@@ -95,12 +95,8 @@ exports.protect = catchAsync(async (req, res, next) => {
   //   process.env.JWT_SECRET_CODE
   // );
 
-  console.log(process.env.JWT_SECRET_CODE);
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
-  console.log(decodedToken);
   const user = await proprietor.findById(decodedToken.id);
-
   req.user = user;
-  console.log(user, req.user);
   next();
 });
