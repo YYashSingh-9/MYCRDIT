@@ -14,5 +14,5 @@ NoteRouter.route("/create-note").post(
   NotesController.createNote
 );
 
-NoteRouter.route("/note-payment").patch(NotesController.notePaidController);
+NoteRouter.route("/note-payment").post(NotesController.notePaidController);
 module.exports = NoteRouter;

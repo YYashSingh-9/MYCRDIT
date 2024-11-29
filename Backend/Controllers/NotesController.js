@@ -53,6 +53,13 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
+  const { paymentDate } = req.body;
+  const dummyObj = {};
+
+  const date_1 = new Date(paymentDate);
+});
+
 exports.createNoteMiddleware = (req, res, next) => {
   const doc = req.body;
 
