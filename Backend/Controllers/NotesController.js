@@ -54,9 +54,8 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
 });
 
 exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
-  const { paymentDate, debtNote_Id } = req.body;
+  const { paymentDate, debtNote_Id, customerNumber } = req.body;
   let seconds, minutes, hours, days;
-  const dummyObj = {};
 
   //1.
   const doc = await debtNote.findById(debtNote_Id);
@@ -74,6 +73,17 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
 
   const lengthOfPayment = days;
   const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
+
+  const dummyObj = {
+    debtNote_Id: debtNote_Id,
+    customerNumber: customerNumber,
+    paymentDate: paymentDate,
+    thirtyDayPayment: thirtyDayPayment,
+    lengthOfDebt: lengthOfPayment,
+  };
+
+  req.body = dummyObj;
+  next();
 });
 
 exports.createNoteMiddleware = (req, res, next) => {
