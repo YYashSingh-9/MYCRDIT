@@ -67,7 +67,10 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
   const date_old_ms = date_Old.getMilliseconds();
   const date_New_ms = date_New.getMilliseconds();
 
+  const newDateInMilliseconds = date_New_ms - date_old_ms;
+
   console.log("First log -> Dates", date_Old, date_New);
+  console.log("Second log -> ", newDateInMilliseconds);
 
   //3.
   const totalMilliseconds = date_New - date_Old;
