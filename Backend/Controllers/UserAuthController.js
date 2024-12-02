@@ -66,19 +66,16 @@ exports.proprietorVerification = catchAsync(async (req, res, next) => {
     return next(new Error("Credentials are missing."));
 
   const user = await proprietor.findOne({ contactNumber }).select("+password");
-  console.log(user);
   if (!user) return next(new Error("Could not login. Try again later."));
 
   const pwCorrect = await user.correctPassword(password, user.password);
   if (!pwCorrect) return next(new Error("Password incorrect retry."));
 
-  console.log(pwCorrect);
   cookieAndToken(res, user, 200);
 });
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
 exports.protect = catchAsync(async (req, res, next) => {
-  console.log(req.headers);
   let token;
   if (
     req.headers.authorization &&
