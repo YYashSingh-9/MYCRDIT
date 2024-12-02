@@ -18,4 +18,7 @@ NoteRouter.route("/note-payment").post(
   NotesController.paidNotePre_Controller,
   NotesController.notePaidController
 );
+NoteRouter.route("/note-approval-request").patch(
+  NotesController.acceptingNoteMiddleware
+);
 module.exports = NoteRouter;

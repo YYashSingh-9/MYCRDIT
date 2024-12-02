@@ -93,7 +93,12 @@ exports.protect = catchAsync(async (req, res, next) => {
   // );
 
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
-  const user = await proprietor.findById(decodedToken.id);
+  let user = await proprietor.findById(decodedToken.id);
+  if (!user) {
+    user = await customer.findById(decodedToken.id);
+  } else {
+    return next(new Error("Some error occured while checking. Retry."));
+  }
   req.user = user;
   next();
 });
