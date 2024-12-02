@@ -71,12 +71,17 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
   hours = parseInt(Math.round(minutes / 60));
   days = parseInt(Math.round(hours / 24));
 
-  console.log("Log-> 2 timelines ", seconds, minutes, hours, days);
+  console.log(
+    "Log-> 2 timelines ",
+    totalMilliseconds,
+    seconds,
+    minutes,
+    hours,
+    days
+  );
 
   const lengthOfPayment = days;
   const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
-
-  console.log("log-> 322", lengthOfPayment, thirtyDayPayment);
 
   const dummyObj = {
     debtNote_Id: debtNote_Id,
