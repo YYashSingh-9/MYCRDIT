@@ -71,15 +71,6 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
   hours = parseInt(Math.round(minutes / 60));
   days = parseInt(Math.round(hours / 24));
 
-  console.log(
-    "Log-> 2 timelines ",
-    totalMilliseconds,
-    seconds,
-    minutes,
-    hours,
-    days
-  );
-
   const lengthOfPayment = days;
   const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
 
@@ -107,4 +98,20 @@ exports.createNoteMiddleware = (req, res, next) => {
 };
 
 //2. CUSTOMER
-exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {});
+exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {
+  const { noteId } = req.body;
+
+  const doc = await debtNote.findOneAndUpdate(
+    { _id: noteId },
+    { acceptanceStatus: true },
+    {
+      runValidators: true,
+      new: true,
+    }
+  );
+
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
