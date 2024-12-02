@@ -64,27 +64,19 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
   const date_Old = new Date(doc.date); // Date of note creation
   const date_New = new Date(paymentDate); // Date of payment
 
-  const date_old_ms = date_Old.getMilliseconds();
-  const date_New_ms = date_New.getMilliseconds();
-
-  const newDateInMilliseconds = date_New_ms - date_old_ms;
-
-  console.log("First log -> Dates", date_Old, date_New);
-  console.log("Second log -> ", newDateInMilliseconds);
-
   //3.
   const totalMilliseconds = date_New - date_Old;
-  seconds = parseInt(Math.floor(totalMilliseconds / 1000));
-  minutes = parseInt(Math.floor(seconds / 60));
-  hours = parseInt(Math.floor(minutes / 60));
-  days = parseInt(Math.floor(hours / 24));
+  seconds = parseInt(Math.round(totalMilliseconds / 1000));
+  minutes = parseInt(Math.round(seconds / 60));
+  hours = parseInt(Math.round(minutes / 60));
+  days = parseInt(Math.round(hours / 24));
 
   console.log("Log-> 2 timelines ", seconds, minutes, hours, days);
 
   const lengthOfPayment = days;
   const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
 
-  console.log("log-> 3", lengthOfPayment, thirtyDayPayment);
+  console.log("log-> 322", lengthOfPayment, thirtyDayPayment);
 
   const dummyObj = {
     debtNote_Id: debtNote_Id,
