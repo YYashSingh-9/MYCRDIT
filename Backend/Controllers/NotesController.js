@@ -139,10 +139,10 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
     acceptanceStatus: { $in: true },
   });
 
-  // const do
+  const finalDoc = requestFor === "accepted notes" ? doc : doc2;
 
   res.status(200).json({
     status: "Success",
-    data: doc,
+    data: finalDoc,
   });
 });
