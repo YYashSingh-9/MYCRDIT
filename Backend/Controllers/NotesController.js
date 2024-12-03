@@ -115,3 +115,22 @@ exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {
     data: doc,
   });
 });
+
+exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
+  const { customerNumber } = req.body;
+
+  if (!customerNumber)
+    return next(
+      new Error(
+        "Some error occured while checking data from user side, check and retry."
+      )
+    );
+  const doc = await debtNote.find({
+    customerNumber: { $in: customerNumber },
+    cleared: { $in: false },
+  });
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
