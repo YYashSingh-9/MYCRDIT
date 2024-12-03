@@ -117,7 +117,7 @@ exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
-  const { customerNumber } = req.body;
+  const { customerNumber, requestFor } = req.body;
 
   if (!customerNumber)
     return next(
@@ -125,11 +125,22 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
         "Some error occured while checking data from user side, check and retry."
       )
     );
+
+  //1. All accepted but not paid notes.
   const doc = await debtNote.find({
     customerNumber: { $in: customerNumber },
     cleared: { $in: false },
     acceptanceStatus: { $in: true },
   });
+
+  //2. All not accepted and not paid notes.
+  const doc2 = await debtNote.find({
+    customerNumber: { $in: customerNumber },
+    acceptanceStatus: { $in: true },
+  });
+
+  // const do
+
   res.status(200).json({
     status: "Success",
     data: doc,
