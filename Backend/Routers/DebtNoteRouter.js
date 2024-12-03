@@ -26,4 +26,9 @@ NoteRouter.route("/note-approval-request").patch(
   UserAuthController.customerProtectMiddleware,
   NotesController.acceptingNoteMiddleware
 );
+
+NoteRouter.route("/all-pending-notes").get(
+  UserAuthController.customerProtectMiddleware,
+  NotesController.getAllPendingNotes
+);
 module.exports = NoteRouter;

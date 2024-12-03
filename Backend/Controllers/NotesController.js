@@ -128,6 +128,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
   const doc = await debtNote.find({
     customerNumber: { $in: customerNumber },
     cleared: { $in: false },
+    acceptanceStatus: { $in: true },
   });
   res.status(200).json({
     status: "Success",
