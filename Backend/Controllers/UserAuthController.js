@@ -102,3 +102,31 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = user;
   next();
 });
+
+exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+
+  if (!token) {
+    return next(new Error("Can't indentify token, retry"));
+  }
+  // const decodedToken = await promisify(jwt.verify)(
+  //   token,
+  //   process.env.JWT_SECRET_CODE
+  // );
+
+  const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
+  const user = await proprietor.findById(decodedToken.id);
+  // if (!user) {
+  //   user = await customer.findById(decodedToken.id);
+  // } else {
+  //   return next(new Error("Some error occured while checking. Retry."));
+  // }
+  req.user = user;
+  next();
+});
