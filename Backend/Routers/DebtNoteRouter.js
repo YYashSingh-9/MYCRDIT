@@ -35,4 +35,9 @@ NoteRouter.route("/all-pending-notes").get(
   UserAuthController.customerProtectMiddleware,
   NotesController.getAllPendingNotes
 );
+
+NoteRouter.route("/all-cleared-notes").get(
+  UserAuthController.customerProtectMiddleware,
+  NotesController.getAllClearedNotes
+);
 module.exports = NoteRouter;

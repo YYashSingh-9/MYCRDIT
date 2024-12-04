@@ -164,6 +164,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
   });
 });
 
+//History..
 exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
   const { customerNumber } = req.body;
 
