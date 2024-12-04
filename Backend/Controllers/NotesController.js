@@ -170,7 +170,10 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
 
   if (!customerNumber)
     return next(new Error("Customer number missing from client side, retry."));
-  const doc = find({ customerNumber: { $in: customerNumber } });
+  const doc = await debtNote.find({
+    customerNumber: { $in: customerNumber },
+    cleared: { $in: true },
+  });
 
   res.status(200).json({
     status: "Success",
