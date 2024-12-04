@@ -136,7 +136,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
   //2. All not accepted and not paid notes.
   const doc2 = await debtNote.find({
     customerNumber: { $in: customerNumber },
-    acceptanceStatus: { $in: true },
+    acceptanceStatus: { $in: false },
   });
 
   const finalDoc = requestFor === "accepted notes" ? doc : doc2;
