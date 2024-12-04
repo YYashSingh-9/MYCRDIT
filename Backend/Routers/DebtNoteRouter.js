@@ -9,6 +9,10 @@ NoteRouter.route("/get-all-notes").get(
   NotesController.allRunningNotes_proprietor
 );
 
+NoteRouter.route("/get-all-cleared-notes").get(
+  UserAuthController.protect,
+  NotesController.allClearedNotes
+);
 NoteRouter.route("/create-note").post(
   UserAuthController.protect,
   NotesController.createNoteMiddleware,

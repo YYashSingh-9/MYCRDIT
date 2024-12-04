@@ -163,3 +163,16 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
     data: finalDoc,
   });
 });
+
+exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
+  const { customerNumber } = req.body;
+
+  if (!customerNumber)
+    return next(new Error("Customer number missing from client side, retry."));
+  const doc = find({ customerNumber: { $in: customerNumber } });
+
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
