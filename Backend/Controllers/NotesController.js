@@ -16,6 +16,23 @@ exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.allClearedNotes = catchAsync(async (req, res, next) => {
+  const { proprietorId } = req.body;
+
+  if (!proprietorId)
+    return next(new Error("Proprietor Id id missing from client side, retry."));
+
+  const doc = await debtNote.find({
+    proprietorId: { $in: proprietorId },
+    cleared: { $in: true },
+  });
+
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
+});
+
 exports.createNote = catchAsync(async (req, res, next) => {
   if (!req.body)
     return next(
