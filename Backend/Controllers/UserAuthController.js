@@ -94,6 +94,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
     });
   }
 });
+
 // PROPRIETOR...
 exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
