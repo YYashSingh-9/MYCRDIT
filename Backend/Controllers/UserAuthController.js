@@ -52,16 +52,37 @@ exports.customerVerification = catchAsync(async (req, res, next) => {
   cookieAndToken(res, data, 200);
 });
 
-exports.updateCustomer =
-  // PROPRIETOR...
-  exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
-    const data = await proprietor.create(req.body);
+exports.updateUserInfo = catchAsync(async (req, res, next) => {
+  let contact_number, name;
+  //1. checking if user is proprietor
+  if (req.userType === "Proprietor") {
+    contact_number = req.body.contactNumber;
+    name = req.body.ProprietorName;
 
-    if (!data) {
-      next(new Error("Unable to create account, please retry"));
-    }
-    cookieAndToken(res, data, 200);
-  });
+    const doc = await proprietor.findByIdAndUpdate(
+      req.user._id,
+      {
+        contactNumber: contact_number,
+        ProprietorName: name,
+      },
+      { runValidators: true, new: true }
+    );
+
+    res.status(200).json({
+      status: "Success",
+      data: doc,
+    });
+  }
+});
+// PROPRIETOR...
+exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
+  const data = await proprietor.create(req.body);
+
+  if (!data) {
+    next(new Error("Unable to create account, please retry"));
+  }
+  cookieAndToken(res, data, 200);
+});
 
 exports.proprietorVerification = catchAsync(async (req, res, next) => {
   const { contactNumber, password } = req.body;
@@ -96,7 +117,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   req.userType = "Proprietor";
   req.user = user;
-  console.log(req);
   next();
 });
 

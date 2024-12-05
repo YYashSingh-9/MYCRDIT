@@ -16,4 +16,8 @@ proprietorRouter.use(userAuthController.protect);
 proprietorRouter
   .route("/share-your-review")
   .post(ProprietorReviewController.createReview);
+
+proprietorRouter
+  .route("/edit-proprietor")
+  .post(userAuthController.updateUserInfo);
 module.exports = proprietorRouter;
