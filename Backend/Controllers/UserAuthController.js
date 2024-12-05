@@ -73,6 +73,26 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
       data: doc,
     });
   }
+
+  //2. Checking if user is customer
+  if (req.userType === "customer") {
+    contact_number = req.body.contactNumber;
+    name = req.body.customerName;
+
+    const doc = await customer.findByIdAndUpdate(
+      req.user._id,
+      {
+        contactNumber: contact_number,
+        customerName: name,
+      },
+      { runValidators: true, new: true }
+    );
+
+    res.status(200).json({
+      status: "Success",
+      data: doc,
+    });
+  }
 });
 // PROPRIETOR...
 exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
