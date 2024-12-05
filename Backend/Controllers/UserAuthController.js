@@ -52,15 +52,16 @@ exports.customerVerification = catchAsync(async (req, res, next) => {
   cookieAndToken(res, data, 200);
 });
 
-// PROPRIETOR...
-exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
-  const data = await proprietor.create(req.body);
+exports.updateCustomer =
+  // PROPRIETOR...
+  exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
+    const data = await proprietor.create(req.body);
 
-  if (!data) {
-    next(new Error("Unable to create account, please retry"));
-  }
-  cookieAndToken(res, data, 200);
-});
+    if (!data) {
+      next(new Error("Unable to create account, please retry"));
+    }
+    cookieAndToken(res, data, 200);
+  });
 
 exports.proprietorVerification = catchAsync(async (req, res, next) => {
   const { contactNumber, password } = req.body;
@@ -93,7 +94,9 @@ exports.protect = catchAsync(async (req, res, next) => {
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
   const user = await proprietor.findById(decodedToken.id);
 
+  req.userType = "Proprietor";
   req.user = user;
+  console.log(req);
   next();
 });
 
@@ -111,7 +114,8 @@ exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
   }
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
   const user = await proprietor.findById(decodedToken.id);
-
+  req.userType = "Customer";
   req.user = user;
+
   next();
 });
