@@ -33,6 +33,7 @@ const cookieAndToken = (res, user, statuscode) => {
   });
 };
 
+// CUSTOMER...
 exports.customerAuthentication = catchAsync(async (req, res, next) => {
   const data = await customer.create(req.body);
 
@@ -51,6 +52,7 @@ exports.customerVerification = catchAsync(async (req, res, next) => {
   cookieAndToken(res, data, 200);
 });
 
+// PROPRIETOR...
 exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
 
@@ -87,18 +89,10 @@ exports.protect = catchAsync(async (req, res, next) => {
   if (!token) {
     return next(new Error("Can't indentify token, retry"));
   }
-  // const decodedToken = await promisify(jwt.verify)(
-  //   token,
-  //   process.env.JWT_SECRET_CODE
-  // );
 
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
   const user = await proprietor.findById(decodedToken.id);
-  // if (!user) {
-  //   user = await customer.findById(decodedToken.id);
-  // } else {
-  //   return next(new Error("Some error occured while checking. Retry."));
-  // }
+
   req.user = user;
   next();
 });
@@ -115,18 +109,9 @@ exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
   if (!token) {
     return next(new Error("Can't indentify token, retry"));
   }
-  // const decodedToken = await promisify(jwt.verify)(
-  //   token,
-  //   process.env.JWT_SECRET_CODE
-  // );
-
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
   const user = await proprietor.findById(decodedToken.id);
-  // if (!user) {
-  //   user = await customer.findById(decodedToken.id);
-  // } else {
-  //   return next(new Error("Some error occured while checking. Retry."));
-  // }
+
   req.user = user;
   next();
 });
