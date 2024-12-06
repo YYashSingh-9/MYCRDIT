@@ -77,7 +77,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
   }
 
   //2. Checking if user is customer
-  if (req.userType === "customer") {
+  if (req.userType === "Customer") {
     console.log("running");
     contact_number = req.body.contactNumber;
     name = req.body.customerName;
