@@ -76,6 +76,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
 
   //2. Checking if user is customer
   if (req.userType === "customer") {
+    console.log("running");
     contact_number = req.body.contactNumber;
     name = req.body.customerName;
 
@@ -154,9 +155,10 @@ exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
     return next(new Error("Can't indentify token, retry"));
   }
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
-  const user = await proprietor.findById(decodedToken.id);
+
+  const user = await customer.findById(decodedToken.id);
   req.userType = "Customer";
   req.user = user;
-
+  console.log(req.userType, req.user);
   next();
 });
