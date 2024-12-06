@@ -16,6 +16,7 @@ const signtoken = (id) => {
 
 const cookieAndToken = (res, user, statuscode) => {
   const token = signtoken(user.id);
+  console.log(user.id, token);
   const cookieOptions = {
     httpOnly: true,
     sameSite: "none",
@@ -47,7 +48,8 @@ exports.customerVerification = catchAsync(async (req, res, next) => {
   const { contactNumber } = req.body;
   if (!contactNumber) next(new Error("Contact number is missing, retry."));
 
-  const data = await customer.find({ contactNumber });
+  const data = await customer.findOne({ contactNumber });
+  console.log(data);
 
   cookieAndToken(res, data, 200);
 });
