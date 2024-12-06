@@ -10,4 +10,6 @@ customerRouter
   .route("/verification-user")
   .get(userAuthController.customerVerification);
 
+customerRouter.use(userAuthController.customerProtectMiddleware);
+
 module.exports = customerRouter;
