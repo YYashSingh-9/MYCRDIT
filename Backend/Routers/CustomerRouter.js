@@ -11,5 +11,7 @@ customerRouter
   .get(userAuthController.customerVerification);
 
 customerRouter.use(userAuthController.customerProtectMiddleware);
-
+customerRouter
+  .route("/update-customer-info")
+  .post(userAuthController.updateUserInfo);
 module.exports = customerRouter;
