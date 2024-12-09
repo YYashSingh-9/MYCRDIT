@@ -31,7 +31,6 @@ exports.updateShopInfo = catchAsync(async (req, res, next) => {
     "contactNumber",
     "proprietorGST"
   );
-  console.log(filteredObject);
 
   const doc = await proprietor.findByIdAndUpdate(req.user.id, filteredObject, {
     runValidators: true,
