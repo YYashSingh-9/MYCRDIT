@@ -2,12 +2,10 @@ const proprietor = require("../Models/proprietorModel");
 const catchAsync = require("../Utilities/catchAsync");
 
 const filterObj = (obj, ...allowedFields) => {
-  console.log(obj, allowedFields);
   let newObject = {};
   Object.keys(obj).forEach((curr_el) => {
     if (allowedFields.includes(curr_el))
       return (newObject[curr_el] = obj[curr_el]);
-    console.log(newObject, allowedFields, curr_el);
   });
   return newObject;
 };
@@ -33,5 +31,19 @@ exports.updateShopInfo = catchAsync(async (req, res, next) => {
     "contactNumber",
     "proprietorGST"
   );
-  //   console.log(filteredObject);
+  console.log(filteredObject);
+
+  const doc = await proprietor.findByIdAndUpdate(req.user.id, filteredObject, {
+    runValidators: true,
+    new: true,
+  });
+
+  if (!doc) {
+    return next(new Error("Failed to update details"));
+  }
+
+  res.status(200).json({
+    status: "Success",
+    data: doc,
+  });
 });
