@@ -13,6 +13,7 @@ proprietorRouter
   .get(userAuthController.proprietorVerification);
 proprietorRouter.use(userAuthController.protect);
 
+// Authorized accessible routes.
 proprietorRouter.use(userAuthController.protect);
 proprietorRouter
   .route("/share-your-review")
@@ -22,5 +23,7 @@ proprietorRouter
   .route("/edit-proprietor")
   .post(userAuthController.updateUserInfo);
 
-proprietorRouter.route("/edit-proprietor-shop").patch();
+proprietorRouter
+  .route("/edit-proprietor-shop")
+  .patch(functionalController.updateShopInfo);
 module.exports = proprietorRouter;
