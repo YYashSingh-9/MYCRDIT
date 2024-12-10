@@ -11,15 +11,6 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 exports.updateShopInfo = catchAsync(async (req, res, next) => {
-  const allowed_fields = [
-    "ProprietorName",
-    "shopName",
-    "shopAddress",
-    "shopCategory",
-    "contactNumber",
-    "proprietorGST",
-  ];
-
   if (req.body.password) return next(new Error("invalid fields are included"));
 
   const filteredObject = filterObj(

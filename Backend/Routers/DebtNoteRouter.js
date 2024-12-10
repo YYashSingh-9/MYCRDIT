@@ -26,16 +26,20 @@ NoteRouter.route("/note-payment").post(
 );
 
 //CUSTOMER NOTE ROUTES..
+
+//1. Check requests.
 NoteRouter.route("/note-approval-request").patch(
   UserAuthController.customerProtectMiddleware,
   NotesController.acceptingNoteMiddleware
 );
 
+//2. Running debts.
 NoteRouter.route("/all-pending-notes").get(
   UserAuthController.customerProtectMiddleware,
   NotesController.getAllPendingNotes
 );
 
+//3. Check history.
 NoteRouter.route("/all-cleared-notes").get(
   UserAuthController.customerProtectMiddleware,
   NotesController.getAllClearedNotes
