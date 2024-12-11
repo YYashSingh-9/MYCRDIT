@@ -105,7 +105,7 @@ exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
 
   if (!data) {
-    next(new Error("Unable to create account, please retry"));
+    next(new appError("Unable to create account, please retry", 400));
   }
   cookieAndToken(res, data, 200);
 });
@@ -113,13 +113,14 @@ exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
 exports.proprietorVerification = catchAsync(async (req, res, next) => {
   const { contactNumber, password } = req.body;
   if (!contactNumber && password)
-    return next(new Error("Credentials are missing."));
+    return next(new appError("Credentials are missing.", 400));
 
   const user = await proprietor.findOne({ contactNumber }).select("+password");
-  if (!user) return next(new Error("Could not login. Try again later."));
+  if (!user)
+    return next(new appError("Could not login. Try again later.", 400));
 
   const pwCorrect = await user.correctPassword(password, user.password);
-  if (!pwCorrect) return next(new Error("Password incorrect retry."));
+  if (!pwCorrect) return next(new appError("Password incorrect retry.", 400));
 
   cookieAndToken(res, user, 200);
 });
@@ -135,7 +136,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   if (!token) {
-    return next(new Error("Can't indentify token, retry"));
+    return next(new appError("Can't indentify token, retry", 400));
   }
 
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
@@ -156,7 +157,7 @@ exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
   }
 
   if (!token) {
-    return next(new Error("Can't indentify token, retry"));
+    return next(new appError("Can't indentify token, retry", 400));
   }
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
 
