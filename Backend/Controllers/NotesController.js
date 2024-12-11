@@ -1,12 +1,13 @@
 const debtNote = require("../Models/noteModel");
 const paidNote = require("../Models/paidNoteModel");
 const catchAsync = require("../Utilities/catchAsync");
+const appError = require("../Utilities/appError");
 
 //Proprietor
 exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
   const { propId } = req.body;
 
-  if (!propId) return next(new Error("Proprietor Id missing"));
+  if (!propId) return next(new appError("Proprietor Id missing", 400));
 
   const doc = await debtNote.find({ proprietorId: { $in: propId } });
 
@@ -20,7 +21,9 @@ exports.allClearedNotes = catchAsync(async (req, res, next) => {
   const { proprietorId } = req.body;
 
   if (!proprietorId)
-    return next(new Error("Proprietor Id id missing from client side, retry."));
+    return next(
+      new appError("Proprietor Id id missing from client side, retry.", 400)
+    );
 
   const doc = await debtNote.find({
     proprietorId: { $in: proprietorId },
@@ -36,7 +39,7 @@ exports.allClearedNotes = catchAsync(async (req, res, next) => {
 exports.createNote = catchAsync(async (req, res, next) => {
   if (!req.body)
     return next(
-      new Error("Content required to create note is missing, retry.")
+      new appError("Content required to create note is missing, retry.", 400)
     );
 
   const doc = await debtNote.create(req.body);
@@ -50,7 +53,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
   const { debtNote_Id } = req.body;
 
   if (!debtNote_Id)
-    return next(new Error("Some credentials are missing, retry."));
+    return next(new appError("Some credentials are missing, retry.", 400));
 
   //1. changing cleared status.
   const doc = await debtNote.findOneAndUpdate(
@@ -105,7 +108,7 @@ exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
 
 exports.createNoteMiddleware = (req, res, next) => {
   const doc = req.body;
-
+  if (!doc) return next(new appError("Content from client side missing", 400));
   const dummyDoc1 = { ...doc };
 
   const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: false };
@@ -117,6 +120,9 @@ exports.createNoteMiddleware = (req, res, next) => {
 //2. CUSTOMER
 exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {
   const { noteId } = req.body;
+
+  if (!noteId)
+    return next(new appError("Some error occured please try again", 400));
 
   const doc = await debtNote.findOneAndUpdate(
     { _id: noteId },
@@ -169,7 +175,9 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
   const { customerNumber } = req.body;
 
   if (!customerNumber)
-    return next(new Error("Customer number missing from client side, retry."));
+    return next(
+      new appError("Customer number missing from client side, retry.", 400)
+    );
   const doc = await debtNote.find({
     customerNumber: { $in: customerNumber },
     cleared: { $in: true },
