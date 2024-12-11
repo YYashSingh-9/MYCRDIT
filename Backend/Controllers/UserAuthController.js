@@ -1,6 +1,8 @@
 const customer = require("../Models/customerModel");
 const proprietor = require("../Models/proprietorModel");
 const catchAsync = require("../Utilities/catchAsync");
+const appError = require("../Utilities/appError");
+
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { promisify } = require("util");
@@ -39,7 +41,7 @@ exports.customerAuthentication = catchAsync(async (req, res, next) => {
   const data = await customer.create(req.body);
 
   if (!data) {
-    return next(new Error("unable to create account, please retry"));
+    return next(new appError("unable to create account, please retry", 400));
   }
   cookieAndToken(res, data, 200);
 });
