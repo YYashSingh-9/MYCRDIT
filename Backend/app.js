@@ -7,6 +7,8 @@ const rateLimiter = require("express-rate-limit");
 const customerRouter = require("./Routers/CustomerRouter");
 const proprietorRouter = require("./Routers/ProprietorRouter");
 const DebtNoteRouter = require("./Routers/DebtNoteRouter");
+const appError = require("./Utilities/appError");
+
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -29,5 +31,11 @@ app.use("/mycrdit/api", limiter);
 app.use("/mycrdit/api/customer", customerRouter);
 app.use("/mycrdit/api/proprietor", proprietorRouter);
 app.use("/mycrdit/api/debt-notes", DebtNoteRouter);
-// app.use((err, req, res, next) => {});
+
+app.use("*", (req, res, next) => {
+  const err = new appError("Invalid route requested", 404);
+  next(err);
+});
+
+app.use((err, req, res, next) => {});
 module.exports = app;
