@@ -1,5 +1,6 @@
 const proprietor = require("../Models/proprietorModel");
 const catchAsync = require("../Utilities/catchAsync");
+const appError = require("../Utilities/appError");
 
 const filterObj = (obj, ...allowedFields) => {
   let newObject = {};
@@ -11,7 +12,8 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 exports.updateShopInfo = catchAsync(async (req, res, next) => {
-  if (req.body.password) return next(new Error("invalid fields are included"));
+  if (req.body.password)
+    return next(new appError("invalid fields are included", 400));
 
   const filteredObject = filterObj(
     req.body,
@@ -29,7 +31,7 @@ exports.updateShopInfo = catchAsync(async (req, res, next) => {
   });
 
   if (!doc) {
-    return next(new Error("Failed to update details"));
+    return next(new appError("Failed to update details", 400));
   }
 
   res.status(200).json({
