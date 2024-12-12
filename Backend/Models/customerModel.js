@@ -11,7 +11,8 @@ const customerSchema = new mongoose.Schema({
   contactNumber: {
     type: Number,
     unique: true,
-    min: [10, "10 character number is required. "],
+    min: [10, "10 character limit required"],
+    max: [10, "10 character limit reached"],
     required: true,
   },
 });

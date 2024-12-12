@@ -6,5 +6,6 @@ const productionError = (err, req, res) => {
 };
 
 module.exports = (err, req, res, next) => {
-  productionError(err, req, res);
+  const error = JSON.parse(JSON.stringify(err));
+  productionError(error, req, res);
 };
