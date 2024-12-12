@@ -8,6 +8,7 @@ const customerRouter = require("./Routers/CustomerRouter");
 const proprietorRouter = require("./Routers/ProprietorRouter");
 const DebtNoteRouter = require("./Routers/DebtNoteRouter");
 const appError = require("./Utilities/appError");
+const errorController = require("./Controllers/ErrorController");
 
 const app = express();
 
@@ -37,5 +38,5 @@ app.use("*", (req, res, next) => {
   next(err);
 });
 
-app.use((err, req, res, next) => {});
+app.use(errorController);
 module.exports = app;
