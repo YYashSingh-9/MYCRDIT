@@ -5,13 +5,13 @@ const customerSchema = new mongoose.Schema({
   customerName: {
     type: String,
     required: true,
-    minlength: [5, "Minimum 5 characters required. "],
-    maxlength: [20, "Maximum 20 characters allowed. "],
+    minLength: [5, "Minimum 5 characters required. "],
+    maxLength: [20, "Maximum 20 characters allowed. "],
   },
   contactNumber: {
     type: Number,
     unique: true,
-    minlength: [10, "10 character number is required. "],
+    min: [10, "10 character number is required. "],
     required: true,
   },
 });

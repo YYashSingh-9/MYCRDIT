@@ -34,7 +34,7 @@ app.use("/mycrdit/api/proprietor", proprietorRouter);
 app.use("/mycrdit/api/debt-notes", DebtNoteRouter);
 
 app.use("*", (req, res, next) => {
-  const err = new appError("Invalid route requested", 404);
+  const err = new appError(`Invalid route ${req.originalUrl} requested`, 404);
   next(err);
 });
 
