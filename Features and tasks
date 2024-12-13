@@ -32,16 +32,14 @@ the information of this will be saved in history of this buyer
 7. Popup shows everytime we login/add/clears a debt from DN.
 8. Create functionality of editing account info.
 9. Popup shows everytime we change account details
+10. Dedicated Account book of a buyer.✔️
 
 ⚛ Back-end
 
-1. Create models of Users(propriters,buyer),debts.
-2. Create routes for all the requests related to users & debts.
-3. Create proper user authentication system (with JSON web token).
-4. Add security middlewares.
-5. Create functionality of adding, deleting, and clear checking debts of particular users.
-6. Create user login/signup/editing account info functionality
-
-In V1.1 update:-
-
-1. Dedicated Account book of a buyer.
+1. Create models of Users(propriters,buyer),debts.✔️
+2. Create routes for all the requests related to users & debts.✔️
+3. Create proper user authentication system (with JSON web token).✔️
+4. Add security middlewares.✔️
+5. Create functionality of adding, deleting, and clear checking debts of particular users.✔️
+6. Create user login/signup/editing account info functionality✔️
+7. Counting credit points function
