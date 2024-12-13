@@ -36,7 +36,7 @@ const cookieAndToken = (res, user, statuscode) => {
   });
 };
 
-// CUSTOMER...
+// CUSTOMER CONTROLLERS...
 exports.customerAuthentication = catchAsync(async (req, res, next) => {
   const data = await customer.create(req.body);
 
@@ -100,7 +100,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
   }
 });
 
-// PROPRIETOR...
+// PROPRIETOR CONTROLLERS...
 exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
 
