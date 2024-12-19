@@ -56,7 +56,7 @@ const UserLevelBar = () => {
             <PaymentsIcon className={classes.icns} />
           )}
           {profile_Level === "Gold" && <TollIcon />}
-          {profile_Level === "Platinu" && (
+          {profile_Level === "Platinum" && (
             <Brightness5Icon className={classes.icns} />
           )}
         </Box>
