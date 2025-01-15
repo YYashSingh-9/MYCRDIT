@@ -57,6 +57,39 @@
   }
 
   .banner_box h4 {
+    font-size: 0.7rem;
+  }
+  .trending {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+  .banner_box h1 {
+    font-size: 1.8rem;
+  }
+  .banner_box h3 {
+    font-size: 1rem;
+  }
+
+  .banner_box h4 {
     font-size: 0.8rem;
+  }
+  .trending {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 721px) and (max-width: 1080px) {
+  .banner_box h1 {
+    font-size: 2rem;
+  }
+  .banner_box h3 {
+    font-size: 1.1rem;
+  }
+
+  .banner_box h4 {
+    font-size: 0.9rem;
+  }
+  .trending {
+    font-size: 1.1rem;
   }
 }
