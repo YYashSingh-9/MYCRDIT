@@ -24,3 +24,13 @@
 .scorePart {
   display: flex;
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .bar {
+    font-size: 0.7rem;
+  }
+  .inner_bar {
+    height: 1.5rem;
+    font-size: 0.7rem;
+  }
+}
