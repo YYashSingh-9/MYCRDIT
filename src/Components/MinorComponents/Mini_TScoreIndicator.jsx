@@ -7,7 +7,7 @@ const Mini_TScoreIndicator = () => {
     <>
       <Box className={classes.bar}>
         <Box className={classes.scorePart}>
-          <h3>Current Transactional Score:</h3>
+          <h3>Current Transactional Score : </h3>
           <h3>1</h3>
         </Box>
         <Box>
