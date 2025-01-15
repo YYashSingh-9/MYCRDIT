@@ -33,3 +33,17 @@
   font-weight: 400;
   margin-top: 0.2rem;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .banner_box h1 {
+    font-size: 1.5rem;
+  }
+  .banner_box h3 {
+    font-size: 1rem;
+  }
+
+  .banner_box h4 {
+    font-size: 0.8rem;
+  }
+}

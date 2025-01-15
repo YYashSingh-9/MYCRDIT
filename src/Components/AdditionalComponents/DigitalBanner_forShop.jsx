@@ -11,7 +11,9 @@ const DigitalBanner = () => {
           Use <span style={{ fontWeight: 600 }}> MYCrdit</span> account here to
           shop and relax..
         </h4>
-        <h4>Find modi kirana at vidya nagar,near shiv mandir</h4>
+        <span className={classes.addressCover}>
+          <h4>Find modi kirana at vidya nagar,near shiv mandir</h4>
+        </span>
       </Box>
     </>
   );
