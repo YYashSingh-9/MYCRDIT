@@ -10,7 +10,6 @@
   border: 0.1rem solid #1db954;
   color: white;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   text-align: center;
 }
 .banner_box h1 {
@@ -33,7 +32,13 @@
   font-weight: 400;
   margin-top: 0.2rem;
 }
-
+.addressCover {
+  background-color: black;
+  width: 100%;
+  height: 3rem;
+  padding-top: 0.5rem;
+  border-radius: 0.1rem;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .banner_box h1 {
