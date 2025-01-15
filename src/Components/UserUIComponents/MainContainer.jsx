@@ -1,8 +1,9 @@
 import { Grid, Box, colors } from "@mui/material";
+import { Link } from "react-router-dom";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Link } from "react-router-dom";
+import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
 
 const MainContainer = () => {
   return (
@@ -23,6 +24,17 @@ const MainContainer = () => {
               Score
             </h3>
           </Box>
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.bannerGrid_Outer}
+          marginTop={4}
+        >
+          <DigitalBanner />
         </Grid>
         <Grid
           item

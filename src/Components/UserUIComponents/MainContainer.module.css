@@ -54,6 +54,9 @@
 .tipIcon {
   color: rgb(254, 210, 87);
 }
+.bannerGrid_Outer {
+  width: 70%;
+}
 .reviewtextBtn h4 {
   font-family: "poppins";
   font-weight: 600;
