@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import classes from "./Mini_TScoreIndicator.module.css";
+import { Link } from "react-router-dom";
 
 const Mini_TScoreIndicator = () => {
   return (
@@ -10,9 +11,13 @@ const Mini_TScoreIndicator = () => {
           <h3>1</h3>
         </Box>
         <Box>
-          <p>Check your total MCS </p>
+          <Link>
+            <p>Check your total MCS </p>
+          </Link>
         </Box>
       </Box>
     </>
   );
 };
+
+export default Mini_TScoreIndicator;
