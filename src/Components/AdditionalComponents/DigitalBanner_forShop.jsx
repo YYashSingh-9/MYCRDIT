@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import classes from "./DigitalBanner_forShop.module.css";
-
+import WhatshotIcon from "@mui/icons-material/Whatshot";
 const DigitalBanner = () => {
   return (
     <>
@@ -13,6 +13,10 @@ const DigitalBanner = () => {
         </h4>
         <Box className={classes.addressCover}>
           <h4>Find modi kirana at vidya nagar,near shiv mandir</h4>
+
+          <span className={classes.trending}>
+            Trending shop <WhatshotIcon className={classes.trendingIcon} />
+          </span>
         </Box>
       </Box>
     </>
