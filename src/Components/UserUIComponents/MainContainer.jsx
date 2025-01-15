@@ -4,6 +4,7 @@ import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const MainContainer = () => {
   return (
@@ -20,9 +21,12 @@ const MainContainer = () => {
               <h1>1</h1>
             </Box>
             <h3>
-              Your current <span style={{ color: "#1db954" }}> MYCrdit</span>{" "}
-              Score
+              Your current{" "}
+              <span style={{ color: "#1db954" }}> Transactional </span> Score
             </h3>
+            <Box>
+              <GeneralButton btn_title="Check MYCrdit Score" />
+            </Box>
           </Box>
         </Grid>
         <Grid
