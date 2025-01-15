@@ -7,8 +7,11 @@ const DigitalBanner = () => {
       <Box className={classes.banner_box}>
         <h3>Shop from</h3>
         <h1>Modi Kirana !</h1>
-        <h4>Use MYCrdit account here to shop and relax..</h4>
-        <h4>find modi kirana at vidya nagar,near shiv mandir</h4>
+        <h4>
+          Use <span style={{ fontWeight: 600 }}> MYCrdit</span> account here to
+          shop and relax..
+        </h4>
+        <h4>Find modi kirana at vidya nagar,near shiv mandir</h4>
       </Box>
     </>
   );

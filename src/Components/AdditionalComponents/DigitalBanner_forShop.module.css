@@ -1,6 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .banner_box {
   width: 100%;
   border-radius: 0.5rem;
   background-color: #1db954;
   border: 0.1rem solid #1db954;
+  color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+.banner_box h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: 0.04rem;
+  color: rgb(254, 210, 87);
+}
+.banner_box h3 {
+  font-size: 1.1rem;
+  margin-bottom: -0.2rem;
+  font-weight: 600;
+}
+
+.banner_box h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0.2rem;
 }
