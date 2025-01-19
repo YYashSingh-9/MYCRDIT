@@ -18,6 +18,7 @@ import OTPpage from "./Components/SignupAndAuthentication/OTPpage.jsx";
 import NoteRequestPage from "./Components/UserUIComponents/NoteRequestPage.jsx";
 import CustomerAccountEdit from "./Components/EditAccountComponents/CustomerAccountEdit.jsx";
 import ProprietorAccountEdit from "./Components/EditAccountComponents/ProprietorAccountEdit.jsx";
+import MCScorePage from "./Components/UserUIComponents/MCScorePage.jsx";
 import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -46,12 +47,13 @@ const router = createBrowserRouter([
       { path: "/otp-authentication", element: <OTPpage /> },
       { path: "/my-shop-info", element: <ShopInfo /> },
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
-      { path: "/my-current-score", element: <MCSPage /> },
+      { path: "/bts-mycrdit-score", element: <MCSPage /> },
       { path: "/review-form", element: <ReviewNFeedback /> },
       { path: "/edit-shop-details", element: <EditForm /> },
       { path: "/my-note-requests", element: <NoteRequestPage /> },
       { path: "/edit-customer-info", element: <CustomerAccountEdit /> },
       { path: "/edit-proprietor-info", element: <ProprietorAccountEdit /> },
+      { path: "/my-current-mcs", element: <MCScorePage /> },
     ],
   },
 ]);
