@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Mini_TScoreIndicator = () => {
   return (
     <>
-      <Box className={classes.bar}>
+      <Box className={classes.bsar}>
         <Box className={classes.scorePart}>
           <h3>Current Transactional Score : </h3>
           <h3>1</h3>

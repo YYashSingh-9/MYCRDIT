@@ -1,9 +1,10 @@
 * {
   padding: 0;
 }
-.bar {
+.bsar {
   height: auto;
-  width: 100%;
+  width: 93%;
+  margin: auto;
   border-radius: 0.5rem;
   text-align: center;
   color: #ffffff;
@@ -11,14 +12,13 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 0.8rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.3rem;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
   background-color: rgb(30, 30, 30);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.bar p {
+.bsar p {
   color: #1db954;
 }
 .scorePart {
@@ -26,11 +26,18 @@
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
-  .bar {
+  .bsar {
     font-size: 0.7rem;
+    width: 100%;
   }
   .inner_bar {
     height: 1.5rem;
     font-size: 0.7rem;
+  }
+}
+@media only screen and (min-width: 380px) and (max-width: 576px) {
+  .bsar {
+    font-size: 0.7rem;
+    width: 90%;
   }
 }
