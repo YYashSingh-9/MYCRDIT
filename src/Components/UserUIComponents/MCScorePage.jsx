@@ -12,10 +12,10 @@ const MCScorePage = () => {
         <BasicCoverDiv heading="Your " heading_highlight="MYCRDIT Score">
           <Box className={classes.parentBox}>
             <Box className={classes.childBox_one}>
-              <Box>
+              <Box className={classes.scoreNum}>
                 <h2>25</h2>
               </Box>
-              <Box>
+              <Box className={classes.subTitle}>
                 <h4>Mr Yash's current score is displayed above.</h4>
               </Box>
             </Box>

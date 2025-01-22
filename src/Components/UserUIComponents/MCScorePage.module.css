@@ -1,0 +1,25 @@
+.parentBox {
+  text-align: center;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+.childBox_one {
+  width: 100%;
+  /* border: 0.1rem solid rgb(211, 211, 211); */
+  background-color: rgb(241, 241, 241);
+  border-radius: 0.5rem;
+  height: 15rem;
+  padding-top: 2rem;
+}
+.scoreNum {
+  background-color: blanchedalmond;
+  width: 30%;
+  border-radius: 0.5rem;
+  height: 8rem;
+  margin: auto;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
