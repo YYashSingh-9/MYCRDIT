@@ -49,3 +49,29 @@
   border-top: 0.1rem solid rgb(211, 211, 211);
   padding-top: 1rem;
 }
+
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .parentBox {
+    width: 90%;
+  }
+  .scoreNum {
+    width: 50%;
+    height: 8rem;
+    font-size: 1.5rem;
+  }
+  .subTitle {
+    font-size: 0.9rem;
+  }
+
+  .childBox_two {
+    width: 90%;
+  }
+
+  .infos {
+    margin-top: 1rem;
+    border-top: 0.1rem solid rgb(211, 211, 211);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+  }
+}
