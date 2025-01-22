@@ -6,13 +6,11 @@
 
 .childBox_one {
   width: 100%;
-  /* border: 0.1rem solid rgb(211, 211, 211); */
   background-color: rgb(241, 241, 241);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
   border-radius: 0.5rem;
-  height: 15rem;
-  padding-top: 4rem;
+  height: 13rem;
+  padding-top: 3rem;
 }
 .scoreNum {
   background-color: rgb(175, 175, 175);
@@ -30,4 +28,13 @@
 }
 .subTitle {
   margin-top: 2rem;
+}
+
+.childBox_two {
+  border: 0.1rem solid rgb(211, 211, 211);
+  width: 60%;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }

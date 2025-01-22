@@ -21,9 +21,9 @@ const MCScorePage = () => {
             </Box>
             <Box className={classes.childBox_two}>
               <Box>
-                <h3>some information regarding mycrdit score</h3>
-                <h3>some information regarding mycrdit score</h3>
-                <h3>some information regarding mycrdit score</h3>
+                <p>▪️some information regarding mycrdit score</p>
+                <p>▪️some information regarding mycrdit score</p>
+                <p>▪️some information regarding mycrdit score</p>
               </Box>
             </Box>
             <Box className={classes.childBox_three}>
