@@ -1,6 +1,7 @@
 import classes from "./MCScorePage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneraltButton from "../AdditionalComponents/GeneralButton";
+import UserLeverBar from "../AdditionalComponents/UserLevelBar";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
@@ -22,8 +23,10 @@ const MCScorePage = () => {
                 </h4>
               </Box>
             </Box>
+
             <Box className={classes.childBox_two}>
-              <Box>
+              <UserLeverBar />
+              <Box className={classes.infos}>
                 <p>▪️some information regarding mycrdit score</p>
                 <p>▪️some information regarding mycrdit score</p>
                 <p>▪️some information regarding mycrdit score</p>
