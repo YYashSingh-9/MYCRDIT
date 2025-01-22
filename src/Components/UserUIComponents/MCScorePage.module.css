@@ -8,18 +8,26 @@
   width: 100%;
   /* border: 0.1rem solid rgb(211, 211, 211); */
   background-color: rgb(241, 241, 241);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
   border-radius: 0.5rem;
   height: 15rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 .scoreNum {
-  background-color: blanchedalmond;
+  background-color: rgb(175, 175, 175);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   width: 30%;
   border-radius: 0.5rem;
   height: 8rem;
+  color: rgb(39, 39, 39);
   margin: auto;
   font-size: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.subTitle {
+  margin-top: 2rem;
 }
