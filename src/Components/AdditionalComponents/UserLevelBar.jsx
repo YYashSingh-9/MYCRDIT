@@ -44,7 +44,7 @@ const UserLevelBar = () => {
       <Box className={classes.bar}>
         <Box className={classes.heading}>
           <Box className={classes.uppr}>
-            <h3>Your MyCrdit Score :</h3>
+            <h3>Your MyCrdit score level :</h3>
             <h3> {mcs_points}</h3>
           </Box>
         </Box>

@@ -14,7 +14,7 @@ const MCScorePage = () => {
           <Box className={classes.parentBox}>
             <Box className={classes.childBox_one}>
               <Box className={classes.scoreNum}>
-                <h2>25.0</h2>
+                <h2>1800</h2>
               </Box>
               <Box className={classes.subTitle}>
                 <h4>
