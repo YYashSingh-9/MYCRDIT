@@ -6,7 +6,7 @@
 
 .childBox_one {
   width: 100%;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(245, 245, 245);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.5rem;
   height: 13rem;
@@ -37,4 +37,9 @@
   margin-top: 2rem;
   border-radius: 0.5rem;
   padding: 1rem;
+}
+
+.childBox_three {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }

@@ -16,7 +16,10 @@ const MCScorePage = () => {
                 <h2>25.0</h2>
               </Box>
               <Box className={classes.subTitle}>
-                <h4>Mr Yash's current score is displayed above.</h4>
+                <h4>
+                  Mr <span style={{ color: "#1DB954" }}> Yash's</span> current
+                  score is displayed above.
+                </h4>
               </Box>
             </Box>
             <Box className={classes.childBox_two}>
