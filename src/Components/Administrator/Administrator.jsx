@@ -11,6 +11,7 @@ const Administrator = () => {
             <h3>This is administrator's panel. Current Administrator - Yash</h3>
             <p>All the fetched information will be shown in console log.</p>
           </Box>
+          <Box className={classes.action_section}></Box>
         </Box>
       </BasicCoverDiv>
     </>
