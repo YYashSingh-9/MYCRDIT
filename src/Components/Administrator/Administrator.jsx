@@ -2,6 +2,14 @@ import { Box } from "@mui/material";
 import classes from "./Administrator.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 
+const Administrator_button = (props) => {
+  return (
+    <>
+      <button className={classes.btn_cls}>{props.btn_title}</button>
+    </>
+  );
+};
+
 const Administrator = () => {
   return (
     <>
@@ -16,7 +24,13 @@ const Administrator = () => {
               All the fetched information will be shown in console log.
             </p>
           </Box>
-          <Box className={classes.action_section}></Box>
+          <Box className={classes.action_section}>
+            <Box className={classes.singleActions}>
+              <Administrator_button btn_title="All customers" />
+              <Administrator_button btn_title="All Proprietors" />
+              <Administrator_button btn_title="All Notes" />
+            </Box>
+          </Box>
         </Box>
       </BasicCoverDiv>
     </>
