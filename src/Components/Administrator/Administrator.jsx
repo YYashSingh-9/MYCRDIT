@@ -20,9 +20,13 @@ const Administrator = () => {
               This is administrator's panel. Current Administrator -{" "}
               <span style={{ color: "#1DB954", fontWeight: "600" }}>Yash </span>
             </h3>
-            <p style={{ fontWeight: "600" }}>
-              All the fetched information will be shown in console log.
-            </p>
+            <span
+              style={{
+                fontWeight: "600",
+              }}
+            >
+              <p>All the fetched information will be shown in console log.</p>
+            </span>
           </Box>
           <Box className={classes.action_section}>
             <Box className={classes.singleActions}>
