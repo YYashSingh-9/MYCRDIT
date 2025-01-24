@@ -1,6 +1,28 @@
 .parentBox {
   text-align: center;
+  width: 70%;
 }
 .heading {
   margin-top: 2rem;
+}
+.action_section {
+  margin-top: 1.5rem;
+  border: 0.1rem solid rgb(211, 211, 211);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+.singleActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.btn_cls {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 8rem;
+  height: 1.5rem;
+  color: white;
+  background-color: #1db954;
 }

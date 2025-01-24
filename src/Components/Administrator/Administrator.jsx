@@ -26,7 +26,7 @@ const Administrator = () => {
           </Box>
           <Box className={classes.action_section}>
             <Box className={classes.singleActions}>
-              <Administrator_button btn_title="All customers" />
+              <Administrator_button btn_title="All Customers" />
               <Administrator_button btn_title="All Proprietors" />
               <Administrator_button btn_title="All Notes" />
             </Box>
