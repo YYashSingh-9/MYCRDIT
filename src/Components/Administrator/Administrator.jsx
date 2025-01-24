@@ -10,6 +10,13 @@ const Administrator_button = (props) => {
   );
 };
 
+const Administrator_button_search = (props) => {
+  return (
+    <>
+      <input></input>
+    </>
+  );
+};
 const Administrator = () => {
   return (
     <>
