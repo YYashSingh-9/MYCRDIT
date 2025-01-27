@@ -58,4 +58,8 @@
   border: none;
   background-color: #1db954;
   color: white;
+  cursor: pointer;
+}
+.btn_submit:active {
+  background-color: #178d40;
 }

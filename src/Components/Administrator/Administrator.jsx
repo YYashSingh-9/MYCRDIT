@@ -47,9 +47,9 @@ const Administrator = () => {
             </Box>
             <Box className={classes.searchActions}>
               <Form method="POST" className={classes.frm}>
-                <Administrator_button_search title="All proprietor" />
-                <Administrator_button_search title="All proprietor" />
-                <Administrator_button_search title="All proprietor" />
+                <Administrator_button_search title="A proprietor" />
+                <Administrator_button_search title="A customer " />
+                <Administrator_button_search title="A Note" />
               </Form>
             </Box>
           </Box>

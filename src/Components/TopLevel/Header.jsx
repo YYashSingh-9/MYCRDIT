@@ -40,6 +40,7 @@ const Header = () => {
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
+
   return (
     <>
       <Box>

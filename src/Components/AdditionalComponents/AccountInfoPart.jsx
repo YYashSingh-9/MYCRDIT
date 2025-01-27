@@ -126,9 +126,8 @@ const AccountInfoPart = (props) => {
           <Link to={"/"}>
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
-          <Link to={"/login"}>
-            <GeneralButton icnTitle={"account"} btn_title={"Logout"} />
-          </Link>
+
+          <GeneralButton icnTitle={"account"} btn_title={"Logout"} />
         </Grid>
       </Grid>
     </>
