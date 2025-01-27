@@ -14,8 +14,10 @@ const Administrator_button = (props) => {
 const Administrator_button_search = (props) => {
   return (
     <>
-      <TextField id="outlined" title={props.title} />
-      <button type="submit">Check</button>
+      <TextField id="outlined-basic" label={props.title} />
+      <button type="submit" className={classes.btn_submit}>
+        Check
+      </button>
     </>
   );
 };
@@ -45,6 +47,8 @@ const Administrator = () => {
             </Box>
             <Box className={classes.searchActions}>
               <Form method="POST" className={classes.frm}>
+                <Administrator_button_search title="All proprietor" />
+                <Administrator_button_search title="All proprietor" />
                 <Administrator_button_search title="All proprietor" />
               </Form>
             </Box>

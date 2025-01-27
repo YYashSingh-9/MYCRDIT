@@ -1,6 +1,6 @@
 .parentBox {
   text-align: center;
-  width: 70%;
+  width: 75%;
 }
 .heading {
   margin-top: 2rem;
@@ -36,6 +36,26 @@
   background-color: #178d40;
 }
 .frm input {
-  height: 1rem;
-  padding: 0;
+  height: 2.3rem;
+  padding: 0.5rem;
+  width: 10rem;
+}
+.searchActions {
+  margin-top: 2rem;
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.frm {
+  display: flex;
+  justify-content: space-between;
+}
+.btn_submit {
+  width: 3.3rem;
+  padding: none;
+  border-radius: 3rem;
+  outline: none;
+  border: none;
+  background-color: #1db954;
+  color: white;
 }
