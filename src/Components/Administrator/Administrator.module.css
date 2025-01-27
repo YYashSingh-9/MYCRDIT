@@ -1,5 +1,6 @@
 .parentBox {
   text-align: center;
+  height: 80vh;
   width: 75%;
 }
 .heading {
@@ -74,6 +75,7 @@
   }
   .parentBox {
     width: 90%;
+    height: 80vh;
   }
   .btn_cls {
     font-size: 0.6rem;
@@ -111,6 +113,7 @@
 @media only screen and (min-width: 577px) and (max-width: 720px) {
   .parentBox {
     width: 90%;
+    height: 80vh;
   }
   .btn_cls {
     font-size: 0.8rem;
@@ -147,6 +150,7 @@
 @media only screen and (min-width: 721px) and (max-width: 1080px) {
   .parentBox {
     width: 90%;
+    height: 80vh;
   }
   .btn_cls {
     font-size: 0.8rem;
@@ -183,6 +187,7 @@
 @media only screen and (min-width: 1080px) and (max-width: 1300px) {
   .parentBox {
     width: 90%;
+    height: 75vh;
   }
   .btn_cls {
     font-size: 0.8rem;
