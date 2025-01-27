@@ -30,4 +30,12 @@
   background-color: #1db954;
   border-radius: 0.5rem;
   font-family: "poppins";
+  cursor: pointer;
+}
+.btn_cls:active {
+  background-color: #178d40;
+}
+.frm input {
+  height: 1rem;
+  padding: 0;
 }

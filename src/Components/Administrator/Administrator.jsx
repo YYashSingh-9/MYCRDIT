@@ -1,4 +1,5 @@
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
+import { Form } from "react-router-dom";
 import classes from "./Administrator.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 
@@ -13,7 +14,8 @@ const Administrator_button = (props) => {
 const Administrator_button_search = (props) => {
   return (
     <>
-      <input></input>
+      <TextField id="outlined" title={props.title} />
+      <button type="submit">Check</button>
     </>
   );
 };
@@ -40,6 +42,11 @@ const Administrator = () => {
               <Administrator_button btn_title="All Customers" />
               <Administrator_button btn_title="All Proprietors" />
               <Administrator_button btn_title="All Notes" />
+            </Box>
+            <Box className={classes.searchActions}>
+              <Form method="POST" className={classes.frm}>
+                <Administrator_button_search title="All proprietor" />
+              </Form>
             </Box>
           </Box>
         </Box>
