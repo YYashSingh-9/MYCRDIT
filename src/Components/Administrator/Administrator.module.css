@@ -63,3 +63,40 @@
 .btn_submit:active {
   background-color: #178d40;
 }
+/* Responsive styling from here. */
+@media only screen and (min-width: 280px) and (max-width: 576px) {
+  .parentBox {
+    width: 90%;
+  }
+  .btn_cls {
+    font-size: 0.6rem;
+    width: 33.3vw;
+    height: 2.3rem;
+    margin: 0.2rem;
+  }
+  .action_section {
+    padding: 0.5rem;
+  }
+  .frm input {
+    height: 2.3rem;
+    padding: 0.5rem;
+    width: 100vw;
+    font-size: 0.6rem;
+  }
+  .searchActions {
+    padding: 0.5rem;
+  }
+  .frm {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .btn_submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+  }
+}

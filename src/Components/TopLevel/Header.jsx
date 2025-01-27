@@ -61,7 +61,14 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            {accountType !== "null" && (
+            {accountType === "administrator" ? (
+              <Button variant="contained" sx={styles.detailBtn}>
+                <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
+                  Logout
+                </Typography>
+                <AccountBoxIcon className={classes.icn} />
+              </Button>
+            ) : (
               <Link to={"/your-account-details"}>
                 <Button variant="contained" sx={styles.detailBtn}>
                   <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
