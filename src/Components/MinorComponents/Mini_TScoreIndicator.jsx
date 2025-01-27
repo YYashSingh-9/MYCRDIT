@@ -11,7 +11,7 @@ const Mini_TScoreIndicator = () => {
           <h3>1</h3>
         </Box>
         <Box>
-          <Link>
+          <Link to={"/my-current-mcs"}>
             <p>Check your total MCS </p>
           </Link>
         </Box>

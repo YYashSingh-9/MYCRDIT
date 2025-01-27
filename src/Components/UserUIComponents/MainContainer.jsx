@@ -25,7 +25,9 @@ const MainContainer = () => {
               <span style={{ color: "#1db954" }}> Transactional </span> Score
             </h3>
             <Box>
-              <GeneralButton btn_title="Check MYCrdit Score" />
+              <Link to={"/my-current-mcs"}>
+                <GeneralButton btn_title="Check MYCrdit Score" />
+              </Link>
             </Box>
           </Box>
         </Grid>
