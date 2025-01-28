@@ -25,7 +25,7 @@ the information of this will be saved in history of this buyer
 
 1. Create homepage of this app which shows list of DNs which are clickable.✔
 2. Create login/signup page.✔
-3. Create the functionality of signing up as a proprieter or buyer
+3. Create the functionality of signing up as a proprieter or buyer ✔
 4. Create my account page as per the user(proprieter/buyer).✔
 5. Create functionality of clicking a debt note which will open a page with all the details of that particular DN ✔
 6. Create DN details page, which will have a list of all the buyers with date and amount due, option of check clear✅ and delete.✔
