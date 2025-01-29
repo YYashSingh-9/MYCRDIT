@@ -15,9 +15,18 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //b).
   const note_ = await debtNote.findById(note_Id);
 
-  //2. Extracting amount.
+  //2. Extracting amount and payment duration.
+  // a) Amount
   const note_amount = note_.amount;
-
+  // b) Payment duration.
+  const written_NoteDate = new Date(note_.date);
+  //___
+  const now = new Date();
+  const nowIso = now.toISOString();
+  const currentTimeInMS = Date.parse(nowIso);
+  // ___
+  //30 days in milliseconds
+  const thirtyDayMs = 1000 * 60 * 60 * 24 * 30; //86400000*30 = 2592000000(30 day ms)
   //3. Forwarding amount to filter brackets.
 
   if (note_amount <= 500) {
