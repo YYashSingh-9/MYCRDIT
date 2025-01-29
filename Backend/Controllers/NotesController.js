@@ -111,6 +111,7 @@ exports.createNoteMiddleware = (req, res, next) => {
   if (!doc) return next(new appError("Content from client side missing", 400));
   const dummyDoc1 = { ...doc };
 
+  // Client must accept this note first, after that acceptanceStatus : true
   const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: false };
 
   req.body = dummydoc2;
