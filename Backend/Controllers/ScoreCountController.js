@@ -39,14 +39,23 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     within_FortyDays === true;
   totalPaymentDuration_ms > fortyDayMs && _FortyDays === true;
 
-  //3. Forwarding amount to filter brackets.
+  //3. Forwarding amount to filter brackets & giving score point as per.
 
-  if (note_amount <= 500) {
-  } else if (note_amount > 500 && note_amount < 2000) {
-  } else if (note_amount > 2000 && note_amount < 5000) {
-  } else if (note_amount > 5000 && note_amount < 9000) {
-  } else if (note_amount > 9000 && note_amount < 15000) {
-  } else if (note_amount > 15000 && note_amount < 25000) {
-  } else if (note_amount > 25000 && note_amount < 35000) {
+  if (note_amount <= 500 && _ThirtyDays) {
+    pre_score_count += 0.1;
+  } else if (note_amount > 500 && note_amount < 2000 && _ThirtyDays) {
+    pre_score_count += 0.1;
+  } else if (note_amount > 2000 && note_amount < 5000 && _ThirtyDays) {
+    pre_score_count += 0.2;
+  } else if (note_amount > 5000 && note_amount < 9000 && _ThirtyDays) {
+    pre_score_count += 0.3;
+  } else if (note_amount > 9000 && note_amount < 15000 && _ThirtyDays) {
+    pre_score_count += 0.4;
+  } else if (note_amount > 15000 && note_amount < 25000 && _ThirtyDays) {
+    pre_score_count += 0.6;
+  } else if (note_amount > 25000 && note_amount < 35000 && _ThirtyDays) {
+    pre_score_count += 1;
+  } else if (note_amount > 35000 && _ThirtyDays) {
+    pre_score_count += 2;
   }
 });
