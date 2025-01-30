@@ -1,6 +1,7 @@
 const appError = require("../Utilities/appError");
 const catchAsync = require("../Utilities/catchAsync");
-const debtNote = require("../Models/noteModel");
+const DebtNote = require("../Models/noteModel");
+const Customer = require("../Models/customerModel");
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   let pre_score_count = 0;
@@ -10,12 +11,14 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     next(new appError("Error from client side note id missing.", 400));
   }
 
-  //1. Extracting debt note id and finding this note.
+  //1. Extracting debt note id,customer number to find this note & customer  .
   //a).
   const note_Id = req.body.debtNote_Id;
   //b).
-  const note_ = await debtNote.findById(note_Id);
-
+  const note_ = await DebtNote.findById(note_Id);
+  const customer = await Customer.find({
+    contactNumber: { $in: customer.contactNumber },
+  });
   //2. Extracting amount and payment duration.
   // a) Amount
   const note_amount = note_.amount;
