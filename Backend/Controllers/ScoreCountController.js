@@ -26,7 +26,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const currentTimeInMS = Date.parse(nowIso);
   // ___
   //30 days in milliseconds
-  const thirtyDayMs = 1000 * 60 * 60 * 24 * 30; //86400000*30 = 2592000000(30 day ms)
+  const thirtyDayMs = 1000 * 60 * 60 * 24 * 30; //86400000*30 = 2592000000(30 day ms);
+  const fortyDayMs = 1000 * 60 * 60 * 24 * 40; // 3456000000 (40 day ms);
+  const totalPaymentDuration_ms = currentTimeInMS - written_NoteDate;
   //3. Forwarding amount to filter brackets.
 
   if (note_amount <= 500) {
