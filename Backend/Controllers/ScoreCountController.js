@@ -11,7 +11,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     next(new appError("Error from client side note id missing.", 400));
   }
 
-  //1. Extracting debt note id,customer number to find this note & customer  .
+  //1. Extract debt note id,customer number to find this note & customer  .
   //a).
   const note_Id = req.body.debtNote_Id;
   //b).
@@ -19,7 +19,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const customer = await Customer.find({
     contactNumber: { $in: customer.contactNumber },
   });
-  //2. Extracting amount and payment duration.
+  //2. Extract amount and payment duration.
   // a) Amount
   const note_amount = note_.amount;
   // b) Payment duration.
@@ -61,4 +61,18 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   } else if (note_amount > 35000 && _ThirtyDays) {
     pre_score_count += 2;
   }
+
+  // 4. Extract current customer's transactional Score & add new calculated score in it.
+  const customerPreviousTScore = customer.transactionalScore;
+  const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
+  const doc = await Customer.findOneAndUpdate(
+    { contactNumber: customer.contactNumber },
+    { transactionalScore: customerCurrentTotal_TScore },
+    {
+      runValidators: true,
+      new: true,
+    }
+  );
+
+  next();
 });
