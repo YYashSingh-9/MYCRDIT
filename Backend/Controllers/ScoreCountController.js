@@ -4,6 +4,7 @@ const debtNote = require("../Models/noteModel");
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   let pre_score_count = 0;
+  let _ThirtyDays, _FortyDays, within_FortyDays;
 
   if (!req.body.debtNote_Id) {
     next(new appError("Error from client side note id missing.", 400));
@@ -29,6 +30,13 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const thirtyDayMs = 1000 * 60 * 60 * 24 * 30; //86400000*30 = 2592000000(30 day ms);
   const fortyDayMs = 1000 * 60 * 60 * 24 * 40; // 3456000000 (40 day ms);
   const totalPaymentDuration_ms = currentTimeInMS - written_NoteDate;
+
+  totalPaymentDuration_ms < thirtyDayMs && _ThirtyDays === true;
+  totalPaymentDuration_ms === thirtyDayMs && _ThirtyDays === true;
+  totalPaymentDuration_ms > thirtyDayMs &&
+    totalPaymentDuration_ms < fortyDayMs &&
+    within_FortyDays === true;
+  totalPaymentDuration_ms > fortyDayMs && _FortyDays === true;
   //3. Forwarding amount to filter brackets.
 
   if (note_amount <= 500) {
