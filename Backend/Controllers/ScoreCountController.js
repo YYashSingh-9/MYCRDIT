@@ -19,6 +19,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const customer = await Customer.find({
     contactNumber: { $in: customer.contactNumber },
   });
+
   //2. Extract amount and payment duration.
   // a) Amount
   const note_amount = note_.amount;
@@ -60,6 +61,10 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     pre_score_count += 1;
   } else if (note_amount > 35000 && _ThirtyDays) {
     pre_score_count += 2;
+  } else if (_FortyDays) {
+    pre_score_count -= -0.1;
+  } else if (within_FortyDays) {
+    pre_score_count += 0.05;
   }
 
   // 4. Extract current customer's transactional Score & add new calculated score in it.
