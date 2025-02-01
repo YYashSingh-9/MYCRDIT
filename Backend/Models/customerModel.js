@@ -11,8 +11,8 @@ const customerSchema = new mongoose.Schema({
   contactNumber: {
     type: Number,
     unique: true,
-    min: [10, "10 character limit required"],
-    max: [10, "10 character limit reached"],
+    minLength: [10, "10 character limit required"],
+    maxLength: [10, "10 character limit reached"],
     required: true,
   },
   transactionalScore: {

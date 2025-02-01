@@ -67,7 +67,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     pre_score_count += 0.05;
   }
 
-  // 4. Extract current customer's transactional Score & add new calculated score in it.
+  // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
   const doc = await Customer.findOneAndUpdate(
