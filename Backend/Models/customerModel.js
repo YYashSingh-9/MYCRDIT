@@ -15,6 +15,9 @@ const customerSchema = new mongoose.Schema({
     max: [10, "10 character limit reached"],
     required: true,
   },
+  transactionalScore: {
+    type: Number,
+  },
 });
 
 // --- IMPORTANT NOTE HERE --- //
