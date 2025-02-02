@@ -5,7 +5,9 @@ const Customer = require("../Models/customerModel");
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   let pre_score_count = 0;
-  let _ThirtyDays, _FortyDays, within_FortyDays;
+  let seconds, minutes, hours, days, _ThirtyDays, _FortyDays;
+  let thirtyDayDuration = 30;
+  let fortyDayDuration = 40;
 
   if (!req.body.debtNote_Id) {
     next(new appError("Error from client side note id missing.", 400));
@@ -30,18 +32,23 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const nowIso = now.toISOString();
   const currentTimeInMS = Date.parse(nowIso);
   //___
-  //30 days in milliseconds
-  const thirtyDayMs = 1000 * 60 * 60 * 24 * 30; //86400000*30 = 2592000000(30 day ms);
-  const fortyDayMs = 1000 * 60 * 60 * 24 * 40; // 3456000000 (40 day ms);
+  // Time in milliseconds
+
   const totalPaymentDuration_ms = currentTimeInMS - written_NoteDate;
+  seconds = parseInt(Math.round(totalPaymentDuration_ms / 1000));
+  minutes = parseInt(Math.round(seconds / 60));
+  hours = parseInt(Math.round(minutes / 60));
+  days = parseInt(Math.round(hours / 24));
+
+  const lengthOfPayment = days;
 
   // Sorting payment duration in category.
-  totalPaymentDuration_ms < thirtyDayMs && _ThirtyDays === true;
-  totalPaymentDuration_ms === thirtyDayMs && _ThirtyDays === true;
-  totalPaymentDuration_ms > thirtyDayMs &&
-    totalPaymentDuration_ms < fortyDayMs &&
+  lengthOfPayment < thirtyDayDuration && _ThirtyDays === true;
+  lengthOfPayment === thirtyDayDuration && _ThirtyDays === true;
+  lengthOfPayment > thirtyDayDuration &&
+    lengthOfPayment < thirtyDayDuration &&
     within_FortyDays === true;
-  totalPaymentDuration_ms > fortyDayMs && _FortyDays === true;
+  lengthOfPayment > fortyDayDuration && _FortyDays === true;
 
   //3. Forwarding amount to filter brackets & giving score point as per.
 
