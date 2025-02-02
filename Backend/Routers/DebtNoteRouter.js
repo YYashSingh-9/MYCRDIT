@@ -2,6 +2,7 @@ const express = require("express");
 const NoteRouter = express.Router();
 const NotesController = require("../Controllers/NotesController");
 const UserAuthController = require("../Controllers/UserAuthController");
+const ScoreCountController = require("../Controllers/ScoreCountController");
 
 //PROPRIETOR NOTE ROUTES...
 NoteRouter.route("/get-all-notes").get(
@@ -21,7 +22,7 @@ NoteRouter.route("/create-note").post(
 
 NoteRouter.route("/note-payment").post(
   UserAuthController.protect,
-  NotesController.paidNotePre_Controller,
+  ScoreCountController.transactionalCreditScore_Count,
   NotesController.notePaidController
 );
 
