@@ -18,6 +18,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //1. Extract debt note id,customer number to find this note & customer  .
   //a).
   const note_Id = req.body.debtNote_Id;
+  const customerNumber = req.body.customerNumber;
   console.log("note id", note_Id);
   //b).
   const note_ = await DebtNote.findById(note_Id);
