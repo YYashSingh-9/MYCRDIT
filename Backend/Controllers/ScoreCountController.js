@@ -23,7 +23,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //b).
   const note_ = await DebtNote.findById(note_Id);
   const customer = await Customer.find({
-    contactNumber: { $in: customer.contactNumber },
+    contactNumber: { $in: customerNumber },
   });
   console.log("NOTE AND CUSTOMER-> ", note_, customer);
 
@@ -33,7 +33,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   console.log("NOTE AMOUNT HERE ->", note_amount);
   // b) Payment duration.
   const written_NoteDate = new Date(note_.date);
-  console.log("WRITTEN NOTE DATE ->", written_NoteDate);
+  const isoDate = written_NoteDate.toISOString();
+  const written_NoteDateInMs = Date.parse(isoDate);
+  console.log("WRITTEN NOTE DATE ->", written_NoteDateInMs);
 
   //___
   const now = new Date();
@@ -44,7 +46,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //___
   // Time in milliseconds
 
-  const totalPaymentDuration_ms = currentTimeInMS - written_NoteDate;
+  const totalPaymentDuration_ms = currentTimeInMS - written_NoteDateInMs;
   seconds = parseInt(Math.round(totalPaymentDuration_ms / 1000));
   minutes = parseInt(Math.round(seconds / 60));
   hours = parseInt(Math.round(minutes / 60));
