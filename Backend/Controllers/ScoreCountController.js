@@ -33,20 +33,16 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   console.log("NOTE AMOUNT HERE ->", note_amount);
   // b) Payment duration.
   const written_NoteDate = new Date(note_.date);
-  const isoDate = written_NoteDate.toISOString();
-  const written_NoteDateInMs = Date.parse(isoDate);
-  console.log("WRITTEN NOTE DATE ->", written_NoteDateInMs);
+  console.log("WRITTEN NOTE DATE ->", written_NoteDate);
 
   //___
-  const now = new Date();
-  const nowIso = now.toISOString();
-  const currentTimeInMS = Date.parse(nowIso);
-  console.log("CURRENT TIME IN MS ->", currentTimeInMS);
+  const paymentDate = new Date(req.body.paymentDate);
+  console.log("PAYMENT DATE ->", paymentDate);
 
   //___
   // Time in milliseconds
 
-  const totalPaymentDuration_ms = currentTimeInMS - written_NoteDateInMs;
+  const totalPaymentDuration_ms = paymentDate - written_NoteDate;
   seconds = parseInt(Math.round(totalPaymentDuration_ms / 1000));
   minutes = parseInt(Math.round(seconds / 60));
   hours = parseInt(Math.round(minutes / 60));
@@ -57,18 +53,26 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
-  lengthOfPayment < thirtyDayDuration && _ThirtyDays === true;
-  lengthOfPayment === thirtyDayDuration && _ThirtyDays === true;
-  lengthOfPayment > thirtyDayDuration &&
-    lengthOfPayment < thirtyDayDuration &&
-    within_FortyDays === true;
-  lengthOfPayment > fortyDayDuration && _FortyDays === true;
+  lengthOfPayment < thirtyDayDuration
+    ? (_ThirtyDays = true)
+    : (_ThirtyDays = false);
+  lengthOfPayment === thirtyDayDuration
+    ? (_ThirtyDays = true)
+    : (_ThirtyDays = false);
+  lengthOfPayment > thirtyDayDuration && lengthOfPayment < fortyDayDuration
+    ? (within_FortyDays = true)
+    : (within_FortyDays = false);
+  lengthOfPayment > fortyDayDuration
+    ? (_FortyDays = true)
+    : (_FortyDays = false);
+  console.log(_ThirtyDays);
 
   //3. Forwarding amount to filter brackets & giving score point as per.
 
   if (note_amount <= 500 && _ThirtyDays) {
     pre_score_count += 0.1;
     console.log("this is 1");
+    console.log(pre_score_count);
   } else if (note_amount > 500 && note_amount < 2000 && _ThirtyDays) {
     console.log("this is 2");
     pre_score_count += 0.1;
@@ -101,6 +105,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
+  console.log(customerPreviousTScore, customerCurrentTotal_TScore);
   const doc = await Customer.findOneAndUpdate(
     { contactNumber: customer.contactNumber },
     { transactionalScore: customerCurrentTotal_TScore },
