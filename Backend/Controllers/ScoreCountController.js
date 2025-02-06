@@ -4,7 +4,7 @@ const DebtNote = require("../Models/noteModel");
 const Customer = require("../Models/customerModel");
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
-  console.log("Function Started from here... ✅");
+  // console.log("Function Started from here... ✅");
 
   let pre_score_count = 0;
   let seconds, minutes, hours, days, _ThirtyDays, _FortyDays, within_FortyDays;
@@ -19,26 +19,26 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //a).
   const note_Id = req.body.debtNote_Id;
   const customerNumber = req.body.customerNumber;
-  console.log("note id", note_Id);
+  // console.log("note id", note_Id);
   //b).
   const note_ = await DebtNote.findById(note_Id);
   const cust = await Customer.find({
     contactNumber: { $in: customerNumber },
   });
   const customer = cust[0];
-  console.log("NOTE AND CUSTOMER-> ", note_, customer);
+  // console.log("NOTE AND CUSTOMER-> ", note_, customer);
 
   //2. Extract amount and payment duration.
   // a) Amount
   const note_amount = note_.amount;
-  console.log("NOTE AMOUNT HERE ->", note_amount);
+  // console.log("NOTE AMOUNT HERE ->", note_amount);
   // b) Payment duration.
   const written_NoteDate = new Date(note_.date);
-  console.log("WRITTEN NOTE DATE ->", written_NoteDate);
+  // console.log("WRITTEN NOTE DATE ->", written_NoteDate);
 
   //___
   const paymentDate = new Date(req.body.paymentDate);
-  console.log("PAYMENT DATE ->", paymentDate);
+  // console.log("PAYMENT DATE ->", paymentDate);
 
   //___
   // Time in milliseconds
@@ -49,11 +49,11 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   hours = parseInt(Math.round(minutes / 60));
   days = parseInt(Math.round(hours / 24));
 
-  console.log("TOTAL PAYMENT IN MS -> ", totalPaymentDuration_ms);
+  // console.log("TOTAL PAYMENT IN MS -> ", totalPaymentDuration_ms);
   const lengthOfPayment = days;
   const thirtyDayPayment =
     lengthOfPayment > 20 && lengthOfPayment < 30 ? true : false;
-  console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
+  // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
 
@@ -72,8 +72,6 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   if (lengthOfPayment > fortyDayDuration) {
     _FortyDays = true;
   }
-
-  console.log(_ThirtyDays);
 
   //3. Forwarding amount to filter brackets & giving score point as per.
 
@@ -131,6 +129,6 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     lengthOfDebt: lengthOfPayment,
   };
   req.body = dummyObj;
-  console.log(doc);
+  // console.log(doc);
   next();
 });
