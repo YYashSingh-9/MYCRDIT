@@ -2,6 +2,7 @@ const appError = require("../Utilities/appError");
 const catchAsync = require("../Utilities/catchAsync");
 const DebtNote = require("../Models/noteModel");
 const Customer = require("../Models/customerModel");
+const PaidNote = require("../Models/paidNoteModel");
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("Function Started from here... ✅");
@@ -131,4 +132,16 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   req.body = dummyObj;
   // console.log(doc);
   next();
+});
+
+exports.totalMycrditScore = catchAsync(async (req, res, next) => {
+  if (!req.body.customerNumber) {
+    return next(new appError("Customer number is missing.", 404));
+  }
+  const customerNum = req.body.customerNumber;
+  //1. Calculate " Behavioural credit score ".
+
+  const allPaidNotes = await PaidNote.find({
+    customerNumber: { $in: customerNum },
+  });
 });
