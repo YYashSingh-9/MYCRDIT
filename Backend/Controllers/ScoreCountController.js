@@ -53,18 +53,23 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
-  lengthOfPayment < thirtyDayDuration
-    ? (_ThirtyDays = true)
-    : (_ThirtyDays = false);
-  lengthOfPayment === thirtyDayDuration
-    ? (_ThirtyDays = true)
-    : (_ThirtyDays = false);
-  lengthOfPayment > thirtyDayDuration && lengthOfPayment < fortyDayDuration
-    ? (within_FortyDays = true)
-    : (within_FortyDays = false);
-  lengthOfPayment > fortyDayDuration
-    ? (_FortyDays = true)
-    : (_FortyDays = false);
+
+  if (lengthOfPayment < thirtyDayDuration) {
+    _ThirtyDays = true;
+  }
+  if (lengthOfPayment === thirtyDayDuration) {
+    _ThirtyDays = true;
+  }
+  if (
+    lengthOfPayment > thirtyDayDuration &&
+    lengthOfPayment < fortyDayDuration
+  ) {
+    within_FortyDays = true;
+  }
+  if (lengthOfPayment > fortyDayDuration) {
+    _FortyDays = true;
+  }
+
   console.log(_ThirtyDays);
 
   //3. Forwarding amount to filter brackets & giving score point as per.
