@@ -4,6 +4,8 @@ const DebtNote = require("../Models/noteModel");
 const Customer = require("../Models/customerModel");
 const PaidNote = require("../Models/paidNoteModel");
 
+//✅ THIS IS PROTOTYPE V 0.1 ✅//
+
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("Function Started from here... ✅");
 
@@ -141,6 +143,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const customerNum = req.body.customerNumber;
   //1. Calculate " Behavioural credit score ".
 
+  // Step 1:- Getting all t-blocks from array of transactions.
   const allPaidNotes = await PaidNote.find({
     customerNumber: { $in: customerNum },
   });
@@ -149,4 +152,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   for (let i = 0; i < allPaidNotes.length; i += 3) {
     parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
   }
+  // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
+  // cleared:false on uncleared t-block.
 });
