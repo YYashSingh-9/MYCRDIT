@@ -144,4 +144,9 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const allPaidNotes = await PaidNote.find({
     customerNumber: { $in: customerNum },
   });
+
+  let parentTBlockArray = [];
+  for (let i = 0; i < allPaidNotes.length; i += 3) {
+    parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
+  }
 });
