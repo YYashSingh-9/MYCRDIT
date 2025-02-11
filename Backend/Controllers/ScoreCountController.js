@@ -154,4 +154,75 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   }
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
   // cleared:false on uncleared t-block.
+
+  if (parentTBlockArray.length === 0) {
+    return next(
+      appError(
+        "Error while calculating behvaioural credit score , error t-block array length ",
+        404
+      )
+    );
+  }
+
+  // Adding cleared status;
+  for (const child_Tblock of parentTBlockArray) {
+    let allPaid = true;
+    for (const obj of child_Tblock) {
+      if (!obj.thirtyDayPayment) {
+        allPaid = false;
+      }
+    }
+    if (allPaid) {
+      child_Tblock.push({ cleared: true });
+    }
+    if (!allPaid) {
+      child_Tblock.push({ cleared: false });
+    }
+  }
+
+  // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
+  let consectiveScore = 0;
+
+  for (let i = 0; i < parentTBlockArray.length; i += 2) {
+    let countOfTwo = 0;
+
+    let setOfTwo = parentTBlockArray.slice(i, i + 2);
+    setOfTwo.forEach((el) => {
+      if (el.cleared) {
+        countOfTwo += 1;
+      }
+    });
+
+    if (countOfTwo === 2) {
+      let num = countOfTwo * 0.2;
+      consectiveScore = consectiveScore + num;
+    }
+  }
+
+  //Step 4:- Filter out cleared and uncleared T-blocks;
+  let clearedTblocks = [];
+  let unclearedTblocks = [];
+
+  clearedTblocks = parentTBlockArray.filter((el) => {
+    if (el.cleared) {
+      return el;
+    }
+  });
+  unclearedTblocks = parentTBlockArray.filter((el) => {
+    if (!el.cleared) {
+      return el;
+    }
+  });
+
+  // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
+  // t-blocks then deduct total of uncleared from cleared to get total score;
+
+  let plus_score = 0;
+  let minus_score = 0;
+  let totalScore = 0;
+
+  plus_score = clearedTblocks.length * 0.2;
+  minus_score = unclearedTblocks.length * 0.1;
+
+  totalScore = plus_score - minus_score;
 });
