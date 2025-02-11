@@ -7,7 +7,7 @@ const PaidNote = require("../Models/paidNoteModel");
 //✅ THIS IS PROTOTYPE V 0.1 ✅//
 
 /* Important terminology:-
- 1. T block is array consisting 3 paid credit transactions.
+ 1. T block is array consisting 3 paid credit transactions objects.
  2. Month means 1 transaction will at least take 20 days to complete so it is around 30 days.
  3. Consecutive score means checking if a customer completed 2 t blocks(6 transactions/ 20 to 30 days each) consecutively 
     it is  important to check because this good payments will give him additional score.
@@ -151,12 +151,21 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const customerNum = req.body.customerNumber;
   //1. Calculate " Behavioural credit score ".
 
-  // Step 1:- Getting all t-blocks from array of transactions.
+  // Step 1:- Getting customer & all t-blocks from array of transactions .
   const allPaidNotes = await PaidNote.find({
     customerNumber: { $in: customerNum },
   });
-
   const customer = await Customer.find({ customerNumber: customerNum });
+
+  if (allPaidNotes.length < 100) {
+    return next(
+      new appError(
+        "Could not get your total score, minimum of 100 paid transactions required.",
+        404
+      )
+    );
+  }
+
   let parentTBlockArray = [];
   for (let i = 0; i < allPaidNotes.length; i += 3) {
     parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
@@ -239,6 +248,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
 
+  // Step 7:- Sending score details
   res.status(200).json({
     status: "Success",
     data: my_creditScore,
