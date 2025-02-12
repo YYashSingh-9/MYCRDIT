@@ -20,6 +20,7 @@ NoteRouter.route("/create-note").post(
   NotesController.createNote
 );
 
+// Transactional credit score count here..
 NoteRouter.route("/note-payment").post(
   UserAuthController.protect,
   ScoreCountController.transactionalCreditScore_Count,
@@ -44,5 +45,10 @@ NoteRouter.route("/all-pending-notes").get(
 NoteRouter.route("/all-cleared-notes").get(
   UserAuthController.customerProtectMiddleware,
   NotesController.getAllClearedNotes
+);
+
+NoteRouter.route("/get-my-crdit-score").get(
+  UserAuthController.customerProtectMiddleware,
+  ScoreCountController.totalMycrditScore
 );
 module.exports = NoteRouter;

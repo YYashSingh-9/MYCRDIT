@@ -262,6 +262,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
 
+  console.log("FINAL SCORES", customerTScore, my_creditScore);
+
   // Step 7:- Sending score details
   res.status(200).json({
     status: "Success",
