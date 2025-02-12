@@ -219,6 +219,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
       let num = countOfTwo * 0.2;
       consectiveScore = consectiveScore + num;
     }
+    console.log(
+      "SET OF TWO AND COSECUTIVE SCORE ->",
+      setOfTwo,
+      consectiveScore
+    );
   }
 
   //Step 4:- Filter out cleared and uncleared T-blocks;
@@ -235,7 +240,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
       return el;
     }
   });
-
+  console.log(
+    "CLEARED AND UNCLEARED TBLOCKS -> ",
+    clearedTblocks,
+    unclearedTblocks
+  );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 
@@ -248,6 +257,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   totalScore = plus_score - minus_score;
 
+  console.log("PLUS SCORE & MINUS SCORE ->", plus_score, minus_score);
   // Step 6:- Adding transactional Score with Behavioural score to get MyCrditScore.
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
