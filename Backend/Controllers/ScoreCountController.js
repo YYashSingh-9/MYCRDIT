@@ -145,6 +145,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
 });
 
 exports.totalMycrditScore = catchAsync(async (req, res, next) => {
+  console.log("FUNCTION STARTED FROM HERE -> ✅");
+  console.log(req.body, "REQUEST BODY");
+
   if (!req.body.customerNumber) {
     return next(new appError("Customer number is missing.", 404));
   }
@@ -157,6 +160,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   });
   const customer = await Customer.find({ customerNumber: customerNum });
 
+  console.log(customer, allPaidNotes, "CUSTOMER & NOTES HERE..");
   if (allPaidNotes.length < 100) {
     return next(
       new appError(
@@ -172,7 +176,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   }
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
   // cleared:false on uncleared t-block.
-
+  console.log("PARENT T-BLOCK ->", parentTBlockArray);
   if (parentTBlockArray.length === 0) {
     return next(
       appError(
@@ -198,6 +202,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
   }
 
+  console.log("ADDED CLEARED STATUS ->", parentTBlockArray);
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
   let consectiveScore = 0;
 
@@ -210,7 +215,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
         countOfTwo += 1;
       }
     });
-
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
       consectiveScore = consectiveScore + num;
