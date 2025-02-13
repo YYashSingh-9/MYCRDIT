@@ -208,16 +208,24 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   for (let i = 0; i < parentTBlockArray.length; i += 2) {
     let countOfTwo = 0;
-
+    let oddCount = false;
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
       if (el.cleared) {
         countOfTwo += 1;
       }
     });
+    if (setOfTwo.length < 2 && el.cleared) {
+      // this is for odd number of transaction counts
+      countOfTwo += 1;
+      oddCount = true;
+    }
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
       consectiveScore = consectiveScore + num;
+    }
+    if (oddCount === true) {
+      consectiveScore = consectiveScore + 0.2;
     }
     console.log(
       "SET OF TWO AND COSECUTIVE SCORE ->",
