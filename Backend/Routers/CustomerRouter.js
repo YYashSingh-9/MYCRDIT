@@ -1,5 +1,6 @@
 const express = require("express");
 const userAuthController = require("../Controllers/UserAuthController");
+const ScoreCountController = require("../Controllers/ScoreCountController");
 const customerRouter = express.Router();
 
 customerRouter
@@ -15,3 +16,7 @@ customerRouter
   .route("/update-customer-info")
   .post(userAuthController.updateUserInfo);
 module.exports = customerRouter;
+
+customerRouter
+  .route("/get-my-crdit-score")
+  .get(ScoreCountController.totalMycrditScore);

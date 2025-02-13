@@ -204,11 +204,12 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   console.log("ADDED CLEARED STATUS ->", parentTBlockArray);
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
-  let consectiveScore = 0;
+  let consecutiveScore = 0;
 
   for (let i = 0; i < parentTBlockArray.length; i += 2) {
     let countOfTwo = 0;
     let oddCount = false;
+
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
       if (el.cleared) {
@@ -222,15 +223,15 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
-      consectiveScore = consectiveScore + num;
+      consecutiveScore = consecutiveScore + num;
     }
     if (oddCount === true) {
-      consectiveScore = consectiveScore + 0.2;
+      consecutiveScore = consecutiveScore + 0.2;
     }
     console.log(
       "SET OF TWO AND COSECUTIVE SCORE ->",
       setOfTwo,
-      consectiveScore
+      consecutiveScore
     );
   }
 
@@ -260,7 +261,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   let minus_score = 0;
   let totalScore = 0;
 
-  plus_score = clearedTblocks.length * 0.2;
+  plus_score = clearedTblocks.length * 0.2 + consecutiveScore;
   minus_score = unclearedTblocks.length * 0.1;
 
   totalScore = plus_score - minus_score;
