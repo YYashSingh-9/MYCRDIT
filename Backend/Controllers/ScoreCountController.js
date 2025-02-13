@@ -148,17 +148,17 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   console.log("FUNCTION STARTED FROM HERE -> ✅");
   console.log(req.body, "REQUEST BODY");
 
-  if (!req.body.customerNumber) {
+  if (!req.body.contactNumber) {
     return next(new appError("Customer number is missing.", 404));
   }
-  const customerNum = req.body.customerNumber;
+  const customerNum = req.body.contactNumber;
   //1. Calculate " Behavioural credit score ".
 
   // Step 1:- Getting customer & all t-blocks from array of transactions .
   const allPaidNotes = await PaidNote.find({
     customerNumber: { $in: customerNum },
   });
-  const customer = await Customer.find({ customerNumber: customerNum });
+  const customer = await Customer.find({ contactNumber: customerNum });
 
   console.log(customer, allPaidNotes, "CUSTOMER & NOTES HERE..");
   if (allPaidNotes.length < 100) {
