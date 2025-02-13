@@ -213,7 +213,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
-      console.log("ELEMENT HERE -> ", el);
+      let clearStat = el.slice(-1, 0);
+      console.log("ELEMENT HERE -> ", clearStat);
       if (el.cleared) {
         countOfTwo += 1;
       }
