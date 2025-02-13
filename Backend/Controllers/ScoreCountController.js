@@ -160,7 +160,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   });
   const customer = await Customer.find({ contactNumber: customerNum });
 
-  console.log(customer, allPaidNotes, "CUSTOMER & NOTES HERE..");
+  console.log(customer, allPaidNotes.length, "CUSTOMER & NOTES HERE..");
   if (allPaidNotes.length < 100) {
     return next(
       new appError(
@@ -176,7 +176,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   }
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
   // cleared:false on uncleared t-block.
-  console.log("PARENT T-BLOCK ->", parentTBlockArray);
+  console.log("PARENT T-BLOCK ->", parentTBlockArray.length);
   if (parentTBlockArray.length === 0) {
     return next(
       appError(
@@ -189,6 +189,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   // Adding cleared status;
   for (const child_Tblock of parentTBlockArray) {
     let allPaid = true;
+    // console.log(child_Tblock[0]);
     for (const obj of child_Tblock) {
       if (!obj.thirtyDayPayment) {
         allPaid = false;
@@ -202,7 +203,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
   }
 
-  console.log("ADDED CLEARED STATUS ->", parentTBlockArray);
+  // console.log("ADDED CLEARED STATUS ->", parentTBlockArray.slice(1, 10));
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
   let consecutiveScore = 0;
 
@@ -212,11 +213,12 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
+      console.log("ELEMENT HERE -> ", el);
       if (el.cleared) {
         countOfTwo += 1;
       }
     });
-    if (setOfTwo.length < 2 && el.cleared) {
+    if (setOfTwo.length < 2) {
       // this is for odd number of transaction counts
       countOfTwo += 1;
       oddCount = true;
@@ -228,11 +230,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     if (oddCount === true) {
       consecutiveScore = consecutiveScore + 0.2;
     }
-    console.log(
-      "SET OF TWO AND COSECUTIVE SCORE ->",
-      setOfTwo,
-      consecutiveScore
-    );
+    // console.log(
+    //   "SET OF TWO AND COSECUTIVE SCORE ->",
+    //   setOfTwo,
+    //   consecutiveScore
+    // );
   }
 
   //Step 4:- Filter out cleared and uncleared T-blocks;
@@ -251,8 +253,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   });
   console.log(
     "CLEARED AND UNCLEARED TBLOCKS -> ",
-    clearedTblocks,
-    unclearedTblocks
+    clearedTblocks.length,
+    unclearedTblocks.length
   );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
