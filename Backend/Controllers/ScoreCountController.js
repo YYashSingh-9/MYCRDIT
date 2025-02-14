@@ -215,15 +215,16 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     setOfTwo.forEach((el) => {
       let clearStat = el.pop();
       console.log("ELEMENT HERE -> ", clearStat);
-      if (el.cleared) {
+      if (clearStat) {
         countOfTwo += 1;
       }
+      if (setOfTwo.length < 2 && clearStat) {
+        // this is for odd number of transaction counts
+        countOfTwo += 1;
+        oddCount = true;
+      }
     });
-    if (setOfTwo.length < 2) {
-      // this is for odd number of transaction counts
-      countOfTwo += 1;
-      oddCount = true;
-    }
+
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
       consecutiveScore = consecutiveScore + num;
@@ -243,15 +244,19 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   let unclearedTblocks = [];
 
   clearedTblocks = parentTBlockArray.filter((el) => {
-    if (el.cleared) {
+    const clearStat = el.pop();
+    if (clearStat) {
       return el;
+    } else if (!clearStat) {
+      unclearedTblocks.push(el);
     }
   });
-  unclearedTblocks = parentTBlockArray.filter((el) => {
-    if (!el.cleared) {
-      return el;
-    }
-  });
+  // unclearedTblocks = parentTBlockArray.filter((el) => {
+  //   const clearStat = el.pop();
+  //   if (!el.cleared) {
+  //     return el;
+  //   }
+  // });
   console.log(
     "CLEARED AND UNCLEARED TBLOCKS -> ",
     clearedTblocks.length,
