@@ -274,7 +274,14 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   totalScore = plus_score - minus_score;
 
-  console.log("PLUS SCORE & MINUS SCORE ->", plus_score, minus_score);
+  console.log(
+    "PLUS SCORE & MINUS SCORE ->",
+    plus_score,
+    minus_score,
+    "CONSECUTIVE SCORE -> ",
+    clearedTblocks.length * 0.2,
+    consecutiveScore
+  );
   // Step 6:- Adding transactional Score with Behavioural score to get MyCrditScore.
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
