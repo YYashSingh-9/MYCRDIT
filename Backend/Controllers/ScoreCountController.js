@@ -158,8 +158,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const allPaidNotes = await PaidNote.find({
     customerNumber: { $in: customerNum },
   });
-  const customer = await Customer.find({ contactNumber: customerNum });
-
+  const customerArr = await Customer.find({ contactNumber: customerNum });
+  const customer = customerArr[0];
   console.log(customer, allPaidNotes.length, "CUSTOMER & NOTES HERE..");
   if (allPaidNotes.length < 100) {
     return next(
@@ -210,17 +210,15 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   for (let i = 0; i < parentTBlockArray.length; i += 2) {
     let countOfTwo = 0;
     let oddCount = false;
-
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
-      let clearStat = el.pop();
-      console.log("ELEMENT HERE -> ", clearStat);
-      if (clearStat) {
+      let clearStatus = el.pop();
+      // console.log("ELEMENT HERE -> ", clearStatus);
+      if (clearStatus) {
         countOfTwo += 1;
       }
-      if (setOfTwo.length < 2 && clearStat) {
+      if (setOfTwo.length < 2 && clearStatus) {
         // this is for odd number of transaction counts
-        countOfTwo += 1;
         oddCount = true;
       }
     });
@@ -228,15 +226,16 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
       consecutiveScore = consecutiveScore + num;
+      console.log(i, num);
+
+      console.log("CONSECUTIVE SCORE 1", consecutiveScore);
     }
     if (oddCount === true) {
       consecutiveScore = consecutiveScore + 0.2;
+      console.log(i);
+
+      console.log("CONSECUTIVE SCORE 2", consecutiveScore);
     }
-    // console.log(
-    //   "SET OF TWO AND COSECUTIVE SCORE ->",
-    //   setOfTwo,
-    //   consecutiveScore
-    // );
   }
 
   //Step 4:- Filter out cleared and uncleared T-blocks;
@@ -286,7 +285,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
 
-  console.log("FINAL SCORES", customerTScore, my_creditScore);
+  console.log("FINAL SCORES", customer, my_creditScore);
 
   // Step 7:- Sending score details
   res.status(200).json({
