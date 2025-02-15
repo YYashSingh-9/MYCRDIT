@@ -243,10 +243,10 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   let clearedTblocks = [];
   let unclearedTblocks = [];
 
-  clearedTblocks = parentTBlockArray.filter((el) => {
+  parentTBlockArray.forEach((el) => {
     const clearStat = el.pop();
     if (clearStat) {
-      return el;
+      clearedTblocks.push(el);
     } else if (!clearStat) {
       unclearedTblocks.push(el);
     }
