@@ -116,7 +116,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     console.log("this is 8");
   } else if (within_FortyDays) {
     pre_score_count += 0.05;
-    console.log("this is 9");
+    console.log("this is 9 ");
   }
 
   // 4. Extract current customer's transactional Score & add new calculated score to that.
