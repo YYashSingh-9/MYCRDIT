@@ -213,7 +213,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     let setOfTwo = parentTBlockArray.slice(i, i + 2);
     setOfTwo.forEach((el) => {
       let clearStatus = el.pop();
-      console.log("ELEMENT HERE -> ", clearStatus);
+      // console.log("ELEMENT HERE -> ", clearStatus.cleared);
       if (clearStatus.cleared) {
         countOfTwo += 1;
       }
@@ -226,15 +226,15 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
       consecutiveScore = consecutiveScore + num;
-      console.log(i, num);
+      // console.log(i, num);
 
-      console.log("CONSECUTIVE SCORE 1", consecutiveScore);
+      // console.log("CONSECUTIVE SCORE 1", consecutiveScore);
     }
     if (oddCount === true) {
       consecutiveScore = consecutiveScore + 0.2;
-      console.log(i);
+      // console.log(i);
 
-      console.log("CONSECUTIVE SCORE 2", consecutiveScore);
+      // console.log("CONSECUTIVE SCORE 2", consecutiveScore);
     }
   }
 
