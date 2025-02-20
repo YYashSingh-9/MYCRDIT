@@ -203,7 +203,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
   }
 
-  //Assining it.
+  //Assigning it.
   updatedTBlockArray = [...parentTBlockArray];
   console.log(updatedTBlockArray[0]);
   // console.log("ADDED CLEARED STATUS ->", parentTBlockArray.slice(1, 10));
