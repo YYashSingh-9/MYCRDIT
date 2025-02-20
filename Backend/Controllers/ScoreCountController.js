@@ -189,7 +189,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   // Adding cleared status;
   for (const child_Tblock of parentTBlockArray) {
     let allPaid = true;
-    // console.log(child_Tblock[0]);
     for (const obj of child_Tblock) {
       if (!obj.thirtyDayPayment) {
         allPaid = false;
@@ -244,6 +243,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   parentTBlockArray.forEach((el) => {
     const clearStat = el.pop();
+
     if (clearStat) {
       clearedTblocks.push(el);
     } else if (!clearStat) {
