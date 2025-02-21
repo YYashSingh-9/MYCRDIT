@@ -220,18 +220,16 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     let oddCount = false;
     let dummyArr = [...parentTBlockArray];
     let setOfTwo = dummyArr.slice(i, i + 2);
-    console.log(setOfTwo, "😂😂😂");
-    // setOfTwo.forEach((el) => {
-    //   let clearStatus = el.slice(-1);
-
-    //   if (clearStatus.cleared) {
-    //     countOfTwo += 1;
-    //   }
-    //   if (setOfTwo.length < 2 && clearStatus) {
-    //     // this is for odd number of transaction counts
-    //     oddCount = true;
-    //   }
-    // });
+    setOfTwo.forEach((el) => {
+      let clearStatus = el.slice(-1);
+      if (clearStatus[0].cleared) {
+        countOfTwo += 1;
+      }
+      if (setOfTwo.length < 2 && clearStatus[0].cleared) {
+        // this is for odd number of transaction counts
+        oddCount = true;
+      }
+    });
 
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
