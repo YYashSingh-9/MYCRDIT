@@ -146,6 +146,14 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
 
 exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   let updatedTBlockArray = [];
+  let parentTBlockArray = [];
+  let unclearedTblocks = [];
+  let clearedTblocks = [];
+  let consecutiveScore = 0;
+  let minus_score = 0;
+  let plus_score = 0;
+  let totalScore = 0;
+
   console.log("FUNCTION STARTED FROM HERE -> ✅");
   console.log(req.body, "REQUEST BODY");
 
@@ -171,7 +179,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     );
   }
 
-  let parentTBlockArray = [];
   for (let i = 0; i < allPaidNotes.length; i += 3) {
     parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
   }
@@ -208,7 +215,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   console.log(updatedTBlockArray[0]);
   // console.log("ADDED CLEARED STATUS ->", parentTBlockArray.slice(1, 10));
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
-  let consecutiveScore = 0;
 
   for (let i = 0; i < updatedTBlockArray.length; i += 2) {
     let countOfTwo = 0;
@@ -237,8 +243,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   }
   console.log("THIS IS SECOND", parentTBlockArray[0]);
   //Step 4:- Filter out cleared and uncleared T-blocks;
-  let clearedTblocks = [];
-  let unclearedTblocks = [];
 
   clearedTblocks = parentTBlockArray.filter((el) => {
     const clearStat = el.pop();
@@ -259,10 +263,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
-
-  let plus_score = 0;
-  let minus_score = 0;
-  let totalScore = 0;
 
   plus_score = clearedTblocks.length * 0.2 + consecutiveScore;
   minus_score = unclearedTblocks.length * 0.1;
