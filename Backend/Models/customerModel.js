@@ -6,7 +6,7 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: [5, "Minimum 5 characters required. "],
-    maxLength: [20, "Maximum 20 characters allowed. "],
+    maxLength: [30, "Maximum 30 characters allowed. "],
   },
   contactNumber: {
     type: Number,
