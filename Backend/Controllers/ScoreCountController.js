@@ -242,23 +242,20 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   console.log("THIS IS SECOND", updatedTBlockArray[0]);
   //Step 4:- Filter out cleared and uncleared T-blocks;
 
-  clearedTblocks = parentTBlockArray.filter((el) => {
-    const clearStat = el.pop();
-    if (clearStat.cleared) {
-      return el;
+  updatedTBlockArray.forEach((el) => {
+    let clearStatus = el.slice(-1);
+    if (clearStatus[0].cleared) {
+      clearedTblocks.push(el);
+    } else if (!clearStatus[0].cleared) {
+      unclearedTblocks.push(el);
     }
   });
-  unclearedTblocks = parentTBlockArray.filter((el) => {
-    const clearStat = el.pop();
-    if (!clearStat.cleared) {
-      return el;
-    }
-  });
-  // console.log(
-  //   "CLEARED AND UNCLEARED TBLOCKS -> ",
-  //   clearedTblocks.length,
-  //   unclearedTblocks.length
-  // );
+
+  console.log(
+    "CLEARED AND UNCLEARED TBLOCKS -> ",
+    clearedTblocks.length,
+    unclearedTblocks.length
+  );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 
@@ -266,14 +263,14 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   minus_score = unclearedTblocks.length * 0.1;
 
   totalScore = plus_score - minus_score;
-  // console.log(
-  //   "PLUS SCORE & MINUS SCORE ->",
-  //   plus_score,
-  //   minus_score,
-  //   "CONSECUTIVE SCORE -> ",
-  //   clearedTblocks.length * 0.2,
-  //   consecutiveScore
-  // );
+  console.log(
+    "PLUS SCORE & MINUS SCORE ->",
+    plus_score,
+    minus_score,
+    "CONSECUTIVE SCORE -> ",
+    clearedTblocks.length * 0.2,
+    consecutiveScore
+  );
   // Step 6:- Adding transactional Score with Behavioural score to get MyCrditScore.
   const customerTScore = customer.transactionalScore;
   const my_creditScore = customerTScore + totalScore;
