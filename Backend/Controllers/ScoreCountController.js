@@ -184,7 +184,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   }
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
   // cleared:false on uncleared t-block.
-  // console.log("PARENT T-BLOCK ->", parentTBlockArray);
   if (parentTBlockArray.length === 0) {
     return next(
       appError(
@@ -212,8 +211,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   //Assigning it.
   updatedTBlockArray = [...parentTBlockArray];
-  console.log(updatedTBlockArray[0]);
-  // console.log("ADDED CLEARED STATUS ->", parentTBlockArray.slice(1, 10));
+  // console.log(updatedTBlockArray[0]);
+
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
 
   for (let i = 0; i < updatedTBlockArray.length; i += 2) {
@@ -221,17 +220,18 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     let oddCount = false;
     let dummyArr = [...parentTBlockArray];
     let setOfTwo = dummyArr.slice(i, i + 2);
-    setOfTwo.forEach((el) => {
-      let clearStatus = el.pop();
+    console.log(setOfTwo, "😂😂😂");
+    // setOfTwo.forEach((el) => {
+    //   let clearStatus = el.slice(-1);
 
-      if (clearStatus.cleared) {
-        countOfTwo += 1;
-      }
-      if (setOfTwo.length < 2 && clearStatus) {
-        // this is for odd number of transaction counts
-        oddCount = true;
-      }
-    });
+    //   if (clearStatus.cleared) {
+    //     countOfTwo += 1;
+    //   }
+    //   if (setOfTwo.length < 2 && clearStatus) {
+    //     // this is for odd number of transaction counts
+    //     oddCount = true;
+    //   }
+    // });
 
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
@@ -241,7 +241,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
       consecutiveScore = consecutiveScore + 0.2;
     }
   }
-  console.log("THIS IS SECOND", parentTBlockArray[0]);
+  console.log("THIS IS SECOND", updatedTBlockArray[0]);
   //Step 4:- Filter out cleared and uncleared T-blocks;
 
   clearedTblocks = parentTBlockArray.filter((el) => {
@@ -256,11 +256,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
       return el;
     }
   });
-  console.log(
-    "CLEARED AND UNCLEARED TBLOCKS -> ",
-    clearedTblocks.length,
-    unclearedTblocks.length
-  );
+  // console.log(
+  //   "CLEARED AND UNCLEARED TBLOCKS -> ",
+  //   clearedTblocks.length,
+  //   unclearedTblocks.length
+  // );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 
