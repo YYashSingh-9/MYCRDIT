@@ -1,7 +1,7 @@
 .btn {
   border: none;
-  width: 13rem;
-  height: 2.6rem;
+  width: 12rem;
+  height: 3rem;
   margin: auto;
   margin-top: 1rem;
   font-size: 0.9rem;
@@ -9,21 +9,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1db954;
-  border-radius: 0.5rem;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: transparent;
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 0.3rem;
+  color: #1db954;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, */
+  /* rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
   transition: 0.2s ease;
   cursor: pointer;
 }
 .btn:active {
-  background-color: #137a37;
+  background-color: rgb(239, 239, 239);
 }
-.btn:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
+
 .icn {
   margin-right: 0.2rem;
 }
