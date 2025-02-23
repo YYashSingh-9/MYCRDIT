@@ -4,7 +4,7 @@ import GeneraltButton from "../AdditionalComponents/GeneralButton";
 import UserLeverBar from "../AdditionalComponents/UserLevelBar";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
-
+import { Link } from "react-router-dom";
 const MCScorePage = () => {
   const userType = useSelector((state) => state.sliceOne.accountType);
   return (
@@ -33,7 +33,7 @@ const MCScorePage = () => {
               </Box>
             </Box>
             <Box className={classes.childBox_three}>
-              <Link to={".."}>
+              <Link to={"/your-account-details"}>
                 <GeneraltButton btn_title="back" />
               </Link>
             </Box>

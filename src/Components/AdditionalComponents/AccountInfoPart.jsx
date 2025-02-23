@@ -80,18 +80,12 @@ const AccountInfoPart = (props) => {
               />
             </Link>
           )}
-          {accountType === "customer" ? (
-            <Link to={"/my-current-mcs"}>
+          {accountType === "customer" && (
+            <Link to={"/bts-mycrdit-score"}>
               <GeneralButton icnTitle={"money"} btn_title={"MCS System"} />
             </Link>
-          ) : (
-            <Link to={"/review-form"}>
-              <GeneralButton
-                icnTitle={"review"}
-                btn_title={"Share your view"}
-              />
-            </Link>
           )}
+
           {accountType === "customer" ? (
             <Link to={"/edit-customer-info"}>
               <GeneralButton
@@ -121,7 +115,18 @@ const AccountInfoPart = (props) => {
               <GeneralButton icnTitle={"shopInfo"} btn_title={"Shop Info"} />
             </Link>
           )}
-
+          {accountType === "customer" ? (
+            <Link to={"/my-current-mcs"}>
+              <GeneralButton icnTitle={"money"} btn_title={"MCS Score"} />
+            </Link>
+          ) : (
+            <Link to={"/review-form"}>
+              <GeneralButton
+                icnTitle={"review"}
+                btn_title={"Share your view"}
+              />
+            </Link>
+          )}
           <Link to={"/"}>
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
