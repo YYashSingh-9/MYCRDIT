@@ -26,20 +26,23 @@ const MCSPage = () => {
             {"(Transactional credit score)"} will be added.
           </p>
           <br />
-          <h3>How MyCrdit score system works ?{"(2)"}</h3>
+          <h3>How MyCrdit score system works ? {"(2)"}</h3>
           <p>
             Customer when consecutively clear his/her each debt{" "}
             {"(within 30 days)"} for at least 3 months and then 6 months
             continously, extra BCS {"(Behavioural credit score)"} will be added
+            to customer's account.
           </p>{" "}
           <br />
-          <h3>How MyCrdit score system works ?</h3>
+          <h3>How MyCrdit score system works ? {"(3)"}</h3>
           <p>
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
-            Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-            exact original form, accompanied by English versions from the 1914
-            translation by H. Rackham{" "}
+            On successfully clearing each debt notes on time and also
+            consecutively clearing debt notes then your total mycrdit score will
+            be accumulated. As per your mycrdit score you will be assigned to
+            your "level bar". <br />
+            <br />
+            Higher level bar class means you are highly acceptable for credits
+            based on your level bar
           </p>
         </Grid>
         <Grid
