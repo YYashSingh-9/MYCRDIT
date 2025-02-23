@@ -33,7 +33,9 @@ const MCScorePage = () => {
               </Box>
             </Box>
             <Box className={classes.childBox_three}>
-              <GeneraltButton btn_title="back" />
+              <Link to={".."}>
+                <GeneraltButton btn_title="back" />
+              </Link>
             </Box>
           </Box>
         </BasicCoverDiv>
