@@ -203,6 +203,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
     if (allPaid) {
       child_Tblock.push({ cleared: true });
+      console.log("cleared");
     }
     if (!allPaid) {
       child_Tblock.push({ cleared: false });
@@ -233,9 +234,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
+      // console.log("jjjjjj");
       consecutiveScore = consecutiveScore + num;
     }
     if (oddCount === true) {
+      // console.log("bdbd");
       consecutiveScore = consecutiveScore + 0.2;
     }
   }
