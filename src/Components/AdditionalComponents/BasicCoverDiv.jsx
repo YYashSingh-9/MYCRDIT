@@ -12,7 +12,7 @@ const BasicCoverDiv = (props) => {
         justifyContent="center"
         className={classes.mainGrid}
       >
-        <Grid item lg={12} md={12} sm={12} xs={12}>
+        <Grid item lg={12} md={12} sm={12} xs={12} mt={2} mb={2}>
           <h1>
             {props.heading}
             <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
