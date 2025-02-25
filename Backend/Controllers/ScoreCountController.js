@@ -90,22 +90,22 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     pre_score_count += 0.1;
     console.log("this is 1");
     console.log(pre_score_count);
-  } else if (note_amount > 500 && note_amount < 2000 && _ThirtyDays) {
+  } else if (note_amount > 500 && note_amount <= 2000 && _ThirtyDays) {
     console.log("this is 2");
     pre_score_count += 0.1;
-  } else if (note_amount > 2000 && note_amount < 5000 && _ThirtyDays) {
+  } else if (note_amount > 2000 && note_amount <= 5000 && _ThirtyDays) {
     pre_score_count += 0.2;
     console.log("this is 3");
-  } else if (note_amount > 5000 && note_amount < 9000 && _ThirtyDays) {
+  } else if (note_amount > 5000 && note_amount <= 9000 && _ThirtyDays) {
     pre_score_count += 0.3;
     console.log("this is 4");
-  } else if (note_amount > 9000 && note_amount < 15000 && _ThirtyDays) {
+  } else if (note_amount > 9000 && note_amount <= 15000 && _ThirtyDays) {
     pre_score_count += 0.4;
     console.log("this is 5");
-  } else if (note_amount > 15000 && note_amount < 25000 && _ThirtyDays) {
+  } else if (note_amount > 15000 && note_amount <= 25000 && _ThirtyDays) {
     pre_score_count += 0.6;
     console.log("this is 5");
-  } else if (note_amount > 25000 && note_amount < 35000 && _ThirtyDays) {
+  } else if (note_amount > 25000 && note_amount <= 35000 && _ThirtyDays) {
     pre_score_count += 1;
     console.log("this is 6");
   } else if (note_amount > 35000 && _ThirtyDays) {
