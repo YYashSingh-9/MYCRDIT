@@ -9,7 +9,7 @@ customerRouter
 
 customerRouter
   .route("/verification-user")
-  .get(userAuthController.customerVerification);
+  .post(userAuthController.customerVerification);
 
 customerRouter.use(userAuthController.customerProtectMiddleware);
 customerRouter
