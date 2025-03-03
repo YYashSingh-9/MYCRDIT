@@ -10,7 +10,7 @@ proprietorRouter
 
 proprietorRouter
   .route("/proprietor-verification")
-  .get(userAuthController.proprietorVerification);
+  .post(userAuthController.proprietorVerification);
 proprietorRouter.use(userAuthController.protect);
 
 // Authorized accessible routes.
