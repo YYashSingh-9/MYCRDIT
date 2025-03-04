@@ -4,7 +4,7 @@ export const client = new QueryClient();
 
 // PROPRIETOR ACTION FUNCTIONS
 
-// 1. All running notes.
+// 1. Fetch request function (GET).
 
 export const getRequestFunction = async (urlType, cookie, additional) => {
   let url = `http://localhost:3000/mycrdit/api/${urlType}`;
@@ -24,5 +24,6 @@ export const getRequestFunction = async (urlType, cookie, additional) => {
   });
   console.log(document);
   const document_2 = await document.json();
+  console.log(document_2);
   return document_2;
 };
