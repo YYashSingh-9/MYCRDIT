@@ -23,6 +23,8 @@ import "./index.css";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import mainStore from "./Store/mainStore.jsx";
+// Action and loader functions
+import { login_signup_fetchRequest } from "./Store/actionCreatorThunk.js";
 
 const router = createBrowserRouter([
   {
@@ -38,11 +40,20 @@ const router = createBrowserRouter([
       },
       { path: "/your-account-details", element: <AccountPage /> },
       { path: "/your-history-details", element: <HistoryPage /> },
-      { path: "/proprietor-signup-form", element: <ProprietorSignupForm /> },
-      { path: "/customer-signup-form", element: <CustomerSignupForm /> },
+      {
+        path: "/proprietor-signup-form",
+        element: <ProprietorSignupForm />,
+        action: login_signup_fetchRequest,
+      },
+      {
+        path: "/customer-signup-form",
+        element: <CustomerSignupForm />,
+        action: login_signup_fetchRequest,
+      },
       {
         path: "/login",
         element: <LoginPage />,
+        action: login_signup_fetchRequest,
       },
       { path: "/otp-authentication", element: <OTPpage /> },
       { path: "/my-shop-info", element: <ShopInfo /> },

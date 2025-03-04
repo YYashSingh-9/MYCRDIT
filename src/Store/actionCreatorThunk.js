@@ -37,30 +37,36 @@ export const data_Send_request = async (
   data_to_send,
   cookie
 ) => {
-  let url = `http://localhost:3000/mycrdit/api/${urlType}`;
+  try {
+    let url = `http://localhost:3000/mycrdit/api/${urlType}`;
 
-  additional ? (url += `/${additional}`) : "";
+    additional ? (url += `/${additional}`) : "";
 
-  const dataToBeSent = data_to_send
-    ? JSON.stringify(data_to_send)
-    : new Error("Data Missing could not send request.");
+    const dataToBeSent = data_to_send
+      ? JSON.stringify(data_to_send)
+      : new Error("Data Missing could not send request.");
 
-  const document = await fetch(url, {
-    credentials: "include",
-    withCredentials: true,
-    method: methodtype,
-    headers: {
-      Authorization: `Bearer ${cookie}`,
-      "content-type": "application/json",
-      Accept: "application/json",
-      "Access-Control-Allow-Origin": "http://localhost:3000",
-      cookie: `jwt=${cookie}`,
-    },
-    body: dataToBeSent,
-    redirect: "follow",
-  });
+    const document = await fetch(url, {
+      credentials: "include",
+      withCredentials: true,
+      method: methodtype,
+      headers: {
+        Authorization: `Bearer ${cookie}`,
+        "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        cookie: `jwt=${cookie}`,
+      },
+      body: dataToBeSent,
+      redirect: "follow",
+    });
 
-  // const document_2
+    const document_2 = await document.json();
+    return document_2;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 };
 
 // 3. Login/signup fetch request.
@@ -68,4 +74,5 @@ export const data_Send_request = async (
 export const login_signup_fetchRequest = ({ request }) => {
   const data = request.formData();
   console.log(data);
+  console.log(request);
 };
