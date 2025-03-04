@@ -71,9 +71,10 @@ export const data_Send_request = async (
 
 // 3. Login/signup fetch request.
 
-export const login_signup_fetchRequest = ({ request }) => {
-  const data = request.formData();
-  console.log(data);
+export const login_signup_fetchRequest = async ({ request }) => {
+  const data = await request.formData();
+  const data_2 = Object.fromEntries(data);
+  console.log(data_2);
   console.log(request);
   return data;
 };

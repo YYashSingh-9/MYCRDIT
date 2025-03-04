@@ -26,11 +26,11 @@ const ProprietorUI = (props) => {
         <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
-          <TextField id="outlined" />
+          <TextField id="outlined" name="number" />
           <br />
-          <label htmlFor="number">Your Password</label>
+          <label htmlFor="password">Your Password</label>
           <br />
-          <TextField id="outlined" />
+          <TextField id="outlined" name="password" />
           <GeneralButton typeBtn="submit" btn_title="Login" />
         </Form>
       </Grid>
@@ -86,7 +86,7 @@ const CustomerUI = (props) => {
         <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
-          <TextField id="outlined" />
+          <TextField id="outlined" name="number" />
           <br />
 
           {/* .... Below part was original before quickin authentication update */}
