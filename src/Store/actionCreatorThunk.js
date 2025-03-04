@@ -75,4 +75,5 @@ export const login_signup_fetchRequest = ({ request }) => {
   const data = request.formData();
   console.log(data);
   console.log(request);
+  return data;
 };

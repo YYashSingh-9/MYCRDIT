@@ -23,7 +23,7 @@ const ProprietorUI = (props) => {
         </h1>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.main}>
-        <Form method="POST" className={classes.form_main}>
+        <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
           <TextField id="outlined" />
@@ -83,7 +83,7 @@ const CustomerUI = (props) => {
         </h1>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.main}>
-        <Form method="POST" className={classes.form_main}>
+        <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
           <TextField id="outlined" />
@@ -95,6 +95,7 @@ const CustomerUI = (props) => {
           <TextField id="outlined" /> */}
 
           <GeneralButton typeBtn="submit" btn_title="Authenticate" />
+          {/* <button type="submit"> "Authenticate"</button> */}
         </Form>
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12} className={classes.toggleText}>
