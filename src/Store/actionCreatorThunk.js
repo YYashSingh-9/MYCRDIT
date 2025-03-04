@@ -74,7 +74,14 @@ export const data_Send_request = async (
 export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
-  console.log(data_2);
-  console.log(request);
+
+  let request_of;
+  let additional_url_part;
+
+  if (data_2.password) {
+    request_of = "proprietor";
+  }
+
+  data_Send_request(request_of);
   return data;
 };
