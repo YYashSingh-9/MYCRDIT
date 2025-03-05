@@ -84,18 +84,24 @@ export const login_signup_fetchRequest = async ({ request }) => {
   if (data_length === 2) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
-    sendingDataObject = {};
+    sendingDataObject = { ...data_2 };
   }
   if (data_length < 2) {
     request_of = "customer";
     additional_url_part = "/verification-user";
+    sendingDataObject = { ...data_2 };
   }
   if (data_length > 2) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
   }
-  console.log(intent, request_of, additional_url_part);
-  data_Send_request(request_of, additional_url_part, "POST", data_2);
+  data_Send_request(
+    request_of,
+    additional_url_part,
+    "POST",
+    sendingDataObject,
+    ""
+  );
   return data;
 };
 
