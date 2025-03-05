@@ -62,6 +62,7 @@ export const data_Send_request = async (
     });
 
     const document_2 = await document.json();
+    console.log(document_2);
     return document_2;
   } catch (err) {
     console.log(err);
@@ -92,7 +93,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     additional_url_part = "/verification-user";
     sendingDataObject = { ...data_2 };
   }
-  if (data_length > 2) {
+  if (data_length > 2 && data_length <= 15) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
     sendingDataObject = {
@@ -112,16 +113,17 @@ export const login_signup_fetchRequest = async ({ request }) => {
       proprietorDemand: data_2.proprietorDemand,
       proprietorGST: data_2.proprietorGST,
     };
+    console.log(sendingDataObject);
   }
 
   console.log(request_of, additional_url_part, sendingDataObject);
-  // data_Send_request(
-  //   request_of,
-  //   additional_url_part,
-  //   "POST",
-  //   sendingDataObject,
-  //   ""
-  // );
+  data_Send_request(
+    request_of,
+    additional_url_part,
+    "POST",
+    sendingDataObject,
+    ""
+  );
   return data;
 };
 

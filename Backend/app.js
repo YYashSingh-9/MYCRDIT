@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const xss = require("xss");
+const cors = require("cors");
 const mongosanitize = require("express-mongo-sanitize");
 const cookieParser = require("cookie-parser");
 const rateLimiter = require("express-rate-limit");
