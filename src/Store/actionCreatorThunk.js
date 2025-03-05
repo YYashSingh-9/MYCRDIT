@@ -75,7 +75,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
-  const intent = data_2.get("intent");
+  const intent = data.get("intent");
 
   let request_of;
   let additional_url_part;
@@ -96,3 +96,13 @@ export const login_signup_fetchRequest = async ({ request }) => {
   data_Send_request(request_of, additional_url_part, "POST");
   return data;
 };
+
+/*
+ React Router's <Form> component, 
+when used within a <Route> with an action,automatically provides form data through 
+the request object in the action function.
+
+You can access the form data using await request.formData().
+
+Ensure your form inputs have name attributes. 
+*/
