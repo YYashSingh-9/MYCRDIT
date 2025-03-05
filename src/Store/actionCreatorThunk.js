@@ -76,14 +76,14 @@ export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
-  console.log(data_2);
+  console.log(data_length, data_2);
   const intent = data.get("intent");
 
   let request_of;
   let additional_url_part;
   let sendingDataObject = {};
 
-  if (data_length === 2) {
+  if (data_length === 3) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
     sendingDataObject = { ...data_2 };
@@ -93,7 +93,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     additional_url_part = "/verification-user";
     sendingDataObject = { ...data_2 };
   }
-  if (data_length > 2 && data_length <= 15) {
+  if (data_length > 3 && data_length <= 15) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
     sendingDataObject = {
