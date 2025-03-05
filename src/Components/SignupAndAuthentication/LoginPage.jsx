@@ -26,7 +26,7 @@ const ProprietorUI = (props) => {
         <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
-          <TextField id="outlined" name="number" />
+          <TextField id="outlined" name="contactNumber" />
           <br />
           <label htmlFor="password">Your Password</label>
           <br />
@@ -91,7 +91,7 @@ const CustomerUI = (props) => {
         <Form method="POST" action="/login" className={classes.form_main}>
           <label htmlFor="number">Your Number</label>
           <br />
-          <TextField id="outlined" name="number" />
+          <TextField id="outlined" name="contactNumber" />
           <br />
 
           {/* .... Below part was original before quickin authentication update */}

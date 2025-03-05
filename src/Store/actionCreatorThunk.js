@@ -79,10 +79,12 @@ export const login_signup_fetchRequest = async ({ request }) => {
 
   let request_of;
   let additional_url_part;
+  let sendingDataObject = {};
 
   if (data_length === 2) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
+    sendingDataObject = {};
   }
   if (data_length < 2) {
     request_of = "customer";
@@ -93,7 +95,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     additional_url_part = "/proprietor-authentication";
   }
   console.log(intent, request_of, additional_url_part);
-  data_Send_request(request_of, additional_url_part, "POST");
+  data_Send_request(request_of, additional_url_part, "POST", data_2);
   return data;
 };
 
