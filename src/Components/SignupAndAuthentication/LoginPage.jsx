@@ -31,7 +31,12 @@ const ProprietorUI = (props) => {
           <label htmlFor="password">Your Password</label>
           <br />
           <TextField id="outlined" name="password" />
-          <GeneralButton typeBtn="submit" btn_title="Login" />
+          <GeneralButton
+            typeBtn="submit"
+            btn_title="Login"
+            name="intent"
+            value="login"
+          />
         </Form>
       </Grid>
 

@@ -20,11 +20,13 @@ const GeneralButton = (props) => {
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
+  const val = props.value;
+  const nam = props.name;
 
   return (
     <>
       <Box className={classes.btnParent}>
-        <button className={classes.btn} type={btnType}>
+        <button className={classes.btn} type={btnType} value={val} name={nam}>
           {iconTitle === "bacck" && <ArrowBackIcon className={classes.icn} />}
           {iconTitle === "home" && <HomeIcon className={classes.icn} />}
           {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
