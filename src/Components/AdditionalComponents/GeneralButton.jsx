@@ -20,8 +20,8 @@ const GeneralButton = (props) => {
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
-  const val = props.value;
-  const nam = props.name;
+  const val = props.value ? props.value : "";
+  const nam = props.name ? props.name : "";
 
   return (
     <>

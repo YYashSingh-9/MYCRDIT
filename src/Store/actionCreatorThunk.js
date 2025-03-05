@@ -74,8 +74,8 @@ export const data_Send_request = async (
 export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
-
   const data_length = Object.keys(data_2).length;
+  const intent = data_2.get("intent");
 
   let request_of;
   let additional_url_part;
@@ -92,7 +92,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
   }
-
-  data_Send_request(request_of, additional_url_part);
+  console.log(intent, request_of, additional_url_part);
+  data_Send_request(request_of, additional_url_part, "POST");
   return data;
 };
