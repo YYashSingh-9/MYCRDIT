@@ -75,13 +75,24 @@ export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
 
+  const data_length = Object.keys(data_2).length;
+
   let request_of;
   let additional_url_part;
 
-  if (data_2.password) {
+  if (data_length === 2) {
     request_of = "proprietor";
+    additional_url_part = "/proprietor-verification";
+  }
+  if (data_length < 2) {
+    request_of = "customer";
+    additional_url_part = "/verification-user";
+  }
+  if (data_length > 2) {
+    request_of = "proprietor";
+    additional_url_part = "/proprietor-authentication";
   }
 
-  data_Send_request(request_of);
+  data_Send_request(request_of, additional_url_part);
   return data;
 };

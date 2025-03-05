@@ -4,11 +4,11 @@ const ProprietorReviewController = require("../Controllers/ProprietorReviewContr
 const functionalController = require("../Controllers/FunctionalControllers");
 const proprietorRouter = express.Router();
 
-proprietorRouter
+proprietorRouter // signup
   .route("/proprietor-authentication")
   .post(userAuthController.proprietorAuthentication);
 
-proprietorRouter
+proprietorRouter // login
   .route("/proprietor-verification")
   .post(userAuthController.proprietorVerification);
 proprietorRouter.use(userAuthController.protect);
