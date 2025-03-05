@@ -75,6 +75,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
+  console.log(data_2);
   const intent = data.get("intent");
 
   let request_of;
@@ -94,14 +95,33 @@ export const login_signup_fetchRequest = async ({ request }) => {
   if (data_length > 2) {
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
+    sendingDataObject = {
+      ProprietorName: data_2.ProprietorName,
+      shopName: data_2.shopName,
+      shopAddress: data_2.shopAddress,
+      state: data_2.state,
+      pincode: data_2.pincode,
+      city: data_2.city,
+      shopCategory: data_2.shopCategory,
+      otherShopCategory: data_2.otherShopCategory,
+      contactNumber: data_2.contactNumber,
+      password: data_2.password,
+      confirmPassword: data_2.confirmPassword,
+      mostSellingProduct: data_2.mostSellingProduct,
+      leastSellingProduct: data_2.leastSellingProduct,
+      proprietorDemand: data_2.proprietorDemand,
+      proprietorGST: data_2.proprietorGST,
+    };
   }
-  data_Send_request(
-    request_of,
-    additional_url_part,
-    "POST",
-    sendingDataObject,
-    ""
-  );
+
+  console.log(request_of, additional_url_part, sendingDataObject);
+  // data_Send_request(
+  //   request_of,
+  //   additional_url_part,
+  //   "POST",
+  //   sendingDataObject,
+  //   ""
+  // );
   return data;
 };
 

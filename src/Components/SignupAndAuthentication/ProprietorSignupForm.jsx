@@ -22,20 +22,16 @@ const ProprietorSignupForm = () => {
           <Form method="POST" className={classes.form_main}>
             <label htmlFor="Shop Name">Shop Name</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="shopName" />
             <hr />
             <label htmlFor="Shop address">Shop Address</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="shopAddress" />
             <br />
             <br />
 
             <label htmlFor="States">Select State</label>
-            <select
-              name="Select state"
-              id="states"
-              className={classes.stateSelector}
-            >
+            <select name="state" id="states" className={classes.stateSelector}>
               <option value={"Andhra Pradesh"}>Andhra Pradesh</option>
               <option value={"Arunachal Pradesh"}>Arunachal Pradesh</option>
               <option value={"Assam"}>Assam</option>
@@ -72,14 +68,14 @@ const ProprietorSignupForm = () => {
             <br />
             <label htmlFor="City">City</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="city" />
             <hr />
 
             <label htmlFor="Shop Category">Your Shop Category</label>
 
             <select
-              name="Select state"
-              id="states"
+              name="shopCategory"
+              id="shop category"
               className={classes.stateSelector}
             >
               <option value={"Daily Needs"}>Daily needs</option>
@@ -111,7 +107,7 @@ const ProprietorSignupForm = () => {
             <hr />
             <label htmlFor="other shop category">Other Shop Category.</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="other shopCategory" />
             <hr />
             <label htmlFor="Contact number">Contact Number.</label>
             <br />
@@ -122,29 +118,30 @@ const ProprietorSignupForm = () => {
                 <InputAdornment position="start">+91</InputAdornment>
               }
               label="Amount"
+              name="contactNumber"
             />
             <br />
             <label htmlFor="Proprietor name">Proprietor Name.</label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="ProprietorName" />
             <br />
-            <label htmlFor="Proprietor name">Your Password.</label>
+            <label htmlFor="Password">Your Password.</label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="password" />
             <br />
-            <label htmlFor="Proprietor name">Confirm Password.</label>
+            <label htmlFor="Confirm password">Confirm Password.</label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="confirmPassword" />
             <br />
             <label htmlFor="question">What is your most selling product.</label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="mostSellingProduct" />
             <br />
             <label htmlFor="question">
               What is your least selling product.
             </label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="leastSellingProduct" />
             <br />
 
             <label htmlFor="question">
@@ -152,13 +149,13 @@ const ProprietorSignupForm = () => {
               right now
             </label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="proprietorDemand" />
             <br />
             <label htmlFor="GST number">
               Your GST number{`(if available)`}
             </label>
             <br />
-            <TextField id="Outlined" />
+            <TextField id="Outlined" name="proprietorGST" />
             <br />
             <button type="submit">Save</button>
           </Form>
