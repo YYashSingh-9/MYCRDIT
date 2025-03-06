@@ -76,7 +76,6 @@ export const login_signup_fetchRequest = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
-  console.log(data_length, data_2);
   const intent = data.get("intent");
 
   let request_of;
@@ -84,16 +83,19 @@ export const login_signup_fetchRequest = async ({ request }) => {
   let sendingDataObject = {};
 
   if (data_length === 3) {
+    //Proprietor login
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
     sendingDataObject = { ...data_2 };
   }
   if (data_length < 2) {
+    // Customer Authentication (login/signup);
     request_of = "customer";
     additional_url_part = "/verification-user";
     sendingDataObject = { ...data_2 };
   }
   if (data_length > 3 && data_length <= 15) {
+    // Proprietor Signup
     request_of = "proprietor";
     additional_url_part = "/proprietor-authentication";
     sendingDataObject = {
@@ -113,10 +115,8 @@ export const login_signup_fetchRequest = async ({ request }) => {
       proprietorDemand: data_2.proprietorDemand,
       proprietorGST: data_2.proprietorGST,
     };
-    console.log(sendingDataObject);
   }
 
-  console.log(request_of, additional_url_part, sendingDataObject);
   data_Send_request(
     request_of,
     additional_url_part,
