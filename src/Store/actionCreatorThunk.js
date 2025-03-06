@@ -1,12 +1,12 @@
 import { QueryClient } from "@tanstack/react-query";
-
+import { useSelector } from "react-redux";
 export const client = new QueryClient();
 
 // PROPRIETOR ACTION FUNCTIONS
 
 // 1. Fetch request function (GET).
 
-export const getRequestFunction = async (urlType, cookie, additional) => {
+export const data_fetch_function = async (urlType, cookie, additional) => {
   let url = `http://localhost:3000/mycrdit/api/${urlType}`;
 
   additional ? (url += `/${additional}`) : "";
@@ -127,6 +127,14 @@ export const login_signup_fetchRequest = async ({ request }) => {
   return data;
 };
 
+// 4. get all home page loader data (proprietor);
+
+export const getHomePage_Data = async () => {
+  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
+
+  if (currentAcc_Type === "proprietor") {
+  }
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
