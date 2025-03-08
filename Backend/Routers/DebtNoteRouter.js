@@ -4,22 +4,6 @@ const NotesController = require("../Controllers/NotesController");
 const UserAuthController = require("../Controllers/UserAuthController");
 const ScoreCountController = require("../Controllers/ScoreCountController");
 
-//PROPRIETOR NOTE ROUTES...
-NoteRouter.route("/get-all-notes").get(
-  UserAuthController.protect,
-  NotesController.allRunningNotes_proprietor
-);
-
-NoteRouter.route("/get-all-cleared-notes").get(
-  UserAuthController.protect,
-  NotesController.allClearedNotes
-);
-NoteRouter.route("/create-note").post(
-  UserAuthController.protect,
-  NotesController.createNoteMiddleware,
-  NotesController.createNote
-);
-
 // Transactional credit score count here..
 NoteRouter.route("/note-payment").post(
   UserAuthController.protect,
