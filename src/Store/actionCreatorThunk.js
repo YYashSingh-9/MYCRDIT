@@ -129,17 +129,13 @@ export const login_signup_fetchRequest = async ({ request }) => {
 
 // 4. get all home page loader data (proprietor);
 
-export const getHomePage_Data = async () => {
-  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
-  const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
+export const getHomePage_Data_Proprietor = async (cookie) => {
   let returnData;
 
-  if (currentAcc_Type === "proprietor") {
-    returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
-  }
-  if (currentAcc_Type === "customer") {
-    console.log("Customer home page fetch request");
-  }
+  returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
+  console.log(returnData);
+
+  return returnData;
 };
 /*
  React Router's <Form> component, 
