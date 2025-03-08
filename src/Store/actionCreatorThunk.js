@@ -131,9 +131,14 @@ export const login_signup_fetchRequest = async ({ request }) => {
 
 export const getHomePage_Data = async () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
+  const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
+  let returnData;
 
   if (currentAcc_Type === "proprietor") {
-    data_fetch_function("proprietor");
+    returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
+  }
+  if (currentAcc_Type === "customer") {
+    console.log("Customer home page fetch request");
   }
 };
 /*
