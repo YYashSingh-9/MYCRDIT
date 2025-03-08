@@ -31,16 +31,14 @@ proprietorRouter
 module.exports = proprietorRouter;
 
 // Proprietor debt notes routes
-proprietorRouter;
 proprietorRouter
   .route("/get-all-notes")
   .get(NotesController.allRunningNotes_proprietor);
 
-proprietorRouter;
 proprietorRouter
   .route("/get-all-cleared-notes")
   .get(NotesController.allClearedNotes);
-proprietorRouter;
+
 proprietorRouter
   .route("/create-note")
   .post(NotesController.createNoteMiddleware, NotesController.createNote);

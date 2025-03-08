@@ -133,7 +133,7 @@ export const getHomePage_Data = async () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
 
   if (currentAcc_Type === "proprietor") {
-    data_fetch_function();
+    data_fetch_function("proprietor");
   }
 };
 /*
