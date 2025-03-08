@@ -5,6 +5,7 @@ const initial_State = {
   accountType: "proprietor",
   customerLogin: false,
   isNotificationOn: true,
+  accountUserData: {},
 };
 
 const sliceOne = createSlice({
@@ -22,7 +23,11 @@ const sliceOne = createSlice({
         state.accountType = "customer";
       }
     },
-    authentication_Info_Storage_handler(state, action) {},
+    authentication_Info_Storage_handler(state, action) {
+      const loginData = action.payload;
+      localStorage.clear();
+      localStorage.setItem("user_Data", JSON.stringify(loginData));
+    },
   },
 });
 
