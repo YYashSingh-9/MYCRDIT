@@ -6,6 +6,7 @@ const initial_State = {
   customerLogin: false,
   isNotificationOn: true,
   accountUserData: {},
+  accountUserCookie: "",
 };
 
 const sliceOne = createSlice({
@@ -27,6 +28,14 @@ const sliceOne = createSlice({
       const loginData = action.payload;
       localStorage.clear();
       localStorage.setItem("user_Data", JSON.stringify(loginData));
+      const userData = JSON.parse(localStorage.getItem("user_Data"));
+      state.accountUserData = userData;
+      state.accountUserCookie = userData.token;
+    },
+    userStorageInfo_Get_handler(state, action) {
+      const userData = JSON.parse(localStorage.getItem("user_Data"));
+      state.accountUserData = userData.data;
+      state.accountUserCookie = userData.token;
     },
   },
 });
