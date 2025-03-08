@@ -17,12 +17,12 @@ const sliceOne = createSlice({
     accountTypeToggler(state, action) {
       const accType = action.payload;
       if (accType === "proprietor") {
-        console.log("jee");
         state.accountType = "proprietor";
       } else if (accType === "customer") {
         state.accountType = "customer";
       }
     },
+    authentication_Info_Storage_handler(state, action) {},
   },
 });
 
