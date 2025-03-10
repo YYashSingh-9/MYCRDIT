@@ -7,6 +7,7 @@ const initial_State = {
   isNotificationOn: true,
   accountUserData: {},
   accountUserCookie: "",
+  proprietors_running_Notes_Array: [],
 };
 
 const sliceOne = createSlice({
@@ -50,6 +51,10 @@ const sliceOne = createSlice({
         state.accountType = "customer";
       }
       state.accountUserCookie = userData.token;
+    },
+    saveAllRunningNotes(state, action) {
+      const dataArray = action.payload;
+      state.proprietors_running_Notes_Array = dataArray;
     },
   },
 });
