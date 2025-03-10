@@ -1,12 +1,19 @@
 import classes from "./LoginPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Grid, TextField, Box } from "@mui/material";
-import { Form, Link } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
+import { useEffect } from "react";
 
 const ProprietorUI = (props) => {
   return (
@@ -138,9 +145,8 @@ const CustomerUI = (props) => {
 };
 
 const LoginPage = () => {
-  const customerLoginState = useSelector(
-    (state) => state.sliceOne.customerLogin
-  );
+  const Navigate = useNavigate();
+  const actionData = useActionData();
   const accountType_UI = useSelector((state) => state.sliceOne.accountType);
   const dispatch = useDispatch();
   const toProprietor = () => {
@@ -149,6 +155,19 @@ const LoginPage = () => {
   const toCustomer = () => {
     dispatch(sliceOneActions.accountTypeToggler("customer"));
   };
+
+  useEffect(() => {
+    if (actionData) {
+      console.log(actionData);
+      if (actionData.status === "Successful request") {
+        dispatch(
+          sliceOneActions.authentication_Info_Storage_handler(actionData)
+        );
+        Navigate("/");
+      }
+    }
+  }, [actionData]);
+
   return (
     <>
       <InitialSlider />
