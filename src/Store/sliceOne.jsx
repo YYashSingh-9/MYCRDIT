@@ -29,7 +29,14 @@ const sliceOne = createSlice({
       localStorage.clear();
       localStorage.setItem("user_Data", JSON.stringify(loginData));
       const userData = JSON.parse(localStorage.getItem("user_Data"));
-      state.accountUserData = userData;
+      if (userData.data.ProprietorName) {
+        state.accountUserData = { ...userData, accountType: "proprietor" };
+        state.accountType = "proprietor";
+      }
+      if (userData.data.customerName) {
+        state.accountUserData = { ...userData, accountType: "customer" };
+        state.accountType = "proprietor";
+      }
       state.accountUserCookie = userData.token;
     },
     userStorageInfo_Get_handler(state, action) {

@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
 import DebtNotesContainer from "./DebtNotesContainer";
 import FilterContainer from "./FilterContainer";
 import MainContainer from "../UserUIComponents/MainContainer";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Administrator from "../Administrator/Administrator";
-
+import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
 const ProprietorComponent = () => {
   return (
     <>
@@ -32,6 +33,11 @@ const AdministratorComponent = () => {
 
 const Filter_n_Debts = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
+  const currentUserData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
+  if (currentAcc_Type === "proprietor") {
+  }
   return (
     <>
       {currentAcc_Type === "proprietor" && <ProprietorComponent />}
