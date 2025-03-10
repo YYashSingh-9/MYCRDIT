@@ -5,7 +5,7 @@ const appError = require("../Utilities/appError");
 
 //Proprietor
 exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
-  const { propId } = req.body;
+  const { _id: propId } = req.user;
 
   if (!propId) return next(new appError("Proprietor Id missing", 400));
 

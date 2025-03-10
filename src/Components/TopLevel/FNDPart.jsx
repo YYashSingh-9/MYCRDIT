@@ -33,10 +33,17 @@ const AdministratorComponent = () => {
 
 const Filter_n_Debts = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
-  const currentUserData = useSelector(
-    (state) => state.sliceOne.accountUserData
+  const currentUserCookie = useSelector(
+    (state) => state.sliceOne.accountUserCookie
   );
+  console.log(currentUserCookie);
   if (currentAcc_Type === "proprietor") {
+    useQuery({
+      queryKey: ["all-running-notes"],
+      queryFn: () => {
+        getHomePage_Data_Proprietor(currentUserCookie);
+      },
+    });
   }
   return (
     <>
