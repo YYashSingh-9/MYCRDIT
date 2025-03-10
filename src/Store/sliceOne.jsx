@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initial_State = {
   formModalState: false,
-  accountType: "proprietor",
+  accountType: "",
   customerLogin: false,
   isNotificationOn: true,
   accountUserData: {},
@@ -35,13 +35,20 @@ const sliceOne = createSlice({
       }
       if (userData.data.customerName) {
         state.accountUserData = { ...userData, accountType: "customer" };
-        state.accountType = "proprietor";
+        state.accountType = "customer";
       }
       state.accountUserCookie = userData.token;
     },
     userStorageInfo_Get_handler(state, action) {
       const userData = JSON.parse(localStorage.getItem("user_Data"));
-      state.accountUserData = userData.data;
+      if (userData.data.ProprietorName) {
+        state.accountUserData = { ...userData, accountType: "proprietor" };
+        state.accountType = "proprietor";
+      }
+      if (userData.data.customerName) {
+        state.accountUserData = { ...userData, accountType: "customer" };
+        state.accountType = "customer";
+      }
       state.accountUserCookie = userData.token;
     },
   },

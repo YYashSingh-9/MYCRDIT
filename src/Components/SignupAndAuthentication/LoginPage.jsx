@@ -159,7 +159,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (actionData) {
       console.log(actionData);
-      if (actionData.status === "Successful request.") {
+      if (actionData.status === "Success") {
         console.log("running here");
         dispatch(
           sliceOneActions.authentication_Info_Storage_handler(actionData)

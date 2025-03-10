@@ -1,11 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
+import { sliceOneActions } from "../../Store/sliceOne";
 import DebtNotesContainer from "./DebtNotesContainer";
 import FilterContainer from "./FilterContainer";
 import MainContainer from "../UserUIComponents/MainContainer";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Administrator from "../Administrator/Administrator";
 import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
+import { useEffect } from "react";
 const ProprietorComponent = () => {
   return (
     <>
@@ -36,6 +38,7 @@ const Filter_n_Debts = () => {
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
+  const dispatch = useDispatch();
   console.log(currentUserCookie);
   if (currentAcc_Type === "proprietor") {
     useQuery({
@@ -45,12 +48,16 @@ const Filter_n_Debts = () => {
       },
     });
   }
+
+  useEffect(() => {
+    dispatch(sliceOneActions.userStorageInfo_Get_handler);
+  });
   return (
     <>
       {currentAcc_Type === "proprietor" && <ProprietorComponent />}
       {currentAcc_Type === "customer" && <UserAccountComponent />}
       {currentAcc_Type === "administrator" && <AdministratorComponent />}
-      {currentAcc_Type === "null" && (
+      {currentAcc_Type === "" && (
         <NotLoggedInLandingPage
           heading="Not logged in, "
           highlight_text="check and retry."

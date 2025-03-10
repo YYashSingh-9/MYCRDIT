@@ -8,7 +8,6 @@ import classes from "./NotLoggedInLandingPage.module.css";
 const NotLoggedInLandingPage = (props) => {
   const { heading, linkk, btnTitle, highlight_text } = props;
 
-  console.log(linkk);
   return (
     <>
       <BasicCoverDiv heading={heading} heading_highlight={highlight_text}>

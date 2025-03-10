@@ -144,7 +144,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   req.userType = "Proprietor";
   req.user = user;
-  console.log(user);
   next();
 });
 
