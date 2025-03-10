@@ -118,14 +118,14 @@ export const login_signup_fetchRequest = async ({ request }) => {
     };
   }
 
-  data_Send_request(
+  const returnedData = data_Send_request(
     request_of,
     additional_url_part,
     "POST",
     sendingDataObject,
     ""
   );
-  return data;
+  return returnedData;
 };
 
 // 4. get all home page loader data (proprietor);

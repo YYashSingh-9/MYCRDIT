@@ -30,7 +30,7 @@ const cookieAndToken = (res, user, statuscode) => {
   if (process.env.NODE_ENV === "Production") cookieOptions.secure = true;
   res.cookie("jwt", token, cookieOptions);
   res.status(statuscode).json({
-    status: "Successful request.",
+    status: "Success",
     data: user,
     token,
   });
