@@ -38,20 +38,25 @@ const Filter_n_Debts = () => {
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
+
   const dispatch = useDispatch();
-  console.log(currentUserCookie);
+
   if (currentAcc_Type === "proprietor") {
-    useQuery({
+    const { data, isLoading, isError, isPending } = useQuery({
       queryKey: ["all-running-notes"],
       queryFn: () => {
-        getHomePage_Data_Proprietor(currentUserCookie);
+        return getHomePage_Data_Proprietor(currentUserCookie);
       },
     });
   }
 
   useEffect(() => {
-    dispatch(sliceOneActions.userStorageInfo_Get_handler);
-  });
+    if (currentUserCookie.length > 5) {
+      dispatch(sliceOneActions.userStorageInfo_Get_handler());
+      console.log("eheh");
+    }
+  }, [currentUserCookie]);
+
   return (
     <>
       {currentAcc_Type === "proprietor" && <ProprietorComponent />}
