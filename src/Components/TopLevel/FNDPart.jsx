@@ -49,12 +49,11 @@ const Filter_n_Debts = () => {
       },
     });
   }
+  console.log(currentUserCookie, "THIS IS FIRST");
 
   useEffect(() => {
-    if (currentUserCookie.length > 5) {
-      dispatch(sliceOneActions.userStorageInfo_Get_handler());
-      console.log("eheh");
-    }
+    dispatch(sliceOneActions.userStorageInfo_Get_handler());
+    console.log(currentUserCookie);
   }, [currentUserCookie]);
 
   return (

@@ -44,13 +44,15 @@ const sliceOne = createSlice({
       const userData = JSON.parse(localStorage.getItem("user_Data"));
       if (userData.data.ProprietorName) {
         state.accountUserData = { ...userData, accountType: "proprietor" };
-        state.accountType = "proprietor";
+        // state.accountType = "proprietor";
+        console.log("hshs");
       }
       if (userData.data.customerName) {
         state.accountUserData = { ...userData, accountType: "customer" };
-        state.accountType = "customer";
+        // state.accountType = "customer";
       }
       state.accountUserCookie = userData.token;
+      console.log(userData.token);
     },
     saveAllRunningNotes(state, action) {
       const dataArray = action.payload;
