@@ -49,6 +49,7 @@ const Filter_n_Debts = () => {
       },
     });
   }
+
   console.log(currentUserCookie, "THIS IS FIRST");
 
   useEffect(() => {
