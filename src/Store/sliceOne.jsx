@@ -42,15 +42,19 @@ const sliceOne = createSlice({
     },
     userStorageInfo_Get_handler(state, action) {
       const userData = JSON.parse(localStorage.getItem("user_Data"));
-      if (userData.data.ProprietorName) {
-        state.accountUserData = { ...userData, accountType: "proprietor" };
-        // state.accountType = "proprietor";
-        console.log("hshs");
-      }
-      if (userData.data.customerName) {
-        state.accountUserData = { ...userData, accountType: "customer" };
-        // state.accountType = "customer";
-      }
+      // if (userData.data.ProprietorName) {
+      //   state.accountUserData = { ...userData, accountType: "proprietor" };
+      //   // state.accountType = "proprietor";
+      //   console.log("hshs");
+      // }
+      // if (userData.data.customerName) {
+      //   state.accountUserData = { ...userData, accountType: "customer" };
+      //   // state.accountType = "customer";
+      // }
+      state.accountType = userData.data.ProprietorName
+        ? "proprietor"
+        : "customer";
+      state.accountUserData = userData;
       state.accountUserCookie = userData.token;
       console.log(userData.token);
     },

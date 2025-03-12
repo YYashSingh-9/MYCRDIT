@@ -37,21 +37,24 @@ const Filter_n_Debts = () => {
   const currentUserData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
+  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
 
-  const currentAcc_Type = currentUserData.accountType;
+  // const currentAcc_Type = currentUserData.accountType
+  //   ? currentUserData.accountType
+  //   : "";
   const dispatch = useDispatch();
 
-  if (currentAcc_Type === "proprietor") {
-    const { data, isLoading, isError, isPending } = useQuery({
-      queryKey: ["all-running-notes"],
-      queryFn: () => {
-        return getHomePage_Data_Proprietor(currentUserCookie);
-      },
-    });
-  }
+  // if (currentAcc_Type === "proprietor") {
+  const { data, isLoading, isError, isPending } = useQuery({
+    queryKey: ["all-running-notes"],
+    queryFn: () => {
+      return getHomePage_Data_Proprietor(currentUserCookie);
+    },
+  });
+  // }
 
   console.log(currentUserCookie, "THIS IS FIRST");
 
