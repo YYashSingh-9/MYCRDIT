@@ -34,11 +34,14 @@ const AdministratorComponent = () => {
 };
 
 const Filter_n_Debts = () => {
-  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
+  const currentUserData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
 
+  const currentAcc_Type = currentUserData.accountType;
   const dispatch = useDispatch();
 
   if (currentAcc_Type === "proprietor") {
