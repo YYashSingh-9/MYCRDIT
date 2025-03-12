@@ -130,10 +130,11 @@ export const login_signup_fetchRequest = async ({ request }) => {
 
 // 4. get all home page loader data (proprietor);
 
-export const getHomePage_Data_Proprietor = async (cookie) => {
+export const getHomePage_Data_Proprietor = async (cookie, accType) => {
   let returnData;
-
-  returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
+  if (accType === "proprietor") {
+    returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
+  } else return (returnData = "Data fetching not required");
   console.log(returnData);
 
   return returnData;
