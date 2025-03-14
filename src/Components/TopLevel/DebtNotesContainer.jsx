@@ -6,6 +6,10 @@ import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
+import { useDispatch, useSelector } from "react-redux";
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
@@ -26,6 +30,27 @@ const TagButton = (props) => {
 };
 
 const DebtNotesContainer = () => {
+  const currentUserCookie = useSelector(
+    (state) => state.sliceOne.accountUserCookie
+  );
+  const dispatch = useDispatch();
+
+  console.log(currentUserCookie);
+  const { data, isLoading, isError, isPending } = useQuery({
+    queryKey: ["all-running-notes"],
+    queryFn: () => {
+      return getHomePage_Data_Proprietor(currentUserCookie);
+    },
+  });
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      if (data.status === "Success") {
+        dispatch(sliceOneActions.saveAllRunningNotes(data));
+      }
+    }
+  }, [data]);
   return (
     <>
       <BasicCoverDiv>

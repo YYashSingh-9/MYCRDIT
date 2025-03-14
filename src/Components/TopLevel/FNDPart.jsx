@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useQuery } from "@tanstack/react-query";
 import { sliceOneActions } from "../../Store/sliceOne";
 import DebtNotesContainer from "./DebtNotesContainer";
 import FilterContainer from "./FilterContainer";
 import MainContainer from "../UserUIComponents/MainContainer";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Administrator from "../Administrator/Administrator";
-import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
 import { useEffect } from "react";
 const ProprietorComponent = () => {
   return (
@@ -38,27 +36,17 @@ const Filter_n_Debts = () => {
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
-
   const dispatch = useDispatch();
 
-  const { data, isLoading, isError, isPending } = useQuery({
-    queryKey: ["all-running-notes"],
-    queryFn: () => {
-      return getHomePage_Data_Proprietor(currentUserCookie, currentAcc_Type);
-    },
-  });
-
   useEffect(() => {
-    if (data)
-      if (data.status === "Success") {
-        dispatch(sliceOneActions.saveAllRunningNotes(data));
-      }
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
   }, [currentUserCookie]);
 
   return (
     <>
-      {currentAcc_Type === "proprietor" && <ProprietorComponent />}
+      {currentAcc_Type === "proprietor" && (
+        <ProprietorComponent cookie={currentUserCookie} />
+      )}
       {currentAcc_Type === "customer" && <UserAccountComponent />}
       {currentAcc_Type === "administrator" && <AdministratorComponent />}
       {currentAcc_Type === "" && (
