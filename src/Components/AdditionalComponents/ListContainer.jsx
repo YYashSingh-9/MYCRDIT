@@ -5,6 +5,7 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 
 const ListItem = (props) => {
   const noteData_Object = props.data;
+  console.log(noteData_Object);
   const acceptanceStatus = noteData_Object.acceptanceStatus;
   const statusIndicator = acceptanceStatus ? (
     <span
@@ -27,12 +28,14 @@ const ListItem = (props) => {
         <Box className={classes.titles}>
           <Box sx={{ display: "flex" }}>
             <span className={classes.subTitle_one}>Title : </span>
-            <h3>Mishra ji, kingfisher beer</h3>
+            <h3 style={{ textTransform: "capitalize" }}>
+              {noteData_Object.noteTitle}
+            </h3>
           </Box>
 
           <Box sx={{ display: "flex", marginTop: 1 }}>
             <span className={classes.subTitle_two}>Amount : </span>
-            <h4>250/-</h4>
+            <h4>{noteData_Object.amount}/-</h4>
           </Box>
           <Box sx={{ display: "flex", marginTop: 1 }}>
             <span className={classes.subTitle_two}>Accepted : </span>
@@ -40,7 +43,7 @@ const ListItem = (props) => {
           </Box>
         </Box>
         <Box>
-          <Link to={"mishra-ji-note/details"}>
+          <Link to={`mishra-ji-note/${noteData_Object._id}/details`}>
             <button className={classes.listBtn}>Check details</button>
           </Link>
         </Box>
@@ -57,13 +60,13 @@ const ListContainer = (props) => {
         {listArray.map((el, i) => {
           return <ListItem data={el} key={i} />;
         })}
+        {/* <ListItem />
         <ListItem />
         <ListItem />
         <ListItem />
         <ListItem />
         <ListItem />
-        <ListItem />
-        <ListItem />
+        <ListItem /> */}
       </Box>
     </>
   );
