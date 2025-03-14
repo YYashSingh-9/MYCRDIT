@@ -39,7 +39,6 @@ const DebtNotesContainer = () => {
   );
   const dispatch = useDispatch();
 
-  console.log(currentUserCookie);
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {

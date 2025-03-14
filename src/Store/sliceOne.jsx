@@ -51,7 +51,8 @@ const sliceOne = createSlice({
     },
     saveAllRunningNotes(state, action) {
       const dataArray = action.payload;
-      state.proprietors_running_Notes_Array = dataArray;
+      console.log(dataArray);
+      state.proprietors_running_Notes_Array = dataArray.data;
     },
   },
 });

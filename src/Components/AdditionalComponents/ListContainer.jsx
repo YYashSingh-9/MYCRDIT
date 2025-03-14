@@ -2,8 +2,10 @@ import { Box, Grid } from "@mui/material";
 import classes from "./ListContainer.module.css";
 import { Link } from "react-router-dom";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
-const ListItem = () => {
-  const acceptanceStatus = true;
+
+const ListItem = (props) => {
+  const noteData_Object = props.data;
+  const acceptanceStatus = noteData_Object.acceptanceStatus;
   const statusIndicator = acceptanceStatus ? (
     <span
       style={{
@@ -52,6 +54,9 @@ const ListContainer = (props) => {
   return (
     <>
       <Box className={classes.listBox}>
+        {listArray.map((el, i) => {
+          return <ListItem data={el} key={i} />;
+        })}
         <ListItem />
         <ListItem />
         <ListItem />
