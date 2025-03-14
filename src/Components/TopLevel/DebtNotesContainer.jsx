@@ -1,15 +1,16 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { Box, Grid } from "@mui/material";
+import { useEffect } from "react";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { useDispatch, useSelector } from "react-redux";
+import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { getHomePage_Data_Proprietor } from "../../Store/actionCreatorThunk";
-import { useDispatch, useSelector } from "react-redux";
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
@@ -32,6 +33,9 @@ const TagButton = (props) => {
 const DebtNotesContainer = () => {
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
+  );
+  const runningDebtNotes = useSelector(
+    (state) => state.sliceOne.proprietors_running_Notes_Array
   );
   const dispatch = useDispatch();
 
@@ -71,7 +75,11 @@ const DebtNotesContainer = () => {
           </Box>
         </Grid>
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
-          <ListContainer />
+          {isLoading ? (
+            <p>loading..</p>
+          ) : (
+            <ListContainer itemArray={runningDebtNotes} />
+          )}
         </Grid>
       </BasicCoverDiv>
       <hr

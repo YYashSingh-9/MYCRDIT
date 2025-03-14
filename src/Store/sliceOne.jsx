@@ -48,11 +48,9 @@ const sliceOne = createSlice({
         : "customer";
       state.accountUserData = userData;
       state.accountUserCookie = userData.token;
-      console.log(userData.token);
     },
     saveAllRunningNotes(state, action) {
       const dataArray = action.payload;
-      console.log(dataArray);
       state.proprietors_running_Notes_Array = dataArray;
     },
   },

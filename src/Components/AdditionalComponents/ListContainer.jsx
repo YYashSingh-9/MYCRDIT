@@ -47,7 +47,8 @@ const ListItem = () => {
   );
 };
 
-const ListContainer = () => {
+const ListContainer = (props) => {
+  const listArray = props.itemArray;
   return (
     <>
       <Box className={classes.listBox}>
