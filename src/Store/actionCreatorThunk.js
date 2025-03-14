@@ -135,7 +135,6 @@ export const getHomePage_Data_Proprietor = async (cookie, accType) => {
   if (accType === "proprietor") {
     returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
   } else return (returnData = "Data fetching not required");
-  console.log(returnData);
 
   return returnData;
 };

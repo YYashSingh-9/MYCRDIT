@@ -51,9 +51,7 @@ const sliceOne = createSlice({
       //   state.accountUserData = { ...userData, accountType: "customer" };
       //   // state.accountType = "customer";
       // }
-      state.accountType = userData.data.ProprietorName
-        ? "proprietor"
-        : "customer";
+      state.accountType = userData.data.ProprietorName ? "" : "customer";
       state.accountUserData = userData;
       state.accountUserCookie = userData.token;
       console.log(userData.token);
