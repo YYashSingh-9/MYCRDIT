@@ -48,11 +48,12 @@ const Filter_n_Debts = () => {
     },
   });
 
-  console.log(currentUserCookie, "THIS IS FIRST");
-
   useEffect(() => {
+    if (data)
+      if (data.status === "Success") {
+        dispatch(sliceOneActions.saveAllRunningNotes(data));
+      }
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
-    console.log(currentUserCookie);
   }, [currentUserCookie]);
 
   return (
