@@ -1,20 +1,33 @@
-import { Grid, Box } from "@mui/material";
-import classes from "./DebtDetails.module.css";
-import { ArrowLeft } from "@mui/icons-material";
+import { useNavigate, useLocation } from "react-router-dom";
+import { getAllCustomerNotes } from "../../Store/actionCreatorThunk";
 import { Link, useParams } from "react-router-dom";
+import { ArrowLeft } from "@mui/icons-material";
+import { Grid, Box } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
+import { Outlet } from "react-router-dom";
+import classes from "./DebtDetails.module.css";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
 
 const DebtDetailsPage = () => {
+  const allNotes = useSelector(
+    (state) => state.sliceOne.proprietors_running_Notes_Array
+  );
+  const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
 
-  console.log(id);
+  // useMutation({
+  //   mutationKey:["note-details"],
+  //   mutationFn:()=>{
+  //     return getAllCustomerNotes()
+  //   }
+  // })
+  const currentNote = allNotes.filter((el) => el._id === id)[0];
+  console.log(currentNote);
 
   let isFormActive = false;
 
