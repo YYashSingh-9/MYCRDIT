@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { getAllCustomerNotes } from "../../Store/actionCreatorThunk";
+import { getAllCustomerNotes, client } from "../../Store/actionCreatorThunk";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "@mui/icons-material";
 import { Grid, Box } from "@mui/material";
@@ -10,8 +10,10 @@ import InitialSlider from "../AdditionalComponents/InitialSlider";
 import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const DebtDetailsPage = () => {
+  let isFormActive = false;
   const allNotes = useSelector(
     (state) => state.sliceOne.proprietors_running_Notes_Array
   );
@@ -20,20 +22,26 @@ const DebtDetailsPage = () => {
   const location = useLocation();
   const { id } = useParams();
 
-  // useMutation({
-  //   mutationKey:["note-details"],
-  //   mutationFn:()=>{
-  //     return getAllCustomerNotes()
-  //   }
-  // })
-  const currentNote = allNotes.filter((el) => el._id === id)[0];
-  console.log(currentNote);
-
-  let isFormActive = false;
-
   location.pathname === "/:id/details/add-note"
     ? (isFormActive = true)
     : (isFormActive = false);
+
+  const currentNote = allNotes.filter((el) => el._id === id)[0];
+  console.log(currentNote);
+
+  const { mutate, data, isLoading } = useMutation({
+    mutationKey: ["note-details"],
+    mutationFn: () => {
+      return getAllCustomerNotes(currentNote.customerNumber, cookie);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["note-details"]);
+    },
+  });
+
+  useEffect(() => {
+    mutate();
+  }, [id]);
   return (
     <>
       {isFormActive === false && (

@@ -194,7 +194,7 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
 
 exports.getAllSpecific_CustomerNotes = catchAsync(async (req, res, next) => {
   const { customerNumber } = req.body;
-
+  console.log(req.body);
   if (customerNumber) return next(new appError("Customer number missing", 404));
 
   const data = await debtNote.find({

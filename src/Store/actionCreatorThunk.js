@@ -148,7 +148,7 @@ export const getAllCustomerNotes = async (customerNum, cookie) => {
   };
   const data = data_Send_request(
     "proprietor",
-    "/get-all-specific-customer-notes",
+    "get-all-specific-customer-notes",
     "POST",
     obj,
     cookie
