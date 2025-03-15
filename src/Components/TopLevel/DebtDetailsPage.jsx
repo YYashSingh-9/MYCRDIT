@@ -7,11 +7,13 @@ import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 const DebtDetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
+
   console.log(id);
 
   let isFormActive = false;

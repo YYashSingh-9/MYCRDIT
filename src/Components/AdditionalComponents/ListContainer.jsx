@@ -5,7 +5,6 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 
 const ListItem = (props) => {
   const noteData_Object = props.data;
-  console.log(noteData_Object);
   const acceptanceStatus = noteData_Object.acceptanceStatus;
   const statusIndicator = acceptanceStatus ? (
     <span

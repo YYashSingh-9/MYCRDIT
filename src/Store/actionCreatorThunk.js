@@ -140,6 +140,9 @@ export const getHomePage_Data_Proprietor = async (cookie, accType) => {
   return returnData;
 };
 
+// 5. get all notes of same customer
+
+export const getAllCustomerNotes = async (customerNumber) => {};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

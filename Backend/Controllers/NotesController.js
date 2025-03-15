@@ -189,3 +189,11 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
     data: doc,
   });
 });
+
+// Get All notes of a specific customer
+
+exports.getAllSpecific_CustomerNotes = catchAsync(async (req, res, next) => {
+  const { customerNumber } = req.body;
+
+  if (customerNumber) return next(new appError("Customer number missing", 404));
+});

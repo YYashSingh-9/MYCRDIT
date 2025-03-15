@@ -31,9 +31,6 @@ const TagButton = (props) => {
 };
 
 const DebtNotesContainer = () => {
-  const currentUserCookie = useSelector(
-    (state) => state.sliceOne.accountUserCookie
-  );
   const currentUserData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
@@ -42,6 +39,7 @@ const DebtNotesContainer = () => {
   );
   const dispatch = useDispatch();
 
+  const currentUserCookie = currentUserData.token;
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
