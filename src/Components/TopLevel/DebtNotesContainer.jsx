@@ -34,6 +34,9 @@ const DebtNotesContainer = () => {
   const currentUserCookie = useSelector(
     (state) => state.sliceOne.accountUserCookie
   );
+  const currentUserData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
   const runningDebtNotes = useSelector(
     (state) => state.sliceOne.proprietors_running_Notes_Array
   );
@@ -48,7 +51,6 @@ const DebtNotesContainer = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       if (data.status === "Success") {
         dispatch(sliceOneActions.saveAllRunningNotes(data));
       }
@@ -59,7 +61,10 @@ const DebtNotesContainer = () => {
       <BasicCoverDiv>
         <Grid item md={12} xs={12} className={classes.headingPart}>
           <h3>
-            <span style={{ color: "darkgreen" }}> Modi Kirana's</span> book
+            <span style={{ color: "darkgreen" }}>
+              {currentUserData.data.shopName}'s
+            </span>{" "}
+            book
           </h3>
           <Box className={classes.tags}>
             <TagButton iconTitle="store" tagTitle="Proprietor" />

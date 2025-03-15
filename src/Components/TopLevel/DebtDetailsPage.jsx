@@ -1,23 +1,24 @@
 import { Grid, Box } from "@mui/material";
 import classes from "./DebtDetails.module.css";
 import { ArrowLeft } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+
 const DebtDetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { id } = useParams();
+  console.log(id);
 
   let isFormActive = false;
-  console.log(location.pathname);
 
   location.pathname === "/:id/details/add-note"
     ? (isFormActive = true)
     : (isFormActive = false);
-  console.log(isFormActive);
   return (
     <>
       {isFormActive === false && (
