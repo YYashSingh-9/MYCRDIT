@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 const DetailedNote = (props) => {
   const navigate = useNavigate();
+  const note_Data = props.data;
+  let acceptanceStatus, date;
+  date = new Date(note_Data.date).toISOString().substring(0, 10);
 
+  acceptanceStatus =
+    note_Data.acceptanceStatus === false ? "Not accepted" : "Accepted";
   return (
     <>
       <Grid
@@ -17,34 +22,34 @@ const DetailedNote = (props) => {
         className={classes.parentContainer}
       >
         <span className={classes.noteTitle}>
-          <h3>Customer account Debt no - 1</h3>
+          <h3>{note_Data.noteTitle}</h3>
         </span>
         <Box className={classes.infoContainer}>
           <table className={classes.infoBox}>
             <tbody>
               <tr className={classes.row}>
                 <td>Customer Name :</td>
-                <td>Alokik Mishra</td>
+                <td>{note_Data.customerName}</td>
               </tr>
               <tr className={classes.row}>
                 <td>Customer Number :</td>
-                <td>9876498033</td>
+                <td>{note_Data.customerNumber}</td>
               </tr>
               <tr className={classes.row}>
                 <td>Product :</td>
-                <td>Kingfisher beer</td>
+                <td>{note_Data.productName}</td>
               </tr>
               <tr className={classes.row}>
                 <td>Amount :</td>
-                <td>250/-</td>
+                <td>{note_Data.amount}/-</td>
               </tr>
               <tr className={classes.row}>
                 <td>Date of Purchase</td>
-                <td>14-05-2024</td>
+                <td>{date}</td>
               </tr>
               <tr className={classes.row}>
                 <td>Accepted</td>
-                <td>True</td>
+                <td>{acceptanceStatus}</td>
               </tr>
             </tbody>
           </table>
