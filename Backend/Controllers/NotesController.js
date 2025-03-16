@@ -36,6 +36,7 @@ exports.allClearedNotes = catchAsync(async (req, res, next) => {
   });
 });
 
+// THIS IS MAIN CREATE NOTE
 exports.createNote = catchAsync(async (req, res, next) => {
   if (!req.body)
     return next(
@@ -112,7 +113,12 @@ exports.createNoteMiddleware = (req, res, next) => {
   const dummyDoc1 = { ...doc };
 
   // Client must accept this note first, after that acceptanceStatus : true
-  const dummydoc2 = { ...dummyDoc1, cleared: false, acceptanceStatus: false };
+  const dummydoc2 = {
+    ...dummyDoc1,
+    cleared: false,
+    acceptanceStatus: false,
+    deleted: false,
+  };
 
   req.body = dummydoc2;
   next();
