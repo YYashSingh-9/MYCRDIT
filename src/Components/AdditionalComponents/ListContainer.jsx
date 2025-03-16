@@ -42,7 +42,9 @@ const ListItem = (props) => {
           </Box>
         </Box>
         <Box>
-          <Link to={`/${noteData_Object._id}/details`}>
+          <Link
+            to={`/${noteData_Object._id}${noteData_Object.customerNumber}/details`}
+          >
             <button className={classes.listBtn}>Check details</button>
           </Link>
         </Box>

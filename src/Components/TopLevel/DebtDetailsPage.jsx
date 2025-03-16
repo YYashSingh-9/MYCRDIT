@@ -1,16 +1,17 @@
-import { useNavigate, useLocation } from "react-router-dom";
 import { getAllCustomerNotes, client } from "../../Store/actionCreatorThunk";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { useMutation } from "@tanstack/react-query";
 import { ArrowLeft } from "@mui/icons-material";
 import { Grid, Box } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import classes from "./DebtDetails.module.css";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 const DebtDetailsPage = () => {
   let isFormActive = false;
@@ -20,28 +21,34 @@ const DebtDetailsPage = () => {
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const { id } = useParams();
 
   location.pathname === "/:id/details/add-note"
     ? (isFormActive = true)
     : (isFormActive = false);
 
+  const customerNumber = Number(id.slice(-10));
   const currentNote = allNotes.filter((el) => el._id === id)[0];
-  console.log(currentNote);
 
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["note-details"],
     mutationFn: () => {
-      return getAllCustomerNotes(currentNote.customerNumber, cookie);
+      return getAllCustomerNotes(customerNumber, cookie);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["note-details"]);
+      client.invalidateQueries(["note-details"]);
     },
   });
 
+  console.log(data);
   useEffect(() => {
-    mutate();
-  }, [id]);
+    dispatch(sliceOneActions.userStorageInfo_Get_handler());
+    if (cookie.length > 1) {
+      mutate();
+    }
+  }, [id, cookie]);
+
   return (
     <>
       {isFormActive === false && (
