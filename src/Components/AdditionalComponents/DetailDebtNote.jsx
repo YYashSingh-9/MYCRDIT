@@ -31,7 +31,7 @@ const DetailedNote = (props) => {
         className={classes.parentContainer}
       >
         <span className={classes.noteTitle}>
-          <h3>{note_Data.noteTitle}</h3>
+          <h3 style={{ textTransform: "capitalize" }}>{note_Data.noteTitle}</h3>
         </span>
         <Box className={classes.infoContainer}>
           <table className={classes.infoBox}>
