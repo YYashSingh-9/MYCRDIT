@@ -16,6 +16,7 @@ import EditIcon from "@mui/icons-material/Edit";
 const DebtDetailsPage = () => {
   let isFormActive = false;
   let arrayOfNotes = [];
+  let customerName = "";
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,6 +41,7 @@ const DebtDetailsPage = () => {
 
   if (data && data.status === "Success") {
     arrayOfNotes = data.data.filter((el) => el.cleared === false);
+    customerName = arrayOfNotes[0].customerName.split(" ")[0];
   }
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const DebtDetailsPage = () => {
               className={classes.headBar}
             >
               <header className={classes.title}>
-                <h3>Debt Note of Mishra ji</h3>
+                <h3>Debt Notes of {customerName}</h3>
               </header>
             </Grid>
             <Grid
