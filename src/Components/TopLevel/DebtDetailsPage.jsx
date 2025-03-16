@@ -15,7 +15,6 @@ import EditIcon from "@mui/icons-material/Edit";
 
 const DebtDetailsPage = () => {
   let isFormActive = false;
-  let currentNote;
   let arrayOfNotes = [];
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const DebtDetailsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  location.pathname === "/:id/details/add-note"
+  location.pathname === `/${id}/details/add-note`
     ? (isFormActive = true)
     : (isFormActive = false);
 
@@ -41,8 +40,7 @@ const DebtDetailsPage = () => {
   });
 
   if (data && data.status === "Success") {
-    arrayOfNotes = data.data;
-    currentNote = arrayOfNotes.filter((el) => el._id === noteId)[0];
+    arrayOfNotes = data.data.filter((el) => el.cleared === false);
   }
 
   useEffect(() => {
@@ -85,7 +83,7 @@ const DebtDetailsPage = () => {
               xs={12}
               className={classes.addBtn}
             >
-              <Link to="/:id/details/add-note">
+              <Link to={`/${id}/details/add-note`}>
                 <button>
                   <EditIcon className={classes.iccn} />
                   Add
