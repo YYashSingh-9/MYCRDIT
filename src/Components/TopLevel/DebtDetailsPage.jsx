@@ -16,9 +16,6 @@ import EditIcon from "@mui/icons-material/Edit";
 const DebtDetailsPage = () => {
   let isFormActive = false;
   let currentNote;
-  const allNotes = useSelector(
-    (state) => state.sliceOne.proprietors_running_Notes_Array
-  );
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +28,7 @@ const DebtDetailsPage = () => {
 
   const customerNumber = Number(id.slice(-10));
   const noteId = id.slice(0, 24);
-  console.log(noteId);
+
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["note-details"],
     mutationFn: () => {
@@ -43,10 +40,8 @@ const DebtDetailsPage = () => {
   });
   if (data && data.status === "Success") {
     currentNote = data.data.filter((el) => el._id === noteId)[0];
-    console.log(data);
   }
 
-  console.log(currentNote);
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
     if (cookie.length > 1) {
