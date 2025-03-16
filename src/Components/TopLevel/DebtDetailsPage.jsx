@@ -16,6 +16,7 @@ import EditIcon from "@mui/icons-material/Edit";
 const DebtDetailsPage = () => {
   let isFormActive = false;
   let currentNote;
+  let arrayOfNotes = [];
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,8 +39,10 @@ const DebtDetailsPage = () => {
       client.invalidateQueries(["note-details"]);
     },
   });
+
   if (data && data.status === "Success") {
-    currentNote = data.data.filter((el) => el._id === noteId)[0];
+    arrayOfNotes = data.data;
+    currentNote = arrayOfNotes.filter((el) => el._id === noteId)[0];
   }
 
   useEffect(() => {
@@ -115,10 +118,11 @@ const DebtDetailsPage = () => {
               xs={12}
               className={classes.parentContainer}
             >
-              <DetailedNote />
-              <DetailedNote />
-              <DetailedNote />
-              <DetailedNote />
+              {arrayOfNotes.length >= 1
+                ? arrayOfNotes.map((el, i) => {
+                    return <DetailedNote data={el} key={i} />;
+                  })
+                : "Loading"}
             </Grid>
           </Grid>
         </>
