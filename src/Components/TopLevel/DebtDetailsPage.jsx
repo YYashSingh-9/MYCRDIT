@@ -27,7 +27,6 @@ const DebtDetailsPage = () => {
     : (isFormActive = false);
 
   const customerNumber = Number(id.slice(-10));
-  const noteId = id.slice(0, 24);
 
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["note-details"],

@@ -6,11 +6,19 @@ import { useNavigate } from "react-router-dom";
 const DetailedNote = (props) => {
   const navigate = useNavigate();
   const note_Data = props.data;
-  let acceptanceStatus, date;
+  let acceptanceStatus, date, disableStatus;
+
   date = new Date(note_Data.date).toISOString().substring(0, 10);
 
   acceptanceStatus =
     note_Data.acceptanceStatus === false ? "Not accepted" : "Accepted";
+
+  disableStatus = note_Data.acceptanceStatus === false ? true : false;
+
+  const buttonClass =
+    note_Data.acceptanceStatus === false
+      ? classes.disableClass
+      : classes.normalClass;
   return (
     <>
       <Grid
@@ -56,7 +64,10 @@ const DetailedNote = (props) => {
         </Box>
         <Box className={classes.btnContainer}>
           <button className={classes.del}>Delete</button>
-          <button> Paid </button>
+          <button disabled={disableStatus} className={buttonClass}>
+            {" "}
+            Paid{" "}
+          </button>
         </Box>
       </Grid>
       <hr style={{ width: "80%", marginTop: "2rem", marginBottom: "2rem" }} />

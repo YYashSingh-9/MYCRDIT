@@ -97,6 +97,13 @@
 .del:active {
   background-color: rgb(182, 28, 28);
 }
+
+.disableClass {
+  cursor: not-allowed;
+}
+.normalClass {
+  cursor: pointer;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .infoContainer {
