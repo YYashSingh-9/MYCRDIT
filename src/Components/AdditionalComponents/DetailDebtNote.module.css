@@ -98,10 +98,14 @@
   background-color: rgb(182, 28, 28);
 }
 
-.disableClass {
+.disableClass :nth-child(2) {
   cursor: not-allowed;
+  background-color: black;
 }
-.normalClass {
+.normalClass :nth-child(2) {
+  cursor: pointer;
+}
+.pBtn {
   cursor: pointer;
 }
 /* Responsive styling from here. */

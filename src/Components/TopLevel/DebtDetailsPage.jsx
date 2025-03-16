@@ -107,6 +107,14 @@ const DebtDetailsPage = () => {
                 marginBottom: "1rem",
               }}
             />
+            <Grid item lg={12} sm={12} md={12} xs={12} width={"100%"}>
+              <Box className={classes.infoNote}>
+                <p>
+                  Info : If customer hasn't accepted their debt note then paid
+                  option will not be allowed.
+                </p>
+              </Box>
+            </Grid>
             <Grid
               item
               lg={12}

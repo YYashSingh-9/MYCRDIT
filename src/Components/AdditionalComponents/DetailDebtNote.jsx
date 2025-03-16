@@ -19,6 +19,7 @@ const DetailedNote = (props) => {
     note_Data.acceptanceStatus === false
       ? classes.disableClass
       : classes.normalClass;
+  const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
   return (
     <>
       <Grid
@@ -62,12 +63,9 @@ const DetailedNote = (props) => {
             </tbody>
           </table>
         </Box>
-        <Box className={classes.btnContainer}>
+        <Box className={`${classes.btnContainer} ${buttonClass}`}>
           <button className={classes.del}>Delete</button>
-          <button disabled={disableStatus} className={buttonClass}>
-            {" "}
-            Paid{" "}
-          </button>
+          <button disabled={disableStatus}> {btnTitle} </button>
         </Box>
       </Grid>
       <hr style={{ width: "80%", marginTop: "2rem", marginBottom: "2rem" }} />
