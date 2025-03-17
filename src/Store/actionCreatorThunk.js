@@ -165,12 +165,31 @@ export const patch_RequestHandler = async (
   cookie,
   requestOf
 ) => {
-  let objectToSend;
+  let objectToSend, request_of, additionalUrlPart;
+
   if (accType === "proprietor" && requestOf === "delete") {
+    objectToSend = {
+      noteId: data.id,
+    };
+    request_of = "proprietor";
+    additionalUrlPart = "delete-note";
   } else if (accType === "proprietor" && requestOf === "paying") {
+    request_of = "proprietor";
+    additionalUrlPart = "note-payment";
   } else if (accType === "customer" && requestOf === "accepting") {
+    request_of = "customer";
+    additionalUrlPart = "note-approval-request";
   }
+
+  const returned_Data = await data_Send_request(
+    request_of,
+    additionalUrlPart,
+    "PATCH",
+    objectToSend,
+    cookie
+  );
 };
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

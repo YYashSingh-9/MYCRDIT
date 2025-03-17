@@ -3,6 +3,7 @@ const userAuthController = require("../Controllers/UserAuthController");
 const ProprietorReviewController = require("../Controllers/ProprietorReviewController");
 const functionalController = require("../Controllers/FunctionalControllers");
 const NotesController = require("../Controllers/NotesController");
+const ScoreCountController = require("../Controllers/ScoreCountController");
 
 const proprietorRouter = express.Router();
 
@@ -43,6 +44,13 @@ proprietorRouter
   .route("/create-note")
   .post(NotesController.createNoteMiddleware, NotesController.createNote);
 
+// Transactional credit score count here..
+proprietorRouter
+  .route("/note-payment")
+  .post(
+    ScoreCountController.transactionalCreditScore_Count,
+    NotesController.notePaidController
+  );
 proprietorRouter.route("/delete-note").patch(NotesController.deleteNote);
 
 proprietorRouter

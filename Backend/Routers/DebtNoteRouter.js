@@ -5,11 +5,11 @@ const UserAuthController = require("../Controllers/UserAuthController");
 const ScoreCountController = require("../Controllers/ScoreCountController");
 
 // Transactional credit score count here..
-NoteRouter.route("/note-payment").post(
-  UserAuthController.protect,
-  ScoreCountController.transactionalCreditScore_Count,
-  NotesController.notePaidController
-);
+// NoteRouter.route("/note-payment").post(
+//   UserAuthController.protect,
+//   ScoreCountController.transactionalCreditScore_Count,
+//   NotesController.notePaidController
+// );
 
 //CUSTOMER NOTE ROUTES..
 
