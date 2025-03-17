@@ -124,6 +124,26 @@ exports.createNoteMiddleware = (req, res, next) => {
   next();
 };
 
+exports.deleteNote = catchAsync(async (req, res, next) => {
+  const { noteId, deleteVal } = req.body;
+  if (!noteId) {
+    return next(
+      new appError("Error occured while deleting, something missing", 404)
+    );
+  }
+
+  const data = await debtNote.findOneAndUpdate(
+    { _id: noteId },
+    { deleted: true },
+    { runValidators: true, new: true }
+  );
+
+  res.status(200).json({
+    status: "Success",
+    data: data,
+  });
+});
+
 //2. CUSTOMER
 exports.acceptingNoteMiddleware = catchAsync(async (req, res, next) => {
   const { noteId } = req.body;
