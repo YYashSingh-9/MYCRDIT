@@ -32,7 +32,12 @@ const DetailedNote = (props) => {
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["debt-note"],
     mutationFn: () => {
-      return patch_RequestHandler();
+      return patch_RequestHandler(
+        accountType,
+        { id: note_Data._id },
+        cookie,
+        "delete"
+      );
     },
   });
 
@@ -83,7 +88,9 @@ const DetailedNote = (props) => {
           </table>
         </Box>
         <Box className={`${classes.btnContainer} ${buttonClass}`}>
-          <button className={classes.del}>Delete</button>
+          <button className={classes.del} onClick={deleteHandler}>
+            Delete
+          </button>
           <button disabled={disableStatus}> {btnTitle} </button>
         </Box>
       </Grid>
