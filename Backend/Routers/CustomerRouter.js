@@ -1,4 +1,5 @@
 const express = require("express");
+const NotesController = require("../Controllers/NotesController");
 const userAuthController = require("../Controllers/UserAuthController");
 const ScoreCountController = require("../Controllers/ScoreCountController");
 const customerRouter = express.Router();

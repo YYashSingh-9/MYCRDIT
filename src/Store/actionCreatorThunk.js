@@ -188,6 +188,7 @@ export const patch_RequestHandler = async (
     objectToSend,
     cookie
   );
+  return returned_Data;
 };
 
 /*

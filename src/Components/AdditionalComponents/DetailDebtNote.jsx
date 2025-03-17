@@ -2,24 +2,38 @@ import { Grid, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import classes from "./DetailDebtNote.module.css";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { patch_RequestHandler } from "../../Store/actionCreatorThunk";
 
 const DetailedNote = (props) => {
   const navigate = useNavigate();
+
   const note_Data = props.data;
-  let acceptanceStatus, date, disableStatus;
+  let acceptanceStatus, date, disableStatus, cookie;
 
+  //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
-
+  //2. Accepted indicator and button disable
   acceptanceStatus =
     note_Data.acceptanceStatus === false ? "Not accepted" : "Accepted";
 
   disableStatus = note_Data.acceptanceStatus === false ? true : false;
 
+  //3. Button style and title as per state.
   const buttonClass =
     note_Data.acceptanceStatus === false
       ? classes.disableClass
       : classes.normalClass;
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
+  //4. Cookie
+  cookie = props.cookie;
+
+  const { mutate, data, isLoading } = useMutation({
+    mutationKey: ["debt-note"],
+    mutationFn: () => {
+      return patch_RequestHandler();
+    },
+  });
   return (
     <>
       <Grid
