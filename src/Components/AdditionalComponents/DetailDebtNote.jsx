@@ -9,7 +9,7 @@ const DetailedNote = (props) => {
   const navigate = useNavigate();
 
   const note_Data = props.data;
-  let acceptanceStatus, date, disableStatus, cookie;
+  let acceptanceStatus, date, disableStatus, cookie, accountType;
 
   //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
@@ -25,8 +25,9 @@ const DetailedNote = (props) => {
       ? classes.disableClass
       : classes.normalClass;
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
-  //4. Cookie
+  //4. Cookie & account type
   cookie = props.cookie;
+  accountType = props.acc;
 
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["debt-note"],
@@ -34,6 +35,10 @@ const DetailedNote = (props) => {
       return patch_RequestHandler();
     },
   });
+
+  const deleteHandler = () => {
+    mutate();
+  };
   return (
     <>
       <Grid

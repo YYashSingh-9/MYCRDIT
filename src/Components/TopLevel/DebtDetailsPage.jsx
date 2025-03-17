@@ -18,6 +18,7 @@ const DebtDetailsPage = () => {
   let arrayOfNotes = [];
   let customerName = "";
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
+  const accType = useSelector((state) => state.sliceOne.accountType);
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -132,7 +133,14 @@ const DebtDetailsPage = () => {
             >
               {arrayOfNotes.length >= 1
                 ? arrayOfNotes.map((el, i) => {
-                    return <DetailedNote data={el} key={i} cookie={cookie} />;
+                    return (
+                      <DetailedNote
+                        data={el}
+                        key={i}
+                        cookie={cookie}
+                        acc={accType}
+                      />
+                    );
                   })
                 : "Loading"}
             </Grid>
