@@ -39,6 +39,9 @@ const DetailedNote = (props) => {
         "delete"
       );
     },
+    onSuccess: () => {
+      client.invalidateQueries(["note-details"]);
+    },
   });
 
   const deleteHandler = () => {

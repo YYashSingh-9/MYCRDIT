@@ -41,7 +41,9 @@ const DebtDetailsPage = () => {
   });
 
   if (data && data.status === "Success") {
-    arrayOfNotes = data.data.filter((el) => el.cleared === false);
+    arrayOfNotes = data.data.filter(
+      (el) => el.cleared === false && el.deleted === false
+    );
     customerName = arrayOfNotes[0].customerName.split(" ")[0];
   }
 

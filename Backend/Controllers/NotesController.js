@@ -138,6 +138,7 @@ exports.deleteNote = catchAsync(async (req, res, next) => {
     { runValidators: true, new: true }
   );
 
+  console.log(data);
   res.status(200).json({
     status: "Success",
     data: data,
