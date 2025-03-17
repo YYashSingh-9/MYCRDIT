@@ -156,6 +156,21 @@ export const getAllCustomerNotes = async (customerNum, cookie) => {
 
   return data;
 };
+
+// 6. Patch  request handler for accepting/paying/deleting notes
+
+export const patch_RequestHandler = async (
+  accType,
+  data,
+  cookie,
+  requestOf
+) => {
+  let objectToSend;
+  if (accType === "proprietor" && requestOf === "delete") {
+  } else if (accType === "proprietor" && requestOf === "paying") {
+  } else if (accType === "customer" && requestOf === "accepting") {
+  }
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

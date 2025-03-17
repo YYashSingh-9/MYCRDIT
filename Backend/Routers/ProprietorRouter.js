@@ -43,6 +43,8 @@ proprietorRouter
   .route("/create-note")
   .post(NotesController.createNoteMiddleware, NotesController.createNote);
 
+proprietorRouter.route("/delete-note").patch(NotesController.deleteNote);
+
 proprietorRouter
   .route("/get-all-specific-customer-notes")
   .post(NotesController.getAllSpecific_CustomerNotes);

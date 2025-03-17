@@ -125,7 +125,7 @@ exports.createNoteMiddleware = (req, res, next) => {
 };
 
 exports.deleteNote = catchAsync(async (req, res, next) => {
-  const { noteId, deleteVal } = req.body;
+  const { noteId } = req.body;
   if (!noteId) {
     return next(
       new appError("Error occured while deleting, something missing", 404)

@@ -115,6 +115,11 @@ const DebtDetailsPage = () => {
                   Info : If customer hasn't accepted their debt note then paid
                   option will not be allowed.
                 </p>
+                <br />
+                <p>
+                  Paid option will also be not available till 20 days after
+                  accepting the note is completed.
+                </p>
               </Box>
             </Grid>
             <Grid
