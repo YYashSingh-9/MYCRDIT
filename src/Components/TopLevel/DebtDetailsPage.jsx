@@ -34,26 +34,28 @@ const DebtDetailsPage = () => {
 
   const customerNumber = Number(id.slice(-10));
 
+  //1. Sending patch function
   const {
-    mutate: func,
+    mutate: patch_requestHandle,
     data: returnData,
     isLoading: loadingState,
   } = useMutation({
     mutationKey: ["debt-note"],
-    mutationFn: () => {
+    mutationFn: (props) => {
       return patch_RequestHandler(
-        accountType,
-        { id: note_Data._id },
-        cookie,
-        "delete"
+        props.accType,
+        props.noteId,
+        props.cookie,
+        props.type
       );
     },
     onSuccess: () => {
       client.invalidateQueries(["note-details"]);
     },
   });
+  console.log(returnData);
 
-  // Getting all the notes of same customer number
+  //2. Getting all the notes of same customer number
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["note-details"],
     mutationFn: () => {
@@ -70,6 +72,17 @@ const DebtDetailsPage = () => {
     );
     customerName = arrayOfNotes[0].customerName.split(" ")[0];
   }
+
+  //3. Delete request handler
+  const deleteHandler = (noteId) => {
+    let obj = {
+      accType: accType,
+      noteId: noteId,
+      cookie: cookie,
+      type: "delete",
+    };
+    patch_requestHandle(obj);
+  };
 
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
@@ -165,6 +178,7 @@ const DebtDetailsPage = () => {
                         key={i}
                         cookie={cookie}
                         acc={accType}
+                        del_func={deleteHandler}
                       />
                     );
                   })
