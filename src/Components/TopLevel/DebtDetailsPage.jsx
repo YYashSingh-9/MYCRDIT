@@ -1,4 +1,8 @@
-import { getAllCustomerNotes, client } from "../../Store/actionCreatorThunk";
+import {
+  getAllCustomerNotes,
+  client,
+  patch_RequestHandler,
+} from "../../Store/actionCreatorThunk";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -30,6 +34,26 @@ const DebtDetailsPage = () => {
 
   const customerNumber = Number(id.slice(-10));
 
+  const {
+    mutate: func,
+    data: returnData,
+    isLoading: loadingState,
+  } = useMutation({
+    mutationKey: ["debt-note"],
+    mutationFn: () => {
+      return patch_RequestHandler(
+        accountType,
+        { id: note_Data._id },
+        cookie,
+        "delete"
+      );
+    },
+    onSuccess: () => {
+      client.invalidateQueries(["note-details"]);
+    },
+  });
+
+  // Getting all the notes of same customer number
   const { mutate, data, isLoading } = useMutation({
     mutationKey: ["note-details"],
     mutationFn: () => {
