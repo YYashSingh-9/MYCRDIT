@@ -50,8 +50,6 @@ const DebtNotesContainer = () => {
       return getHomePage_Data_Proprietor(currentUserCookie);
     },
   });
-  console.log(data);
-  console.log(currentUserData);
 
   useEffect(() => {
     if (data) {
@@ -89,8 +87,14 @@ const DebtNotesContainer = () => {
               <h3> No current running notes!</h3>
               <MoodIcon className={classes.faceIcn} />
               <p>
-                Hey {currentUserData.data.ProprietorName}, create more debt
-                notes and manage them here.
+                Hey{" "}
+                <span style={{ color: "#1DB954", fontWeight: 600 }}>
+                  {" "}
+                  {currentUserData.data.ProprietorName}
+                </span>
+                , create more debt notes and manage them here.
+                <br />
+                Click the create note button on upper right.
               </p>
             </Box>
           )}
@@ -103,12 +107,13 @@ const DebtNotesContainer = () => {
       </BasicCoverDiv>
       <hr
         style={{
-          width: "50vw",
+          width: "60vw",
           height: "0.5rem ",
           backgroundColor: "rgb(30, 30, 30)",
           borderRadius: "1rem",
           outline: "none",
           border: "none",
+          margin: "auto",
         }}
       />
     </>

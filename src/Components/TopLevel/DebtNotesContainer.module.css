@@ -62,9 +62,24 @@ a {
 .clickEffect:active {
   background-color: rgb(170, 170, 170);
 }
-
+.dummyStateBox {
+  background-color: rgb(234, 234, 234);
+  width: 70%;
+  margin: auto;
+  margin-top: 10%;
+  height: 15rem;
+  border-radius: 1rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+.dummyStateBox h3 {
+  font-weight: 600;
+  font-family: "poppins";
+  font-size: 1.6rem;
+}
 .faceIcn {
-  transform: scale(1.3);
+  transform: scale(2.5);
+  margin: 2rem 0rem;
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
