@@ -16,6 +16,8 @@ import classes from "./DebtDetails.module.css";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import DetailedNote from "../AdditionalComponents/DetailDebtNote";
 import EditIcon from "@mui/icons-material/Edit";
+import SpeakerNotesOffIcon from "@mui/icons-material/SpeakerNotesOff";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const DebtDetailsPage = () => {
   let isFormActive = false;
@@ -169,19 +171,27 @@ const DebtDetailsPage = () => {
               xs={12}
               className={classes.parentContainer}
             >
-              {arrayOfNotes.length >= 1
-                ? arrayOfNotes.map((el, i) => {
-                    return (
-                      <DetailedNote
-                        data={el}
-                        key={i}
-                        cookie={cookie}
-                        acc={accType}
-                        del_func={deleteHandler}
-                      />
-                    );
-                  })
-                : "Loading"}
+              {arrayOfNotes.length >= 1 ? (
+                arrayOfNotes.map((el, i) => {
+                  return (
+                    <DetailedNote
+                      data={el}
+                      key={i}
+                      cookie={cookie}
+                      acc={accType}
+                      del_func={deleteHandler}
+                    />
+                  );
+                })
+              ) : (
+                <Box className={classes.dummyBox}>
+                  {" "}
+                  <h3>No debt notes to display </h3> <SpeakerNotesOffIcon />
+                  <Link to={".."}>
+                    <GeneralButton btn_title="Home" />
+                  </Link>
+                </Box>
+              )}
             </Grid>
           </Grid>
         </>
