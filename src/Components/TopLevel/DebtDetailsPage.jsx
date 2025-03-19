@@ -171,7 +171,7 @@ const DebtDetailsPage = () => {
               xs={12}
               className={classes.parentContainer}
             >
-              {arrayOfNotes.length >= 1 ? (
+              {/* {arrayOfNotes.length >= 1 ? (
                 arrayOfNotes.map((el, i) => {
                   return (
                     <DetailedNote
@@ -183,15 +183,16 @@ const DebtDetailsPage = () => {
                     />
                   );
                 })
-              ) : (
-                <Box className={classes.dummyBox}>
-                  {" "}
-                  <h3>No debt notes to display </h3> <SpeakerNotesOffIcon />
-                  <Link to={".."}>
-                    <GeneralButton btn_title="Home" />
-                  </Link>
-                </Box>
-              )}
+              ) : ( */}
+              <Box className={classes.dummyBox}>
+                {" "}
+                <h3>No debt notes to display </h3>{" "}
+                <SpeakerNotesOffIcon className={classes.dummyIcn} />
+                <Link to={".."}>
+                  <GeneralButton btn_title="Home" />
+                </Link>
+              </Box>
+              {/* )} */}
             </Grid>
           </Grid>
         </>

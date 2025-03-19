@@ -80,6 +80,16 @@
   font-family: "poppins";
   font-size: 0.9rem;
 }
+.dummyBox {
+  color: rgb(10, 10, 10);
+  text-align: center;
+  width: 70%;
+  margin: auto;
+}
+.dummyIcn {
+  transform: scale(2);
+  margin: 1rem 0rem;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .title {
