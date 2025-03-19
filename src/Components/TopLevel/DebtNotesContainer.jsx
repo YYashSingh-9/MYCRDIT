@@ -77,6 +77,7 @@ const DebtNotesContainer = () => {
           </Box>
         </Grid>
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
+          {runningDebtNotes.length === 0 && <p>No running notes for now</p>}
           {isLoading ? (
             <p>loading..</p>
           ) : (

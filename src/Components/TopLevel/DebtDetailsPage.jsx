@@ -80,7 +80,6 @@ const DebtDetailsPage = () => {
       cookie: cookie,
       type: "delete",
     };
-    console.log(obj);
     patch_requestHandle(obj);
   };
 
@@ -89,7 +88,7 @@ const DebtDetailsPage = () => {
     if (cookie.length > 1) {
       mutate();
     }
-  }, [id, cookie]);
+  }, [id, cookie, returnData]);
 
   return (
     <>

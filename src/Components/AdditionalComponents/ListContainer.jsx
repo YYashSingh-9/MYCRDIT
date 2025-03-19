@@ -54,20 +54,15 @@ const ListItem = (props) => {
 };
 
 const ListContainer = (props) => {
-  const listArray = props.itemArray;
+  const listArrayPassed = props.itemArray;
+
+  const finalArray = listArrayPassed.filter((el) => el.deleted === false);
   return (
     <>
       <Box className={classes.listBox}>
-        {listArray.map((el, i) => {
+        {finalArray.map((el, i) => {
           return <ListItem data={el} key={i} />;
         })}
-        {/* <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem /> */}
       </Box>
     </>
   );
