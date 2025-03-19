@@ -44,7 +44,7 @@ const DebtDetailsPage = () => {
     mutationFn: (props) => {
       return patch_RequestHandler(
         props.accType,
-        props.noteId,
+        props.data,
         props.cookie,
         props.type
       );
@@ -77,10 +77,11 @@ const DebtDetailsPage = () => {
   const deleteHandler = (noteId) => {
     let obj = {
       accType: accType,
-      noteId: noteId,
+      data: { id: noteId },
       cookie: cookie,
       type: "delete",
     };
+    console.log(obj);
     patch_requestHandle(obj);
   };
 

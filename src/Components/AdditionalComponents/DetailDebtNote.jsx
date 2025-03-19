@@ -29,23 +29,23 @@ const DetailedNote = (props) => {
   cookie = props.cookie;
   accountType = props.acc;
 
-  const { mutate, data, isLoading } = useMutation({
-    mutationKey: ["debt-note"],
-    mutationFn: () => {
-      return patch_RequestHandler(
-        accountType,
-        { id: note_Data._id },
-        cookie,
-        "delete"
-      );
-    },
-    onSuccess: () => {
-      client.invalidateQueries(["note-details"]);
-    },
-  });
+  // const { mutate, data, isLoading } = useMutation({
+  //   mutationKey: ["debt-note"],
+  //   mutationFn: () => {
+  //     return patch_RequestHandler(
+  //       accountType,
+  //       { id: note_Data._id },
+  //       cookie,
+  //       "delete"
+  //     );
+  //   },
+  //   onSuccess: () => {
+  //     client.invalidateQueries(["note-details"]);
+  //   },
+  // });
 
   const deleteHandler = () => {
-    mutate();
+    props.del_func(note_Data._id);
   };
   return (
     <>
