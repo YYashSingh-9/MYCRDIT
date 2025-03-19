@@ -11,6 +11,7 @@ import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import MoodIcon from "@mui/icons-material/Mood";
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
@@ -40,12 +41,17 @@ const DebtNotesContainer = () => {
   const dispatch = useDispatch();
 
   const currentUserCookie = currentUserData.token;
+  const currentRunningNotes = runningDebtNotes.filter(
+    (el) => el.deleted === false
+  );
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
       return getHomePage_Data_Proprietor(currentUserCookie);
     },
   });
+
+  console.log(currentUserData);
 
   useEffect(() => {
     if (data) {
@@ -54,6 +60,7 @@ const DebtNotesContainer = () => {
       }
     }
   }, [data]);
+
   return (
     <>
       <BasicCoverDiv>
@@ -77,11 +84,20 @@ const DebtNotesContainer = () => {
           </Box>
         </Grid>
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
-          {runningDebtNotes.length === 0 && <p>No running notes for now</p>}
+          {currentRunningNotes.length === 0 && (
+            <Box className={classes.dummyStateBox}>
+              <h3> No current running notes!</h3>
+              <MoodIcon className={classes.faceIcn} />
+              <p>
+                Hey {currentUserData.data.ProprietorName}, create more debt
+                notes and manage them here.
+              </p>
+            </Box>
+          )}
           {isLoading ? (
             <p>loading..</p>
           ) : (
-            <ListContainer itemArray={runningDebtNotes} />
+            <ListContainer itemArray={currentRunningNotes} />
           )}
         </Grid>
       </BasicCoverDiv>
