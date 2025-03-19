@@ -50,7 +50,7 @@ const DebtNotesContainer = () => {
       return getHomePage_Data_Proprietor(currentUserCookie);
     },
   });
-
+  console.log(data);
   console.log(currentUserData);
 
   useEffect(() => {

@@ -88,6 +88,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
     sendingDataObject = { ...data_2 };
+    console.log("this ran");
   }
   if (data_length < 2) {
     // Customer Authentication (login/signup);
