@@ -92,6 +92,12 @@
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
+  .dummyBox {
+    font-size: 0.8rem;
+  }
+  .dummyIcn {
+    transform: scale(1);
+  }
   .title {
     font-size: 0.8rem;
   }
@@ -115,6 +121,9 @@
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
+  .dummyIcn {
+    transform: scale(1.5);
+  }
   .title {
     font-size: 0.9rem;
   }

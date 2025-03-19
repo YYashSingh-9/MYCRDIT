@@ -71,7 +71,9 @@ const DebtDetailsPage = () => {
     arrayOfNotes = data.data.filter(
       (el) => el.cleared === false && el.deleted === false
     );
-    customerName = arrayOfNotes[0].customerName.split(" ")[0];
+    if (arrayOfNotes.length >= 1) {
+      customerName = arrayOfNotes[0].customerName.split(" ")[0];
+    }
   }
 
   //3. Delete request handler
@@ -171,7 +173,7 @@ const DebtDetailsPage = () => {
               xs={12}
               className={classes.parentContainer}
             >
-              {/* {arrayOfNotes.length >= 1 ? (
+              {arrayOfNotes.length >= 1 ? (
                 arrayOfNotes.map((el, i) => {
                   return (
                     <DetailedNote
@@ -183,16 +185,16 @@ const DebtDetailsPage = () => {
                     />
                   );
                 })
-              ) : ( */}
-              <Box className={classes.dummyBox}>
-                {" "}
-                <h3>No debt notes to display </h3>{" "}
-                <SpeakerNotesOffIcon className={classes.dummyIcn} />
-                <Link to={".."}>
-                  <GeneralButton btn_title="Home" />
-                </Link>
-              </Box>
-              {/* )} */}
+              ) : (
+                <Box className={classes.dummyBox}>
+                  {" "}
+                  <h3>No debt notes to display </h3>{" "}
+                  <SpeakerNotesOffIcon className={classes.dummyIcn} />
+                  <Link to={".."}>
+                    <GeneralButton btn_title="Home" />
+                  </Link>
+                </Box>
+              )}
             </Grid>
           </Grid>
         </>
