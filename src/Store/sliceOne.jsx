@@ -43,6 +43,10 @@ const sliceOne = createSlice({
     userStorageInfo_Get_handler(state, action) {
       const userData = JSON.parse(localStorage.getItem("user_Data"));
 
+      if (!userData) {
+        state.accountType = "";
+        return;
+      }
       state.accountType = userData.data.ProprietorName
         ? "proprietor"
         : "customer";

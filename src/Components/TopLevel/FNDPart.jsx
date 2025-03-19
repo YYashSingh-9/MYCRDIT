@@ -39,9 +39,9 @@ const Filter_n_Debts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentAcc_Type === "") {
-      return;
-    }
+    // if (currentAcc_Type === "") {
+    //   return;
+    // }
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
   }, [currentUserCookie]);
 
