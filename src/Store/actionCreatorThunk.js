@@ -167,7 +167,6 @@ export const patch_RequestHandler = async (
 ) => {
   let objectToSend, request_of, additionalUrlPart;
 
-  console.log(accType, data, cookie, requestOf);
   if (accType === "proprietor" && requestOf === "delete") {
     objectToSend = {
       noteId: data.id,

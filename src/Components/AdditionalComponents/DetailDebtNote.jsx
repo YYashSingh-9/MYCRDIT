@@ -1,13 +1,7 @@
 import { Grid, Box } from "@mui/material";
-import { Link } from "react-router-dom";
 import classes from "./DetailDebtNote.module.css";
-import { useNavigate } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
-import { patch_RequestHandler } from "../../Store/actionCreatorThunk";
 
 const DetailedNote = (props) => {
-  const navigate = useNavigate();
-
   const note_Data = props.data;
   let acceptanceStatus, date, disableStatus, cookie, accountType;
 
@@ -25,28 +19,11 @@ const DetailedNote = (props) => {
       ? classes.disableClass
       : classes.normalClass;
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
-  //4. Cookie & account type
-  cookie = props.cookie;
-  accountType = props.acc;
-
-  // const { mutate, data, isLoading } = useMutation({
-  //   mutationKey: ["debt-note"],
-  //   mutationFn: () => {
-  //     return patch_RequestHandler(
-  //       accountType,
-  //       { id: note_Data._id },
-  //       cookie,
-  //       "delete"
-  //     );
-  //   },
-  //   onSuccess: () => {
-  //     client.invalidateQueries(["note-details"]);
-  //   },
-  // });
 
   const deleteHandler = () => {
     props.del_func(note_Data._id);
   };
+
   return (
     <>
       <Grid

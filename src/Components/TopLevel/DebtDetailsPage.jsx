@@ -53,7 +53,6 @@ const DebtDetailsPage = () => {
       client.invalidateQueries(["note-details"]);
     },
   });
-  console.log(returnData);
 
   //2. Getting all the notes of same customer number
   const { mutate, data, isLoading } = useMutation({
