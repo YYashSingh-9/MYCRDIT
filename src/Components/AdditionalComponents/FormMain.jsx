@@ -10,8 +10,17 @@ import FiberNewIcon from "@mui/icons-material/FiberNew";
 import { Form, Link } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
+import { useSelector } from "react-redux";
 
 const FormMain = () => {
+  const data = useSelector((state) => state.sliceOne.accountUserData);
+  let cookie, proprietorId;
+  if (data.status === "Success") {
+    cookie = data.token;
+    proprietorId = data.data._id;
+  }
+
+  const btnDataToSend = `${cookie},${proprietorId}`;
   return (
     <>
       <InitialSlider />
@@ -30,6 +39,11 @@ const FormMain = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} className={classes.formDiv}>
           <Form method="POST" className={classes.form_main}>
+            <label htmlFor="Note Title">Note title</label>
+            <br />
+
+            <TextField id="outlined" name="noteTitle" />
+            <hr />
             <label htmlFor="Customer Name">Customer Name</label>
             <br />
 
@@ -60,7 +74,7 @@ const FormMain = () => {
               id="Amount payable"
               name="amount"
               startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
+                <InputAdornment position="start">₹</InputAdornment>
               }
               label="Amount"
             />
@@ -69,7 +83,12 @@ const FormMain = () => {
             <br />
             <input type="date" id="dueDate" name="date" />
             <hr />
-            <GeneralButton typeBtn="submit" btn_title="Save" />
+            <GeneralButton
+              typeBtn="submit"
+              btn_title="Save"
+              name="proprietor-data"
+              value={btnDataToSend}
+            />
             <Link to={".."}>
               <GeneralButton btn_title="Back" />
             </Link>

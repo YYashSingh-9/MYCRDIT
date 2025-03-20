@@ -197,9 +197,30 @@ export const patch_RequestHandler = async (
 export const createNote_Handler = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
-  const data_length = Object.keys(data_2).length;
+  const p_data = data.get("proprietor-data");
+  let cookie, proprietorId, objectToSend;
 
-  console.log(data_2);
+  cookie = p_data.split(",")[0];
+  proprietorId = p_data.split(",")[1];
+
+  objectToSend = {
+    proprietorId: proprietorId,
+    noteTitle: data_2.noteTitle,
+    customerName: data_2.customerName,
+    customerNumber: data_2.customerNumber,
+    date: data_2.date,
+    productBrand: data_2.productBrand,
+    productName: data_2.productName,
+    amount: data_2.amount,
+  };
+
+  await data_Send_request(
+    "proprietor",
+    "create-note",
+    "POST",
+    objectToSend,
+    cookie
+  );
   return data_2;
 };
 /*

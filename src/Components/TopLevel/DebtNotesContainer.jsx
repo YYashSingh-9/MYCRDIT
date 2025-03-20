@@ -42,7 +42,7 @@ const DebtNotesContainer = () => {
 
   const currentUserCookie = currentUserData.token;
   const currentRunningNotes = runningDebtNotes.filter(
-    (el) => el.deleted === true
+    (el) => el.deleted === false
   );
   const enableStat = currentUserCookie ? true : false;
   const { data, isLoading, isError, isPending } = useQuery({
