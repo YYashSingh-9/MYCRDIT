@@ -192,6 +192,13 @@ export const patch_RequestHandler = async (
   return returned_Data;
 };
 
+// 7. Create DebtNote request
+
+export const createNote_Handler = async ({ request }) => {
+  const data = await request.formData();
+  const data_2 = Object.fromEntries(data);
+  const data_length = Object.keys(data_2).length;
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

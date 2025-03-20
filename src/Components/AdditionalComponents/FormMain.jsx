@@ -33,12 +33,12 @@ const FormMain = () => {
             <label htmlFor="Customer Name">Customer Name</label>
             <br />
 
-            <TextField id="outlined" />
+            <TextField id="outlined" name="customerName" />
             <hr />
             <label htmlFor="Customer Number">Customer Number</label>
             <br />
 
-            <TextField id="outlined" />
+            <TextField id="outlined" name="customerNumber" />
             <hr />
 
             <label htmlFor="Product bought on credit">
@@ -48,16 +48,17 @@ const FormMain = () => {
 
             <label htmlFor="Product bought on credit">Brand of product</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="productBrand" />
             <hr />
             <label htmlFor="Product bought on credit">Product name</label>
             <br />
-            <TextField id="outlined" />
+            <TextField id="outlined" name="productName" />
             <hr />
             <label htmlFor="Amount payable">Amount</label>
             <br />
             <OutlinedInput
               id="Amount payable"
+              name="amount"
               startAdornment={
                 <InputAdornment position="start">$</InputAdornment>
               }
@@ -66,7 +67,7 @@ const FormMain = () => {
             <hr />
             <label htmlFor="Due date">Date</label>
             <br />
-            <input type="date" id="dueDate" name="Due Date" />
+            <input type="date" id="dueDate" name="date" />
             <hr />
             <GeneralButton typeBtn="submit" btn_title="Save" />
             <Link to={".."}>
