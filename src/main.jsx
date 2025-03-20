@@ -24,7 +24,10 @@ import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import mainStore from "./Store/mainStore.jsx";
 // Action and loader functions
-import { login_signup_fetchRequest } from "./Store/actionCreatorThunk.js";
+import {
+  login_signup_fetchRequest,
+  createNote_Handler,
+} from "./Store/actionCreatorThunk.js";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +35,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <FNDPart /> },
-      { path: "/add-debt-note-form", element: <FormMain /> },
+      {
+        path: "/add-debt-note-form",
+        element: <FormMain />,
+        action: createNote_Handler,
+      },
       {
         path: "/:id/details",
         element: <DebtDetailsPage />,

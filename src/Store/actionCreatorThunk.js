@@ -198,6 +198,9 @@ export const createNote_Handler = async ({ request }) => {
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
+
+  console.log(data_2);
+  return data_2;
 };
 /*
  React Router's <Form> component, 
