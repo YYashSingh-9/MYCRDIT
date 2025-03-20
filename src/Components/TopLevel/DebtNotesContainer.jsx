@@ -44,13 +44,14 @@ const DebtNotesContainer = () => {
   const currentRunningNotes = runningDebtNotes.filter(
     (el) => el.deleted === false
   );
+  const enableStat = currentUserCookie ? true : false;
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
       return getHomePage_Data_Proprietor(currentUserCookie);
     },
+    enabled: enableStat,
   });
-
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
@@ -98,7 +99,7 @@ const DebtNotesContainer = () => {
               </p>
             </Box>
           )}
-          {isLoading ? (
+          {isLoading && currentRunningNotes.length >= 1 ? (
             <p>loading..</p>
           ) : (
             <ListContainer itemArray={currentRunningNotes} />
