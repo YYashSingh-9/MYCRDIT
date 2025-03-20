@@ -7,20 +7,28 @@ import {
 } from "@mui/material";
 import classes from "./FormMain.module.css";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const FormMain = () => {
-  const data = useSelector((state) => state.sliceOne.accountUserData);
   let cookie, proprietorId;
+  const data = useSelector((state) => state.sliceOne.accountUserData);
+  const formData = useActionData();
+  const navigate = useNavigate();
   if (data.status === "Success") {
     cookie = data.token;
     proprietorId = data.data._id;
   }
-
   const btnDataToSend = `${cookie},${proprietorId}`;
+
+  useEffect(() => {
+    if (formData !== undefined) {
+      navigate("/");
+    }
+  }, [formData]);
   return (
     <>
       <InitialSlider />
