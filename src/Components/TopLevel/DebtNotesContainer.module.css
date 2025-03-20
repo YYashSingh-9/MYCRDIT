@@ -70,7 +70,7 @@ a {
   height: 15rem;
   border-radius: 1rem;
   text-align: center;
-  padding-top: 2rem;
+  padding: 2rem;
 }
 .dummyStateBox h3 {
   font-weight: 600;
@@ -94,7 +94,7 @@ a {
     font-size: 0.9rem;
   }
   .faceIcn {
-    transform: scale(2.5);
+    transform: scale(2);
     margin: 2rem 0rem;
   }
 
@@ -126,6 +126,19 @@ a {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 720px) {
+  .dummyStateBox p {
+    font-size: 0.9rem;
+  }
+  .dummyStateBox {
+    padding: 0.5rem;
+    margin-top: 3rem;
+  }
+  .dummyStateBox h3 {
+    font-size: 1rem;
+  }
+  .faceIcn {
+    transform: scale(2.2);
+  }
   .tags {
     flex-wrap: wrap;
     gap: 0.7rem;
