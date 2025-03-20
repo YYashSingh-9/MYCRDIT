@@ -83,6 +83,21 @@ a {
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
+  .dummyStateBox p {
+    font-size: 0.7rem;
+  }
+  .dummyStateBox {
+    padding: 0.5rem;
+    margin-top: 3rem;
+  }
+  .dummyStateBox h3 {
+    font-size: 0.9rem;
+  }
+  .faceIcn {
+    transform: scale(2.5);
+    margin: 2rem 0rem;
+  }
+
   .headingPart h3 {
     font-size: 1.1rem;
     color: rgb(128, 128, 128);

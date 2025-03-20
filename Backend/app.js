@@ -16,7 +16,7 @@ const app = express();
 // Global middleware (CORS) (Cross Origin Resource Sharing)
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     credentials: true,
     exposedHeaders: ["SET-COOKIE"],
     methods: ["PATCH", "GET", "PUT", "POST", "HEAD", "DELETE"],
