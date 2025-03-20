@@ -21,7 +21,10 @@ const DetailedNote = (props) => {
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
 
   const deleteHandler = () => {
-    props.del_func(note_Data._id);
+    props.del_func(note_Data._id, "delete");
+  };
+  const paying_Handler = () => {
+    props.patch_func(note_Data._id, "paying");
   };
 
   return (
@@ -71,7 +74,10 @@ const DetailedNote = (props) => {
           <button className={classes.del} onClick={deleteHandler}>
             Delete
           </button>
-          <button disabled={disableStatus}> {btnTitle} </button>
+          <button disabled={disableStatus} onClick={paying_Handler}>
+            {" "}
+            {btnTitle}{" "}
+          </button>
         </Box>
       </Grid>
       <hr style={{ width: "80%", marginTop: "2rem", marginBottom: "2rem" }} />
