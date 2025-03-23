@@ -77,10 +77,10 @@ const DebtDetailsPage = () => {
   }
 
   //3.  request handler for both delete and mark paid request.
-  const patchHandler = (noteId, funcIntent) => {
+  const patchHandler = (noteId, funcIntent, num) => {
     let obj = {
       accType: accType,
-      data: { id: noteId },
+      data: { id: noteId, customerNumber: num },
       cookie: cookie,
       type: funcIntent,
     };

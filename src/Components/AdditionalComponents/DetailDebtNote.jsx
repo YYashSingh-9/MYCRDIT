@@ -9,19 +9,19 @@ const DetailedNote = (props) => {
   date = new Date(note_Data.date).toISOString().substring(0, 10);
   //2. Accepted indicator and button disable
   acceptanceStatus =
-    note_Data.acceptanceStatus === false ? "Not accepted" : "Accepted";
+    note_Data.acceptanceStatus === true ? "Not accepted" : "Accepted";
 
-  disableStatus = note_Data.acceptanceStatus === false ? true : false;
-
+  // disableStatus = note_Data.acceptanceStatus === false ? true : false;
+  disableStatus = false;
   //3. Button style and title as per state.
+  let acceptanceStatusS = true;
   const buttonClass =
-    note_Data.acceptanceStatus === false
-      ? classes.disableClass
-      : classes.normalClass;
+    // note_Data.acceptanceStatus === false
+    acceptanceStatusS === false ? classes.disableClass : classes.normalClass;
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
 
   const deleteHandler = () => {
-    props.patch_func(note_Data._id, "delete");
+    props.patch_func(note_Data._id, "delete", note_Data.customerNumber);
   };
   const paying_Handler = () => {
     props.patch_func(note_Data._id, "paying");
