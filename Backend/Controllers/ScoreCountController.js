@@ -15,7 +15,7 @@ const PaidNote = require("../Models/paidNoteModel");
  */
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
-  // console.log("Function Started from here... ✅");
+  console.log("Function Started from here... ✅");
 
   let pre_score_count = 0;
   let seconds, minutes, hours, days, _ThirtyDays, _FortyDays, within_FortyDays;
@@ -30,7 +30,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //a).
   const note_Id = req.body.debtNote_Id;
   const customerNumber = req.body.customerNumber;
-  // console.log("note id", note_Id);
+  console.log("note id", note_Id);
   //b).
   const note_ = await DebtNote.findById(note_Id);
   const cust = await Customer.find({
@@ -122,7 +122,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
-  console.log(customer, customerPreviousTScore, customerCurrentTotal_TScore);
+  // console.log(customer, customerPreviousTScore, customerCurrentTotal_TScore);
   const doc = await Customer.findOneAndUpdate(
     { contactNumber: customer.contactNumber },
     { transactionalScore: customerCurrentTotal_TScore },
@@ -139,6 +139,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     thirtyDayPayment: thirtyDayPayment,
     lengthOfDebt: lengthOfPayment,
   };
+  console.log(dummyObj);
   req.body = dummyObj;
   // console.log(doc);
   next();

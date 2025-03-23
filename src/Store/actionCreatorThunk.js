@@ -166,7 +166,8 @@ export const patch_RequestHandler = async (
   cookie,
   requestOf
 ) => {
-  let objectToSend, request_of, additionalUrlPart;
+  let objectToSend, request_of, additionalUrlPart, paymentDate;
+  paymentDate = new Date();
 
   if (accType === "proprietor" && requestOf === "delete") {
     objectToSend = {
@@ -180,6 +181,7 @@ export const patch_RequestHandler = async (
     objectToSend = {
       debtNote_Id: data.id,
       customerNumber: data.customerNumber,
+      paymentDate: paymentDate,
     };
     console.log(objectToSend);
   } else if (accType === "customer" && requestOf === "accepting") {

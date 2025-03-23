@@ -57,14 +57,15 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
     return next(new appError("Some credentials are missing, retry.", 400));
 
   //1. changing cleared status.
-  const doc = await debtNote.findOneAndUpdate(
-    { proprietorId: debtNote_Id },
+  const doc22 = await debtNote.findOneAndUpdate(
+    { _id: debtNote_Id },
     { cleared: true },
     {
       runValidators: true,
       new: true,
     }
   );
+  console.log(doc22);
   //2. adding this to paidNoteModel.
   const doc2 = await paidNote.create(req.body);
 
@@ -74,38 +75,38 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
-  const { paymentDate, debtNote_Id, customerNumber } = req.body;
-  let seconds, minutes, hours, days;
+// This is not required rn.
+// exports.paidNotePre_Controller = catchAsync(async (req, res, next) => {
+//   const { paymentDate, debtNote_Id, customerNumber } = req.body;
+//   let seconds, minutes, hours, days;
+//   //1.
+//   const doc = await debtNote.findById(debtNote_Id);
 
-  //1.
-  const doc = await debtNote.findById(debtNote_Id);
+//   //2.
+//   const date_Old = new Date(doc.date); // Date of note creation
+//   const date_New = new Date(paymentDate); // Date of payment
 
-  //2.
-  const date_Old = new Date(doc.date); // Date of note creation
-  const date_New = new Date(paymentDate); // Date of payment
+//   //3.
+//   const totalMilliseconds = date_New - date_Old;
+//   seconds = parseInt(Math.round(totalMilliseconds / 1000));
+//   minutes = parseInt(Math.round(seconds / 60));
+//   hours = parseInt(Math.round(minutes / 60));
+//   days = parseInt(Math.round(hours / 24));
 
-  //3.
-  const totalMilliseconds = date_New - date_Old;
-  seconds = parseInt(Math.round(totalMilliseconds / 1000));
-  minutes = parseInt(Math.round(seconds / 60));
-  hours = parseInt(Math.round(minutes / 60));
-  days = parseInt(Math.round(hours / 24));
+//   const lengthOfPayment = days;
+//   const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
 
-  const lengthOfPayment = days;
-  const thirtyDayPayment = lengthOfPayment <= 30 ? true : false;
+//   const dummyObj = {
+//     debtNote_Id: debtNote_Id,
+//     customerNumber: customerNumber,
+//     paymentDate: paymentDate,
+//     thirtyDayPayment: thirtyDayPayment,
+//     lengthOfDebt: lengthOfPayment,
+//   };
 
-  const dummyObj = {
-    debtNote_Id: debtNote_Id,
-    customerNumber: customerNumber,
-    paymentDate: paymentDate,
-    thirtyDayPayment: thirtyDayPayment,
-    lengthOfDebt: lengthOfPayment,
-  };
-
-  req.body = dummyObj;
-  next();
-});
+//   req.body = dummyObj;
+//   next();
+// });
 
 exports.createNoteMiddleware = (req, res, next) => {
   const doc = req.body;
