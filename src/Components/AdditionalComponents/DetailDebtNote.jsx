@@ -21,7 +21,7 @@ const DetailedNote = (props) => {
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
 
   const deleteHandler = () => {
-    props.patch_func(note_Data._id, "delete", note_Data.customerNumber);
+    props.patch_func(note_Data._id, "delete");
   };
   const paying_Handler = () => {
     props.patch_func(note_Data._id, "paying");

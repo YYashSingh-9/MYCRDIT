@@ -178,9 +178,10 @@ export const patch_RequestHandler = async (
     request_of = "proprietor";
     additionalUrlPart = "note-payment";
     objectToSend = {
-      debtNote_Id: data._id,
+      debtNote_Id: data.id,
       customerNumber: data.customerNumber,
     };
+    console.log(objectToSend);
   } else if (accType === "customer" && requestOf === "accepting") {
     request_of = "customer";
     additionalUrlPart = "note-approval-request";
