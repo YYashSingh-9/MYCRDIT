@@ -21,7 +21,7 @@ const DetailedNote = (props) => {
   const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
 
   const deleteHandler = () => {
-    props.del_func(note_Data._id, "delete");
+    props.patch_func(note_Data._id, "delete");
   };
   const paying_Handler = () => {
     props.patch_func(note_Data._id, "paying");
@@ -75,8 +75,7 @@ const DetailedNote = (props) => {
             Delete
           </button>
           <button disabled={disableStatus} onClick={paying_Handler}>
-            {" "}
-            {btnTitle}{" "}
+            {btnTitle}
           </button>
         </Box>
       </Grid>
