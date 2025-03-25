@@ -42,7 +42,7 @@ const sliceOne = createSlice({
     },
     userStorageInfo_Get_handler(state, action) {
       const userData = JSON.parse(localStorage.getItem("user_Data"));
-
+      console.log("ransss");
       if (!userData) {
         state.accountType = "";
         return;

@@ -257,6 +257,7 @@ export const getClearedNotes = async (cookie, acc_type) => {
     cookieToSend,
     addtitionalUrl_Part
   );
+  return returned_data;
 };
 /*
  React Router's <Form> component, 

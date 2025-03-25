@@ -11,23 +11,32 @@ import { useQuery } from "@tanstack/react-query";
 import { getClearedNotes } from "../../Store/actionCreatorThunk";
 
 export const ListItem = (props) => {
+  let clearState, pendingState;
+  const { amount, cleared, noteTitle, date } = props.obj;
+
+  clearState = cleared === true ? true : false;
+  // pendingState =
+
+  const date_1 = new Date(date).toISOString().substring(0, 10);
+
+  console.log(props.obj);
   return (
     <>
       <Box className={classes.liBox}>
         <Box className={classes.info_left}>
-          <h3>{props.title}</h3>
-          <h4>{props.date}</h4>
+          <h3>{noteTitle}</h3>
+          <h4>{date_1}</h4>
         </Box>
 
         <Box className={classes.info_right}>
-          <h4>{`${props.amt}/-`}</h4>
+          <h4>{`${amount}/-`}</h4>
           <button className={classes.clearIndicatorBtn}>
-            {props.icnType === "tick" ? (
-              <DoneAllIcon className={classes.cleartick} />
+            {/* {cleared === true ? (
+              <DoneAllIcon />
             ) : (
               <PendingActionsIcon className={classes.pending} />
-            )}
-
+            )} */}
+            {clearState && <DoneAllIcon className={classes.cleartick} />}
             {props.btnTitle}
           </button>
         </Box>
@@ -39,14 +48,15 @@ export const ListItem = (props) => {
 const HistoryPage = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
   const userCookie = useSelector((state) => state.sliceOne.accountUserCookie);
-
+  const enabaleVal = accType && userCookie ? true : false;
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["cleare-notes"],
+    queryKey: ["cleared-notes"],
     queryFn: () => {
       return getClearedNotes(userCookie, accType);
     },
+    enabled: enabaleVal,
   });
-
+  console.log(data, accType, userCookie);
   return (
     <>
       {accType === "" ? (
@@ -74,6 +84,9 @@ const HistoryPage = () => {
             marginBottom={3}
             className={classes.detailsBox}
           >
+            {data && data.status === "Success"
+              ? data.data.map((el) => <ListItem obj={el} />)
+              : ""}
             <ListItem
               title={"Mishra ji,Sunflower oil"}
               date={"14-06-24"}

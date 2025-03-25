@@ -37,6 +37,9 @@ const styles = {
 
 const Header = () => {
   const accountType = useSelector((state) => state.sliceOne.accountType);
+  const currentUserCookie = useSelector(
+    (state) => state.sliceOne.accountUserCookie
+  );
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
@@ -69,7 +72,7 @@ const Header = () => {
                 <AccountBoxIcon className={classes.icn} />
               </Button>
             ) : (
-              <Link to={"/your-account-details"}>
+              <Link to={`/your-account-details/${currentUserCookie}`}>
                 <Button variant="contained" sx={styles.detailBtn}>
                   <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
                     details
