@@ -40,7 +40,7 @@ const HistoryPage = () => {
 
   return (
     <>
-      {accType === "null" ? (
+      {accType === "" ? (
         <NotLoggedInLandingPage
           heading="Not authorized, "
           btnTitle="Home"

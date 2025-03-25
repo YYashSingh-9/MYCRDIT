@@ -18,9 +18,9 @@ exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
 });
 
 exports.allClearedNotes = catchAsync(async (req, res, next) => {
-  const { proprietorId } = req.body;
+  const { _id } = req.user;
 
-  if (!proprietorId)
+  if (!_id)
     return next(
       new appError("Proprietor Id id missing from client side, retry.", 400)
     );
