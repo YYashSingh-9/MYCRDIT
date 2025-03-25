@@ -8,7 +8,7 @@ import GeneralButton from "../AdditionalComponents/GeneralButton";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useQuery } from "@tanstack/react-query";
-import { getClearedNotes } from "../../store/actionCreatorThunk";
+import { getClearedNotes } from "../../Store/actionCreatorThunk";
 
 export const ListItem = (props) => {
   return (

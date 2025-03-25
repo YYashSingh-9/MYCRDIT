@@ -234,7 +234,29 @@ export const createNote_Handler = async ({ request }) => {
 // 8. Get all cleared notes (proprietor & customer)
 
 export const getClearedNotes = async (cookie, acc_type) => {
-  console.log(cookie, acc_type);
+  let returned_data, cookieToSend, accType, addtitionalUrl_Part;
+
+  if (acc_type === "proprietor") {
+    cookieToSend = cookie;
+    accType = acc_type;
+    addtitionalUrl_Part = "/get-all-cleared-notes";
+  }
+  if (acc_type === "customer") {
+    cookieToSend = cookie;
+    accType = acc_type;
+    addtitionalUrl_Part = "/all-cleared-notes";
+  } else if (acc_type === "") {
+    return {
+      status: "Success",
+      data: "No request was sent, as no account details are captured.",
+    };
+  }
+
+  returned_data = await data_fetch_function(
+    accType,
+    cookieToSend,
+    addtitionalUrl_Part
+  );
 };
 /*
  React Router's <Form> component, 
