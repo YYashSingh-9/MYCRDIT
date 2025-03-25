@@ -5,7 +5,9 @@ import GeneralButton from "./GeneralButton";
 import Mini_TScoreIndicator from "../MinorComponents/Mini_TScoreIndicator";
 
 const AccountInfoPart = (props) => {
-  const accountType = props.accountType;
+  const { accountType, cookie } = props.data;
+
+  const paramsToSend = `${accountType},${cookie}`;
 
   return (
     <>
@@ -69,11 +71,11 @@ const AccountInfoPart = (props) => {
           )}
 
           {accountType === "customer" ? (
-            <Link to={"/your-history-details"}>
+            <Link to={`/your-history-details/${paramsToSend}`}>
               <GeneralButton icnTitle={"history"} btn_title={"Check History"} />
             </Link>
           ) : (
-            <Link to={"/your-history-details"}>
+            <Link to={`/your-history-details/${paramsToSend}`}>
               <GeneralButton
                 icnTitle={"history"}
                 btn_title={"All Cleared Debts"}
