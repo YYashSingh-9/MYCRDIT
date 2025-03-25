@@ -251,7 +251,6 @@ export const getClearedNotes = async (cookie, acc_type) => {
       data: "No request was sent, as no account details are captured.",
     };
   }
-
   returned_data = await data_fetch_function(
     accType,
     cookieToSend,

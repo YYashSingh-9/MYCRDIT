@@ -3,7 +3,7 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Box, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
@@ -46,17 +46,19 @@ export const ListItem = (props) => {
 };
 
 const HistoryPage = () => {
-  const accType = useSelector((state) => state.sliceOne.accountType);
-  const userCookie = useSelector((state) => state.sliceOne.accountUserCookie);
-  const enabaleVal = accType && userCookie ? true : false;
+  let accType, userCookie, id_String;
+  const { id } = useParams();
+
+  id_String = id.split(",");
+  accType = id_String[0];
+  userCookie = id_String[1];
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["cleared-notes"],
     queryFn: () => {
       return getClearedNotes(userCookie, accType);
     },
-    enabled: enabaleVal,
   });
-  console.log(data, accType, userCookie);
   return (
     <>
       {accType === "" ? (
@@ -84,44 +86,9 @@ const HistoryPage = () => {
             marginBottom={3}
             className={classes.detailsBox}
           >
-            {data && data.status === "Success"
-              ? data.data.map((el) => <ListItem obj={el} />)
+            {data !== undefined
+              ? data.data.map((el, i) => <ListItem obj={el} key={i} />)
               : ""}
-            <ListItem
-              title={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"Cleared"}
-              icnType={"tick"}
-            />
-            <ListItem
-              title={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"Cleared"}
-              icnType={"tick"}
-            />{" "}
-            <ListItem
-              title={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"Cleared"}
-              icnType={"tick"}
-            />{" "}
-            <ListItem
-              title={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"Cleared"}
-              icnType={"tick"}
-            />{" "}
-            <ListItem
-              title={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"Cleared"}
-              icnType={"tick"}
-            />
           </Grid>
           <Grid
             item
