@@ -29,7 +29,7 @@ export const ListItem = (props) => {
         </Box>
 
         <Box className={classes.info_right}>
-          <h4>{`${amount}/-`}</h4>
+          <h3>{`${amount}/-`}</h3>
           <button className={classes.clearIndicatorBtn}>
             {/* {cleared === true ? (
               <DoneAllIcon />
@@ -99,7 +99,7 @@ const HistoryPage = () => {
             className={classes.btnSection}
             marginBottom={2}
           >
-            <Link to={"/your-account-details"}>
+            <Link to={`/your-account-details/${id}`}>
               <GeneralButton btn_title={"back"} />
             </Link>
           </Grid>
