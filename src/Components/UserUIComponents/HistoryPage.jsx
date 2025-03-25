@@ -38,8 +38,15 @@ export const ListItem = (props) => {
 
 const HistoryPage = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
+  const userCookie = useSelector((state) => state.sliceOne.accountUserCookie);
 
-  useQuery();
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["cleare-notes"],
+    queryFn: () => {
+      return getClearedNotes(userCookie, accType);
+    },
+  });
+
   return (
     <>
       {accType === "" ? (
