@@ -26,7 +26,7 @@ exports.allClearedNotes = catchAsync(async (req, res, next) => {
     );
 
   const doc = await debtNote.find({
-    proprietorId: { $in: proprietorId },
+    proprietorId: { $in: _id },
     cleared: { $in: true },
   });
 

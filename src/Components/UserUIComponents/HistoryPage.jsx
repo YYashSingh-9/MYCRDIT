@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import CancelIcon from "@mui/icons-material/Cancel";
+import { useQuery } from "@tanstack/react-query";
+import { getClearedNotes } from "../../store/actionCreatorThunk";
 
 export const ListItem = (props) => {
   return (
@@ -38,6 +39,7 @@ export const ListItem = (props) => {
 const HistoryPage = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
 
+  useQuery();
   return (
     <>
       {accType === "" ? (

@@ -230,6 +230,12 @@ export const createNote_Handler = async ({ request }) => {
   );
   return data_2;
 };
+
+// 8. Get all cleared notes (proprietor & customer)
+
+export const getClearedNotes = async (cookie, acc_type) => {
+  console.log(cookie, acc_type);
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
