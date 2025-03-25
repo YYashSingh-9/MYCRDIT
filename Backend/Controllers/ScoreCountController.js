@@ -30,14 +30,14 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //a).
   const note_Id = req.body.debtNote_Id;
   const customerNumber = req.body.customerNumber;
-  console.log("note id", note_Id);
+  console.log("note id", note_Id, customerNumber);
   //b).
   const note_ = await DebtNote.findById(note_Id);
   const cust = await Customer.find({
     contactNumber: { $in: customerNumber },
   });
   const customer = cust[0];
-  // console.log("NOTE AND CUSTOMER-> ", note_, customer);
+  console.log("NOTE AND CUSTOMER-> ", note_, customer);
 
   //2. Extract amount and payment duration.
   // a) Amount
