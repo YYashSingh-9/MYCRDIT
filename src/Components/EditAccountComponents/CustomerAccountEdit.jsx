@@ -19,7 +19,7 @@ const CustomerAccountEdit = () => {
     <>
       <EditAccount
         titleNHtmlFor={titles}
-        bck_btnLink={"/your-account-details"}
+        bck_btnLink={backLink_Id}
         loginState={isLoggedIn}
       />
     </>
