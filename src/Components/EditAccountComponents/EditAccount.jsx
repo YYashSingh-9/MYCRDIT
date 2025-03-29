@@ -3,14 +3,15 @@ import classes from "./EditAccount.module.css";
 import { TextField, Box } from "@mui/material";
 import { Form, Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 
 const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState } = props;
 
   return (
     <>
-      <BasicCoverDiv heading={"Update"} heading_highlight={" account"}>
-        {loginState ? (
+      {loginState ? (
+        <BasicCoverDiv heading={"Update"} heading_highlight={" account"}>
           <Form method="POST" className={classes.form_main}>
             {titleNHtmlFor.map((el, i) => {
               return (
@@ -31,10 +32,15 @@ const EditCustomer = (props) => {
               </Link>
             </Box>
           </Form>
-        ) : (
-          <Box> Not logged in</Box>
-        )}
-      </BasicCoverDiv>
+        </BasicCoverDiv>
+      ) : (
+        <NotLoggedInLandingPage
+          heading="Occured"
+          highlight_text="some error"
+          linkk="/"
+          btnTitle="Home"
+        />
+      )}
     </>
   );
 };
