@@ -14,7 +14,6 @@ const ProprietorAccountEdit = () => {
     };
 
     backLink_Id = `${acc_type}-${userData.token}`;
-    console.log(backLink_Id);
   }
   isLoggedIn = userData && userData.status === "Success" ? true : false;
   return (
