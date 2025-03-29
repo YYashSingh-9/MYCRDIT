@@ -4,7 +4,7 @@ import EditAccount from "./EditAccount";
 const ProprietorAccountEdit = () => {
   const titles = ["Proprietor Name", "Proprietor Number"];
   const userData = useSelector((state) => state.sliceOne.accountUserData);
-  const acc_type = useSelector((state) => state.sliceOne.acc_type);
+  const acc_type = useSelector((state) => state.sliceOne.accountType);
 
   let proprietorData, backLink_Id, isLoggedIn;
   if (userData && userData.status === "Success") {
@@ -13,7 +13,8 @@ const ProprietorAccountEdit = () => {
       contactNumber: userData.contactNumber,
     };
 
-    backLink_Id = `${acc_type},${userData.token}`;
+    backLink_Id = `${acc_type}-${userData.token}`;
+    console.log(backLink_Id);
   }
   isLoggedIn = userData && userData.status === "Success" ? true : false;
   return (

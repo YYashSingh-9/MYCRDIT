@@ -8,6 +8,7 @@ import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPa
 const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState } = props;
 
+  const link_ = `/your-account-details/${bck_btnLink}`;
   return (
     <>
       {loginState ? (
@@ -27,7 +28,7 @@ const EditCustomer = (props) => {
 
             <Box className={classes.btnBox}>
               <GeneralButton typeBtn="submit" btn_title="Save" />
-              <Link to={bck_btnLink}>
+              <Link to={link_}>
                 <GeneralButton typeBtn="button" btn_title="Back" />
               </Link>
             </Box>
