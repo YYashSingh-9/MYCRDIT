@@ -3,8 +3,11 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Box, TextField } from "@mui/material";
 import classes from "./EditForm.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import { useSelector } from "react-redux";
 
 const EditForm = () => {
+  const userData = useSelector((state) => state.sliceOne.accountUserData);
+  const accType = useSelector((state) => state.sliceOne.accountType);
   return (
     <>
       <BasicCoverDiv heading={"Update your"} heading_highlight={" Information"}>
@@ -27,7 +30,7 @@ const EditForm = () => {
           <label htmlFor="Contact Number">Contact Number</label>
           <br />
 
-          <TextField id="outlined" />
+          <TextField id="outlined" placeholder="" />
           <hr />
           <label htmlFor="Proprietor's Name">Proprietor's Name</label>
           <br />
