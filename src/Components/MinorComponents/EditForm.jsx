@@ -5,6 +5,7 @@ import classes from "./EditForm.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import { useMutation } from "@tanstack/react-query";
 
 const EditForm = () => {
   const userAccountData = useSelector(
@@ -13,6 +14,7 @@ const EditForm = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
   const userInfo = userAccountData.data;
 
+  useMutation({});
   return (
     <>
       {accType === "proprietor" ? (

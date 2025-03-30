@@ -184,6 +184,9 @@ export const patch_RequestHandler = async (
       paymentDate: paymentDate,
     };
     console.log(objectToSend);
+  } else if (accType === "proprietor" && requestOf === "editShopInfo") {
+    request_of = "proprietor";
+    additionalUrlPart = "edit-proprietor-shop";
   } else if (accType === "customer" && requestOf === "accepting") {
     request_of = "customer";
     additionalUrlPart = "note-approval-request";
