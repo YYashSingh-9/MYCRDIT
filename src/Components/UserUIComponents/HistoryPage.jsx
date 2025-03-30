@@ -48,7 +48,7 @@ export const ListItem = (props) => {
 const HistoryPage = () => {
   let accType, userCookie, id_String;
   const { id } = useParams();
-
+  console.log(id);
   id_String = id.split(",");
   accType = id_String[0];
   userCookie = id_String[1];

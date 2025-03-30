@@ -235,7 +235,7 @@ export const createNote_Handler = async ({ request }) => {
 
 export const getClearedNotes = async (cookie, acc_type) => {
   let returned_data, cookieToSend, accType, addtitionalUrl_Part;
-
+  console.log(cookie, acc_type);
   if (acc_type === "proprietor") {
     cookieToSend = cookie;
     accType = acc_type;

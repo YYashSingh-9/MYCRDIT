@@ -13,7 +13,7 @@ const ProprietorAccountEdit = () => {
       contactNumber: userData.contactNumber,
     };
 
-    backLink_Id = `${acc_type}-${userData.token}`;
+    backLink_Id = `${acc_type},${userData.token}`;
   }
   isLoggedIn = userData && userData.status === "Success" ? true : false;
   return (

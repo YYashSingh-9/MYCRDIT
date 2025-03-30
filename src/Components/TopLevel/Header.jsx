@@ -43,7 +43,7 @@ const Header = () => {
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
   );
-  const paramsToSend = `${accountType}-${currentUserCookie}`;
+  const paramsToSend = `${accountType},${currentUserCookie}`;
   return (
     <>
       <Box>
