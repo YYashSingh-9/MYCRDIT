@@ -6,30 +6,35 @@ import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import GeneralButton from "./GeneralButton";
 
-const InfoPart = () => {
+const InfoPart = (props) => {
+  const proprietorInfo = props.data;
+
   return (
     <>
       <table className={classes.table_m}>
         <thead>
           <tr>
             <td>Shop name :</td>
-            <td> Modi Kirana</td>
+            <td> {proprietorInfo.shopName}</td>
           </tr>
           <tr>
             <td>Shop Address :</td>
-            <td> xyz near mandir vidya nagar, C.G,Bilaspur,495001</td>
+            <td>
+              {proprietorInfo.shopAddress},{proprietorInfo.state},
+              {proprietorInfo.city},{proprietorInfo.pincode}
+            </td>
           </tr>
           <tr>
             <td>Shop Category:</td>
-            <td> Daily Needs</td>
+            <td> {proprietorInfo.shopCategory}</td>
           </tr>
           <tr>
             <td>Contact Number :</td>
-            <td> 9786523389</td>
+            <td> {proprietorInfo.contactNumber}</td>
           </tr>
           <tr>
             <td>Proprietor's Name :</td>
-            <td> Monu Modi</td>
+            <td>{proprietorInfo.ProprietorName}</td>
           </tr>
           <tr>
             <td>GST Number :</td>
@@ -43,6 +48,10 @@ const InfoPart = () => {
 
 const ShopInfo = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
+  const userAccountData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
+  console.log(userAccountData);
   return (
     <>
       {accType === "proprietor" ? (
@@ -55,7 +64,7 @@ const ShopInfo = () => {
             xs={12}
             className={classes.mainInfo}
           >
-            <InfoPart />
+            <InfoPart data={userAccountData.data} />
           </Grid>
           <Grid
             item
