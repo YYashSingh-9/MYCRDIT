@@ -26,32 +26,52 @@ const EditForm = () => {
             <label htmlFor="Shop Name">Shop Name</label>
             <br />
 
-            <TextField id="outlined" defaultValue={userInfo.shopName} />
+            <TextField
+              id="outlined"
+              defaultValue={userInfo.shopName}
+              name="shopName"
+            />
             <hr />
             <label htmlFor="Shop address">Shop Address</label>
             <br />
 
-            <TextField id="outlined" defaultValue={userInfo.shopAddress} />
+            <TextField
+              id="outlined"
+              defaultValue={userInfo.shopAddress}
+              name="shopAddress"
+            />
             <hr />
             <label htmlFor="Shop Category">Shop Category</label>
             <br />
 
-            <TextField id="outlined" defaultValue={userInfo.shopCategory} />
+            <TextField
+              id="outlined"
+              defaultValue={userInfo.shopCategory}
+              name="shopCategory"
+            />
             <hr />
             <label htmlFor="Contact Number">Contact Number</label>
             <br />
 
-            <TextField id="outlined" defaultValue={userInfo.contactNumber} />
+            <TextField
+              id="outlined"
+              defaultValue={userInfo.contactNumber}
+              name="contactNumber"
+            />
             <hr />
             <label htmlFor="Proprietor's Name">Proprietor's Name</label>
             <br />
 
-            <TextField id="outlined" defaultValue={userInfo.ProprietorName} />
+            <TextField
+              id="outlined"
+              defaultValue={userInfo.ProprietorName}
+              name="proprietorName"
+            />
             <hr />
             <label htmlFor="GST Number">GST Number</label>
             <br />
 
-            <TextField id="outlined" />
+            <TextField id="outlined" name="GST number" />
             <hr />
             <Box className={classes.btnBox}>
               <GeneralButton

@@ -27,6 +27,7 @@ import mainStore from "./Store/mainStore.jsx";
 import {
   login_signup_fetchRequest,
   createNote_Handler,
+  editShopInfo_Handler,
 } from "./Store/actionCreatorThunk.js";
 
 const router = createBrowserRouter([
@@ -67,7 +68,11 @@ const router = createBrowserRouter([
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
       { path: "/bts-mycrdit-score", element: <MCSPage /> },
       { path: "/review-form", element: <ReviewNFeedback /> },
-      { path: "/edit-shop-details", element: <EditForm /> },
+      {
+        path: "/edit-shop-details",
+        element: <EditForm />,
+        action: editShopInfo_Handler,
+      },
       { path: "/my-note-requests", element: <NoteRequestPage /> },
       { path: "/edit-customer-info", element: <CustomerAccountEdit /> },
       { path: "/edit-proprietor-info", element: <ProprietorAccountEdit /> },
