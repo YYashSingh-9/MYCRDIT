@@ -13,7 +13,7 @@ const EditForm = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
   const userInfo = userAccountData.data;
 
-  const data_toSend = `${userAccountData.token},${userAccountData.data._id}`;
+  const data_toSend = userAccountData.token;
 
   return (
     <>

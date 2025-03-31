@@ -268,6 +268,8 @@ export const editShopInfo_Handler = async ({ request }) => {
   const data_2 = Object.fromEntries(data);
   const p_data = data.get("proprietor-data");
   let cookie, proprietorId, objectToSend;
+
+  data_Send_request("");
   console.log(data, data_2, p_data);
   return data;
 };
