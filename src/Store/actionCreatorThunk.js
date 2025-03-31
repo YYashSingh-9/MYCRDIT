@@ -261,6 +261,15 @@ export const getClearedNotes = async (cookie, acc_type) => {
   );
   return returned_data;
 };
+
+// 9. Shop info update
+export const editShopInfo_Handler = async ({ request }) => {
+  const data = await request.formData();
+  const data_2 = Object.fromEntries(data);
+  const p_data = data.get("proprietor-data");
+  let cookie, proprietorId, objectToSend;
+};
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

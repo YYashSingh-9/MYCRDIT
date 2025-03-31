@@ -5,7 +5,6 @@ import classes from "./EditForm.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import { useMutation } from "@tanstack/react-query";
 
 const EditForm = () => {
   const userAccountData = useSelector(
@@ -14,7 +13,8 @@ const EditForm = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
   const userInfo = userAccountData.data;
 
-  useMutation({});
+  const data_toSend = `${userAccountData.token},${userAccountData.data._id}`;
+
   return (
     <>
       {accType === "proprietor" ? (
@@ -54,7 +54,12 @@ const EditForm = () => {
             <TextField id="outlined" />
             <hr />
             <Box className={classes.btnBox}>
-              <GeneralButton typeBtn="submit" btn_title="Save" />
+              <GeneralButton
+                typeBtn="submit"
+                btn_title="Save"
+                name="proprietor-data"
+                value={data_toSend}
+              />
               <Link to={"/my-shop-info"}>
                 <GeneralButton typeBtn="button" btn_title="Back" />
               </Link>
