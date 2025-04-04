@@ -264,14 +264,31 @@ export const getClearedNotes = async (cookie, acc_type) => {
 
 // 9. Shop info update
 export const editShopInfo_Handler = async ({ request }) => {
+  let cookie, proprietorId, objectToSend;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const p_data = data.get("proprietor-data");
-  let cookie, proprietorId, objectToSend;
 
-  data_Send_request("");
-  console.log(data, data_2, p_data);
-  return data;
+  objectToSend = {
+    ProprietorName: data_2.proprietorName,
+    shopName: data_2.shopName,
+    shopAddress: data_2.shopAddress,
+    shopCategory: data_2.shopCategory,
+    contactNumber: data_2.contactNumber,
+    proprietorGST: data_2.gst_number,
+  };
+
+  cookie = p_data;
+
+  const returned_data = await data_Send_request(
+    "proprietor",
+    "edit-proprietor-shop",
+    "PATCH",
+    objectToSend,
+    cookie
+  );
+  console.log(returned_data);
+  return returned_data;
 };
 
 /*

@@ -1,10 +1,12 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Box, TextField } from "@mui/material";
 import classes from "./EditForm.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import { useEffect } from "react";
+import { sliceOneActions } from "../../Store/sliceOne";
 
 const EditForm = () => {
   const userAccountData = useSelector(
@@ -14,6 +16,19 @@ const EditForm = () => {
   const userInfo = userAccountData.data;
 
   const data_toSend = userAccountData.token;
+  const data = useActionData();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (data) {
+      if (data.status === "Success") {
+        console.log(data);
+        dispatch(sliceOneActions.authentication_Info_Storage_handler(data));
+        navigate("/my-shop-info");
+      }
+    }
+  }, [data]);
 
   return (
     <>
@@ -71,7 +86,7 @@ const EditForm = () => {
             <label htmlFor="GST Number">GST Number</label>
             <br />
 
-            <TextField id="outlined" name="GST number" />
+            <TextField id="outlined" name="gst_number" />
             <hr />
             <Box className={classes.btnBox}>
               <GeneralButton
