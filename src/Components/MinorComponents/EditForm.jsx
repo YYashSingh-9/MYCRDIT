@@ -24,7 +24,7 @@ const EditForm = () => {
     if (data) {
       if (data.status === "Success") {
         console.log(data);
-        dispatch(sliceOneActions.authentication_Info_Storage_handler(data));
+        dispatch(sliceOneActions.updateUserStoredInfo_handler(data));
         navigate("/my-shop-info");
       }
     }

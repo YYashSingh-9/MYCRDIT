@@ -77,14 +77,14 @@ const ShopInfo = () => {
             <Link to={"/edit-shop-details"}>
               <GeneralButton icnTitle="edit" btn_title="Edit" />
             </Link>
-            <Link to={"/your-account-details"}>
+            <Link to={`/your-account-details/${userAccountData.token}`}>
               <GeneralButton btn_title="Back" />
             </Link>
           </Grid>
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
-          heading="Some error occured "
+          heading="Some error occured, you can check home and come back to this page"
           btnTitle="Home"
           linkk="/"
         />

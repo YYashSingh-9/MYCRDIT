@@ -73,6 +73,14 @@
   background-color: #137a37;
 }
 
+.notLoggedCover {
+  max-width: 50%;
+  text-align: center;
+  font-size: 0.8rem;
+
+  margin: auto;
+}
+
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .disclaimerBox {
     width: 90%;
