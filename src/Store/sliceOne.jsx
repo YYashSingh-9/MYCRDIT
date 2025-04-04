@@ -57,6 +57,31 @@ const sliceOne = createSlice({
       console.log(dataArray);
       state.proprietors_running_Notes_Array = dataArray.data;
     },
+    updateUserStoredInfo_handler(state, action) {
+      let objectToUpdate, user_info_Object;
+      const userData_ = JSON.parse(localStorage.getItem("user_Data"));
+      user_info_Object = action.payload;
+
+      objectToUpdate = {
+        data: user_info_Object.data,
+        token: userData_.token,
+        status: userData_.status,
+      };
+
+      localStorage.clear();
+      localStorage.setItem("user_Data", JSON.stringify(objectToUpdate));
+      const userData = JSON.parse(localStorage.getItem("user_Data"));
+
+      if (userData.data.ProprietorName) {
+        state.accountUserData = { ...userData, accountType: "proprietor" };
+        state.accountType = "proprietor";
+      }
+      if (userData.data.customerName) {
+        state.accountUserData = { ...userData, accountType: "customer" };
+        state.accountType = "customer";
+      }
+      state.accountUserCookie = userData.token;
+    },
   },
 });
 
