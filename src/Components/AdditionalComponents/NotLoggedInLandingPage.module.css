@@ -1,5 +1,6 @@
 .btn_Grid {
   height: 5rem;
+
   width: 50%;
   border: 0.1rem solid rgb(211, 211, 211);
   border-radius: 0.5rem;
@@ -13,12 +14,12 @@
   color: "#1DB954";
 }
 .endliner {
-  background-color: rgb(211, 211, 211);
-  height: 0.1rem;
-  border-radius: 1rem;
+  background-color: rgb(24, 24, 24);
+  height: 0.5rem;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
   margin-top: 12.5rem;
-  width: 50%;
+  width: 100%;
   outline: none;
   border: none;
 }

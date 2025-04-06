@@ -18,7 +18,6 @@ const NotLoggedInLandingPage = (props) => {
           sm={12}
           xs={12}
           className={classes.btn_Grid}
-          sx={{ height: "100vh" }}
           mb={5}
         >
           <FaceIcon className={classes.faceIcn} />
