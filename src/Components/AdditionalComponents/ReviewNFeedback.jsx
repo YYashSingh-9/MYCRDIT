@@ -66,13 +66,11 @@ const ReviewNFeedback = () => {
           </Grid>
         </BasicCoverDiv>
       ) : (
-        <Box className={classes.notLoggedCover}>
-          <NotLoggedInLandingPage
-            heading=" Some error occured , you can check home and come back to this page. "
-            btnTitle="Home"
-            linkk="/"
-          />
-        </Box>
+        <NotLoggedInLandingPage
+          heading=" Some error occured, check home and retry. "
+          btnTitle="Home"
+          linkk="/"
+        />
       )}
     </>
   );

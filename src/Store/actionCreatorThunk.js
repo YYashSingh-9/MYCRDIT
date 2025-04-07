@@ -291,6 +291,12 @@ export const editShopInfo_Handler = async ({ request }) => {
   return returned_data;
 };
 
+// 10. Review handler.
+export const reviewSendHandler = async ({ request }) => {
+  let cookie, proprietorId, objectToSend;
+  const data = await request.formData();
+  const data_2 = Object.fromEntries(data);
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
@@ -300,3 +306,5 @@ You can access the form data using await request.formData().
 
 Ensure your form inputs have name attributes. 
 */
+
+// read about why request object needs await to get formdata

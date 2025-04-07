@@ -84,7 +84,7 @@ const ShopInfo = () => {
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
-          heading="Some error occured, you can check home and come back to this page"
+          heading="Some error occured, check home and retry."
           btnTitle="Home"
           linkk="/"
         />
