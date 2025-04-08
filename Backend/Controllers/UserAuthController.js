@@ -126,6 +126,7 @@ exports.proprietorVerification = catchAsync(async (req, res, next) => {
 });
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
+// Proprietor Protect middleware
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
   if (
@@ -147,6 +148,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   next();
 });
 
+// Customer protect middleware
 exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
   let token;
   if (

@@ -11,11 +11,16 @@ const ReviewNFeedback = () => {
   const userAccountData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
+  let btnVal;
   const linkTo =
     accType === "proprietor"
       ? `/your-account-details/${userAccountData.token}`
       : "/";
 
+  if (userAccountData.token) {
+    btnVal = `${userAccountData.token},${userAccountData.data._id}`;
+  }
+  console.log(btnVal);
   return (
     <>
       {accType === "proprietor" ? (
@@ -48,17 +53,19 @@ const ReviewNFeedback = () => {
             <Form method="POST" className={classes.syvform}>
               <label htmlFor="Brand Name">Brand Name</label>
               <br />
-              <TextField id="outlined" name="Brand_Name" />
+              <TextField id="outlined" name="brandName" />
               <br />
               <label htmlFor="Your Issue">Your Issue title</label>
               <br />
-              <TextField id="outlined" name="Issue_Title" />
+              <TextField id="outlined" name="issue_title" />
 
               <br />
               <br />
               <textarea htmlFor="Issue explained" name="issue_content" />
               <br />
-              <button type="submit">Send</button>
+              <button type="submit" name="proprietor-data" value={btnVal}>
+                Send
+              </button>
             </Form>
             <Link to={linkTo}>
               <button className={classes.backbtn}>Back</button>

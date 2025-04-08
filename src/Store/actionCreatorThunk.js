@@ -296,7 +296,26 @@ export const reviewSendHandler = async ({ request }) => {
   let cookie, proprietorId, objectToSend;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
-  console.log(data, data_2);
+  const propData = data.get("proprietor-data");
+
+  let string_data = propData.split(",");
+  cookie = string_data[0];
+  proprietorId = string_data[1];
+
+  objectToSend = {
+    brandName: data_2.brandName,
+    title: data_2.issue_title,
+    reviewContent: data_2.issue_content,
+    proprietorId,
+  };
+  const data_1 = await data_Send_request(
+    "proprietor",
+    "/share-your-review",
+    "POST",
+    objectToSend,
+    cookie
+  );
+  return data_1;
 };
 
 /*
@@ -309,4 +328,4 @@ You can access the form data using await request.formData().
 Ensure your form inputs have name attributes. 
 */
 
-// read about why request object needs await to get formdata
+// read about why request object needs await to get formdata also about getting info from submit button name value
