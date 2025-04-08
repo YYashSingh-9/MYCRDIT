@@ -28,6 +28,7 @@ import {
   login_signup_fetchRequest,
   createNote_Handler,
   editShopInfo_Handler,
+  reviewSendHandler,
 } from "./Store/actionCreatorThunk.js";
 
 const router = createBrowserRouter([
@@ -67,7 +68,11 @@ const router = createBrowserRouter([
       { path: "/my-shop-info", element: <ShopInfo /> },
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
       { path: "/bts-mycrdit-score", element: <MCSPage /> },
-      { path: "/review-form", element: <ReviewNFeedback /> },
+      {
+        path: "/review-form",
+        element: <ReviewNFeedback />,
+        action: reviewSendHandler,
+      },
       {
         path: "/edit-shop-details",
         element: <EditForm />,

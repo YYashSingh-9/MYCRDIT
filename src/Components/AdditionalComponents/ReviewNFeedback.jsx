@@ -48,15 +48,15 @@ const ReviewNFeedback = () => {
             <Form method="POST" className={classes.syvform}>
               <label htmlFor="Brand Name">Brand Name</label>
               <br />
-              <TextField id="outlined" />
+              <TextField id="outlined" name="Brand_Name" />
               <br />
               <label htmlFor="Your Issue">Your Issue title</label>
               <br />
-              <TextField id="outlined" />
+              <TextField id="outlined" name="Issue_Title" />
 
               <br />
               <br />
-              <textarea htmlFor="Issue explained" />
+              <textarea htmlFor="Issue explained" name="issue_content" />
               <br />
               <button type="submit">Send</button>
             </Form>

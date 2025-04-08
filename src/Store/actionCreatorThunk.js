@@ -296,7 +296,9 @@ export const reviewSendHandler = async ({ request }) => {
   let cookie, proprietorId, objectToSend;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
+  console.log(data, data_2);
 };
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
