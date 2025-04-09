@@ -1,16 +1,20 @@
 import classes from "./ReviewNFeedback.module.css";
 import BasicCoverDiv from "./BasicCoverDiv";
 import { Grid, TextField, Box } from "@mui/material";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
+import { useEffect } from "react";
 
 const ReviewNFeedback = () => {
   const accType = useSelector((state) => state.sliceOne.accountType);
   const userAccountData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
+  const actionData = useActionData();
+  const navigate = useNavigate();
+
   let btnVal;
   const linkTo =
     accType === "proprietor"
@@ -20,7 +24,15 @@ const ReviewNFeedback = () => {
   if (userAccountData.token) {
     btnVal = `${userAccountData.token},${userAccountData.data._id}`;
   }
-  console.log(btnVal);
+
+  useEffect(() => {
+    if (actionData)
+      if (actionData.status === "Success") {
+        navigate(
+          `/your-account-details/${accType},${userAccountData.data._id}`
+        );
+      }
+  }, [actionData]);
   return (
     <>
       {accType === "proprietor" ? (
