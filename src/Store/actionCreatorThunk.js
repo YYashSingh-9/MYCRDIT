@@ -315,6 +315,7 @@ export const reviewSendHandler = async ({ request }) => {
     objectToSend,
     cookie
   );
+  console.log(data_1);
   return data_1;
 };
 

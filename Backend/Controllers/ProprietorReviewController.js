@@ -14,14 +14,13 @@ exports.createReview = catchAsync(async (req, res, next) => {
     ...req.body,
   };
 
-  console.log(review_object);
-
-  const doc = await proprietorReview.create(req.body);
+  const doc = await proprietorReview.create(review_object);
 
   res.status(200).json({
     status: "Success",
     data: {
       message: "Review sent successfully.",
+      data: doc,
     },
   });
 });
