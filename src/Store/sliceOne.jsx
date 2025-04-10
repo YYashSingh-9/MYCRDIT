@@ -82,7 +82,7 @@ const sliceOne = createSlice({
       }
       state.accountUserCookie = userData.token;
     },
-    localStorageClearHandler(state, action) {
+    localStorageClear_Handler(state, action) {
       localStorage.clear();
       state.accountType = "";
       state.accountUserCookie = "";

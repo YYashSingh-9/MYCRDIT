@@ -1,15 +1,31 @@
 import classes from "./AccountInfoPart.module.css";
-import { Link } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import { Box, Grid } from "@mui/material";
 import GeneralButton from "./GeneralButton";
 import Mini_TScoreIndicator from "../MinorComponents/Mini_TScoreIndicator";
 import { useMutation } from "@tanstack/react-query";
+import { logout_handler } from "../../Store/actionCreatorThunk";
+import { useDispatch } from "react-redux";
+import { sliceOneActions } from "../../Store/sliceOne";
 
 const AccountInfoPart = (props) => {
   const { accountType, cookie } = props.data;
-
   const paramsToSend = `${accountType},${cookie}`;
-  const { data, isError, isPending } = useMutation({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { data, isError, isPending, mutate } = useMutation({
+    mutationKey: ["logout-handle"],
+    mutationFn: () => {
+      return logout_handler(accountType, cookie);
+    },
+  });
+
+  const logoutHandle = () => {
+    mutate();
+    dispatch(sliceOneActions.localStorageClear_Handler());
+    navigate("/");
+  };
   return (
     <>
       <Grid
@@ -134,7 +150,9 @@ const AccountInfoPart = (props) => {
             <GeneralButton icnTitle={"home"} btn_title={"Home"} />
           </Link>
 
-          <GeneralButton icnTitle={"account"} btn_title={"Logout"} />
+          <Box onClick={logoutHandle}>
+            <GeneralButton icnTitle={"account"} btn_title={"Logout"} />
+          </Box>
         </Grid>
       </Grid>
     </>

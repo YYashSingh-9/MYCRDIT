@@ -339,6 +339,7 @@ export const logout_handler = async (acc_type, cookie) => {
   );
   return data;
 };
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

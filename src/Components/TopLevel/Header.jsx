@@ -64,7 +64,26 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            {accountType === "administrator" ? (
+            {accountType === "administrator" && (
+              <Button variant="contained" sx={styles.detailBtn}>
+                <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
+                  Logout
+                </Typography>
+                <AccountBoxIcon className={classes.icn} />
+              </Button>
+            )}
+            {accountType === "proprietor" && "customer" && (
+              <Link to={`/your-account-details/${paramsToSend}`}>
+                <Button variant="contained" sx={styles.detailBtn}>
+                  <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
+                    details
+                  </Typography>
+                  <AccountBoxIcon className={classes.icn} />
+                </Button>
+              </Link>
+            )}
+
+            {/* {accountType === "administrator" ? (
               <Button variant="contained" sx={styles.detailBtn}>
                 <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
                   Logout
@@ -80,7 +99,7 @@ const Header = () => {
                   <AccountBoxIcon className={classes.icn} />
                 </Button>
               </Link>
-            )}
+            )} */}
             {notificationState && (
               <Box className={classes.notificationBall}></Box>
             )}
