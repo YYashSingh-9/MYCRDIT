@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 import GeneralButton from "./GeneralButton";
 import Mini_TScoreIndicator from "../MinorComponents/Mini_TScoreIndicator";
+import { useMutation } from "@tanstack/react-query";
 
 const AccountInfoPart = (props) => {
   const { accountType, cookie } = props.data;
 
   const paramsToSend = `${accountType},${cookie}`;
-
+  const { data, isError, isPending } = useMutation({});
   return (
     <>
       <Grid

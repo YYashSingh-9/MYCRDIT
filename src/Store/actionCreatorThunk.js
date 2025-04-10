@@ -319,6 +319,26 @@ export const reviewSendHandler = async ({ request }) => {
   return data_1;
 };
 
+// 11. Logout handler
+export const logout_handler = async (acc_type, cookie) => {
+  console.log(acc_type, cookie);
+  let accType, additional_url_part;
+  if (acc_type === "proprietor") {
+    accType = "proprietor";
+    additional_url_part = "proprietor-logout";
+  } else if (acc_type === "customer") {
+    accType = "customer";
+    additional_url_part = "customer-logout";
+  }
+  const data = await data_Send_request(
+    accType,
+    additional_url_part,
+    "POST",
+    {},
+    cookie
+  );
+  return data;
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
