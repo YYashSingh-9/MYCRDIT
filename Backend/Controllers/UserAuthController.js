@@ -100,6 +100,17 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
   }
 });
 
+exports.logout_Customer = catchAsync(async (req, res, next) => {
+  console.log("this worked");
+  res.cookie("jwt", "logout", {
+    expiresIn: new Date(Date.now() + 2 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    status: "Success",
+  });
+});
+
 // PROPRIETOR CONTROLLERS...
 exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
   const data = await proprietor.create(req.body);
@@ -123,6 +134,17 @@ exports.proprietorVerification = catchAsync(async (req, res, next) => {
   if (!pwCorrect) return next(new appError("Password incorrect retry.", 400));
 
   cookieAndToken(res, user, 200);
+});
+
+exports.logout_Proprietor = catchAsync(async (req, res, next) => {
+  console.log("this worked");
+  res.cookie("jwt", "logout", {
+    expiresIn: new Date(Date.now() + 2 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    status: "Success",
+  });
 });
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
