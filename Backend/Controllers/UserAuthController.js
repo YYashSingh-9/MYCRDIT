@@ -102,12 +102,15 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
 
 exports.logout_Customer = catchAsync(async (req, res, next) => {
   console.log("this worked");
+  const token = signtoken("logout"); // explained in notes (note no 2)
+
   res.cookie("jwt", "logout", {
     expiresIn: new Date(Date.now() + 2 * 1000),
     httpOnly: true,
   });
   res.status(200).json({
     status: "Success",
+    data: token,
   });
 });
 
