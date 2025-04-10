@@ -14,10 +14,14 @@ proprietorRouter // signup
 proprietorRouter // login
   .route("/proprietor-verification")
   .post(userAuthController.proprietorVerification);
-proprietorRouter.use(userAuthController.protect);
 
 // Authorized accessible routes.
 proprietorRouter.use(userAuthController.protect);
+
+proprietorRouter
+  .route("/proprietor-logout")
+  .post(userAuthController.logout_Proprietor);
+
 proprietorRouter
   .route("/share-your-review")
   .post(ProprietorReviewController.createReview);
