@@ -1,13 +1,21 @@
 import { Container, Box, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import classes from "./FiltersDiv.module.css";
+import { useSelector } from "react-redux";
+import { useRef } from "react";
+import { Form } from "react-router-dom";
 
 const HelperFilterInput = (props) => {
+  const notesArray = props.notes;
+  const filterHandler = () => {
+    console.log(props.refProp.current.value, notesArray);
+  };
+
   return (
     <Box className={classes.inputDiv}>
       <h4>{props.title}</h4>
-      <input placeholder={props.placeholder} />
-      <button>
+      <input placeholder={props.placeholder} ref={props.refProp} />
+      <button onClick={filterHandler}>
         <SearchIcon className={classes.searchIcn} />
       </button>
     </Box>
@@ -32,6 +40,11 @@ const styles = {
 };
 
 const FilterDiv = () => {
+  const runningNotesArray = useSelector(
+    (state) => state.sliceOne.proprietors_running_Notes_Array
+  );
+  const input_ref = useRef("");
+
   return (
     <>
       <Box>
@@ -47,10 +60,17 @@ const FilterDiv = () => {
           }}
         >
           <Box className={classes.inpBox}>
-            <HelperFilterInput title=" Note title" placeholder="Note title" />
+            <HelperFilterInput
+              title="Note title"
+              placeholder="Note title"
+              notes={runningNotesArray}
+              refProp={input_ref}
+            />
             <HelperFilterInput
               title="Amount"
+              refProp={input_ref}
               placeholder=" Amount/ ex - 3,XXX"
+              notes={runningNotesArray}
             />
           </Box>
         </Container>
