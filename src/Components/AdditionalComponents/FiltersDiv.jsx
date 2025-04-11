@@ -8,7 +8,7 @@ import { Form } from "react-router-dom";
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
   const filterHandler = () => {
-    console.log(props.refProp.current.value, notesArray);
+    console.log(props, props.refProp.current.value, notesArray);
   };
 
   return (
@@ -43,7 +43,8 @@ const FilterDiv = () => {
   const runningNotesArray = useSelector(
     (state) => state.sliceOne.proprietors_running_Notes_Array
   );
-  const input_ref = useRef("");
+  const title_ref = useRef("");
+  const amount_ref = useRef("");
 
   return (
     <>
@@ -64,11 +65,11 @@ const FilterDiv = () => {
               title="Note title"
               placeholder="Note title"
               notes={runningNotesArray}
-              refProp={input_ref}
+              refProp={title_ref}
             />
             <HelperFilterInput
               title="Amount"
-              refProp={input_ref}
+              refProp={amount_ref}
               placeholder=" Amount/ ex - 3,XXX"
               notes={runningNotesArray}
             />
