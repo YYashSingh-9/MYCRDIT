@@ -8,8 +8,20 @@ import { sliceOneActions } from "../../Store/sliceOne";
 
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
+  console.log(notesArray);
+  let amountInput, titleInput, filtered_array;
+
   const filterHandler = () => {
+    filtered_array = notesArray.filter((el) => {
+      console.log(el);
+      if (el.amount === props.refProp.current.value) {
+        return el;
+      } else if (el.title.includes(props.refProp.current.value)) {
+        return el;
+      }
+    });
     props.clearhandle();
+    console.log(filtered_array);
   };
 
   return (
