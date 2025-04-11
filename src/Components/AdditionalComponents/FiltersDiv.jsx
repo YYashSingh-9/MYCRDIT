@@ -1,14 +1,15 @@
 import { Container, Box, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import classes from "./FiltersDiv.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { Form } from "react-router-dom";
+import { sliceOneActions } from "../../Store/sliceOne";
 
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
   const filterHandler = () => {
-    console.log(props, props.refProp.current.value, notesArray);
+    props.clearhandle();
   };
 
   return (
@@ -43,8 +44,16 @@ const FilterDiv = () => {
   const runningNotesArray = useSelector(
     (state) => state.sliceOne.proprietors_running_Notes_Array
   );
+
+  const dispatch = useDispatch();
+
   const title_ref = useRef("");
-  const amount_ref = useRef("");
+  const amount_ref = useRef(" ");
+
+  const clearRef = () => {
+    title_ref.current.value = "";
+    amount_ref.current.value = "";
+  };
 
   return (
     <>
@@ -66,8 +75,10 @@ const FilterDiv = () => {
               placeholder="Note title"
               notes={runningNotesArray}
               refProp={title_ref}
+              clearhandle={clearRef}
             />
             <HelperFilterInput
+              clearhandle={clearRef}
               title="Amount"
               refProp={amount_ref}
               placeholder=" Amount/ ex - 3,XXX"
