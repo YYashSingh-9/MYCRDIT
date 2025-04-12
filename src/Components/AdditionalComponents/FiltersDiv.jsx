@@ -8,15 +8,17 @@ import { sliceOneActions } from "../../Store/sliceOne";
 
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
+  const inputType = props.type ? props.type : "text";
   console.log(notesArray);
   let amountInput, titleInput, filtered_array;
 
   const filterHandler = () => {
     filtered_array = notesArray.filter((el) => {
       console.log(el);
-      if (el.amount === props.refProp.current.value) {
+
+      if (String(el.amount) === props.refProp.current.value) {
         return el;
-      } else if (el.title.includes(props.refProp.current.value)) {
+      } else if (el.noteTitle.includes(props.refProp.current.value)) {
         return el;
       }
     });
@@ -27,7 +29,11 @@ const HelperFilterInput = (props) => {
   return (
     <Box className={classes.inputDiv}>
       <h4>{props.title}</h4>
-      <input placeholder={props.placeholder} ref={props.refProp} />
+      <input
+        placeholder={props.placeholder}
+        ref={props.refProp}
+        type={inputType}
+      />
       <button onClick={filterHandler}>
         <SearchIcon className={classes.searchIcn} />
       </button>
@@ -95,6 +101,7 @@ const FilterDiv = () => {
               refProp={amount_ref}
               placeholder=" Amount/ ex - 3,XXX"
               notes={runningNotesArray}
+              type="number"
             />
           </Box>
         </Container>
