@@ -99,6 +99,7 @@ const sliceOne = createSlice({
     reload_all_notes_toArray(state, action) {
       state.dummy_Proprietor_Notes_Array =
         state.proprietors_running_Notes_Array;
+      state.filterNotificationState = false;
     },
   },
 });

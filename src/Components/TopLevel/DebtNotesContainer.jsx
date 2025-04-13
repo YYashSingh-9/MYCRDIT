@@ -132,10 +132,24 @@ const DebtNotesContainer = () => {
               )}
             </Box>
           )}
-          {isLoading && currentRunningNotes.length >= 1 ? (
+          {isLoading && currentRunningNotes.length === 0 ? (
             <p>loading..</p>
           ) : (
             <ListContainer itemArray={currentRunningNotes} />
+          )}
+          {filterNotificationState && (
+            <Box
+              onClick={reloadAllNotes}
+              sx={{
+                padding: "none",
+                width: "10%",
+                margin: "auto",
+                marginBottom: 2,
+              }}
+            >
+              {" "}
+              <GeneralButton btn_title="All Notes" />
+            </Box>
           )}
         </Grid>
       </BasicCoverDiv>
