@@ -10,7 +10,7 @@ customerRouter
 
 customerRouter
   .route("/verification-user")
-  .post(userAuthController.customerVerification);
+  .post(userAuthController.customerVerification_N_Authentication);
 
 customerRouter.use(userAuthController.customerProtectMiddleware);
 

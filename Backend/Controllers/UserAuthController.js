@@ -46,15 +46,25 @@ exports.customerAuthentication = catchAsync(async (req, res, next) => {
   cookieAndToken(res, data, 200);
 });
 
-exports.customerVerification = catchAsync(async (req, res, next) => {
-  const { contactNumber } = req.body;
-  if (!contactNumber) next(new Error("Contact number is missing, retry."));
+exports.customerVerification_N_Authentication = catchAsync(
+  async (req, res, next) => {
+    const { contactNumber } = req.body;
+    let data;
+    if (!contactNumber) next(new Error("Contact number is missing, retry."));
 
-  const data = await customer.findOne({ contactNumber });
-  console.log(data);
+    data = await customer.findOne({ contactNumber });
+    if (!data) {
+      let body = {
+        customerName: "MYCRDIT Customer", // this is dummy and editable from customer side
+        contactNumber: contactNumber,
+        transactionalScore: 1,
+      };
+      data = await customer.create(body);
+    }
 
-  cookieAndToken(res, data, 200);
-});
+    cookieAndToken(res, data, 200);
+  }
+);
 
 exports.updateUserInfo = catchAsync(async (req, res, next) => {
   let contact_number, name;

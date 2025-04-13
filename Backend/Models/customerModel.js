@@ -17,6 +17,7 @@ const customerSchema = new mongoose.Schema({
   },
   transactionalScore: {
     type: Number,
+    required: true,
   },
 });
 
