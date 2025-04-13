@@ -13,7 +13,7 @@ const AccountInfoPart = (props) => {
   const paramsToSend = `${accountType},${cookie}`;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  console.log(props.user_data);
   const { data, isError, isPending, mutate } = useMutation({
     mutationKey: ["logout-handle"],
     mutationFn: () => {
@@ -47,7 +47,11 @@ const AccountInfoPart = (props) => {
                   {accountType === "customer" ? "Customer" : "Proprietor"} Name
                   :
                 </td>
-                <td>Alokik Mishra</td>
+                <td>
+                  {accountType === "customer"
+                    ? props.user_data.customerName
+                    : props.user_data.proprietorName}
+                </td>
               </tr>
             </tbody>
             <tbody>
@@ -56,7 +60,7 @@ const AccountInfoPart = (props) => {
                   {accountType === "customer" ? "Customer" : "Proprietor"}{" "}
                   Number :
                 </td>
-                <td>9876498033</td>
+                <td>{props.user_data.contactNumber}</td>
               </tr>
             </tbody>
             <tbody>
@@ -64,7 +68,7 @@ const AccountInfoPart = (props) => {
                 <td>
                   {accountType === "customer" ? "Customer" : "Proprietor"} ID :
                 </td>
-                <td>127484474HD138</td>
+                <td>{props.user_data._id}</td>
               </tr>
             </tbody>
           </table>
