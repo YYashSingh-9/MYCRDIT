@@ -15,13 +15,16 @@ const HelperFilterInput = (props) => {
   const filterHandler = () => {
     filtered_array = notesArray.filter((el) => {
       console.log(el);
+      const title =
+        el.noteTitle.charAt(0).toLowerCase() + el.noteTitle.slice(1);
 
       if (String(el.amount) === props.refProp.current.value) {
         return el;
-      } else if (el.noteTitle.includes(props.refProp.current.value)) {
+      } else if (title.includes(props.refProp.current.value)) {
         return el;
       }
     });
+    props.filterFunc(filtered_array);
     props.clearhandle();
     console.log(filtered_array);
   };
@@ -73,6 +76,9 @@ const FilterDiv = () => {
     amount_ref.current.value = "";
   };
 
+  const filterNotes = (arr) => {
+    dispatch(sliceOneActions.notesArray_change(arr));
+  };
   return (
     <>
       <Box>
@@ -94,6 +100,7 @@ const FilterDiv = () => {
               notes={runningNotesArray}
               refProp={title_ref}
               clearhandle={clearRef}
+              filterFunc={filterNotes}
             />
             <HelperFilterInput
               clearhandle={clearRef}
@@ -102,6 +109,7 @@ const FilterDiv = () => {
               placeholder=" Amount/ ex - 3,XXX"
               notes={runningNotesArray}
               type="number"
+              filterFunc={filterNotes}
             />
           </Box>
         </Container>

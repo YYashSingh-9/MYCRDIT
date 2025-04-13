@@ -8,6 +8,8 @@ const initial_State = {
   accountUserData: {},
   accountUserCookie: "",
   proprietors_running_Notes_Array: [],
+  dummy_Proprietor_Notes_Array: [],
+  filterNotificationState: false,
 };
 
 const sliceOne = createSlice({
@@ -87,6 +89,11 @@ const sliceOne = createSlice({
       state.accountType = "";
       state.accountUserCookie = "";
       state.accountUserData = "";
+    },
+    notesArray_change(state, action) {
+      const filteredArray = action.payload;
+      state.filterNotificationState = true;
+      state.dummy_Proprietor_Notes_Array = filteredArray;
     },
   },
 });
