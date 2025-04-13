@@ -11,6 +11,7 @@ import classes from "./DebtNotesContainer.module.css";
 import EditIcon from "@mui/icons-material/Edit";
 import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
 import MoodIcon from "@mui/icons-material/Mood";
 
 const TagButton = (props) => {
@@ -38,10 +39,17 @@ const DebtNotesContainer = () => {
   const runningDebtNotes = useSelector(
     (state) => state.sliceOne.proprietors_running_Notes_Array
   );
+  const dummyRunningNotes = useSelector(
+    (state) => state.sliceOne.dummy_Proprietor_Notes_Array
+  );
+  const filterNotificationState = useSelector(
+    (state) => state.sliceOne.filterNotificationState
+  );
+
   const dispatch = useDispatch();
 
   const currentUserCookie = currentUserData.token;
-  const currentRunningNotes = runningDebtNotes.filter(
+  const currentRunningNotes = dummyRunningNotes.filter(
     (el) => el.deleted === false && el.cleared === false
   );
   const enableStat = currentUserCookie ? true : false;
@@ -52,6 +60,9 @@ const DebtNotesContainer = () => {
     },
     enabled: enableStat,
   });
+  const reloadAllNotes = () => {
+    dispatch(sliceOneActions.reload_all_notes_toArray());
+  };
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
@@ -85,7 +96,11 @@ const DebtNotesContainer = () => {
         <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
           {currentRunningNotes.length === 0 && (
             <Box className={classes.dummyStateBox}>
-              <h3> No current running notes!</h3>
+              <h3>
+                {filterNotificationState
+                  ? "No searched notes found."
+                  : ` No current running notes!`}
+              </h3>
               <MoodIcon className={classes.faceIcn} />
               <p>
                 Hey{" "}
@@ -93,10 +108,28 @@ const DebtNotesContainer = () => {
                   {" "}
                   {currentUserData.data.ProprietorName}
                 </span>
-                , create more debt notes and manage them here.
+                ,{" "}
+                {filterNotificationState
+                  ? " check if searched term matches debt notes data."
+                  : "create more debt notes and manage"}
                 <br />
-                Click the create note button on upper right.
+                {filterNotificationState
+                  ? " Click all notes button to get all notes."
+                  : " Click the create note button on upper right."}
               </p>
+              {filterNotificationState && (
+                <Box
+                  onClick={reloadAllNotes}
+                  sx={{
+                    padding: "none",
+                    width: "10%",
+                    margin: "auto",
+                  }}
+                >
+                  {" "}
+                  <GeneralButton btn_title="All Notes" />
+                </Box>
+              )}
             </Box>
           )}
           {isLoading && currentRunningNotes.length >= 1 ? (

@@ -63,7 +63,7 @@ a {
   background-color: rgb(170, 170, 170);
 }
 .dummyStateBox {
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(255, 255, 255);
   width: 70%;
   margin: auto;
   margin-top: 10%;
@@ -71,6 +71,7 @@ a {
   border-radius: 1rem;
   text-align: center;
   padding: 2rem;
+  border: 0.1rem solid rgb(211, 211, 211);
 }
 .dummyStateBox h3 {
   font-weight: 600;

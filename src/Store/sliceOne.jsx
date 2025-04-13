@@ -58,6 +58,7 @@ const sliceOne = createSlice({
       const dataArray = action.payload;
       console.log(dataArray);
       state.proprietors_running_Notes_Array = dataArray.data;
+      state.dummy_Proprietor_Notes_Array = dataArray.data;
     },
     updateUserStoredInfo_handler(state, action) {
       let objectToUpdate, user_info_Object;
@@ -94,6 +95,10 @@ const sliceOne = createSlice({
       const filteredArray = action.payload;
       state.filterNotificationState = true;
       state.dummy_Proprietor_Notes_Array = filteredArray;
+    },
+    reload_all_notes_toArray(state, action) {
+      state.dummy_Proprietor_Notes_Array =
+        state.proprietors_running_Notes_Array;
     },
   },
 });
