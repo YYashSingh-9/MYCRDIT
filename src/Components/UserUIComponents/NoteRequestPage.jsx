@@ -7,8 +7,16 @@ import { Link, useParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 
 const NoteRequestPage = () => {
-  const id = useParams();
-  useMutation();
+  let accType, userCookie, id_String, backLink_Id;
+
+  const { id } = useParams();
+  id_String = id.split(",");
+  accType = id_String[0];
+  userCookie = id_String[1];
+
+  const { mutate, data, isPending } = useMutation();
+
+  backLink_Id = `${accType},${userCookie}`;
 
   return (
     <>
@@ -26,7 +34,7 @@ const NoteRequestPage = () => {
           <NoteRequestItem title={"Modi kirana parle g"} date={"14-5-25"} />
         </Box>
         <Box mb={1.5}>
-          <Link to={"/your-account-details"}>
+          <Link to={`/your-account-details/${backLink_Id}`}>
             <GeneralButton iconTitle="bacck" btn_title="Back" />
           </Link>
         </Box>
