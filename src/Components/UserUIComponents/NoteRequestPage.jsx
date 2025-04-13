@@ -3,9 +3,13 @@ import classes from "./NoteRequestPage.module.css";
 import NoteRequestItem from "../AdditionalComponents/NoteRequestItem";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 const NoteRequestPage = () => {
+  const id = useParams();
+  useMutation();
+
   return (
     <>
       <BasicCoverDiv heading={"Your"} heading_highlight={" Pending requests."}>

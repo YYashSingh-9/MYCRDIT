@@ -14,6 +14,7 @@ const AccountInfoPart = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(props.user_data);
+
   const { data, isError, isPending, mutate } = useMutation({
     mutationKey: ["logout-handle"],
     mutationFn: () => {
@@ -83,7 +84,7 @@ const AccountInfoPart = (props) => {
           className={classes.accountBtnContainer}
         >
           {accountType === "customer" && (
-            <Link to={"/my-note-requests"}>
+            <Link to={`/my-note-requests/${paramsToSend}`}>
               <GeneralButton
                 icnTitle={"pending requests"}
                 btn_title={"Check Requests"}

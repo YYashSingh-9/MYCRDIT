@@ -5,20 +5,26 @@ import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import { useSelector } from "react-redux";
 
 const MainContainer = () => {
+  const userData = useSelector((state) => state.sliceOne.accountUserData);
+
   return (
     <>
       <BasicCoverDiv>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
           <h1>
-            Home of <span style={{ color: "#1DB954" }}>Alokik Mishra </span>
+            Home of{" "}
+            <span style={{ color: "#1DB954" }}>
+              {userData.data.customerName}{" "}
+            </span>
           </h1>
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.outerBox}>
           <Box className={classes.innerBox}>
             <Box className={classes.scoreCircle}>
-              <h1>1</h1>
+              <h1>{userData.data.transactionalScore}</h1>
             </Box>
             <h3>
               Your current{" "}

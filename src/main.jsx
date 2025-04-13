@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         element: <EditForm />,
         action: editShopInfo_Handler,
       },
-      { path: "/my-note-requests", element: <NoteRequestPage /> },
+      { path: "/my-note-requests/:id", element: <NoteRequestPage /> },
       { path: "/edit-customer-info", element: <CustomerAccountEdit /> },
       { path: "/edit-proprietor-info", element: <ProprietorAccountEdit /> },
       { path: "/my-current-mcs", element: <MCScorePage /> },
