@@ -3,12 +3,17 @@ import classes from "./NoteRequestItem.module.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 const NoteRequestItem = (props) => {
+  console.log(props.data);
+
+  const date = props.data.date.slice(0, 10);
+  console.log(date);
+
   return (
     <>
       <Box className={classes.liBox}>
         <Box className={classes.info_left}>
-          <h3>{props.title}</h3>
-          <h4>{props.date}</h4>
+          <h3>{props.data.noteTitle}</h3>
+          <h4>{date}</h4>
         </Box>
 
         <Box className={classes.info_right}>
