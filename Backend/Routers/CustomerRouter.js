@@ -36,7 +36,7 @@ customerRouter
 //2. Running debts.
 customerRouter
   .route("/all-pending-notes")
-  .get(NotesController.getAllPendingNotes);
+  .post(NotesController.getAllPendingNotes);
 
 //3. Check history.
 customerRouter

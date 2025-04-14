@@ -347,13 +347,14 @@ export const get_notes_handler = async (cookie, reqType, customerNumber) => {
 
   if (reqType === "non-accepted-notes") {
     urlType = "customer";
-    additional = "note-approval-request";
+    additional = "all-pending-notes";
     methodtype = "POST";
     data_to_send = {
       customerNumber: customerNumber,
       requestFor: reqType,
     };
   }
+  console.log(urlType, additional, methodtype, data_to_send);
   const data = await data_Send_request(
     urlType,
     additional,
@@ -361,7 +362,7 @@ export const get_notes_handler = async (cookie, reqType, customerNumber) => {
     data_to_send,
     cookie
   );
-
+  console.log(data);
   return data;
 };
 

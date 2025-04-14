@@ -24,7 +24,7 @@ const NoteRequestPage = () => {
     mutationFn: () => {
       return get_notes_handler(
         userCookie,
-        "non-accepted-Notes",
+        "non-accepted-notes",
         userData.data.contactNumber
       );
     },
