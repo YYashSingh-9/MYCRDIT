@@ -30,7 +30,7 @@ const NoteRequestPage = () => {
       );
     },
   });
-
+  console.log(data);
   if (data && data.status === "Success") {
     pending_notes_array = data.data;
   }

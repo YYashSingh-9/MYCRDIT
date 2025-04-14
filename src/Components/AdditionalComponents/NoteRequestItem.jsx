@@ -3,16 +3,20 @@ import classes from "./NoteRequestItem.module.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useMutation } from "@tanstack/react-query";
-import { acceptingNoteHandler } from "../../Store/actionCreatorThunk";
+import { acceptingNoteHandler, client } from "../../Store/actionCreatorThunk";
 
 const NoteRequestItem = (props) => {
   console.log(props.data);
   const date = props.data.date.slice(0, 10);
   console.log(date);
+
   const { data, mutate, isPending } = useMutation({
     mutationKey: ["accepting-notes"],
     mutationFn: () => {
       return acceptingNoteHandler(props.data._id, props.cookie);
+    },
+    onSuccess: () => {
+      client.invalidateQueries("note-requests");
     },
   });
 
