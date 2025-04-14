@@ -5,19 +5,36 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import { Link, useParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
+import { get_notes_handler } from "../../Store/actionCreatorThunk";
+import { useEffect } from "react";
 
 const NoteRequestPage = () => {
   let accType, userCookie, id_String, backLink_Id;
-
+  const userData = useSelector((state) => state.sliceOne.accountUserData);
   const { id } = useParams();
+
   id_String = id.split(",");
   accType = id_String[0];
   userCookie = id_String[1];
-
-  const { mutate, data, isPending } = useMutation();
-
   backLink_Id = `${accType},${userCookie}`;
 
+  const { mutate, data, isPending } = useMutation({
+    mutationKey: ["note-requests"],
+    mutationFn: () => {
+      return get_notes_handler(
+        userCookie,
+        "non-accepted-Notes",
+        userData.data.contactNumber
+      );
+    },
+  });
+
+  useEffect(() => {
+    if (userData.status === "Success") {
+      mutate();
+    }
+  }, [userData]);
   return (
     <>
       <BasicCoverDiv heading={"Your"} heading_highlight={" Pending requests."}>

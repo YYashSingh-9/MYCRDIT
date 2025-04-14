@@ -340,8 +340,30 @@ export const logout_handler = async (acc_type, cookie) => {
   return data;
 };
 
-// 12. Getting pending notes
-export const get_pending_notes = async (cookie) => {};
+// 12. Getting pending/paid/request notes
+export const get_notes_handler = async (cookie, reqType, customerNumber) => {
+  console.log(cookie, reqType, customerNumber);
+  let urlType, additional, methodtype, data_to_send;
+
+  if (reqType === "non-accepted-notes") {
+    urlType = "customer";
+    additional = "note-approval-request";
+    methodtype = "POST";
+    data_to_send = {
+      customerNumber: customerNumber,
+      requestFor: reqType,
+    };
+  }
+  const data = await data_Send_request(
+    urlType,
+    additional,
+    methodtype,
+    data_to_send,
+    cookie
+  );
+
+  return data;
+};
 
 /*
  React Router's <Form> component, 
