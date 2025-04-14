@@ -58,6 +58,7 @@ const NoteRequestPage = () => {
                   title={"Modi kirana parle g"}
                   date={"14-5-25"}
                   data={el}
+                  cookie={userCookie}
                 />
               ))}
           </Box>

@@ -366,6 +366,21 @@ export const get_notes_handler = async (cookie, reqType, customerNumber) => {
   return data;
 };
 
+//13. Accepting note request handler
+export const acceptingNoteHandler = async (noteId, cookie) => {
+  const dataToSend = {
+    noteId: noteId,
+  };
+  const data = await data_Send_request(
+    "customer",
+    "note-approval-request",
+    "PATCH",
+    dataToSend,
+    cookie
+  );
+  console.log(data);
+  return data;
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
