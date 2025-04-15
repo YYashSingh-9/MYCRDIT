@@ -57,7 +57,7 @@ const NoteRequestPage = () => {
   }, [userData]);
 
   let loginState = userData.status === "Success" ? true : false;
-
+  console.log(noteRequestsArray);
   return (
     <>
       {loginState === true ? (

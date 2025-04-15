@@ -4,12 +4,14 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useMutation } from "@tanstack/react-query";
 import { acceptingNoteHandler, client } from "../../Store/actionCreatorThunk";
+import { useDispatch } from "react-redux";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { useEffect } from "react";
 
 const NoteRequestItem = (props) => {
-  console.log(props.data);
+  const dispatch = useDispatch();
   const date = props.data.date.slice(0, 10);
-  console.log(date);
-
+  let value = false;
   const { data, mutate, isPending } = useMutation({
     mutationKey: ["accepting-notes"],
     mutationFn: () => {
@@ -23,6 +25,13 @@ const NoteRequestItem = (props) => {
   const acceptingNote_Function = () => {
     mutate();
   };
+
+  useEffect(() => {
+    if (data && data.status === "Success") {
+      console.log("ran");
+      dispatch(sliceOneActions.note_requests_insert_handler(data.data));
+    }
+  }, [data]);
 
   return (
     <>
