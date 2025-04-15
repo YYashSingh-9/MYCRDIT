@@ -5,14 +5,24 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import { Link, useParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { get_notes_handler } from "../../Store/actionCreatorThunk";
 import { useEffect } from "react";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import { sliceOneActions } from "../../Store/sliceOne";
 
 const NoteRequestPage = () => {
-  let accType, userCookie, id_String, backLink_Id, pending_notes_array;
+  let accType,
+    userCookie,
+    id_String,
+    backLink_Id,
+    pending_notes_array,
+    isNoteRequests_availabe;
   const userData = useSelector((state) => state.sliceOne.accountUserData);
+  const noteRequestsArray = useSelector(
+    (state) => state.sliceOne.customerNote_requests
+  );
+  const dispatch = useDispatch();
   const { id } = useParams();
 
   id_String = id.split(",");
@@ -29,10 +39,15 @@ const NoteRequestPage = () => {
         userData.data.contactNumber
       );
     },
+    onSuccess: () => {},
   });
+
   console.log(data);
+
   if (data && data.status === "Success") {
     pending_notes_array = data.data;
+    isNoteRequests_availabe = true;
+    dispatch(sliceOneActions.note_requests_insert_handler(data.data));
   }
 
   useEffect(() => {
@@ -53,13 +68,8 @@ const NoteRequestPage = () => {
           <Box className={classes.innerCover}>
             {data &&
               data.status === "Success" &&
-              pending_notes_array.map((el) => (
-                <NoteRequestItem
-                  title={"Modi kirana parle g"}
-                  date={"14-5-25"}
-                  data={el}
-                  cookie={userCookie}
-                />
+              noteRequestsArray.map((el) => (
+                <NoteRequestItem data={el} cookie={userCookie} />
               ))}
           </Box>
           <Box mb={1.5}>

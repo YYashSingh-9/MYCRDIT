@@ -10,6 +10,7 @@ const initial_State = {
   proprietors_running_Notes_Array: [],
   dummy_Proprietor_Notes_Array: [],
   filterNotificationState: false,
+  customerNote_requests: [],
 };
 
 const sliceOne = createSlice({
@@ -100,6 +101,11 @@ const sliceOne = createSlice({
       state.dummy_Proprietor_Notes_Array =
         state.proprietors_running_Notes_Array;
       state.filterNotificationState = false;
+    },
+    note_requests_insert_handler(state, action) {
+      const request_array = action.payload;
+      state.customerNote_requests = request_array;
+      console.log(request_array);
     },
   },
 });
