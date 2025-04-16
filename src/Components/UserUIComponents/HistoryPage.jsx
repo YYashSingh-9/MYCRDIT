@@ -9,6 +9,7 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useQuery } from "@tanstack/react-query";
 import { getClearedNotes } from "../../Store/actionCreatorThunk";
+import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 export const ListItem = (props) => {
   let clearState, pendingState;
@@ -59,7 +60,7 @@ const HistoryPage = () => {
       return getClearedNotes(userCookie, accType);
     },
   });
-  console.log(data);
+
   return (
     <>
       {accType === "" ? (
@@ -78,32 +79,44 @@ const HistoryPage = () => {
               </span>
             </h1>
           </Grid>
-          <Grid
-            item
-            lg={12}
-            md={12}
-            sm={12}
-            xs={12}
-            marginBottom={3}
-            className={classes.detailsBox}
-          >
-            {data !== undefined
-              ? data.data.map((el, i) => <ListItem obj={el} key={i} />)
-              : ""}
-          </Grid>
-          <Grid
-            item
-            lg={12}
-            md={12}
-            sm={12}
-            xs={12}
-            className={classes.btnSection}
-            marginBottom={2}
-          >
-            <Link to={`/your-account-details/${id}`}>
-              <GeneralButton btn_title={"back"} />
-            </Link>
-          </Grid>
+          {data && data.status === "Success" && data.data.length === 0 ? (
+            <WhenNoItemToDisplay
+              userName={"Customer"}
+              title={"No cleared notes!"}
+              subtitle={
+                "It seems you haven't cleared any of your debt notes to display here."
+              }
+            />
+          ) : (
+            <>
+              <Grid
+                item
+                lg={12}
+                md={12}
+                sm={12}
+                xs={12}
+                marginBottom={3}
+                className={classes.detailsBox}
+              >
+                {data !== undefined
+                  ? data.data.map((el, i) => <ListItem obj={el} key={i} />)
+                  : ""}
+              </Grid>
+              <Grid
+                item
+                lg={12}
+                md={12}
+                sm={12}
+                xs={12}
+                className={classes.btnSection}
+                marginBottom={2}
+              >
+                <Link to={`/your-account-details/${id}`}>
+                  <GeneralButton btn_title={"back"} />
+                </Link>
+              </Grid>
+            </>
+          )}
         </BasicCoverDiv>
       )}
     </>

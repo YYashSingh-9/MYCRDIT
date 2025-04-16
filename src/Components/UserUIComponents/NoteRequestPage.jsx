@@ -10,7 +10,8 @@ import { get_notes_handler } from "../../Store/actionCreatorThunk";
 import { useEffect } from "react";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { sliceOneActions } from "../../Store/sliceOne";
-import FaceIcon from "@mui/icons-material/Face";
+import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+
 const NoteRequestPage = () => {
   let accType,
     userCookie,
@@ -72,25 +73,12 @@ const NoteRequestPage = () => {
         >
           {data &&
           data.status === "Success" &&
-          noteRequestsArray.length == 0 ? (
-            <Box className={classes.noReqsBox}>
-              <Box>
-                <h2>
-                  Hey{" "}
-                  <span style={{ color: "#1DB954" }}>
-                    {userData.data.customerName}
-                  </span>
-                  , empty request box.
-                </h2>
-                <Box>
-                  <FaceIcon className={classes.faceIcn} />
-                </Box>
-                <p>NO Pending requests are here to accept for now.!</p>
-              </Box>
-              <Box className={classes.homeBtn}>
-                <GeneralButton btn_title="Home" />
-              </Box>
-            </Box>
+          noteRequestsArray.length === 0 ? (
+            <WhenNoItemToDisplay
+              userName={userData.data.customerName}
+              title={"empty request box."}
+              subtitle={"NO Pending requests are here to accept for now.!"}
+            />
           ) : (
             <>
               <Box className={classes.innerCover}>

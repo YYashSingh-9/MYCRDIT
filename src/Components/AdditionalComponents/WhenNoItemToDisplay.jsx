@@ -1,8 +1,10 @@
 import classes from "./WhenNoItemToDisplay.module.css";
 import { Box } from "@mui/material";
 import FaceIcon from "@mui/icons-material/Face";
+import GeneralButton from "./GeneralButton";
+import { Link } from "react-router-dom";
 
-const whenNoItemToDisplay = (props) => {
+const WhenNoItemToDisplay = (props) => {
   return (
     <>
       <Box className={classes.noReqsBox}>
@@ -17,11 +19,13 @@ const whenNoItemToDisplay = (props) => {
           <p>{props.subtitle}</p>
         </Box>
         <Box className={classes.homeBtn}>
-          <GeneralButton btn_title="Home" />
+          <Link to={"/"}>
+            <GeneralButton btn_title="Home" />
+          </Link>
         </Box>
       </Box>
     </>
   );
 };
 
-export default whenNoItemToDisplay;
+export default WhenNoItemToDisplay;
