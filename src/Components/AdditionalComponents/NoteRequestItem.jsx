@@ -24,6 +24,7 @@ const NoteRequestItem = (props) => {
 
   const acceptingNote_Function = () => {
     mutate();
+    props.clickFn();
   };
 
   useEffect(() => {

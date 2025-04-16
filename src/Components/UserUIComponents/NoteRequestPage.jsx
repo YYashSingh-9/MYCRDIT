@@ -50,6 +50,10 @@ const NoteRequestPage = () => {
     dispatch(sliceOneActions.note_requests_insert_handler(data.data));
   }
 
+  const anotherFunction = () => {
+    mutate();
+  };
+
   useEffect(() => {
     if (userData.status === "Success") {
       mutate();
@@ -58,6 +62,7 @@ const NoteRequestPage = () => {
 
   let loginState = userData.status === "Success" ? true : false;
   console.log(noteRequestsArray);
+
   return (
     <>
       {loginState === true ? (
@@ -69,7 +74,11 @@ const NoteRequestPage = () => {
             {data &&
               data.status === "Success" &&
               noteRequestsArray.map((el) => (
-                <NoteRequestItem data={el} cookie={userCookie} />
+                <NoteRequestItem
+                  data={el}
+                  cookie={userCookie}
+                  clickFn={anotherFunction}
+                />
               ))}
           </Box>
           <Box mb={1.5}>
