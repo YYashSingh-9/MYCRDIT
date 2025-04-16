@@ -202,11 +202,12 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
 //History..
 exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
   const { contactNumber } = req.user;
-  console.log(req.user, "✅✅✅✅");
+
   if (!contactNumber)
     return next(
       new appError("Contact number missing from client side, retry.", 400)
     );
+
   const doc = await debtNote.find({
     customerNumber: { $in: contactNumber },
     cleared: { $in: true },
@@ -219,7 +220,6 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
 });
 
 // Get All notes of a specific customer
-
 exports.getAllSpecific_CustomerNotes = catchAsync(async (req, res, next) => {
   const { customerNumber } = req.body;
   console.log(req.body);

@@ -1,0 +1,17 @@
+.noReqsBox {
+  min-height: 20rem;
+  max-height: auto;
+  width: 70%;
+  border: 0.1rem solid rgb(211, 211, 211);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 3rem 0rem;
+  text-align: center;
+}
+.faceIcn {
+  transform: scale(4.2);
+  margin: 4rem;
+}
+.homeBtn {
+  margin-top: 2rem;
+}
