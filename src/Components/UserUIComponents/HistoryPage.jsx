@@ -59,6 +59,7 @@ const HistoryPage = () => {
       return getClearedNotes(userCookie, accType);
     },
   });
+  console.log(data);
   return (
     <>
       {accType === "" ? (

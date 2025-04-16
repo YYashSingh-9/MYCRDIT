@@ -381,6 +381,7 @@ export const acceptingNoteHandler = async (noteId, cookie) => {
   console.log(data);
   return data;
 };
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 

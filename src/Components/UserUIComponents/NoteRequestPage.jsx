@@ -92,7 +92,7 @@ const NoteRequestPage = () => {
               </Box>
             </Box>
           ) : (
-            <Box>
+            <>
               <Box className={classes.innerCover}>
                 {data &&
                   data.status === "Success" &&
@@ -109,7 +109,7 @@ const NoteRequestPage = () => {
                   <GeneralButton iconTitle="bacck" btn_title="Back" />
                 </Link>
               </Box>
-            </Box>
+            </>
           )}
         </BasicCoverDiv>
       ) : (
