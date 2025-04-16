@@ -10,7 +10,7 @@ import { get_notes_handler } from "../../Store/actionCreatorThunk";
 import { useEffect } from "react";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { sliceOneActions } from "../../Store/sliceOne";
-
+import FaceIcon from "@mui/icons-material/Face";
 const NoteRequestPage = () => {
   let accType,
     userCookie,
@@ -70,22 +70,47 @@ const NoteRequestPage = () => {
           heading={"Your"}
           heading_highlight={" Pending requests."}
         >
-          <Box className={classes.innerCover}>
-            {data &&
-              data.status === "Success" &&
-              noteRequestsArray.map((el) => (
-                <NoteRequestItem
-                  data={el}
-                  cookie={userCookie}
-                  clickFn={anotherFunction}
-                />
-              ))}
-          </Box>
-          <Box mb={1.5}>
-            <Link to={`/your-account-details/${backLink_Id}`}>
-              <GeneralButton iconTitle="bacck" btn_title="Back" />
-            </Link>
-          </Box>
+          {data &&
+          data.status === "Success" &&
+          noteRequestsArray.length == 0 ? (
+            <Box className={classes.noReqsBox}>
+              <Box>
+                <h2>
+                  Hey{" "}
+                  <span style={{ color: "#1DB954" }}>
+                    {userData.data.customerName}
+                  </span>
+                  , empty request box.
+                </h2>
+                <Box>
+                  <FaceIcon className={classes.faceIcn} />
+                </Box>
+                <p>NO Pending requests are here to accept for now.!</p>
+              </Box>
+              <Box className={classes.homeBtn}>
+                <GeneralButton btn_title="Home" />
+              </Box>
+            </Box>
+          ) : (
+            <Box>
+              <Box className={classes.innerCover}>
+                {data &&
+                  data.status === "Success" &&
+                  noteRequestsArray.map((el) => (
+                    <NoteRequestItem
+                      data={el}
+                      cookie={userCookie}
+                      clickFn={anotherFunction}
+                    />
+                  ))}
+              </Box>
+              <Box mb={1.5}>
+                <Link to={`/your-account-details/${backLink_Id}`}>
+                  <GeneralButton iconTitle="bacck" btn_title="Back" />
+                </Link>
+              </Box>
+            </Box>
+          )}
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
