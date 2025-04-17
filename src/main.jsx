@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       { path: "/otp-authentication", element: <OTPpage /> },
       { path: "/my-shop-info", element: <ShopInfo /> },
       { path: "/my-running-debts", element: <RunningDebtsPage /> },
-      { path: "/bts-mycrdit-score", element: <MCSPage /> },
+      { path: "/bts-mycrdit-score/:id", element: <MCSPage /> },
       {
         path: "/review-form",
         element: <ReviewNFeedback />,

@@ -2,9 +2,19 @@ import classes from "./MCSPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Grid } from "@mui/material";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const MCSPage = () => {
+  let accType, cookie;
+
+  const { id } = useParams();
+
+  let idSplit = id.split(",");
+  accType = idSplit[0];
+  cookie = idSplit[1];
+
+  const paramsToSend = `${accType},${cookie}`;
+
   return (
     <>
       <BasicCoverDiv heading={"BTS of"} heading_highlight={" MyCrdit Score"}>
@@ -54,7 +64,7 @@ const MCSPage = () => {
           className={classes.btnSection}
           marginBottom={2}
         >
-          <Link to={"/your-account-details"}>
+          <Link to={`/your-account-details/${paramsToSend}`}>
             <GeneralButton btn_title={"back"} />
           </Link>
         </Grid>
