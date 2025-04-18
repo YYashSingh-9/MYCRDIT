@@ -44,6 +44,7 @@ const Header = () => {
     (state) => state.sliceOne.isNotificationOn
   );
   const paramsToSend = `${accountType},${currentUserCookie}`;
+  console.log(accountType);
   return (
     <>
       <Box>
@@ -72,22 +73,26 @@ const Header = () => {
                 <AccountBoxIcon className={classes.icn} />
               </Button>
             )}
-            {accountType === "proprietor" ||
-              ("customer" && (
-                <Link to={`/your-account-details/${paramsToSend}`}>
-                  <Button variant="contained" sx={styles.detailBtn}>
-                    <Typography
-                      variant="h7"
-                      mr={1}
-                      sx={styles.detailsButtonFont}
-                    >
-                      details
-                    </Typography>
-                    <AccountBoxIcon className={classes.icn} />
-                  </Button>
-                </Link>
-              ))}
-
+            {accountType === "proprietor" && (
+              <Link to={`/your-account-details/${paramsToSend}`}>
+                <Button variant="contained" sx={styles.detailBtn}>
+                  <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
+                    details
+                  </Typography>
+                  <AccountBoxIcon className={classes.icn} />
+                </Button>
+              </Link>
+            )}
+            {accountType === "customer" && (
+              <Link to={`/your-account-details/${paramsToSend}`}>
+                <Button variant="contained" sx={styles.detailBtn}>
+                  <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>
+                    details
+                  </Typography>
+                  <AccountBoxIcon className={classes.icn} />
+                </Button>
+              </Link>
+            )}
             {/* {accountType === "administrator" ? (
               <Button variant="contained" sx={styles.detailBtn}>
                 <Typography variant="h7" mr={1} sx={styles.detailsButtonFont}>

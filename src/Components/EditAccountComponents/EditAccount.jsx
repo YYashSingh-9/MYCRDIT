@@ -9,6 +9,7 @@ const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState, info } = props;
 
   const link_ = `/your-account-details/${bck_btnLink}`;
+
   return (
     <>
       {loginState ? (
@@ -16,13 +17,13 @@ const EditCustomer = (props) => {
           <Form method="POST" className={classes.form_main}>
             {titleNHtmlFor.map((el, i) => {
               let val = el === "name" ? info.name : info.contactNumber;
-              console.log(val);
+              console.log(el);
               return (
                 <Box key={i}>
                   <label htmlFor={el}>{el}</label>
                   <br />
 
-                  <TextField id="outlined" placeholder={val} />
+                  <TextField id="outlined" value={val} />
                   <hr />
                 </Box>
               );

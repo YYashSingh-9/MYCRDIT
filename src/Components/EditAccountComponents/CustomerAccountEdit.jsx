@@ -2,7 +2,7 @@ import EditAccount from "./EditAccount";
 import { useSelector } from "react-redux";
 
 const CustomerAccountEdit = () => {
-  const titles = ["Customer Name", "Customer Number"];
+  const titles = ["name", "contact Number"];
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const acc_type = useSelector((state) => state.sliceOne.accountType);
 
@@ -10,11 +10,12 @@ const CustomerAccountEdit = () => {
   if (userData && userData.status === "Success") {
     customerData = {
       name: userData.data.customerName,
-      contactNumber: userData.contactNumber,
+      contactNumber: userData.data.contactNumber,
     };
 
     backLink_Id = `${acc_type},${userData.token}`;
   }
+  console.log(userData);
   isLoggedIn = userData && userData.status === "Success" ? true : false;
   return (
     <>
