@@ -71,7 +71,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
   //1. checking if user is proprietor
   if (req.userType === "Proprietor") {
     contact_number = req.body.contactNumber;
-    name = req.body.ProprietorName;
+    name = req.body.proprietorName;
 
     const doc = await proprietor.findByIdAndUpdate(
       req.user._id,

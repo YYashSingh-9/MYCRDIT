@@ -2,7 +2,7 @@ import EditAccount from "./EditAccount";
 import { useSelector } from "react-redux";
 
 const CustomerAccountEdit = () => {
-  const titles = ["name", "contact Number"];
+  const titles = ["name", "contactNumber"];
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const acc_type = useSelector((state) => state.sliceOne.accountType);
 

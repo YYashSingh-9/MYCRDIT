@@ -384,12 +384,38 @@ export const acceptingNoteHandler = async (noteId, cookie) => {
 
 //14. Edit customer/proprietor info
 export const edit_user_info = async ({ request }) => {
+  let cookie, accountType, urlType, additional, methodtype, data_to_send;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const userData = data.get("user-data");
+  cookie = userData.split(",")[1];
+  accountType = userData.split(",")[0];
 
-  console.log(userData);
-  return data;
+  if (accountType === "customer") {
+    data_to_send = {
+      contactNumber: data_2.contactNumber,
+      customerName: data_2.name,
+    };
+    urlType = "customer";
+    additional = "update-customer-info";
+    methodtype = "PATCH";
+  } else if (accountType === "proprietor") {
+    data_to_send = {
+      contactNumber: data_2.contactNumber,
+      proprietorName: data_2.name,
+    };
+    urlType = "proprietor";
+    additional = "edit-proprietor";
+    methodtype = "PATCH";
+  }
+  const returned_data = await data_Send_request(
+    urlType,
+    additional,
+    methodtype,
+    data_to_send,
+    cookie
+  );
+  return returned_data;
 };
 /*
  React Router's <Form> component, 

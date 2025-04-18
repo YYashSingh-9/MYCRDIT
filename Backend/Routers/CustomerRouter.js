@@ -20,7 +20,7 @@ customerRouter
 
 customerRouter
   .route("/update-customer-info")
-  .post(userAuthController.updateUserInfo);
+  .patch(userAuthController.updateUserInfo);
 
 customerRouter
   .route("/get-my-crdit-score")

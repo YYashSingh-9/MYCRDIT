@@ -28,7 +28,7 @@ proprietorRouter
 
 proprietorRouter
   .route("/edit-proprietor")
-  .post(userAuthController.updateUserInfo);
+  .patch(userAuthController.updateUserInfo);
 
 proprietorRouter
   .route("/edit-proprietor-shop")
