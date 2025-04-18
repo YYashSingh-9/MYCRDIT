@@ -24,7 +24,7 @@ const EditCustomer = (props) => {
                   <label htmlFor={el}>{el}</label>
                   <br />
 
-                  <TextField id="outlined" value={val} />
+                  <TextField id="outlined" value={val} name={el} />
                   <hr />
                 </Box>
               );

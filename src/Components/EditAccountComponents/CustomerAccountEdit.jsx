@@ -7,16 +7,17 @@ const CustomerAccountEdit = () => {
   const acc_type = useSelector((state) => state.sliceOne.accountType);
 
   let customerData, backLink_Id, isLoggedIn;
+
   if (userData && userData.status === "Success") {
     customerData = {
       name: userData.data.customerName,
       contactNumber: userData.data.contactNumber,
     };
-
     backLink_Id = `${acc_type},${userData.token}`;
   }
-  console.log(userData);
+
   isLoggedIn = userData && userData.status === "Success" ? true : false;
+
   return (
     <>
       <EditAccount
