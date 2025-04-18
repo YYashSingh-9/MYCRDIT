@@ -31,14 +31,14 @@ const EditCustomer = (props) => {
             })}
 
             <Box className={classes.btnBox}>
-              <GeneralButton typeBtn="submit" btn_title="Save" />
+              <GeneralButton
+                typeBtn="submit"
+                btn_title="Save"
+                name="user-data"
+                value={userData}
+              />
               <Link to={link_}>
-                <GeneralButton
-                  typeBtn="button"
-                  btn_title="Back"
-                  name="user-data"
-                  value={userData}
-                />
+                <GeneralButton typeBtn="button" btn_title="Back" />
               </Link>
             </Box>
           </Form>

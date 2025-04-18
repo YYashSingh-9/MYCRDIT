@@ -29,6 +29,7 @@ import {
   createNote_Handler,
   editShopInfo_Handler,
   reviewSendHandler,
+  edit_user_info,
 } from "./Store/actionCreatorThunk.js";
 
 const router = createBrowserRouter([
@@ -79,8 +80,16 @@ const router = createBrowserRouter([
         action: editShopInfo_Handler,
       },
       { path: "/my-note-requests/:id", element: <NoteRequestPage /> },
-      { path: "/edit-customer-info", element: <CustomerAccountEdit /> },
-      { path: "/edit-proprietor-info", element: <ProprietorAccountEdit /> },
+      {
+        path: "/edit-customer-info",
+        element: <CustomerAccountEdit />,
+        action: edit_user_info,
+      },
+      {
+        path: "/edit-proprietor-info",
+        element: <ProprietorAccountEdit />,
+        action: edit_user_info,
+      },
       { path: "/my-current-mcs", element: <MCScorePage /> },
     ],
   },

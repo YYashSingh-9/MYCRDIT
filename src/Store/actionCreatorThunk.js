@@ -389,7 +389,7 @@ export const edit_user_info = async ({ request }) => {
   const userData = data.get("user-data");
 
   console.log(userData);
-  return userData;
+  return data;
 };
 /*
  React Router's <Form> component, 
