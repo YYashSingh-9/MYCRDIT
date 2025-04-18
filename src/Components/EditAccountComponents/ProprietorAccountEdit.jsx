@@ -22,6 +22,7 @@ const ProprietorAccountEdit = () => {
         titleNHtmlFor={titles}
         bck_btnLink={backLink_Id}
         loginState={isLoggedIn}
+        info={proprietorData}
       />
     </>
   );

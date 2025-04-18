@@ -1,4 +1,5 @@
 import EditAccount from "./EditAccount";
+import { useSelector } from "react-redux";
 
 const CustomerAccountEdit = () => {
   const titles = ["Customer Name", "Customer Number"];
@@ -21,6 +22,7 @@ const CustomerAccountEdit = () => {
         titleNHtmlFor={titles}
         bck_btnLink={backLink_Id}
         loginState={isLoggedIn}
+        info={customerData}
       />
     </>
   );

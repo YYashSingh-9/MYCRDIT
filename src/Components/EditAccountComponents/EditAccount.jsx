@@ -6,7 +6,7 @@ import GeneralButton from "../AdditionalComponents/GeneralButton";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 
 const EditCustomer = (props) => {
-  const { titleNHtmlFor, bck_btnLink, loginState } = props;
+  const { titleNHtmlFor, bck_btnLink, loginState, info } = props;
 
   const link_ = `/your-account-details/${bck_btnLink}`;
   return (
@@ -15,12 +15,14 @@ const EditCustomer = (props) => {
         <BasicCoverDiv heading={"Update"} heading_highlight={" account"}>
           <Form method="POST" className={classes.form_main}>
             {titleNHtmlFor.map((el, i) => {
+              let val = el === "name" ? info.name : info.contactNumber;
+              console.log(val);
               return (
                 <Box key={i}>
                   <label htmlFor={el}>{el}</label>
                   <br />
 
-                  <TextField id="outlined" />
+                  <TextField id="outlined" placeholder={val} />
                   <hr />
                 </Box>
               );
