@@ -9,6 +9,7 @@ const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState, info } = props;
 
   const link_ = `/your-account-details/${bck_btnLink}`;
+  const userData = bck_btnLink;
 
   return (
     <>
@@ -17,7 +18,7 @@ const EditCustomer = (props) => {
           <Form method="POST" className={classes.form_main}>
             {titleNHtmlFor.map((el, i) => {
               let val = el === "name" ? info.name : info.contactNumber;
-              console.log(el);
+
               return (
                 <Box key={i}>
                   <label htmlFor={el}>{el}</label>
@@ -32,7 +33,12 @@ const EditCustomer = (props) => {
             <Box className={classes.btnBox}>
               <GeneralButton typeBtn="submit" btn_title="Save" />
               <Link to={link_}>
-                <GeneralButton typeBtn="button" btn_title="Back" />
+                <GeneralButton
+                  typeBtn="button"
+                  btn_title="Back"
+                  name="user-data"
+                  value={userData}
+                />
               </Link>
             </Box>
           </Form>

@@ -382,6 +382,15 @@ export const acceptingNoteHandler = async (noteId, cookie) => {
   return data;
 };
 
+//14. Edit customer/proprietor info
+export const edit_user_info = async ({ request }) => {
+  const data = await request.formData();
+  const data_2 = Object.fromEntries(data);
+  const userData = data.get("user-data");
+
+  console.log(userData);
+  return userData;
+};
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
