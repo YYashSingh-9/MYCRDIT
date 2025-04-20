@@ -1,12 +1,12 @@
-import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import classes from "./EditAccount.module.css";
-import { TextField, Box } from "@mui/material";
-import { Form, Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useActionData, useNavigate } from "react-router-dom";
 import { sliceOneActions } from "../../Store/sliceOne";
+import { TextField, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
+import { Form, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const EditCustomer = (props) => {
@@ -16,17 +16,16 @@ const EditCustomer = (props) => {
   const dispatch = useDispatch();
   const link_ = `/your-account-details/${bck_btnLink}`;
   const userData = bck_btnLink;
-  console.log(action_data);
 
   useEffect(() => {
     if (action_data) {
       if (action_data.status === "Success") {
-        console.log(action_data);
         dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
         navigate(link_);
       }
     }
   }, [action_data]);
+
   return (
     <>
       {loginState ? (

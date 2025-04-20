@@ -13,24 +13,25 @@ import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 export const ListItem = (props) => {
   let clearState, pendingState;
-  const { amount, cleared, noteTitle, date } = props.obj;
+  const { amt, cleared, noteTitle, date } = props;
 
   clearState = cleared === true ? true : false;
   // pendingState =
+  // const dateee = new Date(date);
+  // console.log(dateee);
+  // const date_1 = new Date().toISOString().substring(0, 10);
 
-  const date_1 = new Date(date).toISOString().substring(0, 10);
-
-  console.log(props.obj);
+  // console.log(date);
   return (
     <>
       <Box className={classes.liBox}>
         <Box className={classes.info_left}>
           <h3>{noteTitle}</h3>
-          <h4>{date_1}</h4>
+          <h4>{date}</h4>
         </Box>
 
         <Box className={classes.info_right}>
-          <h3>{`${amount}/-`}</h3>
+          <h3>{`${amt}/-`}</h3>
           <button className={classes.clearIndicatorBtn}>
             {/* {cleared === true ? (
               <DoneAllIcon />

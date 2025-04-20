@@ -24,7 +24,7 @@ const RunningDebtsPage = () => {
             className={classes.detailsBox}
           >
             <ListItem
-              title={"Mishra ji,Sunflower oil"}
+              noteTitle={"Mishra ji,Sunflower oil"}
               date={"14-06-24"}
               amt={250}
               btnTitle={"pending"}

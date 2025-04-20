@@ -62,7 +62,8 @@ h3 {
   margin-left: auto;
   font-family: "poppins";
   font-size: 0.9rem;
-  width: 3rem;
+  width: auto;
+  padding: 0.1rem 0.3rem;
 }
 .cleartick {
   color: #1db954;
