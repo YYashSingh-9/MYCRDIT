@@ -1,12 +1,13 @@
+import { useActionData, useNavigate } from "react-router-dom";
 import EditAccount from "./EditAccount";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const CustomerAccountEdit = () => {
+  let customerData, backLink_Id, isLoggedIn;
   const titles = ["name", "contactNumber"];
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const acc_type = useSelector((state) => state.sliceOne.accountType);
-
-  let customerData, backLink_Id, isLoggedIn;
 
   if (userData && userData.status === "Success") {
     customerData = {
