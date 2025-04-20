@@ -5,7 +5,7 @@ import { Form, Link } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useActionData, useNavigate } from "react-router-dom";
-
+import { sliceOneActions } from "../../Store/sliceOne";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
@@ -22,8 +22,8 @@ const EditCustomer = (props) => {
     if (action_data) {
       if (action_data.status === "Success") {
         console.log(action_data);
-        // dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
-        // navigate("/my-shop-info");
+        dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
+        navigate(link_);
       }
     }
   }, [action_data]);
