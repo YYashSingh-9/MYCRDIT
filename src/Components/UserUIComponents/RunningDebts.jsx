@@ -6,9 +6,20 @@ import { ListItem } from "./HistoryPage";
 import { Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-
+import { useQuery } from "@tanstack/react-query";
+import { get_notes_handler } from "../../Store/actionCreatorThunk";
 const RunningDebtsPage = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
+  const currentUserData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["all-running-notes"],
+    queryFn: () => {
+      return get_notes_handler(currentUserData.token, "accepted-notes");
+    },
+  });
 
   return (
     <>
