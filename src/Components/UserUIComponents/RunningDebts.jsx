@@ -38,13 +38,9 @@ const RunningDebtsPage = () => {
             marginBottom={3}
             className={classes.detailsBox}
           >
-            <ListItem
-              noteTitle={"Mishra ji,Sunflower oil"}
-              date={"14-06-24"}
-              amt={250}
-              btnTitle={"pending"}
-              icnType={"pending"}
-            />
+            {data && data.status === "Success"
+              ? data.data.map((el, i) => <ListItem key={i} data={el} />)
+              : ""}
           </Grid>
           <Grid
             item

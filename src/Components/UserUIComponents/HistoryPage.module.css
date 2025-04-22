@@ -63,7 +63,8 @@ h3 {
   font-family: "poppins";
   font-size: 0.9rem;
   width: auto;
-  padding: 0.1rem 0.3rem;
+  background-color: rgb(245, 245, 245);
+  padding: 0.1rem 1rem;
 }
 .cleartick {
   color: #1db954;
@@ -74,7 +75,8 @@ h3 {
 
 .pending {
   color: rgb(254, 210, 87);
-  margin-right: 0.5rem;
+  transform: scale(0.7);
+  background-color: none;
 }
 
 /* Responsive styling from here. */
