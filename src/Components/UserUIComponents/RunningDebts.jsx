@@ -17,10 +17,14 @@ const RunningDebtsPage = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
-      return get_notes_handler(currentUserData.token, "accepted-notes");
+      return get_notes_handler(
+        currentUserData.token,
+        "accepted-notes",
+        currentUserData.data.contactNumber
+      );
     },
   });
-
+  console.log(data);
   return (
     <>
       {currentAcc_Type === "customer" ? (

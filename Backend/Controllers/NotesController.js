@@ -191,7 +191,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
     acceptanceStatus: { $in: false },
   });
 
-  const finalDoc = requestFor === "accepted notes" ? doc : doc2;
+  const finalDoc = requestFor === "accepted-notes" ? doc : doc2;
 
   res.status(200).json({
     status: "Success",
