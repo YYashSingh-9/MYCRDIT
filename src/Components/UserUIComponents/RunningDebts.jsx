@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useQuery } from "@tanstack/react-query";
 import { get_notes_handler } from "../../Store/actionCreatorThunk";
+
 const RunningDebtsPage = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
   const currentUserData = useSelector(
@@ -24,7 +25,9 @@ const RunningDebtsPage = () => {
       );
     },
   });
+
   console.log(data);
+
   return (
     <>
       {currentAcc_Type === "customer" ? (
@@ -51,7 +54,9 @@ const RunningDebtsPage = () => {
             className={classes.btnSection}
             marginBottom={2}
           >
-            <Link to={"/your-account-details"}>
+            <Link
+              to={`/your-account-details/${currentAcc_Type},${currentUserData.token}`}
+            >
               <GeneralButton btn_title={"back"} />
             </Link>
           </Grid>
