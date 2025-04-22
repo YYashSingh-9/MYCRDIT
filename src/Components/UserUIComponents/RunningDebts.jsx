@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useQuery } from "@tanstack/react-query";
 import { get_notes_handler } from "../../Store/actionCreatorThunk";
+import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 const RunningDebtsPage = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
@@ -41,10 +42,20 @@ const RunningDebtsPage = () => {
             marginBottom={3}
             className={classes.detailsBox}
           >
-            {data && data.status === "Success"
-              ? data.data.map((el, i) => <ListItem key={i} data={el} />)
-              : ""}
+            {data &&
+              data.status === "Success" &&
+              data.data.length >= 1 &&
+              data.data.map((el, i) => <ListItem key={i} data={el} />)}
           </Grid>
+          {data && data.data.length <= 0 && data.status === "Success" && (
+            <WhenNoItemToDisplay
+              userName={currentUserData.data.customerName}
+              title={"No running notes"}
+              subtitle={
+                "There are no current running notes, buy product on credit with MYCRDIT app."
+              }
+            />
+          )}
           <Grid
             item
             lg={12}
