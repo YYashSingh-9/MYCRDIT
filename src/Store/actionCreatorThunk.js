@@ -427,9 +427,18 @@ export const edit_user_info = async ({ request }) => {
 };
 
 //15. Get customer MYCRDIT score
-export const getMycrditScore_handler = (cookie, contactNumber) => {
-  let urlType, additional, methodtype, data_to_send, cookie;
+export const getMycrditScore_handler = async (ck, contactNumber) => {
+  const data = await data_Send_request(
+    "customer",
+    "get-my-crdit-score",
+    "POST",
+    { contactNumber: contactNumber },
+    ck
+  );
+
+  return data;
 };
+
 /*
  React Router's <Form> component, 
 when used within a <Route> with an action,automatically provides form data through 
