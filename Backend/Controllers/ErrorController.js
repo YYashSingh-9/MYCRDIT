@@ -25,8 +25,6 @@ const handleCastError = (error) => {
 };
 
 const developmentError = (err, req, res) => {
-  console.log(err, "eeee");
-
   res.status(err.statusCode).json({
     status: "Fail",
     data: err,
@@ -55,13 +53,6 @@ const productionError = (err, req, res) => {
 
 module.exports = (err, req, res, next) => {
   const error = JSON.parse(JSON.stringify(err));
-  console.log(
-    "✅✅✅✅✅✅",
-    err.message,
-    "✅✅✅✅✅✅",
-    error,
-    "✅✅✅✅✅✅"
-  );
   error.message = err.message || "Failed request";
   error.statusCode = error.statusCode || 500;
 
