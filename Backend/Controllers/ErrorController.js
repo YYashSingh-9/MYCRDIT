@@ -41,6 +41,7 @@ const productionError = (err, req, res) => {
       res.status(err.statusCode).json({
         status: err.status,
         message: err.message,
+        data: err,
       });
     }
   }
@@ -48,13 +49,20 @@ const productionError = (err, req, res) => {
   return res.status(500).json({
     status: "Fail",
     message: "Failed request.",
+    data: err,
   });
 };
 
 module.exports = (err, req, res, next) => {
   const error = JSON.parse(JSON.stringify(err));
-  console.log(err, error);
-  error.message = error.message || "Failed request";
+  console.log(
+    "✅✅✅✅✅✅",
+    err.message,
+    "✅✅✅✅✅✅",
+    error,
+    "✅✅✅✅✅✅"
+  );
+  error.message = err.message || "Failed request";
   error.statusCode = error.statusCode || 500;
 
   if (process.env.NODE_ENV === "development") {
