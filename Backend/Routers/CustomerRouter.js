@@ -45,6 +45,6 @@ customerRouter
 
 customerRouter
   .route("/get-my-crdit-score")
-  .get(ScoreCountController.totalMycrditScore);
+  .post(ScoreCountController.totalMycrditScore);
 
 module.exports = customerRouter;
