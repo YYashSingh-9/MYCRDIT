@@ -5,8 +5,25 @@ import UserLeverBar from "../AdditionalComponents/UserLevelBar";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getMycrditScore_handler } from "../../Store/actionCreatorThunk";
+
 const MCScorePage = () => {
   const userType = useSelector((state) => state.sliceOne.accountType);
+  const currentUserData = useSelector(
+    (state) => state.sliceOne.accountUserData
+  );
+
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["customer-mcs"],
+    queryFn: () => {
+      return getMycrditScore_handler(
+        currentUserData.token,
+        currentUserData.data.contactNumber
+      );
+    },
+  });
+  console.log(data);
   return (
     <>
       {userType === "customer" ? (
