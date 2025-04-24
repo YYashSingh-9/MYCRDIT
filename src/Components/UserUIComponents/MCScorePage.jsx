@@ -25,7 +25,6 @@ const MCScorePage = () => {
     },
   });
 
-  console.log(data);
   let subtitle =
     data && data.status === "Fail" ? data.message : "Something went wrong.";
   return (
