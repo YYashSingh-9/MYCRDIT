@@ -9,7 +9,8 @@ const DetailedNote = (props) => {
   date = new Date(note_Data.date).toISOString().substring(0, 10);
   //2. Accepted indicator and button disable
   acceptanceStatus =
-    note_Data.acceptanceStatus === true ? "Not accepted" : "Accepted";
+    note_Data.acceptanceStatus === true ? "Accepted " : "Not accepted";
+  console.log(note_Data, acceptanceStatus);
 
   // disableStatus = note_Data.acceptanceStatus === false ? true : false;
   disableStatus = false;
@@ -64,7 +65,7 @@ const DetailedNote = (props) => {
                 <td>{date}</td>
               </tr>
               <tr className={classes.row}>
-                <td>Accepted</td>
+                <td>Status</td>
                 <td>{acceptanceStatus}</td>
               </tr>
             </tbody>
