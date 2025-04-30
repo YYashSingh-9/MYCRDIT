@@ -63,7 +63,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("TOTAL PAYMENT IN MS -> ", totalPaymentDuration_ms);
   const lengthOfPayment = days;
   const thirtyDayPayment =
-    lengthOfPayment > 20 && lengthOfPayment < 30 ? true : false;
+    lengthOfPayment > 20 && lengthOfPayment <= 30 ? true : false;
   // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
