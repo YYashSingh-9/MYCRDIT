@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const userData = useSelector((state) => state.sliceOne.accountUserData);
-
+  const score = userData.data.transactionalScore.toFixed(2);
   return (
     <>
       <BasicCoverDiv>
@@ -24,7 +24,7 @@ const MainContainer = () => {
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.outerBox}>
           <Box className={classes.innerBox}>
             <Box className={classes.scoreCircle}>
-              <h1>{userData.data.transactionalScore}</h1>
+              <h1>{score}</h1>
             </Box>
             <h3>
               Your current{" "}
