@@ -36,11 +36,15 @@ const MCScorePage = () => {
               <Box className={classes.parentBox}>
                 <Box className={classes.childBox_one}>
                   <Box className={classes.scoreNum}>
-                    <h2>1800</h2>
+                    <h2>{data.data.toFixed(1)}</h2>
                   </Box>
                   <Box className={classes.subTitle}>
                     <h4>
-                      Mr <span style={{ color: "#1DB954" }}> Yash's</span>{" "}
+                      Mr{" "}
+                      <span style={{ color: "#1DB954" }}>
+                        {" "}
+                        {currentUserData.data.customerName}'s
+                      </span>{" "}
                       current score is displayed above.
                     </h4>
                   </Box>
