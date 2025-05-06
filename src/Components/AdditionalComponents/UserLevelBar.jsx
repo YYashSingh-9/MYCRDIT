@@ -13,10 +13,10 @@ import { Box } from "@mui/material";
 // 2200 >= && <= 3500 -> Gold
 // 3500 >= && <= 6500 -> Platinum
 
-const UserLevelBar = () => {
+const UserLevelBar = (props) => {
   let profile_Level;
   let levelBar_bg;
-  const mcs_points = 1800;
+  const mcs_points = props.pts;
 
   if (mcs_points < 500) {
     levelBar_bg = classes.baseBg;

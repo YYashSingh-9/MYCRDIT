@@ -51,7 +51,7 @@ const MCScorePage = () => {
                 </Box>
 
                 <Box className={classes.childBox_two}>
-                  <UserLeverBar />
+                  <UserLeverBar pts={data.data} />
                   <Box className={classes.infos}>
                     <p>
                       ▪️MCScore will increase if you regularly clear your debt

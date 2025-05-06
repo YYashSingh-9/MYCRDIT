@@ -44,9 +44,11 @@
 }
 
 .childBox_three {
+  border-top: 0.1rem solid rgb(211, 211, 211);
+  width: 50%;
+  margin: auto;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  border-top: 0.1rem solid rgb(211, 211, 211);
 }
 .infos {
   margin-top: 1rem;
