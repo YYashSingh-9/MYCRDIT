@@ -53,9 +53,18 @@ const MCScorePage = () => {
                 <Box className={classes.childBox_two}>
                   <UserLeverBar />
                   <Box className={classes.infos}>
-                    <p>▪️some information regarding mycrdit score</p>
-                    <p>▪️some information regarding mycrdit score</p>
-                    <p>▪️some information regarding mycrdit score</p>
+                    <p>
+                      ▪️MCScore will increase if you regularly clear your debt
+                      notes on time/within 30 days.
+                    </p>
+                    <p>
+                      ▪️More the amount of debt note, higher points will be
+                      credited.
+                    </p>
+                    <p>
+                      ▪️Paying after 30 days duration or more than 30 days then
+                      late payment point will be deducted.
+                    </p>
                   </Box>
                 </Box>
                 <Box className={classes.childBox_three}>
