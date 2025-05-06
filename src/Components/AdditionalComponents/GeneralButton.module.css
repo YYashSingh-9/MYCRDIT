@@ -69,8 +69,10 @@
     top: 57%;
     padding: 0.15rem 0.15rem;
     font-size: 0.5rem;
-    height: 0.1rem;
-    width: 0.1rem;
+    max-height: 0.1rem;
+    max-width: 0.1rem;
+    min-height: 0.1rem;
+    min-width: 0.1rem;
   }
 }
 
@@ -84,10 +86,11 @@
   .notificationBall_2 {
     left: 70%;
     top: 57%;
-
+    max-height: 0.1rem;
+    max-width: 0.1rem;
+    min-height: 0.1rem;
+    min-width: 0.1rem;
     padding: 0.15rem 0.15rem;
     font-size: 0.5rem;
-    height: 0.1rem;
-    width: 0.1rem;
   }
 }
