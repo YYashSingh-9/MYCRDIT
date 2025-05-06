@@ -43,10 +43,12 @@
   display: inline;
   position: absolute;
   left: 70%;
-  top: 50%;
+  top: 57%;
   transform: translate(-50%, -50%);
-  height: 1vh;
-  width: 2%;
+  max-height: 0.3rem;
+  max-width: 1.2%;
+  min-height: 0.3rem;
+  min-width: 1.2%;
 }
 .btnParent {
   display: flex;
@@ -63,7 +65,7 @@
     font-size: 0.8rem;
   }
   .notificationBall_2 {
-    left: 75%;
+    left: 76%;
     top: 57%;
     padding: 0.15rem 0.15rem;
     font-size: 0.5rem;
@@ -80,8 +82,8 @@
     font-size: 0.9rem;
   }
   .notificationBall_2 {
-    left: 10%;
-    top: 51%;
+    left: 70%;
+    top: 57%;
 
     padding: 0.15rem 0.15rem;
     font-size: 0.5rem;
