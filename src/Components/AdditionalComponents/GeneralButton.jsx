@@ -54,10 +54,10 @@ const GeneralButton = (props) => {
           {props.btn_title}
         </button>
         {iconTitle === "runningDebt" && notificationState && (
-          <Box className={classes.notificationBall_2}>100</Box>
+          <Box className={classes.notificationBall_2}></Box>
         )}
         {iconTitle === "pending requests" && notificationState && (
-          <Box className={classes.notificationBall_2}>10</Box>
+          <Box className={classes.notificationBall_2}></Box>
         )}
       </Box>
     </>

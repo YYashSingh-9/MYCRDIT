@@ -40,7 +40,7 @@ const MCScorePage = () => {
                   </Box>
                   <Box className={classes.subTitle}>
                     <h4>
-                      Mr{" "}
+                      User{" "}
                       <span style={{ color: "#1DB954" }}>
                         {" "}
                         {currentUserData.data.customerName}'s
@@ -57,10 +57,13 @@ const MCScorePage = () => {
                       ▪️MCScore will increase if you regularly clear your debt
                       notes on time/within 30 days.
                     </p>
+                    <br />
                     <p>
                       ▪️More the amount of debt note, higher points will be
                       credited.
                     </p>
+                    <br />
+
                     <p>
                       ▪️Paying after 30 days duration or more than 30 days then
                       late payment point will be deducted.
@@ -68,7 +71,9 @@ const MCScorePage = () => {
                   </Box>
                 </Box>
                 <Box className={classes.childBox_three}>
-                  <Link to={"/your-account-details"}>
+                  <Link
+                    to={`/your-account-details/${userType},${currentUserData.token}`}
+                  >
                     <GeneraltButton btn_title="back" />
                   </Link>
                 </Box>
