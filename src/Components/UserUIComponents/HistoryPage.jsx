@@ -13,21 +13,21 @@ import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 export const ListItem = (props) => {
   let clearState, pendingState;
-  const { data } = props;
-
-  clearState = data.cleared === true ? true : false;
-  const date = data.date.slice(0, 10);
+  const { obj } = props;
+  console.log(obj, props);
+  clearState = obj.cleared === true ? true : false;
+  const date = obj.date.slice(0, 10);
 
   return (
     <>
       <Box className={classes.liBox}>
         <Box className={classes.info_left}>
-          <h3>{data.noteTitle}</h3>
+          <h3>{obj.noteTitle}</h3>
           <h4>{date}</h4>
         </Box>
 
         <Box className={classes.info_right}>
-          <h3>{`${data.amount}/-`}</h3>
+          <h3>{`${obj.amount}/-`}</h3>
           <button className={classes.clearIndicatorBtn}>
             {clearState && <DoneAllIcon className={classes.cleartick} />}
             {!clearState && <PendingActionsIcon className={classes.pending} />}
@@ -42,7 +42,7 @@ export const ListItem = (props) => {
 const HistoryPage = () => {
   let accType, userCookie, id_String;
   const { id } = useParams();
-  console.log(id);
+
   id_String = id.split(",");
   accType = id_String[0];
   userCookie = id_String[1];
@@ -53,7 +53,7 @@ const HistoryPage = () => {
       return getClearedNotes(userCookie, accType);
     },
   });
-
+  console.log(data);
   return (
     <>
       {accType === "" ? (

@@ -57,11 +57,13 @@
 .bannerGrid_Outer {
   width: 70%;
 }
-.reviewtextBtn h4 {
+.reviewtextBtn h5 {
   font-family: "poppins";
   font-weight: 600;
   color: #1db954;
   cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {

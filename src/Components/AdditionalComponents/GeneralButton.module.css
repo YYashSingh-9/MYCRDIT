@@ -14,13 +14,8 @@
   border-right: 0rem;
   align-items: center;
   background-color: transparent;
-  /* border: 0.1rem solid rgb(211, 211, 211); */
-  /* border-radius: 0.3rem; */
   color: #2a2a2a;
-  /* border-bottom: 0.1rem solid rgb(211, 211, 211); */
   background-color: #efefef;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, */
-  /* rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
   transition: 0.2s ease;
   cursor: pointer;
 }

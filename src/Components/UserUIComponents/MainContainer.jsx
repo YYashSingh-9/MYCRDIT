@@ -78,7 +78,7 @@ const MainContainer = () => {
           marginBottom={1}
         >
           <Link to={"/review-form"}>
-            <h4>Share your review, feedback, and complain. Click here.</h4>
+            <h5>Share your review, feedback, and complain. Click here.</h5>
           </Link>
         </Grid>
       </BasicCoverDiv>
