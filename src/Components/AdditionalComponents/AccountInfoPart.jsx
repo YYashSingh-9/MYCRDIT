@@ -5,11 +5,12 @@ import GeneralButton from "./GeneralButton";
 import Mini_TScoreIndicator from "../MinorComponents/Mini_TScoreIndicator";
 import { useMutation } from "@tanstack/react-query";
 import { logout_handler } from "../../Store/actionCreatorThunk";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 
 const AccountInfoPart = (props) => {
   const { accountType, cookie } = props.data;
+  const userData = useSelector((state) => state.sliceOne.accountUserData);
   const paramsToSend = `${accountType},${cookie}`;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,10 +37,21 @@ const AccountInfoPart = (props) => {
         justifyContent="center"
         className={classes.mainGrid}
       >
-        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.levelBar}>
-          {/* <UserLevelBar /> */}
-          <Mini_TScoreIndicator />
-        </Grid>
+        {accountType === "customer" && (
+          <Grid
+            item
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            className={classes.levelBar}
+          >
+            <Mini_TScoreIndicator
+              pts={userData.data.transactionalScore.toFixed(2)}
+            />
+          </Grid>
+        )}
+
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.infoGrid}>
           <table className={classes.infoBox}>
             <tbody>

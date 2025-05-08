@@ -45,7 +45,7 @@ const RunningDebtsPage = () => {
             {data &&
               data.status === "Success" &&
               data.data.length >= 1 &&
-              data.data.map((el, i) => <ListItem key={i} data={el} />)}
+              data.data.map((el, i) => <ListItem key={i} obj={el} />)}
           </Grid>
           {data && data.data.length <= 0 && data.status === "Success" && (
             <WhenNoItemToDisplay

@@ -18,6 +18,10 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
+.lnkPart {
+  width: 100%;
+  margin: auto;
+}
 .bsar p {
   color: #1db954;
 }
@@ -27,11 +31,14 @@
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .bsar {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     width: 100%;
   }
   .inner_bar {
     height: 1.5rem;
+    font-size: 0.7rem;
+  }
+  .scorePart h3 {
     font-size: 0.7rem;
   }
 }

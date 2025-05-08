@@ -10,16 +10,11 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { Box } from "@mui/material";
-import { useSelector } from "react-redux";
-import { ArrowLeft } from "@mui/icons-material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const GeneralButton = (props) => {
   const iconTitle = props.icnTitle;
   const btnType = props.typeBtn ? props.typeBtn : "button";
-  const notificationState = useSelector(
-    (state) => state.sliceOne.isNotificationOn
-  );
   const val = props.value ? props.value : "";
   const nam = props.name ? props.name : "";
 
@@ -53,12 +48,6 @@ const GeneralButton = (props) => {
 
           {props.btn_title}
         </button>
-        {iconTitle === "runningDebt" && notificationState && (
-          <Box className={classes.notificationBall_2}></Box>
-        )}
-        {iconTitle === "pending requests" && notificationState && (
-          <Box className={classes.notificationBall_2}></Box>
-        )}
       </Box>
     </>
   );

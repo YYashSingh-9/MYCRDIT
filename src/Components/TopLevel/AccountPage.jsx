@@ -28,7 +28,10 @@ const AccountPage = () => {
   }, []);
   return (
     <>
-      <BasicCoverDiv heading="Account of" heading_highlight=" Alokik">
+      <BasicCoverDiv
+        heading="Account of "
+        heading_highlight={userData.data.customerName}
+      >
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart data={objectToSend} user_data={userData.data} />
         </Grid>
