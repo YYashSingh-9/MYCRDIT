@@ -27,10 +27,12 @@ h3 {
 }
 
 .info_right {
-  width: 50%;
+  width: 30%;
   text-align: right;
   padding-right: 1rem;
+  margin-left: auto;
   display: flex;
+  justify-content: end;
 }
 .btn {
   border: none;

@@ -50,10 +50,10 @@ const NoteRequestItem = (props) => {
             Accept
             <CheckCircleIcon className={classes.btn_icn} />
           </button>
-          <button className={` ${classes.btn} ${classes.rejectbtn} `}>
+          {/* <button className={` ${classes.btn} ${classes.rejectbtn} `}>
             Decline
             <CancelIcon className={classes.btn_icn} />
-          </button>
+          </button> */}
         </Box>
       </Box>
     </>
