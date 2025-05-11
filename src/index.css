@@ -34,6 +34,20 @@ body::-webkit-scrollbar-thumb {
   background-color: green;
 }
 
+.Toastify__toast--warning {
+  background: #ffe8bc !important;
+}
+.Toastify__toast--error {
+  background: #fca7a9 !important;
+}
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  color: #10171d; /* #10171D */
+  font-size: 0.875rem !important;
+}
+.toastProgress {
+  background: #333f48 !important;
+}
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   body {
     padding: 0% 1%;

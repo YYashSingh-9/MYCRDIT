@@ -21,9 +21,8 @@ const AccountPage = () => {
     accountType: accType,
     cookie: cookie,
   };
-  console.log(userData);
+
   useEffect(() => {
-    console.log("ran");
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
   }, []);
   return (
