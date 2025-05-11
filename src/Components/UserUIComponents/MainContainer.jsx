@@ -1,6 +1,6 @@
 import { Grid, Box, colors } from "@mui/material";
 import { sliceOneActions } from "../../Store/sliceOne";
-
+import "../../index.css";
 import { Link } from "react-router-dom";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
@@ -15,7 +15,8 @@ const notifyFunction = () => {
   console.log("ran");
   return toast("Logged in successfully.✅", {
     position: "top-right",
-    autoClose: 5000,
+    hideProgressBar: true,
+    autoClose: 1000,
   });
 };
 
@@ -24,15 +25,19 @@ const MainContainer = () => {
   const score = userData.data.transactionalScore.toFixed(2);
   const loginState = useSelector((state) => state.sliceOne.recentLoginState);
   const dispatch = useDispatch();
+  let state = false;
   useEffect(() => {
-    if (loginState === true) {
-      notifyFunction();
-      setTimeout(() => {
-        dispatch(sliceOneActions.loginState_reset());
-      }, 5000);
-    }
-  }, []);
+    // if (loginState === true) {
+    notifyFunction();
+    // setTimeout(() => {
+    //   dispatch(sliceOneActions.loginState_reset());
+    // }, 5000);
+    // }
+  }, [state]);
 
+  const functions = () => {
+    state = state === false ? true : false;
+  };
   return (
     <>
       <BasicCoverDiv>
@@ -46,7 +51,7 @@ const MainContainer = () => {
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.outerBox}>
           <Box className={classes.innerBox}>
-            <Box className={classes.scoreCircle}>
+            <Box className={classes.scoreCircle} onClick={functions}>
               <h1>{score}</h1>
             </Box>
             <h3>
@@ -104,10 +109,7 @@ const MainContainer = () => {
             <h5>Share your review, feedback, and complain. Click here.</h5>
           </Link>
         </Grid>
-        <ToastContainer
-          progressClassName="toastProgress"
-          bodyClassName="toastBody"
-        />
+        <ToastContainer />
       </BasicCoverDiv>
     </>
   );
