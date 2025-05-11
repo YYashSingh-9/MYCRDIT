@@ -1,15 +1,38 @@
 import { Grid, Box, colors } from "@mui/material";
+import { sliceOneActions } from "../../Store/sliceOne";
+
 import { Link } from "react-router-dom";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect } from "react";
+
+const notifyFunction = () => {
+  console.log("ran");
+  return toast("Logged in successfully.✅", {
+    position: "top-right",
+    autoClose: 5000,
+  });
+};
 
 const MainContainer = () => {
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const score = userData.data.transactionalScore.toFixed(2);
+  const loginState = useSelector((state) => state.sliceOne.recentLoginState);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (loginState === true) {
+      notifyFunction();
+      setTimeout(() => {
+        dispatch(sliceOneActions.loginState_reset());
+      }, 5000);
+    }
+  }, []);
+
   return (
     <>
       <BasicCoverDiv>
@@ -81,6 +104,10 @@ const MainContainer = () => {
             <h5>Share your review, feedback, and complain. Click here.</h5>
           </Link>
         </Grid>
+        <ToastContainer
+          progressClassName="toastProgress"
+          bodyClassName="toastBody"
+        />
       </BasicCoverDiv>
     </>
   );

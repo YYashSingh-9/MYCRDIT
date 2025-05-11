@@ -11,6 +11,7 @@ const initial_State = {
   dummy_Proprietor_Notes_Array: [],
   filterNotificationState: false,
   customerNote_requests: [],
+  recentLoginState: false,
 };
 
 const sliceOne = createSlice({
@@ -106,6 +107,12 @@ const sliceOne = createSlice({
       const request_array = action.payload;
       state.customerNote_requests = request_array;
       console.log(request_array);
+    },
+    loginState_reset(state, action) {
+      state.recentLoginState = false;
+    },
+    loginState_setter(state, action) {
+      state.recentLoginState = true;
     },
   },
 });
