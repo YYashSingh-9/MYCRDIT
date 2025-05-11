@@ -13,7 +13,7 @@ const styles = {
     fontSize: 30,
     fontFamily: "Manrope",
     "@media only screen and (min-width: 280px) and (max-width: 576px)": {
-      fontSize: 22,
+      fontSize: 27,
       marginLeft: 1,
     },
   },
