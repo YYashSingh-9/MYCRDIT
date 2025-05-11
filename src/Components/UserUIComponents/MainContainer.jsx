@@ -8,21 +8,21 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import { useEffect } from "react";
 
 const notifyFunction = () => {
-  console.log("ran");
   return toast("Logged in successfully.✅", {
     position: "top-right",
     hideProgressBar: true,
     autoClose: 1000,
+    transition: Slide,
   });
 };
 
 const MainContainer = () => {
   const userData = useSelector((state) => state.sliceOne.accountUserData);
-  const score = userData.data.transactionalScore.toFixed(2);
+  const score = userData.data.transactionalScore.toFixed(1);
   const loginState = useSelector((state) => state.sliceOne.recentLoginState);
   const dispatch = useDispatch();
   let state = false;

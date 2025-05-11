@@ -68,7 +68,7 @@
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .bannerGrid_Outer {
     width: 80%;
@@ -78,7 +78,7 @@
     width: 70%;
   }
   .scoreCircle {
-    width: 45%;
+    width: 43%;
     height: 5rem;
   }
   .tipBox {
@@ -93,15 +93,15 @@
     width: 80%;
     flex-wrap: wrap;
   }
-  .reviewtextBtn h4 {
-    font-size: 0.9rem;
+  .reviewtextBtn h5 {
+    font-size: 0.8rem;
     text-align: center;
   }
 }
 
-@media only screen and (min-width: 352px) and (max-width: 576px) {
+@media only screen and (min-width: 300px) and (max-width: 576px) {
   .scoreCircle {
-    width: 40%;
+    width: 36%;
   }
 }
 @media (aspect-ratio: 375px / 667px) {
