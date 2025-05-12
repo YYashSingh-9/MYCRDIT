@@ -28,6 +28,7 @@
 .header {
   text-align: center;
 }
+
 .quickinTitle {
   display: flex;
   align-items: center;
@@ -37,6 +38,15 @@
 .quickinImg {
   height: 1.7rem;
   margin-left: 0.5rem;
+}
+.parentGrid {
+  height: 80vh;
+}
+.spinnerBox {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {

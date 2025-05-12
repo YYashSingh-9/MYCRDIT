@@ -28,7 +28,7 @@ const notifyFunction = () => {
 const ProprietorUI = (props) => {
   return (
     <>
-      <Grid>
+      <Grid className={classes.parentGrid}>
         <InitialSlider />
 
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
@@ -104,7 +104,7 @@ const ProprietorUI = (props) => {
 const CustomerUI = (props) => {
   return (
     <>
-      <Grid>
+      <Grid className={classes.parentGrid}>
         <InitialSlider />{" "}
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
           <h1>
@@ -205,11 +205,16 @@ const LoginPage = () => {
     <>
       <InitialSlider />
       <BasicCoverDiv>
-        {navigation.state === "submitting" && <CircularProgress />}
-        {navigation.state !== "submitting"}
-        {accountType_UI === "customer" ? (
+        {navigation.state === "submitting" && (
+          <Box className={classes.spinnerBox}>
+            <CircularProgress />
+          </Box>
+        )}
+
+        {accountType_UI === "customer" && navigation.state !== "submitting" && (
           <CustomerUI onclick={toProprietor} />
-        ) : (
+        )}
+        {navigation.state !== "submitting" && accountType_UI !== "customer" && (
           <ProprietorUI onclick={toCustomer} />
         )}
         <ToastContainer />
