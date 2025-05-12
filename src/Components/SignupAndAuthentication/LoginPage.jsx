@@ -1,7 +1,13 @@
 import classes from "./LoginPage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Grid, TextField, Box } from "@mui/material";
-import { Form, Link, useActionData, useNavigate } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
@@ -10,8 +16,9 @@ import InitialSlider from "../AdditionalComponents/InitialSlider";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
+import CircularProgress from "@mui/material/CircularProgress";
+
 const notifyFunction = () => {
-  console.log("ran");
   return toast("Logged in successfully.✅", {
     position: "top-right",
     autoClose: 5000,
@@ -169,9 +176,11 @@ const CustomerUI = (props) => {
 
 const LoginPage = () => {
   const Navigate = useNavigate();
+  const navigation = useNavigation();
   const actionData = useActionData();
   const accountType_UI = useSelector((state) => state.sliceOne.accountType);
   const dispatch = useDispatch();
+
   const toProprietor = () => {
     dispatch(sliceOneActions.accountTypeToggler("proprietor"));
   };
@@ -196,6 +205,8 @@ const LoginPage = () => {
     <>
       <InitialSlider />
       <BasicCoverDiv>
+        {navigation.state === "submitting" && <CircularProgress />}
+        {navigation.state !== "submitting"}
         {accountType_UI === "customer" ? (
           <CustomerUI onclick={toProprietor} />
         ) : (
