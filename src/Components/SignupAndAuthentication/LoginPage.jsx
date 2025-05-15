@@ -15,7 +15,7 @@ import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
+import Spinner from "../AdditionalComponents/Spinner";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const notifyFunction = () => {
@@ -200,16 +200,16 @@ const LoginPage = () => {
       }
     }
   }, [actionData]);
-
+  {
+    /* <Box className={classes.spinnerBox}>
+            <CircularProgress />
+          </Box> */
+  }
   return (
     <>
       <InitialSlider />
       <BasicCoverDiv>
-        {navigation.state === "submitting" && (
-          <Box className={classes.spinnerBox}>
-            <CircularProgress />
-          </Box>
-        )}
+        {navigation.state === "submitting" && <Spinner />}
 
         {accountType_UI === "customer" && navigation.state !== "submitting" && (
           <CustomerUI onclick={toProprietor} />

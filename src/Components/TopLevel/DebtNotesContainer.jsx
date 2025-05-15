@@ -13,6 +13,7 @@ import ListContainer from "../AdditionalComponents/ListContainer";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import MoodIcon from "@mui/icons-material/Mood";
+import Spinner from "../AdditionalComponents/Spinner";
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
@@ -74,49 +75,72 @@ const DebtNotesContainer = () => {
   return (
     <>
       <BasicCoverDiv>
-        <Grid item md={12} xs={12} className={classes.headingPart}>
-          <h3>
-            <span style={{ color: "darkgreen" }}>
-              {currentUserData.data.shopName}'s
-            </span>{" "}
-            book
-          </h3>
-          <Box className={classes.tags}>
-            <TagButton iconTitle="store" tagTitle="Proprietor" />
-            <TagButton iconTitle="daily" tagTitle="Daily Needs" />
-            <Link to={"/add-debt-note-form"}>
-              <TagButton
-                iconTitle="create"
-                tagTitle="Create Note"
-                click={true}
-              />
-            </Link>
-          </Box>
-        </Grid>
-        <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
-          {currentRunningNotes.length === 0 && (
-            <Box className={classes.dummyStateBox}>
+        {isLoading && <Spinner />}
+        {data && data.status === "Success" && (
+          <>
+            <Grid item md={12} xs={12} className={classes.headingPart}>
               <h3>
-                {filterNotificationState
-                  ? "No searched notes found."
-                  : ` No current running notes!`}
+                <span style={{ color: "darkgreen" }}>
+                  {currentUserData.data.shopName}'s
+                </span>{" "}
+                book
               </h3>
-              <MoodIcon className={classes.faceIcn} />
-              <p>
-                Hey{" "}
-                <span style={{ color: "#1DB954", fontWeight: 600 }}>
-                  {" "}
-                  {currentUserData.data.ProprietorName}
-                </span>
-                ,{" "}
-                {filterNotificationState
-                  ? " check if searched term matches debt notes data."
-                  : "create more debt notes and manage"}
-                <br />
-                {filterNotificationState
-                  ? " Click all notes button to get all notes."
-                  : " Click the create note button on upper right."}
-              </p>
+              <Box className={classes.tags}>
+                <TagButton iconTitle="store" tagTitle="Proprietor" />
+                <TagButton iconTitle="daily" tagTitle="Daily Needs" />
+                <Link to={"/add-debt-note-form"}>
+                  <TagButton
+                    iconTitle="create"
+                    tagTitle="Create Note"
+                    click={true}
+                  />
+                </Link>
+              </Box>
+            </Grid>
+            <Grid item md={12} xs={12} lg={12} sx={{ width: "100%" }}>
+              {currentRunningNotes.length === 0 && (
+                <Box className={classes.dummyStateBox}>
+                  <h3>
+                    {filterNotificationState
+                      ? "No searched notes found."
+                      : ` No current running notes!`}
+                  </h3>
+                  <MoodIcon className={classes.faceIcn} />
+                  <p>
+                    Hey{" "}
+                    <span style={{ color: "#1DB954", fontWeight: 600 }}>
+                      {" "}
+                      {currentUserData.data.ProprietorName}
+                    </span>
+                    ,{" "}
+                    {filterNotificationState
+                      ? " check if searched term matches debt notes data."
+                      : "create more debt notes and manage"}
+                    <br />
+                    {filterNotificationState
+                      ? " Click all notes button to get all notes."
+                      : " Click the create note button on upper right."}
+                  </p>
+                  {filterNotificationState && (
+                    <Box
+                      onClick={reloadAllNotes}
+                      sx={{
+                        padding: "none",
+                        width: "10%",
+                        margin: "auto",
+                      }}
+                    >
+                      {" "}
+                      <GeneralButton btn_title="All Notes" />
+                    </Box>
+                  )}
+                </Box>
+              )}
+              {isLoading && currentRunningNotes.length === 0 ? (
+                <p>loading..</p>
+              ) : (
+                <ListContainer itemArray={currentRunningNotes} />
+              )}
               {filterNotificationState && (
                 <Box
                   onClick={reloadAllNotes}
@@ -124,34 +148,16 @@ const DebtNotesContainer = () => {
                     padding: "none",
                     width: "10%",
                     margin: "auto",
+                    marginBottom: 2,
                   }}
                 >
                   {" "}
                   <GeneralButton btn_title="All Notes" />
                 </Box>
               )}
-            </Box>
-          )}
-          {isLoading && currentRunningNotes.length === 0 ? (
-            <p>loading..</p>
-          ) : (
-            <ListContainer itemArray={currentRunningNotes} />
-          )}
-          {filterNotificationState && (
-            <Box
-              onClick={reloadAllNotes}
-              sx={{
-                padding: "none",
-                width: "10%",
-                margin: "auto",
-                marginBottom: 2,
-              }}
-            >
-              {" "}
-              <GeneralButton btn_title="All Notes" />
-            </Box>
-          )}
-        </Grid>
+            </Grid>
+          </>
+        )}
       </BasicCoverDiv>
       <hr
         style={{
