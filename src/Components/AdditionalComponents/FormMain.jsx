@@ -31,7 +31,7 @@ const FormMain = () => {
     proprietorId = data.data._id;
   }
   const btnDataToSend = `${cookie},${proprietorId}`;
-
+  console.log(formData);
   useEffect(() => {
     if (formData !== undefined) {
       navigate("/");
