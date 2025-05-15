@@ -10,7 +10,7 @@ exports.allRunningNotes_proprietor = catchAsync(async (req, res, next) => {
   if (!propId) return next(new appError("Proprietor Id missing", 400));
 
   const doc = await debtNote.find({ proprietorId: { $in: propId } });
-  console.log(doc);
+
   res.status(200).json({
     status: "Success",
     data: doc,
@@ -44,6 +44,7 @@ exports.createNote = catchAsync(async (req, res, next) => {
     );
 
   const doc = await debtNote.create(req.body);
+  console.log(doc, "✅✅✅");
   res.status(200).json({
     status: "Success",
     data: doc,
