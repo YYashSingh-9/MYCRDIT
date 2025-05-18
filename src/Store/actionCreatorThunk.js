@@ -224,14 +224,14 @@ export const createNote_Handler = async ({ request }) => {
     amount: data_2.amount,
   };
 
-  await data_Send_request(
+  const data_ = await data_Send_request(
     "proprietor",
     "create-note",
     "POST",
     objectToSend,
     cookie
   );
-  return data_2;
+  return data_;
 };
 
 // 8. Get all cleared notes (proprietor & customer)
