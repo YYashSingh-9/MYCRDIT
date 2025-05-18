@@ -25,19 +25,16 @@ const MainContainer = () => {
   const score = userData.data.transactionalScore.toFixed(1);
   const loginState = useSelector((state) => state.sliceOne.recentLoginState);
   const dispatch = useDispatch();
-  let state = false;
-  useEffect(() => {
-    // if (loginState === true) {
-    notifyFunction();
-    // setTimeout(() => {
-    //   dispatch(sliceOneActions.loginState_reset());
-    // }, 5000);
-    // }
-  }, [state]);
 
-  const functions = () => {
-    state = state === false ? true : false;
-  };
+  useEffect(() => {
+    if (loginState === true) {
+      notifyFunction();
+      setTimeout(() => {
+        dispatch(sliceOneActions.loginState_reset());
+      }, 2000);
+    }
+  }, [loginState]);
+
   return (
     <>
       <BasicCoverDiv>
@@ -51,7 +48,7 @@ const MainContainer = () => {
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.outerBox}>
           <Box className={classes.innerBox}>
-            <Box className={classes.scoreCircle} onClick={functions}>
+            <Box className={classes.scoreCircle}>
               <h1>{score}</h1>
             </Box>
             <h3>

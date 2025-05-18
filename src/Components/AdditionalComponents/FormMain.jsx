@@ -23,7 +23,15 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (type, message) => {
   if (type === "error") {
-    return toast.error(`${message}`, {
+    return toast(`${message}`, {
+      position: "top-right",
+      hideProgressBar: true,
+      autoClose: 3000,
+      transition: Slide,
+    });
+  } else if (type === "success") {
+    console.log("ssss");
+    return toast(`${message}`, {
       position: "top-right",
       hideProgressBar: true,
       autoClose: 3000,
@@ -50,7 +58,10 @@ const FormMain = () => {
         toastFn("error", formData.message);
         return;
       }
-      navigate("/");
+      if (formData.status === "Success") {
+        toastFn("success", "Note created successfully");
+        navigate("/");
+      }
     }
   }, [formData]);
   return (
