@@ -14,6 +14,16 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import MoodIcon from "@mui/icons-material/Mood";
 import Spinner from "../AdditionalComponents/Spinner";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const notifyFunction = () => {
+  return toast("Logged in successfully.✅", {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 1000,
+    transition: Slide,
+  });
+};
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
@@ -46,6 +56,7 @@ const DebtNotesContainer = () => {
   const filterNotificationState = useSelector(
     (state) => state.sliceOne.filterNotificationState
   );
+  const loginState = useSelector((state) => state.sliceOne.recentLoginState);
 
   const dispatch = useDispatch();
 
@@ -64,13 +75,20 @@ const DebtNotesContainer = () => {
   const reloadAllNotes = () => {
     dispatch(sliceOneActions.reload_all_notes_toArray());
   };
+
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
         dispatch(sliceOneActions.saveAllRunningNotes(data));
       }
     }
-  }, [data]);
+    if (loginState === true) {
+      notifyFunction();
+      setTimeout(() => {
+        dispatch(sliceOneActions.loginState_reset());
+      }, 2000);
+    }
+  }, [data, loginState]);
 
   return (
     <>
@@ -158,6 +176,7 @@ const DebtNotesContainer = () => {
             </Grid>
           </>
         )}
+        <ToastContainer />
       </BasicCoverDiv>
       <hr
         style={{
