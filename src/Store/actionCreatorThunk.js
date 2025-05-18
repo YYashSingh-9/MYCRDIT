@@ -213,6 +213,10 @@ export const createNote_Handler = async ({ request }) => {
   cookie = p_data.split(",")[0];
   proprietorId = p_data.split(",")[1];
 
+  // Current date.
+  const today = new Date();
+  // const
+
   objectToSend = {
     proprietorId: proprietorId,
     noteTitle: data_2.noteTitle,
