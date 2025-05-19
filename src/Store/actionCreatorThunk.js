@@ -214,7 +214,8 @@ export const createNote_Handler = async ({ request }) => {
   proprietorId = p_data.split(",")[1];
 
   // Current date.
-  const today = new Date();
+  const today = new Date().toISOString();
+  const date = today.slice(0, 10);
   // const
 
   objectToSend = {
@@ -222,7 +223,7 @@ export const createNote_Handler = async ({ request }) => {
     noteTitle: data_2.noteTitle,
     customerName: data_2.customerName,
     customerNumber: data_2.customerNumber,
-    date: data_2.date,
+    date: date,
     productBrand: data_2.productBrand,
     productName: data_2.productName,
     amount: data_2.amount,
