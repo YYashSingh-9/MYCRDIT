@@ -28,6 +28,7 @@ const AccountInfoPart = (props) => {
     dispatch(sliceOneActions.localStorageClear_Handler());
     navigate("/");
   };
+  console.log(props.user_data);
   return (
     <>
       <Grid
@@ -63,7 +64,7 @@ const AccountInfoPart = (props) => {
                 <td>
                   {accountType === "customer"
                     ? props.user_data.customerName
-                    : props.user_data.proprietorName}
+                    : props.user_data.ProprietorName}
                 </td>
               </tr>
             </tbody>

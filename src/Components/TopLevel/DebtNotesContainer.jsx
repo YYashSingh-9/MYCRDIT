@@ -133,7 +133,7 @@ const DebtNotesContainer = () => {
                     ,{" "}
                     {filterNotificationState
                       ? " check if searched term matches debt notes data."
-                      : "create more debt notes and manage"}
+                      : "create more debt notes and manage them."}
                     <br />
                     {filterNotificationState
                       ? " Click all notes button to get all notes."

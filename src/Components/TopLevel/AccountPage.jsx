@@ -25,12 +25,13 @@ const AccountPage = () => {
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
   }, []);
+  let headingHighlight =
+    accType === "customer"
+      ? userData.data.customerName
+      : userData.data.ProprietorName;
   return (
     <>
-      <BasicCoverDiv
-        heading="Account of "
-        heading_highlight={userData.data.customerName}
-      >
+      <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart data={objectToSend} user_data={userData.data} />
         </Grid>

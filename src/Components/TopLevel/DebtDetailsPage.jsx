@@ -3,7 +3,7 @@ import {
   client,
   patch_RequestHandler,
 } from "../../Store/actionCreatorThunk";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { sliceOneActions } from "../../Store/sliceOne";
@@ -35,7 +35,7 @@ const DebtDetailsPage = () => {
   let customerName = "";
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const accType = useSelector((state) => state.sliceOne.accountType);
-  const navigate = useNavigate();
+
   const location = useLocation();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -104,7 +104,6 @@ const DebtDetailsPage = () => {
     }
     patch_requestHandle(obj);
   };
-  console.log(error, returnData);
 
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());

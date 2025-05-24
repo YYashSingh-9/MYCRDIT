@@ -2,18 +2,20 @@ import classes from "./EditAccount.module.css";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import { useActionData, useNavigate } from "react-router-dom";
+import { useActionData, useNavigate, useNavigation } from "react-router-dom";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { TextField, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { Form, Link } from "react-router-dom";
 import { useEffect } from "react";
+import Spinner from "../AdditionalComponents/Spinner";
 
 const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState, info } = props;
   const action_data = useActionData();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const link_ = `/your-account-details/${bck_btnLink}`;
   const userData = bck_btnLink;
 
@@ -30,33 +32,37 @@ const EditCustomer = (props) => {
     <>
       {loginState ? (
         <BasicCoverDiv heading={"Update"} heading_highlight={" account"}>
-          <Form method="POST" className={classes.form_main}>
-            {titleNHtmlFor.map((el, i) => {
-              let val = el === "name" ? info.name : info.contactNumber;
+          {navigation.state === "loading" ? (
+            <Spinner />
+          ) : (
+            <Form method="POST" className={classes.form_main}>
+              {titleNHtmlFor.map((el, i) => {
+                let val = el === "name" ? info.name : info.contactNumber;
 
-              return (
-                <Box key={i}>
-                  <label htmlFor={el}>{el}</label>
-                  <br />
+                return (
+                  <Box key={i}>
+                    <label htmlFor={el}>{el}</label>
+                    <br />
 
-                  <TextField id="outlined" defaultValue={val} name={el} />
-                  <hr />
-                </Box>
-              );
-            })}
+                    <TextField id="outlined" defaultValue={val} name={el} />
+                    <hr />
+                  </Box>
+                );
+              })}
 
-            <Box className={classes.btnBox}>
-              <GeneralButton
-                typeBtn="submit"
-                btn_title="Save"
-                name="user-data"
-                value={userData}
-              />
-              <Link to={link_}>
-                <GeneralButton typeBtn="button" btn_title="Back" />
-              </Link>
-            </Box>
-          </Form>
+              <Box className={classes.btnBox}>
+                <GeneralButton
+                  typeBtn="submit"
+                  btn_title="Save"
+                  name="user-data"
+                  value={userData}
+                />
+                <Link to={link_}>
+                  <GeneralButton typeBtn="button" btn_title="Back" />
+                </Link>
+              </Box>
+            </Form>
+          )}
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
