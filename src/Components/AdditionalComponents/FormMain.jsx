@@ -58,7 +58,7 @@ const FormMain = () => {
       }
       if (formData.status === "Success") {
         toastFn("success", "Note created successfully");
-        navigate("/");
+        navigate("..");
       }
     }
   }, [formData]);
@@ -140,10 +140,7 @@ const FormMain = () => {
                   label="Amount"
                 />
                 <hr />
-                <label htmlFor="Due date">Date</label>
-                <br />
-                <input type="date" id="dueDate" name="date" />
-                <hr />
+
                 <GeneralButton
                   typeBtn="submit"
                   btn_title="Save"

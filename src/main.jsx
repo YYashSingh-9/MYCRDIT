@@ -46,7 +46,13 @@ const router = createBrowserRouter([
       {
         path: "/:id/details",
         element: <DebtDetailsPage />,
-        children: [{ path: "/:id/details/add-note", element: <FormMain /> }],
+        children: [
+          {
+            path: "/:id/details/add-note",
+            element: <FormMain />,
+            action: createNote_Handler,
+          },
+        ],
       },
       { path: "/your-account-details/:id", element: <AccountPage /> },
       { path: "/your-history-details/:id", element: <HistoryPage /> },
