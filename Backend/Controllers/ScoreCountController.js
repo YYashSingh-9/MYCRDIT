@@ -30,14 +30,13 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   //a).
   const note_Id = req.body.debtNote_Id;
   const customerNumber = req.body.customerNumber;
-  console.log("note id", note_Id, customerNumber);
+
   //b).
   const note_ = await DebtNote.findById(note_Id);
   const cust = await Customer.find({
     contactNumber: { $in: customerNumber },
   });
   const customer = cust[0];
-  console.log("NOTE AND CUSTOMER-> ", note_, customer);
 
   //2. Extract amount and payment duration.
   // a) Amount
@@ -88,35 +87,24 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
 
   if (note_amount <= 500 && _ThirtyDays) {
     pre_score_count += 0.1;
-    console.log("this is 1");
-    console.log(pre_score_count);
   } else if (note_amount > 500 && note_amount <= 2000 && _ThirtyDays) {
-    console.log("this is 2");
     pre_score_count += 0.1;
   } else if (note_amount > 2000 && note_amount <= 5000 && _ThirtyDays) {
     pre_score_count += 0.2;
-    console.log("this is 3");
   } else if (note_amount > 5000 && note_amount <= 9000 && _ThirtyDays) {
     pre_score_count += 0.3;
-    console.log("this is 4");
   } else if (note_amount > 9000 && note_amount <= 15000 && _ThirtyDays) {
     pre_score_count += 0.4;
-    console.log("this is 5");
   } else if (note_amount > 15000 && note_amount <= 25000 && _ThirtyDays) {
     pre_score_count += 0.6;
-    console.log("this is 5");
   } else if (note_amount > 25000 && note_amount <= 35000 && _ThirtyDays) {
     pre_score_count += 1;
-    console.log("this is 6");
   } else if (note_amount > 35000 && _ThirtyDays) {
     pre_score_count += 2;
-    console.log("this is 7");
   } else if (_FortyDays) {
     pre_score_count -= -0.1;
-    console.log("this is 8");
   } else if (within_FortyDays) {
     pre_score_count += 0.05;
-    console.log("this is 9 ");
   }
 
   // 4. Extract current customer's transactional Score & add new calculated score to that.
@@ -139,7 +127,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     thirtyDayPayment: thirtyDayPayment,
     lengthOfDebt: lengthOfPayment,
   };
-  console.log(dummyObj);
+
   req.body = dummyObj;
   // console.log(doc);
   next();

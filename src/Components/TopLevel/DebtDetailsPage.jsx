@@ -51,6 +51,7 @@ const DebtDetailsPage = () => {
     mutate: patch_requestHandle,
     data: returnData,
     isLoading: loadingState,
+    isError: error,
   } = useMutation({
     mutationKey: ["debt-note"],
     mutationFn: (props) => {
@@ -103,6 +104,7 @@ const DebtDetailsPage = () => {
     }
     patch_requestHandle(obj);
   };
+  console.log(error, returnData);
 
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());

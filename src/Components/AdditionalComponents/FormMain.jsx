@@ -41,13 +41,10 @@ const FormMain = () => {
     proprietorId = data.data._id;
   }
   const btnDataToSend = `${cookie},${proprietorId}`;
-  console.log(formData);
   useEffect(() => {
     if (formData !== undefined) {
-      if (formData.status === "Fail") {
-        toastFn("error", formData.message);
-        return;
-      }
+      if (formData.status === "Fail") toastFn("error", formData.message);
+
       if (formData.status === "Success") {
         navigate("..");
       }
@@ -143,8 +140,8 @@ const FormMain = () => {
                 </Link>
               </Form>
             </Grid>
-            <ToastContainer />
           </Grid>
+          <ToastContainer />
         </>
       )}
     </>

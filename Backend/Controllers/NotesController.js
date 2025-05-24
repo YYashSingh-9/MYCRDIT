@@ -66,7 +66,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
       new: true,
     }
   );
-  console.log(doc22);
+
   //2. adding this to paidNoteModel.
   const doc2 = await paidNote.create(req.body);
 
@@ -223,7 +223,7 @@ exports.getAllClearedNotes = catchAsync(async (req, res, next) => {
 // Get All notes of a specific customer
 exports.getAllSpecific_CustomerNotes = catchAsync(async (req, res, next) => {
   const { customerNumber } = req.body;
-  console.log(req.body);
+
   if (!customerNumber)
     return next(new appError("Customer number missing", 404));
 

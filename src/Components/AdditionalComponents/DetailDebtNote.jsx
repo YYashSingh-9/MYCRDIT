@@ -12,14 +12,14 @@ const DetailedNote = (props) => {
     note_Data.acceptanceStatus === true ? "Accepted " : "Not accepted";
   console.log(note_Data, acceptanceStatus);
 
-  // disableStatus = note_Data.acceptanceStatus === false ? true : false;
-  disableStatus = false;
+  disableStatus = note_Data.acceptanceStatus === false ? true : false;
+  // disableStatus = false;
   //3. Button style and title as per state.
   let acceptanceStatusS = true;
   const buttonClass =
     // note_Data.acceptanceStatus === false
-    acceptanceStatusS === false ? classes.disableClass : classes.normalClass;
-  const btnTitle = disableStatus === true ? "Not allowed" : "Paid";
+    acceptanceStatus === false ? classes.disableClass : classes.normalClass;
+  const btnTitle = disableStatus === true ? "Not allowed" : "Pay";
 
   const deleteHandler = () => {
     props.patch_func(note_Data._id, "delete");

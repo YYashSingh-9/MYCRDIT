@@ -51,7 +51,7 @@ proprietorRouter
 // Transactional credit score count here..
 proprietorRouter
   .route("/note-payment")
-  .post(
+  .patch(
     ScoreCountController.transactionalCreditScore_Count,
     NotesController.notePaidController
   );
