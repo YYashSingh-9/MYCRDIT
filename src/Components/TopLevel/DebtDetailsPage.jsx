@@ -19,7 +19,16 @@ import EditIcon from "@mui/icons-material/Edit";
 import SpeakerNotesOffIcon from "@mui/icons-material/SpeakerNotesOff";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import Spinner from "../AdditionalComponents/Spinner";
+import { ToastContainer, toast, Slide } from "react-toastify";
 
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 const DebtDetailsPage = () => {
   let isFormActive = false;
   let arrayOfNotes = [];
@@ -85,7 +94,13 @@ const DebtDetailsPage = () => {
       cookie: cookie,
       type: funcIntent,
     };
+    if (funcIntent === "delete") {
+      toastFn("Successfully deleted ❌");
+    }
 
+    if (funcIntent === "paying") {
+      toastFn("Successfully paid ✅");
+    }
     patch_requestHandle(obj);
   };
 
@@ -205,6 +220,7 @@ const DebtDetailsPage = () => {
               </>
             )}
           </Grid>
+          <ToastContainer />
         </>
       )}
 

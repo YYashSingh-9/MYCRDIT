@@ -22,14 +22,6 @@ import { useEffect } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (type, message) => {
-  if (type === "error")
-    return toast(`${message}`, {
-      position: "top-right",
-      hideProgressBar: true,
-      autoClose: 3000,
-      transition: Slide,
-    });
-  if (type === "success");
   return toast(`${message}`, {
     position: "top-right",
     hideProgressBar: true,
@@ -57,7 +49,6 @@ const FormMain = () => {
         return;
       }
       if (formData.status === "Success") {
-        toastFn("success", "Note created successfully");
         navigate("..");
       }
     }
@@ -152,8 +143,8 @@ const FormMain = () => {
                 </Link>
               </Form>
             </Grid>
+            <ToastContainer />
           </Grid>
-          <ToastContainer />
         </>
       )}
     </>
