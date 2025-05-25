@@ -22,12 +22,13 @@ const EditCustomer = (props) => {
   useEffect(() => {
     if (action_data) {
       if (action_data.status === "Success") {
+        console.log(action_data);
         dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
         navigate(link_);
       }
     }
   }, [action_data]);
-
+  console.log(info);
   return (
     <>
       {loginState ? (
@@ -37,7 +38,7 @@ const EditCustomer = (props) => {
           ) : (
             <Form method="POST" className={classes.form_main}>
               {titleNHtmlFor.map((el, i) => {
-                let val = el === "name" ? info.name : info.contactNumber;
+                let val = el === "Name" ? info.name : info.contactNumber;
 
                 return (
                   <Box key={i}>

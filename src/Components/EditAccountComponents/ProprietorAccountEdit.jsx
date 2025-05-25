@@ -10,7 +10,7 @@ const ProprietorAccountEdit = () => {
   if (userData && userData.status === "Success") {
     proprietorData = {
       name: userData.data.ProprietorName,
-      contactNumber: userData.contactNumber,
+      contactNumber: userData.data.contactNumber,
     };
 
     backLink_Id = `${acc_type},${userData.token}`;
