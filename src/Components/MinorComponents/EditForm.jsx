@@ -1,29 +1,35 @@
-import { Form, Link, useActionData, useNavigate } from "react-router-dom";
-import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Box, TextField } from "@mui/material";
-import classes from "./EditForm.module.css";
-import GeneralButton from "../AdditionalComponents/GeneralButton";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import { useEffect } from "react";
 import { sliceOneActions } from "../../Store/sliceOne";
+import { Box, TextField } from "@mui/material";
+import { useEffect } from "react";
+import classes from "./EditForm.module.css";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
+import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import Spinner from "../AdditionalComponents/Spinner";
 
 const EditForm = () => {
   const userAccountData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
   const accType = useSelector((state) => state.sliceOne.accountType);
-  const userInfo = userAccountData.data;
-
-  const data_toSend = userAccountData.token;
-  const data = useActionData();
+  const navigation = useNavigation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const data = useActionData();
+  const userInfo = userAccountData.data;
+  const data_toSend = userAccountData.token;
 
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
-        console.log(data);
         dispatch(sliceOneActions.updateUserStoredInfo_handler(data));
         navigate("/my-shop-info");
       }
@@ -37,69 +43,73 @@ const EditForm = () => {
           heading={"Update your"}
           heading_highlight={" Information"}
         >
-          <Form method="POST" className={classes.form_main}>
-            <label htmlFor="Shop Name">Shop Name</label>
-            <br />
+          {navigation.state === "submitting" ? (
+            <Spinner />
+          ) : (
+            <Form method="POST" className={classes.form_main}>
+              <label htmlFor="Shop Name">Shop Name</label>
+              <br />
 
-            <TextField
-              id="outlined"
-              defaultValue={userInfo.shopName}
-              name="shopName"
-            />
-            <hr />
-            <label htmlFor="Shop address">Shop Address</label>
-            <br />
-
-            <TextField
-              id="outlined"
-              defaultValue={userInfo.shopAddress}
-              name="shopAddress"
-            />
-            <hr />
-            <label htmlFor="Shop Category">Shop Category</label>
-            <br />
-
-            <TextField
-              id="outlined"
-              defaultValue={userInfo.shopCategory}
-              name="shopCategory"
-            />
-            <hr />
-            <label htmlFor="Contact Number">Contact Number</label>
-            <br />
-
-            <TextField
-              id="outlined"
-              defaultValue={userInfo.contactNumber}
-              name="contactNumber"
-            />
-            <hr />
-            <label htmlFor="Proprietor's Name">Proprietor's Name</label>
-            <br />
-
-            <TextField
-              id="outlined"
-              defaultValue={userInfo.ProprietorName}
-              name="proprietorName"
-            />
-            <hr />
-            <label htmlFor="GST Number">GST Number</label>
-            <br />
-
-            <TextField id="outlined" name="gst_number" />
-            <hr />
-            <Box className={classes.btnBox}>
-              <GeneralButton
-                typeBtn="submit"
-                btn_title="Save"
-                name="proprietor-data"
-                value={data_toSend}
+              <TextField
+                id="outlined"
+                defaultValue={userInfo.shopName}
+                name="shopName"
               />
-              <Link to={"/my-shop-info"}>
-                <GeneralButton typeBtn="button" btn_title="Back" />
-              </Link>
-            </Box>
-          </Form>
+              <hr />
+              <label htmlFor="Shop address">Shop Address</label>
+              <br />
+
+              <TextField
+                id="outlined"
+                defaultValue={userInfo.shopAddress}
+                name="shopAddress"
+              />
+              <hr />
+              <label htmlFor="Shop Category">Shop Category</label>
+              <br />
+
+              <TextField
+                id="outlined"
+                defaultValue={userInfo.shopCategory}
+                name="shopCategory"
+              />
+              <hr />
+              <label htmlFor="Contact Number">Contact Number</label>
+              <br />
+
+              <TextField
+                id="outlined"
+                defaultValue={userInfo.contactNumber}
+                name="contactNumber"
+              />
+              <hr />
+              <label htmlFor="Proprietor's Name">Proprietor's Name</label>
+              <br />
+
+              <TextField
+                id="outlined"
+                defaultValue={userInfo.ProprietorName}
+                name="proprietorName"
+              />
+              <hr />
+              <label htmlFor="GST Number">GST Number</label>
+              <br />
+
+              <TextField id="outlined" name="gst_number" />
+              <hr />
+              <Box className={classes.btnBox}>
+                <GeneralButton
+                  typeBtn="submit"
+                  btn_title="Save"
+                  name="proprietor-data"
+                  value={data_toSend}
+                />
+                <Link to={"/my-shop-info"}>
+                  <GeneralButton typeBtn="button" btn_title="Back" />
+                </Link>
+              </Box>
+            </Form>
+          )}
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage

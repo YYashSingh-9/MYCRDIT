@@ -33,18 +33,17 @@ const EditCustomer = (props) => {
     if (action_data) {
       if (action_data.status === "Success") {
         toastFn("success");
-        console.log(action_data);
         dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
         navigate(link_);
       }
     }
   }, [action_data]);
-  console.log(info);
+
   return (
     <>
       {loginState ? (
         <BasicCoverDiv heading={"Update"} heading_highlight={" account"}>
-          {navigation.state === "loading" ? (
+          {navigation.state === "submitting" ? (
             <Spinner />
           ) : (
             <Form method="POST" className={classes.form_main}>
