@@ -403,7 +403,7 @@ export const edit_user_info = async ({ request }) => {
   const userData = data.get("user-data");
   cookie = userData.split(",")[1];
   accountType = userData.split(",")[0];
-
+  console.log(data_2);
   if (accountType === "customer") {
     data_to_send = {
       contactNumber: data_2.contactNumber,
@@ -415,7 +415,7 @@ export const edit_user_info = async ({ request }) => {
   } else if (accountType === "proprietor") {
     data_to_send = {
       contactNumber: data_2.contactNumber,
-      proprietorName: data_2.name,
+      proprietorName: data_2.Name,
     };
     urlType = "proprietor";
     additional = "edit-proprietor";

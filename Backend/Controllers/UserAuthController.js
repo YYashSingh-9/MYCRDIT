@@ -81,7 +81,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
       },
       { runValidators: true, new: true }
     );
-
+    console.log(contact_number, req.body.proprietorName);
     res.status(200).json({
       status: "Success",
       data: doc,
@@ -180,9 +180,10 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET_CODE);
   const user = await proprietor.findById(decodedToken.id);
-  console.log(user);
+
   req.userType = "Proprietor";
   req.user = user;
+  console.log(req.body);
   next();
 });
 

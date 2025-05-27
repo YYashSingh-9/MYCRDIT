@@ -9,6 +9,16 @@ import { useDispatch } from "react-redux";
 import { Form, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Spinner from "../AdditionalComponents/Spinner";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 
 const EditCustomer = (props) => {
   const { titleNHtmlFor, bck_btnLink, loginState, info } = props;
@@ -22,6 +32,7 @@ const EditCustomer = (props) => {
   useEffect(() => {
     if (action_data) {
       if (action_data.status === "Success") {
+        toastFn("success");
         console.log(action_data);
         dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
         navigate(link_);
@@ -64,6 +75,7 @@ const EditCustomer = (props) => {
               </Box>
             </Form>
           )}
+          <ToastContainer />
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
