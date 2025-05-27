@@ -14,6 +14,16 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Spinner from "../AdditionalComponents/Spinner";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 
 const EditForm = () => {
   const userAccountData = useSelector(
@@ -26,11 +36,13 @@ const EditForm = () => {
   const data = useActionData();
   const userInfo = userAccountData.data;
   const data_toSend = userAccountData.token;
+  console.log(data);
 
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
         dispatch(sliceOneActions.updateUserStoredInfo_handler(data));
+        console.log(data);
         dispatch(sliceOneActions.shopDetailsEditStateSetter());
         navigate("/my-shop-info");
       }
@@ -111,6 +123,7 @@ const EditForm = () => {
               </Box>
             </Form>
           )}
+          <ToastContainer />
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage

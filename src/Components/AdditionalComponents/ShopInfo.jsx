@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import GeneralButton from "./GeneralButton";
 import { ToastContainer, toast, Slide } from "react-toastify";
-import { sliceOneActions } from "../../store/sliceOne.jsx";
+import { sliceOneActions } from "../../Store/sliceOne.jsx";
 
 const toastFn = (message) => {
   return toast(`${message}`, {
