@@ -3,10 +3,11 @@ import BasicCoverDiv from "./BasicCoverDiv";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import GeneralButton from "./GeneralButton";
 import { ToastContainer, toast, Slide } from "react-toastify";
+import { sliceOneActions } from "../../store/sliceOne.jsx";
 
 const toastFn = (message) => {
   return toast(`${message}`, {
@@ -65,9 +66,11 @@ const ShopInfo = () => {
   const editState = useSelector(
     (state) => state.sliceOne.shopDetailsUpdateState
   );
+  const dispatch = useDispatch();
   useEffect(() => {
     if (editState === true) {
       toastFn("Details updated successfully. ✅");
+      dispatch(sliceOneActions.shopDetailsEditStateReSetter());
     }
   }, [userAccountData]);
   return (
