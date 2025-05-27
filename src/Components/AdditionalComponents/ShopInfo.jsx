@@ -2,9 +2,20 @@ import classes from "./ShopInfo.module.css";
 import BasicCoverDiv from "./BasicCoverDiv";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import GeneralButton from "./GeneralButton";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 
 const InfoPart = (props) => {
   const proprietorInfo = props.data;
@@ -51,7 +62,14 @@ const ShopInfo = () => {
   const userAccountData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
-  console.log(userAccountData);
+  const editState = useSelector(
+    (state) => state.sliceOne.shopDetailsUpdateState
+  );
+  useEffect(() => {
+    if (editState === true) {
+      toastFn("Details updated successfully. ✅");
+    }
+  }, [userAccountData]);
   return (
     <>
       {accType === "proprietor" ? (
@@ -81,6 +99,7 @@ const ShopInfo = () => {
               <GeneralButton btn_title="Back" />
             </Link>
           </Grid>
+          <ToastContainer />
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage

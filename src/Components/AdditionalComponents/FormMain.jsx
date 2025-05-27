@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 
-const toastFn = (type, message) => {
+const toastFn = (message) => {
   return toast(`${message}`, {
     position: "top-right",
     hideProgressBar: true,
