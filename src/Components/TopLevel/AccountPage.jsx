@@ -18,7 +18,8 @@ const toastFn = (message) => {
 };
 
 const AccountPage = () => {
-  let id_String, cookie, accType, objectToSend;
+  let id_String, cookie, accType, objectToSend, headingHighlight;
+
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const reviewPopupState = useSelector(
@@ -35,11 +36,6 @@ const AccountPage = () => {
     cookie: cookie,
   };
 
-  let headingHighlight =
-    accType === "customer"
-      ? userData.data.customerName
-      : userData.data.ProprietorName;
-  console.log(reviewPopupState);
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
     if (reviewPopupState === true) {
@@ -47,6 +43,10 @@ const AccountPage = () => {
       dispatch(sliceOneActions.reviewStateReSetter());
     }
   }, []);
+  headingHighlight =
+    accType === "customer"
+      ? userData.data.customerName
+      : userData.data.ProprietorName;
 
   return (
     <>

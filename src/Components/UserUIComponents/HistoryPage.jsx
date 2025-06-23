@@ -10,11 +10,12 @@ import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPa
 import { useQuery } from "@tanstack/react-query";
 import { getClearedNotes } from "../../Store/actionCreatorThunk";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+import Spinner from "../AdditionalComponents/Spinner";
 
 export const ListItem = (props) => {
   let clearState, pendingState;
   const { obj } = props;
-  console.log(obj, props);
+
   clearState = obj.cleared === true ? true : false;
   const date = obj.date.slice(0, 10);
 
@@ -47,13 +48,13 @@ const HistoryPage = () => {
   accType = id_String[0];
   userCookie = id_String[1];
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isError, isFetching } = useQuery({
     queryKey: ["cleared-notes"],
     queryFn: () => {
       return getClearedNotes(userCookie, accType);
     },
   });
-  console.log(data);
+  console.log(data, isFetching);
   return (
     <>
       {accType === "" ? (
@@ -64,50 +65,64 @@ const HistoryPage = () => {
         />
       ) : (
         <BasicCoverDiv>
-          <Grid item lg={12} md={12} sm={12} xs={12} className={classes.header}>
-            <h1>
-              Your{" "}
-              <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
-                {accType === "proprietor" ? "cleared debts" : "History"}
-              </span>
-            </h1>
-          </Grid>
-          {data && data.status === "Success" && data.data.length === 0 ? (
-            <WhenNoItemToDisplay
-              userName={"Customer"}
-              title={"No cleared notes!"}
-              subtitle={
-                "It seems you haven't cleared any of your debt notes to display here."
-              }
-            />
+          {isFetching ? (
+            <Spinner />
           ) : (
             <>
+              {" "}
               <Grid
                 item
                 lg={12}
                 md={12}
                 sm={12}
                 xs={12}
-                marginBottom={3}
-                className={classes.detailsBox}
+                className={classes.header}
               >
-                {data !== undefined
-                  ? data.data.map((el, i) => <ListItem obj={el} key={i} />)
-                  : ""}
+                <h1>
+                  Your{" "}
+                  <span style={{ color: "#1DB954", fontFamily: "poppins" }}>
+                    {accType === "proprietor" ? "cleared debts" : "History"}
+                  </span>
+                </h1>
               </Grid>
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                className={classes.btnSection}
-                marginBottom={2}
-              >
-                <Link to={`/your-account-details/${id}`}>
-                  <GeneralButton btn_title={"back"} />
-                </Link>
-              </Grid>
+              {data && data.status === "Success" && data.data.length === 0 ? (
+                <WhenNoItemToDisplay
+                  userName={"Customer"}
+                  title={"No cleared notes!"}
+                  subtitle={
+                    "It seems you haven't cleared any of your debt notes to display here."
+                  }
+                />
+              ) : (
+                <>
+                  <Grid
+                    item
+                    lg={12}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    marginBottom={3}
+                    className={classes.detailsBox}
+                  >
+                    {data !== undefined
+                      ? data.data.map((el, i) => <ListItem obj={el} key={i} />)
+                      : ""}
+                  </Grid>
+                  <Grid
+                    item
+                    lg={12}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    className={classes.btnSection}
+                    marginBottom={2}
+                  >
+                    <Link to={`/your-account-details/${id}`}>
+                      <GeneralButton btn_title={"back"} />
+                    </Link>
+                  </Grid>
+                </>
+              )}
             </>
           )}
         </BasicCoverDiv>

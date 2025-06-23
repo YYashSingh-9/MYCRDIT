@@ -124,7 +124,6 @@ const sliceOne = createSlice({
     },
     reviewStateSetter(state, action) {
       state.reviewPopupState = true;
-      console.log("WORKING!!!!!!!");
     },
     reviewStateReSetter(state, action) {
       state.reviewPopupState = false;
