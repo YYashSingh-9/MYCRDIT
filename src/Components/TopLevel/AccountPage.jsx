@@ -6,6 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 
 const AccountPage = () => {
   let id_String, cookie, accType, objectToSend;
@@ -29,11 +39,13 @@ const AccountPage = () => {
     accType === "customer"
       ? userData.data.customerName
       : userData.data.ProprietorName;
-
+  console.log(reviewPopupState);
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
-    if (reviewPopupState === true)
+    if (reviewPopupState === true) {
+      toastFn("Review sent.");
       dispatch(sliceOneActions.reviewStateReSetter());
+    }
   }, []);
 
   return (
@@ -41,6 +53,7 @@ const AccountPage = () => {
       <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart data={objectToSend} user_data={userData.data} />
+          <ToastContainer />
         </Grid>
       </BasicCoverDiv>
     </>

@@ -123,10 +123,11 @@ const sliceOne = createSlice({
       state.shopDetailsUpdateState = false;
     },
     reviewStateSetter(state, action) {
-      state.shopDetailsUpdateState = true;
+      state.reviewPopupState = true;
+      console.log("WORKING!!!!!!!");
     },
     reviewStateReSetter(state, action) {
-      state.shopDetailsUpdateState = false;
+      state.reviewPopupState = false;
     },
   },
 });

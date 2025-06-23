@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
-import { ToastContainer, toast, Slide } from "react-toastify";
 import { sliceOneActions } from "../../Store/sliceOne";
 
 const ReviewNFeedback = () => {
@@ -103,7 +102,6 @@ const ReviewNFeedback = () => {
               </Grid>
             </>
           )}
-          <ToastContainer />
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
