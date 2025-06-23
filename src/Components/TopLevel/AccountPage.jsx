@@ -11,6 +11,9 @@ const AccountPage = () => {
   let id_String, cookie, accType, objectToSend;
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.sliceOne.accountUserData);
+  const reviewPopupState = useSelector(
+    (state) => state.sliceOne.reviewPopupState
+  );
   const { id } = useParams();
 
   id_String = id.split(",");
@@ -22,13 +25,17 @@ const AccountPage = () => {
     cookie: cookie,
   };
 
-  useEffect(() => {
-    dispatch(sliceOneActions.userStorageInfo_Get_handler());
-  }, []);
   let headingHighlight =
     accType === "customer"
       ? userData.data.customerName
       : userData.data.ProprietorName;
+
+  useEffect(() => {
+    dispatch(sliceOneActions.userStorageInfo_Get_handler());
+    if (reviewPopupState === true)
+      dispatch(sliceOneActions.reviewStateReSetter());
+  }, []);
+
   return (
     <>
       <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>

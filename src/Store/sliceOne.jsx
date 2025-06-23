@@ -13,6 +13,7 @@ const initial_State = {
   customerNote_requests: [],
   recentLoginState: false,
   shopDetailsUpdateState: false,
+  reviewPopupState: false,
 };
 
 const sliceOne = createSlice({
@@ -119,6 +120,12 @@ const sliceOne = createSlice({
       state.shopDetailsUpdateState = true;
     },
     shopDetailsEditStateReSetter(state, action) {
+      state.shopDetailsUpdateState = false;
+    },
+    reviewStateSetter(state, action) {
+      state.shopDetailsUpdateState = true;
+    },
+    reviewStateReSetter(state, action) {
       state.shopDetailsUpdateState = false;
     },
   },

@@ -14,7 +14,6 @@ import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Spinner from "../AdditionalComponents/Spinner";
-import { ToastContainer, toast, Slide } from "react-toastify";
 
 const EditForm = () => {
   const userAccountData = useSelector(
