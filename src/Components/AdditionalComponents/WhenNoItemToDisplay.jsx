@@ -3,20 +3,22 @@ import { Box } from "@mui/material";
 import FaceIcon from "@mui/icons-material/Face";
 import GeneralButton from "./GeneralButton";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 
 const WhenNoItemToDisplay = (props) => {
+  const { title, subtitle, toShowSpinner, userName } = props;
+  console.log(title, subtitle, toShowSpinner, userName);
   return (
     <>
       <Box className={classes.noReqsBox}>
         <Box>
           <h2>
-            Hey <span style={{ color: "#1DB954" }}>{props.userName}</span>,{" "}
-            {props.title}.
+            Hey <span style={{ color: "#1DB954" }}>{userName}</span>, {title}.
           </h2>
           <Box>
             <FaceIcon className={classes.faceIcn} />
           </Box>
-          <p>{props.subtitle}</p>
+          <p>{subtitle}</p>
         </Box>
         <Box className={classes.homeBtn}>
           <Link to={"/"}>

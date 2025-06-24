@@ -7,6 +7,7 @@ import { sliceOneActions } from "../../Store/sliceOne";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
+import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 const toastFn = (message) => {
   return toast(`${message}`, {
@@ -50,12 +51,18 @@ const AccountPage = () => {
 
   return (
     <>
-      <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>
+      <WhenNoItemToDisplay
+        title="Something went wrong"
+        subtitle="Loading, but you can check home if this takes too long"
+        userName="pagla"
+        toShowSpinner={true}
+      />
+      {/* <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>
         <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
           <AccountInfoPart data={objectToSend} user_data={userData.data} />
           <ToastContainer />
         </Grid>
-      </BasicCoverDiv>
+      </BasicCoverDiv> */}
     </>
   );
 };

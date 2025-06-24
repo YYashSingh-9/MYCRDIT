@@ -8,9 +8,14 @@
   margin: 3rem 0rem;
   text-align: center;
 }
+.noReqsBox h2,
+p {
+  color: #191414;
+}
 .faceIcn {
   transform: scale(4.2);
   margin: 4rem;
+  color: #191414;
 }
 .homeBtn {
   margin-top: 2rem;
