@@ -15,13 +15,13 @@ import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../AdditionalComponents/Spinner";
-import CircularProgress from "@mui/material/CircularProgress";
 
-const notifyFunction = () => {
-  return toast("Logged in successfully.✅", {
+const notifyFunction = (message) => {
+  return toast(message, {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: 1500,
   });
 };
 
@@ -197,6 +197,9 @@ const LoginPage = () => {
         dispatch(sliceOneActions.loginState_setter());
 
         Navigate("/");
+      }
+      if (actionData.status === "Fail") {
+        notifyFunction(actionData.message);
       }
     }
   }, [actionData]);

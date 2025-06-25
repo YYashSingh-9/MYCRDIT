@@ -141,7 +141,9 @@ exports.proprietorVerification = catchAsync(async (req, res, next) => {
 
   const user = await proprietor.findOne({ contactNumber }).select("+password");
   if (!user)
-    return next(new appError("Could not login. Try again later.", 400));
+    return next(
+      new appError("Could not login, check if filled right or not.", 400)
+    );
 
   const pwCorrect = await user.correctPassword(password, user.password);
   if (!pwCorrect) return next(new appError("Password incorrect retry.", 400));
