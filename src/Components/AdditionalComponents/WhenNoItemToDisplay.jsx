@@ -15,9 +15,16 @@ const WhenNoItemToDisplay = (props) => {
           <h2>
             Hey <span style={{ color: "#1DB954" }}>{userName}</span>, {title}.
           </h2>
-          <Box>
-            <FaceIcon className={classes.faceIcn} />
-          </Box>
+          {toShowSpinner ? (
+            <Box>
+              <Spinner />{" "}
+            </Box>
+          ) : (
+            <Box>
+              <FaceIcon className={classes.faceIcn} />
+            </Box>
+          )}
+
           <p>{subtitle}</p>
         </Box>
         <Box className={classes.homeBtn}>

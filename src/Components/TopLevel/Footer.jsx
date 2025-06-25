@@ -15,6 +15,7 @@ const Footer = () => {
         direction="column"
         justifyContent="center"
         alignItems="center"
+        mt={"auto"}
         className={classes.footerContainer}
       >
         <Grid item xs={12} md={12} lg={12} className={classes.footerTop}>

@@ -36,33 +36,50 @@ const AccountPage = () => {
     accountType: accType,
     cookie: cookie,
   };
-
+  if (userData && userData.status === "Success") {
+    headingHighlight =
+      accType === "customer"
+        ? userData.data.customerName
+        : userData.data.ProprietorName;
+  }
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
+    console.log("use effect ran");
     if (reviewPopupState === true) {
       toastFn("Review sent.");
+      console.log("use effect ran2");
+
       dispatch(sliceOneActions.reviewStateReSetter());
     }
   }, []);
-  headingHighlight =
-    accType === "customer"
-      ? userData.data.customerName
-      : userData.data.ProprietorName;
 
   return (
     <>
-      <WhenNoItemToDisplay
-        title="Something went wrong"
-        subtitle="Loading, but you can check home if this takes too long"
-        userName="pagla"
-        toShowSpinner={true}
-      />
-      {/* <BasicCoverDiv heading="Account of " heading_highlight={headingHighlight}>
-        <Grid item lg={12} md={12} xs={12} sm={12} className={classes.infoPart}>
-          <AccountInfoPart data={objectToSend} user_data={userData.data} />
-          <ToastContainer />
-        </Grid>
-      </BasicCoverDiv> */}
+      {userData && userData.status === "Success" ? (
+        <BasicCoverDiv
+          heading="Account of "
+          heading_highlight={headingHighlight}
+        >
+          <Grid
+            item
+            lg={12}
+            md={12}
+            xs={12}
+            sm={12}
+            className={classes.infoPart}
+          >
+            <AccountInfoPart data={objectToSend} user_data={userData.data} />
+            <ToastContainer />
+          </Grid>
+        </BasicCoverDiv>
+      ) : (
+        <WhenNoItemToDisplay
+          title="Something went wrong"
+          subtitle="Loading, but you can check home if this takes too long"
+          userName="pagla"
+          toShowSpinner={true}
+        />
+      )}
     </>
   );
 };
