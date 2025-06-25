@@ -55,7 +55,7 @@ module.exports = (err, req, res, next) => {
   const error = JSON.parse(JSON.stringify(err));
   error.message = err.message || "Failed request";
   error.statusCode = error.statusCode || 500;
-
+  console.log(error);
   if (process.env.NODE_ENV === "development") {
     developmentError(error, req, res);
   }
@@ -67,7 +67,7 @@ module.exports = (err, req, res, next) => {
     if (error.name === "JsonWebTokenError") err_or = handleJWTError(err_or);
     if (error.name === "TokenExpiredError")
       err_or = handleJWTExpiredError(err_or);
-
+    console.log(err_or);
     productionError(err_or, req, res);
   }
 };

@@ -187,7 +187,7 @@ const LoginPage = () => {
   const toCustomer = () => {
     dispatch(sliceOneActions.accountTypeToggler("customer"));
   };
-
+  console.log(actionData);
   useEffect(() => {
     if (actionData) {
       if (actionData.status === "Success") {
@@ -200,11 +200,7 @@ const LoginPage = () => {
       }
     }
   }, [actionData]);
-  {
-    /* <Box className={classes.spinnerBox}>
-            <CircularProgress />
-          </Box> */
-  }
+
   return (
     <>
       <InitialSlider />
