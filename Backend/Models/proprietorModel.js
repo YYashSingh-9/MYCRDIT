@@ -59,17 +59,17 @@ const proprietorSchema = mongoose.Schema({
   },
   mostSellingProduct: {
     type: String,
-    minLength: [5, "Better description required"],
+    minLength: [5, "Better description required for most selling product"],
     maxLength: [20, "Product name getting too long"],
   },
   leastSellingProduct: {
     type: String,
-    minLength: [5, "Better description required."],
+    minLength: [5, "Better description required for least selling product."],
     maxLength: [20, "Product name getting too long"],
   },
   proprietorDemand: {
     type: String,
-    minLength: [5, "Better description required."],
+    minLength: [5, "Better description required for proprietor demand."],
     maxLength: [50, "Max characters reached"],
   },
   proprietorGST: {

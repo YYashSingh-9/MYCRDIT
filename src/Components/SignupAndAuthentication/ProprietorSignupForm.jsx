@@ -1,13 +1,45 @@
 import classes from "./ProprietorSignupForm.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Form, Link } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
-import { useSelector } from "react-redux";
-import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import { sliceOneActions } from "../../Store/sliceOne";
+
+const notifyFunction = (message) => {
+  return toast(message, {
+    position: "top-right",
+    autoClose: 1500,
+  });
+};
 
 const ProprietorSignupForm = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
-
+  const actionData = useActionData();
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log(actionData);
+  useEffect(() => {
+    if (actionData) {
+      if (actionData.status === "error") {
+        notifyFunction(actionData.message[0]);
+      }
+      if (actionData.status === "Success") {
+        dispatch(
+          sliceOneActions.authentication_Info_Storage_handler(actionData)
+        );
+        Navigate("/");
+      }
+    }
+  }, [actionData]);
   return (
     <>
       <BasicCoverDiv heading={"Signup as "} heading_highlight={"Proprietor."}>
@@ -177,6 +209,7 @@ const ProprietorSignupForm = () => {
             </h4>
           </Link>
         </Grid>
+        <ToastContainer />
       </BasicCoverDiv>
     </>
   );
