@@ -36,6 +36,7 @@ const ProprietorSignupForm = () => {
         dispatch(
           sliceOneActions.authentication_Info_Storage_handler(actionData)
         );
+        dispatch(sliceOneActions.loginState_setter());
         Navigate("/");
       }
     }
