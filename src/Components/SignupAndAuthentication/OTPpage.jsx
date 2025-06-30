@@ -11,7 +11,6 @@ const OTPpage = () => {
   const Navigate = useNavigate();
   const otpSubmitter = (e) => {
     e.preventDefault();
-    console.log(ref.current.value);
     if (ref.current.value === "2222") {
       Navigate("/");
     }

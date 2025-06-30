@@ -205,8 +205,8 @@ const LoginPage = () => {
         dispatch(sliceOneActions.loginState_setter());
         Navigate("/otp-authentication");
       }
-      if (actionData.status === "Fail") {
-        notifyFunction(actionData.message);
+      if (actionData.status === "Fail" || actionData.status === "error") {
+        notifyFunction(actionData.message[0]);
       }
     }
   }, [actionData]);
