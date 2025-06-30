@@ -2,6 +2,12 @@
   padding: 0.5rem 0.5rem;
   font-size: 0.8rem;
   width: 30rem;
+  background-color: transparent;
+  border: 0.1rem solid rgb(221, 221, 221);
+  border-radius: 0.1rem;
+}
+.form_main input:focus {
+  border: 0.1rem solid rgb(208, 207, 207);
 }
 .form_main {
   border: 0.1rem solid rgb(221, 221, 221);
@@ -40,8 +46,9 @@
     font-size: 0.8rem;
   }
   .form_main input {
-    width: 15rem;
+    width: 11rem;
     padding: 0.3rem 0.3rem;
+    margin-top: 1rem;
   }
   .form_main {
     padding: 0.8rem;

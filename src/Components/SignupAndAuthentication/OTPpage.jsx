@@ -2,18 +2,36 @@ import classes from "./OTPpage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import { Grid, TextField, Box } from "@mui/material";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
+import { useRef } from "react";
 
 const OTPpage = () => {
+  const ref = useRef();
+  const Navigate = useNavigate();
+  const otpSubmitter = (e) => {
+    e.preventDefault();
+    console.log(ref.current.value);
+    if (ref.current.value === "2222") {
+      Navigate("/");
+    }
+  };
   return (
     <>
       <BasicCoverDiv heading={"Enter your"} heading_highlight={" OTP"}>
         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.main}>
-          <Form method="POST" className={classes.form_main}>
-            <label htmlFor="number">One time password : </label>
+          <Form
+            method="POST"
+            className={classes.form_main}
+            onSubmit={otpSubmitter}
+          >
+            <label htmlFor="number">One time password : enter 2222</label>
             <br />
-            <TextField id="outlined" />
+            <input
+              id="outlined"
+              ref={ref}
+              style={{ backgroundColor: "white" }}
+            />
             <br />
             <GeneralButton typeBtn="submit" btn_title="Authenticate" />
           </Form>
