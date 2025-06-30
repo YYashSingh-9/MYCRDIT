@@ -187,7 +187,7 @@ const LoginPage = () => {
   const toCustomer = () => {
     dispatch(sliceOneActions.accountTypeToggler("customer"));
   };
-  console.log(actionData);
+
   useEffect(() => {
     if (actionData) {
       if (actionData.status === "Success" && actionData.data.ProprietorName) {
