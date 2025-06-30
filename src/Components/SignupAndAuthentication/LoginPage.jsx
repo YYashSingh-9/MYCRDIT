@@ -190,13 +190,20 @@ const LoginPage = () => {
   console.log(actionData);
   useEffect(() => {
     if (actionData) {
-      if (actionData.status === "Success") {
+      if (actionData.status === "Success" && actionData.data.ProprietorName) {
         dispatch(
           sliceOneActions.authentication_Info_Storage_handler(actionData)
         );
         dispatch(sliceOneActions.loginState_setter());
 
         Navigate("/");
+      }
+      if (actionData.status === "Success" && actionData.data.customerName) {
+        dispatch(
+          sliceOneActions.authentication_Info_Storage_handler(actionData)
+        );
+        dispatch(sliceOneActions.loginState_setter());
+        Navigate("/otp-authentication");
       }
       if (actionData.status === "Fail") {
         notifyFunction(actionData.message);

@@ -4,8 +4,8 @@ import IconButton from "@mui/material/IconButton";
 import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 
 const CustomerSignupForm = () => {
@@ -15,7 +15,14 @@ const CustomerSignupForm = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+  const actionData = useActionData();
+  const Navigate = useNavigate();
+  useEffect(() => {
+    if (actionData) {
+      if (actionData.status === "Success") {
+      }
+    }
+  }, [actionData]);
   return (
     <>
       <BasicCoverDiv>
