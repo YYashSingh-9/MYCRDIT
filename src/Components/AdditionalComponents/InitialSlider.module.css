@@ -1,5 +1,5 @@
 .mainSlider {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

@@ -1,11 +1,12 @@
 import { Box } from "@mui/material";
 import classes from "./InitialSlider.module.css";
+import { createPortal } from "react-dom";
+
+const portal = document.getElementById("backdrop");
 
 const InitialSlider = () => {
   return (
-    <>
-      <Box className={classes.mainSlider}></Box>
-    </>
+    <>{createPortal(<Box className={classes.mainSlider}></Box>, portal)}</>
   );
 };
 
