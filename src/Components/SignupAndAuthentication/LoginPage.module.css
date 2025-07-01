@@ -34,15 +34,15 @@
   align-items: center;
   justify-content: center;
   margin: 1rem 0rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 .quickinImg {
   height: 1.7rem;
   margin-left: 0.5rem;
 }
-.parentGrid {
+/* .parentGrid {
   height: 75vh;
-}
+} */
 /* .spinnerBox {
   height: 60vh;
   display: flex;
