@@ -46,7 +46,8 @@ const FormMain = () => {
   const btnDataToSend = `${cookie},${proprietorId}`;
   useEffect(() => {
     if (formData !== undefined) {
-      if (formData.status === "Fail") toastFn("error", formData.message);
+      if (formData.status === "Fail" || formData.status === "error")
+        toastFn(formData.message[0]);
 
       if (formData.status === "Success") {
         dispatch(sliceOneActions.newNoteAddedStateToggle());

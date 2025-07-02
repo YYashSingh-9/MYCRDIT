@@ -183,6 +183,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
   const doc = await debtNote.find({
     customerNumber: { $in: customerNumber },
     cleared: { $in: false },
+    deleted: { $in: false },
     acceptanceStatus: { $in: true },
   });
 
@@ -190,6 +191,7 @@ exports.getAllPendingNotes = catchAsync(async (req, res, next) => {
   const doc2 = await debtNote.find({
     customerNumber: { $in: customerNumber },
     acceptanceStatus: { $in: false },
+    deleted: { $in: false },
   });
 
   const finalDoc = requestFor === "accepted-notes" ? doc : doc2;
