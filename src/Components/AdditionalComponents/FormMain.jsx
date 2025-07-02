@@ -17,8 +17,9 @@ import {
 } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (message) => {
@@ -35,7 +36,9 @@ const FormMain = () => {
   const data = useSelector((state) => state.sliceOne.accountUserData);
   const formData = useActionData();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const navigation = useNavigation();
+
   if (data.status === "Success") {
     cookie = data.token;
     proprietorId = data.data._id;
@@ -46,6 +49,7 @@ const FormMain = () => {
       if (formData.status === "Fail") toastFn("error", formData.message);
 
       if (formData.status === "Success") {
+        dispatch(sliceOneActions.newNoteAddedStateToggle());
         navigate("..");
       }
     }

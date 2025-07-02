@@ -107,6 +107,7 @@ const DebtDetailsPage = () => {
 
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
+    console.log("ran");
     if (cookie.length > 1) {
       mutate();
     }
