@@ -35,7 +35,7 @@ const DebtDetailsPage = () => {
   let customerName = "";
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const accType = useSelector((state) => state.sliceOne.accountType);
-
+  const newNoteState = useSelector((state) => state.sliceOne.newNoteAddedState);
   const location = useLocation();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -111,7 +111,7 @@ const DebtDetailsPage = () => {
     if (cookie.length > 1) {
       mutate();
     }
-  }, [id, cookie, returnData]);
+  }, [id, cookie, returnData, newNoteState]);
 
   return (
     <>
@@ -150,16 +150,16 @@ const DebtDetailsPage = () => {
                   xs={12}
                   className={classes.addBtn}
                 >
-                  <Link to={`/${id}/details/add-note`}>
-                    <button>
-                      <EditIcon className={classes.iccn} />
-                      Add
-                    </button>
-                  </Link>
                   <Link to={".."}>
                     <button>
                       <ArrowLeft className={classes.iccn} />
                       Back
+                    </button>
+                  </Link>
+                  <Link to={`/${id}/details/add-note`}>
+                    <button>
+                      <EditIcon className={classes.iccn} />
+                      Add
                     </button>
                   </Link>
                 </Grid>
