@@ -3,14 +3,14 @@ MYCRDIT prototype v1.0
 ⚛ What's in this app;
 
 1. Types of logins -(a)Buyer (b)proprieter.
-2. All information about current unpaid/paid debts also mycredit points.
+2. All information about current unpaid/paid debts also mycredit points.✔️
 3. UI contains -
-   🕳 Login/signup.✔✔
-   🕳 List of on-going debt Notes.✔✔
-   🕳 Create new debt note button.✔✔
-   🕳 Account information.✔✔
-   🕳 Debt Notes in details page.✔✔
-   🕳 Current crdit points(for buyers).✔✔
+   🕳 Login/signup.✔️
+   🕳 List of on-going debt Notes.✔️
+   🕳 Create new debt note button.✔️
+   🕳 Account information.✔️
+   🕳 Debt Notes in details page.✔️
+   🕳 Current crdit points(for buyers).✔️
 
 ⚛ How does this app works
 
@@ -23,13 +23,13 @@ the information of this will be saved in history of this buyer
 
 ⚛ Front-end
 
-1. Create homepage of this app which shows list of DNs which are clickable.✔
-2. Create login/signup page.✔
-3. Create the functionality of signing up as a proprieter or buyer ✔
-4. Create my account page as per the user(proprieter/buyer).✔
+1. Create homepage of this app which shows list of DNs which are clickable.✔️
+2. Create login/signup page.✔️
+3. Create the functionality of signing up as a proprieter or buyer ✔️
+4. Create my account page as per the user(proprieter/buyer).✔️
 5. Create functionality of clicking a debt note which will open a page with all the details of that particular DN ✔
 6. Create DN details page, which will have a list of all the buyers with date and amount due, option of check clear✅ and delete.✔
-7. Popup shows everytime we login/add/clears a debt from DN.
+7. Popup shows everytime we login/add/clears a debt from DN. ✔️
 8. Create functionality of editing account info.✔️
 9. Popup shows everytime we change account details
 10. Dedicated Account book of a buyer.✔️
@@ -46,6 +46,9 @@ the information of this will be saved in history of this buyer
 
 
 1. Add spinners in every component where data is being fetched or send.
-login✅
-loading notes✅
-loading detailed notes✅
+login✔️
+loading notes✔️
+loading detailed notes✔️
+
+2. Add error popup messages when there is an error.✔️
+3. Add "error then redirection to home" page when there is a major error.✔️ 
