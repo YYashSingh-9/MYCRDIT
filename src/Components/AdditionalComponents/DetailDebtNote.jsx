@@ -80,7 +80,7 @@ const DetailedNote = (props) => {
           </button>
         </Box>
       </Grid>
-      <hr style={{ width: "80%", marginTop: "2rem", marginBottom: "2rem" }} />
+      <hr className={classes.bottom_line} />
     </>
   );
 };
