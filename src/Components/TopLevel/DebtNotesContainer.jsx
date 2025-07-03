@@ -187,7 +187,7 @@ const DebtNotesContainer = () => {
           outline: "none",
           border: "none",
           margin: "auto",
-          marginBottom: "0.5rem",
+          marginBottom: "2rem",
         }}
       />
     </>
