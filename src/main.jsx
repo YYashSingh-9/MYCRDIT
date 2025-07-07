@@ -31,6 +31,7 @@ import {
   reviewSendHandler,
   edit_user_info,
 } from "./Store/actionCreatorThunk.js";
+import Administrator from "./Components/Administrator/Administrator.jsx";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
         action: edit_user_info,
       },
       { path: "/my-current-mcs", element: <MCScorePage /> },
+      {
+        path: "/forbidden-path-xyx-administrator-panel",
+        element: <Administrator />,
+      },
     ],
   },
 ]);

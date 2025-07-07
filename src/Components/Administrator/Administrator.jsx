@@ -2,6 +2,7 @@ import { Box, TextField } from "@mui/material";
 import { Form } from "react-router-dom";
 import classes from "./Administrator.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import { useMutation } from "@tanstack/react-query";
 
 const Administrator_button = (props) => {
   return (
@@ -21,7 +22,9 @@ const Administrator_button_search = (props) => {
     </>
   );
 };
+
 const Administrator = () => {
+  useMutation();
   return (
     <>
       <BasicCoverDiv heading_highlight="Panel" heading="Administrator ">
