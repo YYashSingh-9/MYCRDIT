@@ -181,12 +181,11 @@ const DebtNotesContainer = () => {
       <hr
         style={{
           width: "60vw",
-          height: "0.2rem ",
-          backgroundColor: "rgb(30, 30, 30)",
-          borderRadius: "1rem",
+          height: "0.1rem ",
+          backgroundColor: "rgb(221, 221, 221)",
           outline: "none",
-          border: "none",
           margin: "auto",
+          border: "none",
           marginBottom: "2rem",
         }}
       />
