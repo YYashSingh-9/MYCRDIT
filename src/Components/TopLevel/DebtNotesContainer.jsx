@@ -61,9 +61,10 @@ const DebtNotesContainer = () => {
   const dispatch = useDispatch();
 
   const currentUserCookie = currentUserData.token;
-  const currentRunningNotes = dummyRunningNotes.filter(
+  const allNotes = dummyRunningNotes.filter(
     (el) => el.deleted === false && el.cleared === false
   );
+  const currentRunningNotes = allNotes.reverse();
   const enableStat = currentUserCookie ? true : false;
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
