@@ -26,6 +26,18 @@ const WhenNoItemToDisplay = (props) => {
           )}
 
           <p>{subtitle}</p>
+          <hr
+            style={{
+              width: "60%",
+              height: "0.1rem ",
+              backgroundColor: "rgb(221, 221, 221)",
+              outline: "none",
+              margin: "auto",
+              marginTop: "1rem",
+              border: "none",
+              marginBottom: "2rem",
+            }}
+          />
         </Box>
         <Box className={classes.homeBtn}>
           <Link to={"/"}>

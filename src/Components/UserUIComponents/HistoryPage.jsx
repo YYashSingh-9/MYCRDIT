@@ -41,7 +41,7 @@ export const ListItem = (props) => {
 };
 
 const HistoryPage = () => {
-  let accType, userCookie, id_String;
+  let accType, userCookie, id_String, username;
   const { id } = useParams();
 
   id_String = id.split(",");
@@ -55,6 +55,7 @@ const HistoryPage = () => {
     },
   });
   console.log(data, isFetching);
+  username = accType === "proprietor" ? "proprietor" : "customer";
   return (
     <>
       {accType === "" ? (
@@ -87,7 +88,7 @@ const HistoryPage = () => {
               </Grid>
               {data && data.status === "Success" && data.data.length === 0 ? (
                 <WhenNoItemToDisplay
-                  userName={"Customer"}
+                  userName={username}
                   title={"No cleared notes!"}
                   subtitle={
                     "It seems you haven't cleared any of your debt notes to display here."

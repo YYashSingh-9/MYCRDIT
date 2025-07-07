@@ -8,6 +8,7 @@
   margin: auto;
   margin-top: 3rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 .noReqsBox h2,
 p {
@@ -21,5 +22,7 @@ p {
   color: #404040;
 }
 .homeBtn {
-  margin-top: 2rem;
+  width: 30%;
+  margin: auto;
+  margin-top: 1rem;
 }

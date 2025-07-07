@@ -85,9 +85,8 @@ const DebtNotesContainer = () => {
     }
     if (loginState === true) {
       notifyFunction();
-      setTimeout(() => {
-        dispatch(sliceOneActions.loginState_reset());
-      }, 2000);
+
+      dispatch(sliceOneActions.loginState_reset());
     }
   }, [data, loginState]);
 
