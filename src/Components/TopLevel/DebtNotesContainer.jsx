@@ -159,7 +159,7 @@ const DebtNotesContainer = () => {
               ) : (
                 <ListContainer itemArray={currentRunningNotes} />
               )}
-              {filterNotificationState && (
+              {filterNotificationState && currentRunningNotes.length > 0 && (
                 <Box
                   onClick={reloadAllNotes}
                   sx={{

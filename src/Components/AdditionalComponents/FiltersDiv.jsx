@@ -9,18 +9,20 @@ import { sliceOneActions } from "../../Store/sliceOne";
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
   const inputType = props.type ? props.type : "text";
-  console.log(notesArray);
-  let amountInput, titleInput, filtered_array;
+
+  let amountInput, titleInput, filtered_array, inputTextConverted;
 
   const filterHandler = () => {
     filtered_array = notesArray.filter((el) => {
-      console.log(el);
       const title =
         el.noteTitle.charAt(0).toLowerCase() + el.noteTitle.slice(1);
+      titleInput = String(props.refProp.current.value);
+      inputTextConverted =
+        titleInput.charAt(0).toLowerCase() + titleInput.slice(1);
 
       if (String(el.amount) === props.refProp.current.value) {
         return el;
-      } else if (title.includes(props.refProp.current.value)) {
+      } else if (title.includes(inputTextConverted)) {
         return el;
       }
     });
