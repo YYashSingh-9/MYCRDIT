@@ -54,7 +54,7 @@ const HistoryPage = () => {
       return getClearedNotes(userCookie, accType);
     },
   });
-  console.log(data, isFetching);
+
   username = accType === "proprietor" ? "proprietor" : "customer";
   return (
     <>
