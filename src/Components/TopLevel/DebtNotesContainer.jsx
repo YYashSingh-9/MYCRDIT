@@ -27,6 +27,7 @@ const notifyFunction = () => {
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
+  console.log(props.tagTitle);
   return (
     <>
       <button className={`${classes.userTag} ${conditionalStyle}`}>
@@ -76,7 +77,7 @@ const DebtNotesContainer = () => {
   const reloadAllNotes = () => {
     dispatch(sliceOneActions.reload_all_notes_toArray());
   };
-
+  console.log(currentUserData);
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
@@ -105,7 +106,10 @@ const DebtNotesContainer = () => {
               </h3>
               <Box className={classes.tags}>
                 <TagButton iconTitle="store" tagTitle="Proprietor" />
-                <TagButton iconTitle="daily" tagTitle="Daily Needs" />
+                <TagButton
+                  iconTitle="daily"
+                  tagTitle={currentUserData.data.shopCategory}
+                />
                 <Link to={"/add-debt-note-form"}>
                   <TagButton
                     iconTitle="create"
