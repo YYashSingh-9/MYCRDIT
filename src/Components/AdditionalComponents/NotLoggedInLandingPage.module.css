@@ -37,7 +37,7 @@
   }
   .endliner {
     margin-top: 7rem;
-    width: 60%;
+    width: 100%;
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
