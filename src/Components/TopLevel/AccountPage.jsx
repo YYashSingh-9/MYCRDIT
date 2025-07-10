@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+import InitialSlider from "../AdditionalComponents/InitialSlider";
 
 const toastFn = (message) => {
   return toast(`${message}`, {

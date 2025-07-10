@@ -20,7 +20,9 @@ const toastFn = (message) => {
 
 const InfoPart = (props) => {
   const proprietorInfo = props.data;
-
+  let gstNumber = proprietorInfo.proprietorGST
+    ? proprietorInfo.proprietorGST
+    : "1284BH132MD313K";
   return (
     <>
       <table className={classes.table_m}>
@@ -50,7 +52,7 @@ const InfoPart = (props) => {
           </tr>
           <tr>
             <td>GST Number :</td>
-            <td> 1284BH132MD313K</td>
+            <td>{gstNumber} </td>
           </tr>
         </thead>
       </table>
