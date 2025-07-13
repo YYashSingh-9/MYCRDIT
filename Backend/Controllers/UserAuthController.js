@@ -90,7 +90,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
 
   //2. Checking if user is customer
   if (req.userType === "Customer") {
-    console.log("running");
+    console.log("running", req.body);
     contact_number = req.body.contactNumber;
     name = req.body.customerName;
 
@@ -102,7 +102,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
       },
       { runValidators: true, new: true }
     );
-
+    console.log(doc);
     res.status(200).json({
       status: "Success",
       data: doc,

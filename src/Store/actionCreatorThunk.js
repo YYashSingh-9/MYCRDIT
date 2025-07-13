@@ -412,10 +412,11 @@ export const edit_user_info = async ({ request }) => {
     urlType = "customer";
     additional = "update-customer-info";
     methodtype = "PATCH";
+    console.log(data_to_send);
   } else if (accountType === "proprietor") {
     data_to_send = {
       contactNumber: data_2.contactNumber,
-      proprietorName: data_2.Name,
+      proprietorName: data_2.name,
     };
     urlType = "proprietor";
     additional = "edit-proprietor";

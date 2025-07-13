@@ -48,7 +48,7 @@ const EditCustomer = (props) => {
           ) : (
             <Form method="POST" className={classes.form_main}>
               {titleNHtmlFor.map((el, i) => {
-                let val = el === "Name" ? info.name : info.contactNumber;
+                let val = el === "name" ? info.name : info.contactNumber;
 
                 return (
                   <Box key={i}>
@@ -78,7 +78,7 @@ const EditCustomer = (props) => {
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage
-          heading="Occured"
+          heading="Occured "
           highlight_text="some error"
           linkk="/"
           btnTitle="Home"

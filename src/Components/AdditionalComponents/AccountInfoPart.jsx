@@ -14,7 +14,6 @@ const AccountInfoPart = (props) => {
   const paramsToSend = `${accountType},${cookie}`;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(props.user_data);
 
   const { data, isError, isPending, mutate } = useMutation({
     mutationKey: ["logout-handle"],
@@ -28,7 +27,7 @@ const AccountInfoPart = (props) => {
     dispatch(sliceOneActions.localStorageClear_Handler());
     navigate("/");
   };
-  console.log(props.user_data);
+
   return (
     <>
       <Grid
