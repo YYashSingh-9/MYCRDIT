@@ -102,9 +102,9 @@ const MainContainer = () => {
           marginTop={1}
           marginBottom={1}
         >
-          <Link to={"/review-form"}>
+          {/* <Link to={"/review-form"}>
             <h5>Share your review, feedback, and complain. Click here.</h5>
-          </Link>
+          </Link>  --- will be available in updated version*/}
         </Grid>
         <ToastContainer />
       </BasicCoverDiv>
