@@ -15,6 +15,7 @@ const initial_State = {
   shopDetailsUpdateState: false,
   reviewPopupState: false,
   newNoteAddedState: false,
+  acc_info_EditState: false,
 };
 
 const sliceOne = createSlice({
@@ -131,6 +132,9 @@ const sliceOne = createSlice({
     },
     newNoteAddedStateToggle(state, action) {
       state.newNoteAddedState = !state.newNoteAddedState;
+    },
+    accInfoStateToggle(state, action) {
+      state.acc_info_EditStat = !state.acc_info_EditState;
     },
   },
 });
