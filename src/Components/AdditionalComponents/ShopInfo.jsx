@@ -72,7 +72,7 @@ const ShopInfo = () => {
   useEffect(() => {
     if (editState === true) {
       toastFn("Details updated successfully. ✅");
-      dispatch(sliceOneActions.shopDetailsEditStateReSetter());
+      dispatch(sliceOneActions.shopDetailsEdit_StateToggle());
     }
   }, [userAccountData]);
   return (

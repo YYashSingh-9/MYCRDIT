@@ -124,11 +124,11 @@ const sliceOne = createSlice({
     shopDetailsEditStateReSetter(state, action) {
       state.shopDetailsUpdateState = false;
     },
-    reviewStateSetter(state, action) {
-      state.reviewPopupState = true;
+    shopDetailsEdit_StateToggle(state, action) {
+      state.shopDetailsUpdateState = !state.shopDetailsUpdateState;
     },
-    reviewStateReSetter(state, action) {
-      state.reviewPopupState = false;
+    reviewStateToggle(state, action) {
+      state.reviewPopupState = !state.reviewPopupState;
     },
     newNoteAddedStateToggle(state, action) {
       state.newNoteAddedState = !state.newNoteAddedState;

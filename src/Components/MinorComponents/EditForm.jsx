@@ -32,7 +32,7 @@ const EditForm = () => {
       if (data.status === "Success") {
         dispatch(sliceOneActions.updateUserStoredInfo_handler(data));
 
-        dispatch(sliceOneActions.shopDetailsEditStateSetter());
+        dispatch(sliceOneActions.shopDetailsEdit_StateToggle()); // this is for popup.
         navigate("/my-shop-info");
       }
     }

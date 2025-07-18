@@ -52,7 +52,7 @@ const AccountPage = () => {
       reviewPopupState === true && toastFn("Review sent. ✅");
       editAccState === true && toastFn("Details updated. ✅");
 
-      dispatch(sliceOneActions.reviewStateReSetter());
+      dispatch(sliceOneActions.reviewStateToggle());
       dispatch(sliceOneActions.accInfoUpdateStateToggle());
     }
   }, []);

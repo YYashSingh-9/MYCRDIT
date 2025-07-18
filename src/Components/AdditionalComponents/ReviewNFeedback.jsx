@@ -37,7 +37,7 @@ const ReviewNFeedback = () => {
   useEffect(() => {
     if (actionData)
       if (actionData.status === "Success") {
-        dispatch(sliceOneActions.reviewStateSetter());
+        dispatch(sliceOneActions.reviewStateToggle());
 
         navigate(
           `/your-account-details/${accType},${userAccountData.data._id}`
