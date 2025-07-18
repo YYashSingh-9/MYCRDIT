@@ -49,11 +49,14 @@ const AccountPage = () => {
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
     if (reviewPopupState === true || editAccState === true) {
-      reviewPopupState === true && toastFn("Review sent. ✅");
-      editAccState === true && toastFn("Details updated. ✅");
-
-      dispatch(sliceOneActions.reviewStateToggle());
-      dispatch(sliceOneActions.accInfoUpdateStateToggle());
+      if (reviewPopupState === true) {
+        toastFn("Review sent. ✅");
+        dispatch(sliceOneActions.reviewStateToggle());
+      }
+      if (editAccState === true) {
+        toastFn("Account details updated. ✅");
+        dispatch(sliceOneActions.accInfoUpdateStateToggle());
+      }
     }
   }, []);
 

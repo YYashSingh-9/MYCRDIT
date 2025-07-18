@@ -34,12 +34,12 @@ const ListItem = (props) => {
           </Box>
 
           <Box sx={{ display: "flex", marginTop: 1 }}>
-            <span className={classes.subTitle_two}>Amount : </span>
-            <h4>{noteData_Object.amount}/-</h4>
+            <span className={classes.subTitle_two}>Status : </span>
+            {statusIndicator}
           </Box>
           <Box sx={{ display: "flex", marginTop: 1 }}>
-            <span className={classes.subTitle_two}>Accepted : </span>
-            {statusIndicator}
+            <span className={classes.subTitle_two}>Amount : </span>
+            <h4>{noteData_Object.amount}/-</h4>
           </Box>
         </Box>
         <Box>
