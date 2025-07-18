@@ -34,6 +34,7 @@ const EditCustomer = (props) => {
       if (action_data.status === "Success") {
         toastFn("success");
         dispatch(sliceOneActions.updateUserStoredInfo_handler(action_data));
+        dispatch(sliceOneActions.accInfoUpdateStateToggle());
         navigate(link_);
       }
     }

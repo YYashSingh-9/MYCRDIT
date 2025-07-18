@@ -133,8 +133,8 @@ const sliceOne = createSlice({
     newNoteAddedStateToggle(state, action) {
       state.newNoteAddedState = !state.newNoteAddedState;
     },
-    accInfoStateToggle(state, action) {
-      state.acc_info_EditStat = !state.acc_info_EditState;
+    accInfoUpdateStateToggle(state, action) {
+      state.acc_info_EditState = !state.acc_info_EditState;
     },
   },
 });

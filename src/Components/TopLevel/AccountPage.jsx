@@ -27,6 +27,9 @@ const AccountPage = () => {
   const reviewPopupState = useSelector(
     (state) => state.sliceOne.reviewPopupState
   );
+  const editAccState = useSelector(
+    (state) => state.sliceOne.acc_info_EditState
+  );
   const { id } = useParams();
 
   id_String = id.split(",");
@@ -45,12 +48,12 @@ const AccountPage = () => {
   }
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
-    console.log("use effect ran");
-    if (reviewPopupState === true) {
-      toastFn("Review sent.");
-      console.log("use effect ran2");
+    if (reviewPopupState === true || editAccState === true) {
+      reviewPopupState === true && toastFn("Review sent. ✅");
+      editAccState === true && toastFn("Details updated. ✅");
 
       dispatch(sliceOneActions.reviewStateReSetter());
+      dispatch(sliceOneActions.accInfoUpdateStateToggle());
     }
   }, []);
 
