@@ -11,6 +11,16 @@ import { useEffect } from "react";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { sliceOneActions } from "../../Store/sliceOne";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
+const toastFn = (message) => {
+  return toast(`${message}`, {
+    position: "top-right",
+    hideProgressBar: true,
+    autoClose: 3000,
+    transition: Slide,
+  });
+};
 
 const NoteRequestPage = () => {
   let accType,
@@ -40,10 +50,7 @@ const NoteRequestPage = () => {
         userData.data.contactNumber
       );
     },
-    onSuccess: () => {},
   });
-
-  console.log(data);
 
   if (data && data.status === "Success") {
     pending_notes_array = data.data;
@@ -51,8 +58,9 @@ const NoteRequestPage = () => {
     dispatch(sliceOneActions.note_requests_insert_handler(data.data));
   }
 
-  const anotherFunction = () => {
+  const acceptingRequestHandler = () => {
     mutate();
+    toastFn("Note accepted. 👍");
   };
 
   useEffect(() => {
@@ -62,7 +70,6 @@ const NoteRequestPage = () => {
   }, [userData]);
 
   let loginState = userData.status === "Success" ? true : false;
-  console.log(noteRequestsArray);
 
   return (
     <>
@@ -88,7 +95,7 @@ const NoteRequestPage = () => {
                     <NoteRequestItem
                       data={el}
                       cookie={userCookie}
-                      clickFn={anotherFunction}
+                      clickFn={acceptingRequestHandler}
                     />
                   ))}
               </Box>
@@ -99,6 +106,7 @@ const NoteRequestPage = () => {
               </Box>
             </>
           )}
+          <ToastContainer />
         </BasicCoverDiv>
       ) : (
         <NotLoggedInLandingPage

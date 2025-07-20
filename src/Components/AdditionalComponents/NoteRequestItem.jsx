@@ -29,7 +29,6 @@ const NoteRequestItem = (props) => {
 
   useEffect(() => {
     if (data && data.status === "Success") {
-      console.log("ran");
       dispatch(sliceOneActions.note_requests_insert_handler(data.data));
     }
   }, [data]);
