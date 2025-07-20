@@ -28,7 +28,6 @@ const HelperFilterInput = (props) => {
     });
     props.filterFunc(filtered_array);
     props.clearhandle();
-    console.log(filtered_array);
   };
 
   return (

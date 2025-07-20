@@ -27,7 +27,7 @@ const notifyFunction = () => {
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
-  console.log(props.tagTitle);
+
   return (
     <>
       <button className={`${classes.userTag} ${conditionalStyle}`}>
@@ -48,9 +48,7 @@ const DebtNotesContainer = () => {
   const currentUserData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
-  const runningDebtNotes = useSelector(
-    (state) => state.sliceOne.proprietors_running_Notes_Array
-  );
+
   const dummyRunningNotes = useSelector(
     (state) => state.sliceOne.dummy_Proprietor_Notes_Array
   );
@@ -67,6 +65,7 @@ const DebtNotesContainer = () => {
   );
   const currentRunningNotes = allNotes.reverse();
   const enableStat = currentUserCookie ? true : false;
+
   const { data, isLoading, isError, isPending } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
@@ -74,10 +73,11 @@ const DebtNotesContainer = () => {
     },
     enabled: enableStat,
   });
+
   const reloadAllNotes = () => {
     dispatch(sliceOneActions.reload_all_notes_toArray());
   };
-  console.log(currentUserData);
+
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {

@@ -6,6 +6,7 @@ import MainContainer from "../UserUIComponents/MainContainer";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Administrator from "../Administrator/Administrator";
 import { useEffect } from "react";
+
 const ProprietorComponent = () => {
   return (
     <>

@@ -118,12 +118,7 @@ const sliceOne = createSlice({
     loginState_setter(state, action) {
       state.recentLoginState = true;
     },
-    shopDetailsEditStateSetter(state, action) {
-      state.shopDetailsUpdateState = true;
-    },
-    shopDetailsEditStateReSetter(state, action) {
-      state.shopDetailsUpdateState = false;
-    },
+
     shopDetailsEdit_StateToggle(state, action) {
       state.shopDetailsUpdateState = !state.shopDetailsUpdateState;
     },
