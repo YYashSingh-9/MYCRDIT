@@ -25,10 +25,10 @@ const AccountPage = () => {
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const reviewPopupState = useSelector(
     (state) => state.sliceOne.reviewPopupState
-  );
+  ); // to trigger popup
   const editAccState = useSelector(
     (state) => state.sliceOne.acc_info_EditState
-  );
+  ); // to trigger popup
   const { id } = useParams();
 
   id_String = id.split(",");
@@ -82,7 +82,7 @@ const AccountPage = () => {
         <WhenNoItemToDisplay
           title="Something went wrong"
           subtitle="Loading, but you can check home if this takes too long"
-          userName="pagla"
+          userName="mycrdit user"
           toShowSpinner={true}
         />
       )}

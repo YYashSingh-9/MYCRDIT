@@ -4,7 +4,6 @@ import logo from "../../assets/logo.png";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 const styles = {
   heading: {
     color: "#404040",
@@ -42,9 +41,9 @@ const Header = () => {
   );
   const notificationState = useSelector(
     (state) => state.sliceOne.isNotificationOn
-  );
+  ); // Will be available in v1.2
   const paramsToSend = `${accountType},${currentUserCookie}`;
-  console.log(accountType);
+
   return (
     <>
       <Box>
