@@ -3,22 +3,22 @@ import classes from "./DetailDebtNote.module.css";
 
 const DetailedNote = (props) => {
   const note_Data = props.data;
-  let acceptanceStatus, date, disableStatus, cookie, accountType;
+  let acceptanceStatus, date, disableStatus;
 
   //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
   //2. Accepted indicator and button disable
   acceptanceStatus =
     note_Data.acceptanceStatus === true ? "Accepted " : "Not accepted";
-  console.log(note_Data, acceptanceStatus);
 
   disableStatus = note_Data.acceptanceStatus === false ? true : false;
-  // disableStatus = false;
+
   //3. Button style and title as per state.
-  let acceptanceStatusS = true;
   const buttonClass =
     // note_Data.acceptanceStatus === false
-    acceptanceStatus === false ? classes.disableClass : classes.normalClass;
+    note_Data.acceptanceStatus === false
+      ? classes.disableClass
+      : classes.normalClass;
   const btnTitle = disableStatus === true ? "Not allowed" : "Pay";
 
   const deleteHandler = () => {

@@ -143,8 +143,6 @@ const AccountInfoPart = (props) => {
                 icnTitle={"runningDebt"}
                 btn_title={"Running debts"}
               />
-              {/* {notificationState} */}
-              {/* <Box className={classes.notificationBall_2}>1</Box> */}
             </Link>
           ) : (
             <Link to={"/my-shop-info"}>
