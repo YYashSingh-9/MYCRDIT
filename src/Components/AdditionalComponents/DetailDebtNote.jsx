@@ -15,7 +15,6 @@ const DetailedNote = (props) => {
 
   //3. Button style and title as per state.
   const buttonClass =
-    // note_Data.acceptanceStatus === false
     note_Data.acceptanceStatus === false
       ? classes.disableClass
       : classes.normalClass;

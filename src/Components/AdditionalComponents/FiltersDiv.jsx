@@ -3,14 +3,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import classes from "./FiltersDiv.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { Form } from "react-router-dom";
+
 import { sliceOneActions } from "../../Store/sliceOne";
 
 const HelperFilterInput = (props) => {
   const notesArray = props.notes;
   const inputType = props.type ? props.type : "text";
 
-  let amountInput, titleInput, filtered_array, inputTextConverted;
+  let titleInput, filtered_array, inputTextConverted;
 
   const filterHandler = () => {
     filtered_array = notesArray.filter((el) => {
@@ -104,12 +104,12 @@ const FilterDiv = () => {
               filterFunc={filterNotes}
             />
             <HelperFilterInput
-              clearhandle={clearRef}
-              title="Amount"
-              refProp={amount_ref}
               placeholder=" Amount/ ex - 3,XXX"
-              notes={runningNotesArray}
+              title="Amount"
               type="number"
+              notes={runningNotesArray}
+              refProp={amount_ref}
+              clearhandle={clearRef}
               filterFunc={filterNotes}
             />
           </Box>

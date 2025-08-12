@@ -1,16 +1,9 @@
-.filterBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-}
-
 .inpBox {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
   margin-top: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 0.54rem 1rem;
   background-color: #14863c;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -50,7 +43,7 @@
   color: rgb(0, 61, 0);
 }
 .inpBox h4 {
-  font-family: poppins;
+  font-family: "poppins";
   font-weight: 400;
   font-size: 0.9rem;
   margin-right: 0.5rem;
