@@ -1,8 +1,8 @@
-import { Box, Button, Grid } from "@mui/material";
-import BasicCoverDiv from "./BasicCoverDiv";
-import FaceIcon from "@mui/icons-material/Face";
-import GeneralButton from "./GeneralButton";
+import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import BasicCoverDiv from "./BasicCoverDiv";
+import GeneralButton from "./GeneralButton";
+import FaceIcon from "@mui/icons-material/Face";
 import classes from "./NotLoggedInLandingPage.module.css";
 
 const NotLoggedInLandingPage = (props) => {

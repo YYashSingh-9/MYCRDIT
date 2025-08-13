@@ -2,19 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
 }
 .title {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 20%;
   margin: auto;
   font-family: "poppins";
   font-weight: 300;
   color: #404040;
   font-size: 1rem;
-  border: 0.1rem solid #404040;
   border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
 }
 .icn {
   margin: 0rem 0.5rem;
@@ -23,6 +24,7 @@
 .title h3 {
   margin: 0.5rem 0.5rem;
   margin-left: 0;
+  font-weight: 400;
 }
 .form_main {
   border: 0.1rem solid rgb(221, 221, 221);
@@ -60,6 +62,7 @@
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .title {
     font-size: 0.8rem;
+    width: 60%;
   }
   .formDiv {
     width: 100%;
@@ -84,6 +87,9 @@
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 720px) {
+  .title {
+    width: 30%;
+  }
   .form_main input {
     padding: 0.4rem 0.4rem;
     font-size: 0.8rem;
@@ -97,6 +103,9 @@
   }
 }
 @media only screen and (min-width: 720px) and (max-width: 992px) {
+  .title {
+    width: 30%;
+  }
   .form_main input {
     padding: 0.4rem 0.4rem;
     font-size: 0.8rem;
@@ -110,6 +119,9 @@
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .title {
+    width: 25%;
+  }
   .form_main input {
     padding: 0.4rem 0.4rem;
     font-size: 0.8rem;

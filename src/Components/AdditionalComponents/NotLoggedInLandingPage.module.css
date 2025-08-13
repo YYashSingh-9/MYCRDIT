@@ -1,6 +1,5 @@
 .btn_Grid {
-  height: 5rem;
-
+  height: auto;
   width: 50%;
   border: 0.1rem solid rgb(211, 211, 211);
   border-radius: 0.5rem;

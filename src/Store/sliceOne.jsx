@@ -110,7 +110,6 @@ const sliceOne = createSlice({
     note_requests_insert_handler(state, action) {
       const request_array = action.payload;
       state.customerNote_requests = request_array;
-      console.log(request_array);
     },
     loginState_reset(state, action) {
       state.recentLoginState = false;

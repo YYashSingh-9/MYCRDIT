@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import classes from "./NoteRequestItem.module.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
 import { useMutation } from "@tanstack/react-query";
 import { acceptingNoteHandler, client } from "../../Store/actionCreatorThunk";
 import { useDispatch } from "react-redux";
@@ -11,7 +10,7 @@ import { useEffect } from "react";
 const NoteRequestItem = (props) => {
   const dispatch = useDispatch();
   const date = props.data.date.slice(0, 10);
-  let value = false;
+
   const { data, mutate, isPending } = useMutation({
     mutationKey: ["accepting-notes"],
     mutationFn: () => {

@@ -5,25 +5,22 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   position: absolute;
   animation-name: slides;
-  animation-duration: 0.3s;
+  animation-duration: 0.8s;
   transition: ease;
   border-radius: 1rem;
   z-index: -9999;
   opacity: 0;
   overflow-y: hidden;
 }
-.displayOn {
-  display: none;
-}
+
 @keyframes slides {
   0% {
-    transform: translate(0%, 0%);
+    transform: translate(-50%, 0%);
     z-index: 9999;
     opacity: 1;
   }
 
   100% {
-    display: block;
     transform: translate(100%, 0%);
     z-index: 9999;
     opacity: 1;
