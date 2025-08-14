@@ -27,6 +27,7 @@
 .btnSection button {
   margin-left: 1rem;
 }
+
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .table_m td {

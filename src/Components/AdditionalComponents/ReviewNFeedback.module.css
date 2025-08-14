@@ -8,7 +8,7 @@
 }
 
 .syvform input {
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
   font-size: 0.8rem;
   width: 30rem;
 }
@@ -24,6 +24,7 @@
   padding: 0.5rem;
   text-align: center;
 }
+
 .formBox textarea {
   border: 0.1rem solid rgb(181, 181, 181);
   border-radius: 0.3rem;
@@ -71,14 +72,6 @@
 .syvform button:active,
 .backbtn:active {
   background-color: #137a37;
-}
-
-.notLoggedCover {
-  max-width: 50%;
-  text-align: center;
-  font-size: 0.8rem;
-
-  margin: auto;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 576px) {

@@ -69,6 +69,7 @@ const ShopInfo = () => {
     (state) => state.sliceOne.shopDetailsUpdateState
   );
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (editState === true) {
       toastFn("Details updated successfully. ✅");

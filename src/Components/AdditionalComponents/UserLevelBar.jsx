@@ -49,7 +49,7 @@ const UserLevelBar = (props) => {
           </Box>
         </Box>
         <Box className={`${classes.inner_bar} ${levelBar_bg}`}>
-          <h3>{profile_Level} Pro</h3>
+          <h3>{profile_Level} Slab</h3>
           {profile_Level === "Base" && <Brightness1Icon />}
           {profile_Level === "Bronze" && <AlbumIcon />}
           {profile_Level === "Silver" && (

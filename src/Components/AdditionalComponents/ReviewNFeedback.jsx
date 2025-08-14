@@ -33,7 +33,6 @@ const ReviewNFeedback = () => {
   if (userAccountData.token) {
     btnVal = `${userAccountData.token},${userAccountData.data._id}`;
   }
-  console.log(accType);
   useEffect(() => {
     if (actionData)
       if (actionData.status === "Success") {

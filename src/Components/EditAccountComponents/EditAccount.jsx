@@ -1,15 +1,15 @@
 import classes from "./EditAccount.module.css";
+import Spinner from "../AdditionalComponents/Spinner";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import { useActionData, useNavigate, useNavigation } from "react-router-dom";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { TextField, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { Form, Link } from "react-router-dom";
 import { useEffect } from "react";
-import Spinner from "../AdditionalComponents/Spinner";
-import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (message) => {
   return toast(`${message}`, {

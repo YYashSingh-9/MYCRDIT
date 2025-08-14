@@ -10,10 +10,10 @@ import { sliceOneActions } from "../../Store/sliceOne";
 import { Box, TextField } from "@mui/material";
 import { useEffect } from "react";
 import classes from "./EditForm.module.css";
-import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import GeneralButton from "../AdditionalComponents/GeneralButton";
-import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 import Spinner from "../AdditionalComponents/Spinner";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
 
 const EditForm = () => {
   const userAccountData = useSelector(
@@ -27,11 +27,13 @@ const EditForm = () => {
   const userInfo = userAccountData.data;
   const data_toSend = userAccountData.token;
 
+  let gstDefaultValue =
+    userInfo.data.proprietorGST.length > 5 ? userInfo.data.proprietorGST : "";
+
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
         dispatch(sliceOneActions.updateUserStoredInfo_handler(data));
-
         dispatch(sliceOneActions.shopDetailsEdit_StateToggle()); // this is for popup.
         navigate("/my-shop-info");
       }
@@ -97,7 +99,11 @@ const EditForm = () => {
               <label htmlFor="GST Number">GST Number</label>
               <br />
 
-              <TextField id="outlined" name="gst_number" />
+              <TextField
+                id="outlined"
+                name="gst_number"
+                defaultValue={gstDefaultValue}
+              />
               <hr />
               <Box className={classes.btnBox}>
                 <GeneralButton

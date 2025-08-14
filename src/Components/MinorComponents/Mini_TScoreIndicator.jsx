@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import classes from "./Mini_TScoreIndicator.module.css";
 import { Link } from "react-router-dom";
+import classes from "./Mini_TScoreIndicator.module.css";
 
 const Mini_TScoreIndicator = (props) => {
   const tcs = props.pts;

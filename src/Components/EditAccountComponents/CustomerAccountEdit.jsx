@@ -1,7 +1,5 @@
-import { useActionData, useNavigate } from "react-router-dom";
 import EditAccount from "./EditAccount";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const CustomerAccountEdit = () => {
   let customerData, backLink_Id, isLoggedIn;

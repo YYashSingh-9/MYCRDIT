@@ -1,12 +1,14 @@
 import classes from "./CustomerSignupForm.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import IconButton from "@mui/material/IconButton";
-import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useEffect, useState } from "react";
-import { Form, Link, useActionData, useNavigate } from "react-router-dom";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import { useEffect, useState } from "react";
+import { Form, Link, useActionData } from "react-router-dom";
+import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
+
+// THIS IS INACTIVE FOR NOW MAY BE GET ACTIVE IN LATER UPDATES
 
 const CustomerSignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +18,7 @@ const CustomerSignupForm = () => {
     event.preventDefault();
   };
   const actionData = useActionData();
-  const Navigate = useNavigate();
+
   useEffect(() => {
     if (actionData) {
       if (actionData.status === "Success") {
