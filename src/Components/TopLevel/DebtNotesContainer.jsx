@@ -66,7 +66,7 @@ const DebtNotesContainer = () => {
   const currentRunningNotes = allNotes.reverse();
   const enableStat = currentUserCookie ? true : false;
 
-  const { data, isLoading, isError, isPending } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
       return getHomePage_Data_Proprietor(currentUserCookie);
