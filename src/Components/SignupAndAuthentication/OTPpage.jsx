@@ -1,14 +1,15 @@
+import { useRef } from "react";
+import { Grid, Box } from "@mui/material";
+import { Form, useNavigate } from "react-router-dom";
 import classes from "./OTPpage.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import { Grid, TextField, Box } from "@mui/material";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Form, Link, useNavigate } from "react-router-dom";
 import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
-import { useRef } from "react";
 
 const OTPpage = () => {
   const ref = useRef();
   const Navigate = useNavigate();
+
   const otpSubmitter = (e) => {
     e.preventDefault();
     if (ref.current.value === "2222") {

@@ -1,18 +1,12 @@
+import "react-toastify/dist/ReactToastify.css";
 import classes from "./ProprietorSignupForm.module.css";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import {
-  Form,
-  Link,
-  useActionData,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
-import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { sliceOneActions } from "../../Store/sliceOne";
+import { ToastContainer, toast } from "react-toastify";
+import { Form, Link, useActionData, useNavigate } from "react-router-dom";
+import { Grid, TextField, OutlinedInput, InputAdornment } from "@mui/material";
 
 const notifyFunction = (message) => {
   return toast(message, {
@@ -22,11 +16,10 @@ const notifyFunction = (message) => {
 };
 
 const ProprietorSignupForm = () => {
-  const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
   const actionData = useActionData();
   const Navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(actionData);
+
   useEffect(() => {
     if (actionData) {
       if (actionData.status === "error") {

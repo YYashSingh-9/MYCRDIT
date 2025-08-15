@@ -1,3 +1,10 @@
+import classes from "./DebtDetails.module.css";
+import InitialSlider from "../AdditionalComponents/InitialSlider";
+import DetailedNote from "../AdditionalComponents/DetailDebtNote";
+import EditIcon from "@mui/icons-material/Edit";
+import SpeakerNotesOffIcon from "@mui/icons-material/SpeakerNotesOff";
+import GeneralButton from "../AdditionalComponents/GeneralButton";
+import Spinner from "../AdditionalComponents/Spinner";
 import {
   getAllCustomerNotes,
   client,
@@ -12,13 +19,6 @@ import { ArrowLeft } from "@mui/icons-material";
 import { Grid, Box } from "@mui/material";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import classes from "./DebtDetails.module.css";
-import InitialSlider from "../AdditionalComponents/InitialSlider";
-import DetailedNote from "../AdditionalComponents/DetailDebtNote";
-import EditIcon from "@mui/icons-material/Edit";
-import SpeakerNotesOffIcon from "@mui/icons-material/SpeakerNotesOff";
-import GeneralButton from "../AdditionalComponents/GeneralButton";
-import Spinner from "../AdditionalComponents/Spinner";
 import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (message) => {
@@ -29,6 +29,7 @@ const toastFn = (message) => {
     transition: Slide,
   });
 };
+
 const DebtDetailsPage = () => {
   let isFormActive = false;
   let arrayOfNotes = [];
@@ -47,12 +48,7 @@ const DebtDetailsPage = () => {
   const customerNumber = Number(id.slice(-10));
 
   //1. Sending patch function
-  const {
-    mutate: patch_requestHandle,
-    data: returnData,
-    isLoading: loadingState,
-    isError: error,
-  } = useMutation({
+  const { mutate: patch_requestHandle, data: returnData } = useMutation({
     mutationKey: ["debt-note"],
     mutationFn: (props) => {
       return patch_RequestHandler(
