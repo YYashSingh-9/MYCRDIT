@@ -63,7 +63,7 @@ const DebtNotesContainer = () => {
   const allNotes = dummyRunningNotes.filter(
     (el) => el.deleted === false && el.cleared === false
   );
-  const currentRunningNotes = allNotes.reverse();
+  const currentRunningNotes = allNotes.reverse(); // to show latest note first.
   const enableStat = currentUserCookie ? true : false;
 
   const { data, isLoading } = useQuery({

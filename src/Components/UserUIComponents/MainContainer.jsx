@@ -1,15 +1,15 @@
-import { Grid, Box, colors } from "@mui/material";
-import { sliceOneActions } from "../../Store/sliceOne";
 import "../../index.css";
-import { Link } from "react-router-dom";
 import classes from "./MainContainer.module.css";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import DigitalBanner from "../AdditionalComponents/DigitalBanner_forShop";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
+import { Link } from "react-router-dom";
+import { Grid, Box } from "@mui/material";
+import { useEffect } from "react";
+import { sliceOneActions } from "../../Store/sliceOne";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast, Slide } from "react-toastify";
-import { useEffect } from "react";
 
 const notifyFunction = () => {
   return toast("Logged in successfully.✅", {
@@ -22,9 +22,10 @@ const notifyFunction = () => {
 
 const MainContainer = () => {
   const userData = useSelector((state) => state.sliceOne.accountUserData);
-  const score = userData.data.transactionalScore.toFixed(1);
   const loginState = useSelector((state) => state.sliceOne.recentLoginState);
   const dispatch = useDispatch();
+
+  const score = userData.data.transactionalScore.toFixed(1);
 
   useEffect(() => {
     if (loginState === true) {
@@ -88,7 +89,7 @@ const MainContainer = () => {
             <h3>Tip :</h3>
           </Box>
           <h4>
-            Clear your debt bills on time to increase your MYCrdit Score{" "}
+            Clear your debt bills within 30 days to increase your MYCrdit Score{" "}
             {`(MCS)`}
           </h4>
         </Grid>
@@ -104,7 +105,7 @@ const MainContainer = () => {
         >
           {/* <Link to={"/review-form"}>
             <h5>Share your review, feedback, and complain. Click here.</h5>
-          </Link>  --- will be available in updated version*/}
+          </Link>  --- will be available in updated version v1.2*/}
         </Grid>
         <ToastContainer />
       </BasicCoverDiv>

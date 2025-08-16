@@ -1,11 +1,11 @@
 import { Box, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 import classes from "./Footer.module.css";
 import playstoreImg from "../../assets/play.png";
 import appleStoreImg from "../../assets/apple.png";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
