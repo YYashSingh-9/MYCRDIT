@@ -1,16 +1,17 @@
-import { Box } from "@mui/material";
 import classes from "./NoteRequestPage.module.css";
+import Spinner from "../AdditionalComponents/Spinner";
 import NoteRequestItem from "../AdditionalComponents/NoteRequestItem";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Link, useParams } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
-import { useDispatch, useSelector } from "react-redux";
-import { get_notes_handler } from "../../Store/actionCreatorThunk";
-import { useEffect } from "react";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import { sliceOneActions } from "../../Store/sliceOne";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+import { Box } from "@mui/material";
+import { useEffect } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { Link, useParams } from "react-router-dom";
+import { sliceOneActions } from "../../Store/sliceOne";
+import { get_notes_handler } from "../../Store/actionCreatorThunk";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast, Slide } from "react-toastify";
 
 const toastFn = (message) => {
@@ -86,6 +87,8 @@ const NoteRequestPage = () => {
               title={"empty request box."}
               subtitle={"NO Pending requests are here to accept for now.!"}
             />
+          ) : isPending ? (
+            <Spinner />
           ) : (
             <>
               <Box className={classes.innerCover}>

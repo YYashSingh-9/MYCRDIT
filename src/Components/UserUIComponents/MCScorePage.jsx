@@ -1,21 +1,21 @@
 import classes from "./MCScorePage.module.css";
-import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
-import GeneraltButton from "../AdditionalComponents/GeneralButton";
-import UserLeverBar from "../AdditionalComponents/UserLevelBar";
-import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
 import { getMycrditScore_handler } from "../../Store/actionCreatorThunk";
+import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
+import GeneraltButton from "../AdditionalComponents/GeneralButton";
+import UserLevelBar from "../AdditionalComponents/UserLevelBar";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
 
 const MCScorePage = () => {
-  const userType = useSelector((state) => state.sliceOne.accountType);
+  const accType = useSelector((state) => state.sliceOne.accountType);
   const currentUserData = useSelector(
     (state) => state.sliceOne.accountUserData
   );
 
-  const { data, isError, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ["customer-mcs"],
     queryFn: () => {
       return getMycrditScore_handler(
@@ -25,11 +25,11 @@ const MCScorePage = () => {
     },
   });
 
-  let subtitle =
+  let error_subtitle =
     data && data.status === "Fail" ? data.message : "Something went wrong.";
   return (
     <>
-      {userType === "customer" ? (
+      {accType === "customer" ? (
         <BasicCoverDiv heading="Your " heading_highlight="MYCRDIT Score">
           {data && data.status === "Success" ? (
             <>
@@ -51,7 +51,7 @@ const MCScorePage = () => {
                 </Box>
 
                 <Box className={classes.childBox_two}>
-                  <UserLeverBar pts={data.data} />
+                  <UserLevelBar pts={data.data} />
                   <Box className={classes.infos}>
                     <p>
                       ▪️MCScore will increase if you regularly clear your debt
@@ -72,7 +72,7 @@ const MCScorePage = () => {
                 </Box>
                 <Box className={classes.childBox_three}>
                   <Link
-                    to={`/your-account-details/${userType},${currentUserData.token}`}
+                    to={`/your-account-details/${accType},${currentUserData.token}`}
                   >
                     <GeneraltButton btn_title="back" />
                   </Link>
@@ -83,7 +83,7 @@ const MCScorePage = () => {
             <WhenNoItemToDisplay
               userName={currentUserData.data.customerName}
               title={" minimum requirement not fulfilled."}
-              subtitle={subtitle}
+              subtitle={error_subtitle}
             />
           )}
         </BasicCoverDiv>

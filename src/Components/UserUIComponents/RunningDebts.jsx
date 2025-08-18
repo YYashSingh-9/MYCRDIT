@@ -1,14 +1,15 @@
 import classes from "./RunningDebts.module.css";
+import Spinner from "../AdditionalComponents/Spinner";
 import BasicCoverDiv from "../AdditionalComponents/BasicCoverDiv";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
-import { Link } from "react-router-dom";
-import { ListItem } from "./HistoryPage";
-import { Grid } from "@mui/material";
-import { useSelector } from "react-redux";
 import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPage";
-import { useQuery } from "@tanstack/react-query";
-import { get_notes_handler } from "../../Store/actionCreatorThunk";
 import WhenNoItemToDisplay from "../AdditionalComponents/WhenNoItemToDisplay";
+import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { ListItem } from "./HistoryPage";
+import { useQuery } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
+import { get_notes_handler } from "../../Store/actionCreatorThunk";
 
 const RunningDebtsPage = () => {
   const currentAcc_Type = useSelector((state) => state.sliceOne.accountType);
@@ -16,7 +17,7 @@ const RunningDebtsPage = () => {
     (state) => state.sliceOne.accountUserData
   );
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ["all-running-notes"],
     queryFn: () => {
       return get_notes_handler(
@@ -26,8 +27,6 @@ const RunningDebtsPage = () => {
       );
     },
   });
-
-  console.log(data);
 
   return (
     <>
@@ -43,11 +42,15 @@ const RunningDebtsPage = () => {
             className={classes.detailsBox}
           >
             {data &&
-              data.status === "Success" &&
-              data.data.length >= 1 &&
-              data.data.map((el, i) => <ListItem key={i} obj={el} />)}
+            data.status === "Success" &&
+            !isFetching &&
+            data.data.length >= 1 ? (
+              data.data.map((el, i) => <ListItem key={i} obj={el} />)
+            ) : (
+              <Spinner />
+            )}
           </Grid>
-          {data && data.data.length <= 0 && data.status === "Success" && (
+          {data && data.data.length === 0 && data.status === "Success" && (
             <WhenNoItemToDisplay
               userName={currentUserData.data.customerName}
               title={"No running notes"}

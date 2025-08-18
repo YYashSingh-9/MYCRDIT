@@ -1,5 +1,4 @@
 import { QueryClient } from "@tanstack/react-query";
-import { useSelector } from "react-redux";
 
 export const client = new QueryClient();
 
@@ -23,9 +22,7 @@ export const data_fetch_function = async (urlType, cookie, additional) => {
     },
     redirect: "follow",
   });
-  console.log(document);
   const document_2 = await document.json();
-  console.log(document_2);
   return document_2;
 };
 
@@ -63,7 +60,7 @@ export const data_Send_request = async (
     });
 
     const document_2 = await document.json();
-    console.log(document_2);
+
     return document_2;
   } catch (err) {
     console.log(err);
@@ -88,7 +85,6 @@ export const login_signup_fetchRequest = async ({ request }) => {
     request_of = "proprietor";
     additional_url_part = "/proprietor-verification";
     sendingDataObject = { ...data_2 };
-    console.log("this ran");
   }
   if (data_length < 2) {
     // Customer Authentication (login/signup);
@@ -456,3 +452,10 @@ Ensure your form inputs have name attributes.
 */
 
 // read about why request object needs await to get formdata also about getting info from submit button name value
+// ans :- The request.formData() method is an asynchronous standard web API that parses the request body and extracts the form data into a FormData object.
+//       this is why we need to use "await" to get form data
+/* 
+Converting to a Plain Object
+A common and convenient pattern is to convert the FormData object into a plain JavaScript 
+object using Object.fromEntries()
+*/
