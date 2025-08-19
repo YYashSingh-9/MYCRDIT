@@ -71,14 +71,14 @@ export const data_Send_request = async (
 // 3. Login/signup fetch request.
 
 export const login_signup_fetchRequest = async ({ request }) => {
+  let request_of;
+  let additional_url_part;
+  let sendingDataObject = {};
+
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const data_length = Object.keys(data_2).length;
   const intent = data.get("intent");
-
-  let request_of;
-  let additional_url_part;
-  let sendingDataObject = {};
 
   if (data_length === 3) {
     //Proprietor login
@@ -130,9 +130,8 @@ export const login_signup_fetchRequest = async ({ request }) => {
 export const getHomePage_Data_Proprietor = async (cookie, accType) => {
   let returnData;
   accType = "proprietor";
-  console.log(cookie);
   if (accType === "proprietor") {
-    returnData = data_fetch_function("proprietor", cookie, "/get-all-notes");
+    returnData = data_fetch_function(accType, cookie, "/get-all-notes");
   } else return (returnData = "Data fetching not required");
   return returnData;
 };
@@ -154,24 +153,24 @@ export const getAllCustomerNotes = async (customerNum, cookie) => {
   return data;
 };
 
-// 6. Patch  request handler for accepting/paying/deleting notes
+// 6. Patch  request handler for accepting/paying/deleting notes (proprietor & customer)
 
 export const patch_RequestHandler = async (
   accType,
   data,
   cookie,
-  requestOf
+  request_for
 ) => {
   let objectToSend, request_of, additionalUrlPart, paymentDate;
   paymentDate = new Date();
 
-  if (accType === "proprietor" && requestOf === "delete") {
+  if (accType === "proprietor" && request_for === "delete") {
     objectToSend = {
       noteId: data.id,
     };
     request_of = "proprietor";
     additionalUrlPart = "delete-note";
-  } else if (accType === "proprietor" && requestOf === "paying") {
+  } else if (accType === "proprietor" && request_for === "paying") {
     request_of = "proprietor";
     additionalUrlPart = "note-payment";
     objectToSend = {
@@ -179,11 +178,10 @@ export const patch_RequestHandler = async (
       customerNumber: data.customerNumber,
       paymentDate: paymentDate,
     };
-    console.log(objectToSend);
-  } else if (accType === "proprietor" && requestOf === "editShopInfo") {
+  } else if (accType === "proprietor" && request_for === "editShopInfo") {
     request_of = "proprietor";
     additionalUrlPart = "edit-proprietor-shop";
-  } else if (accType === "customer" && requestOf === "accepting") {
+  } else if (accType === "customer" && request_for === "accepting") {
     request_of = "customer";
     additionalUrlPart = "note-approval-request";
   }
@@ -198,13 +196,14 @@ export const patch_RequestHandler = async (
   return returned_Data;
 };
 
-// 7. Create DebtNote request
+// 7. Create DebtNote request (proprietor)
 
 export const createNote_Handler = async ({ request }) => {
+  let cookie, proprietorId, objectToSend;
+
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const p_data = data.get("proprietor-data");
-  let cookie, proprietorId, objectToSend;
 
   cookie = p_data.split(",")[0];
   proprietorId = p_data.split(",")[1];
@@ -212,7 +211,6 @@ export const createNote_Handler = async ({ request }) => {
   // Current date.
   const today = new Date().toISOString();
   const date = today.slice(0, 10);
-  // const
 
   objectToSend = {
     proprietorId: proprietorId,
@@ -239,7 +237,7 @@ export const createNote_Handler = async ({ request }) => {
 
 export const getClearedNotes = async (cookie, acc_type) => {
   let returned_data, cookieToSend, accType, addtitionalUrl_Part;
-  console.log(cookie, acc_type);
+
   if (acc_type === "proprietor") {
     cookieToSend = cookie;
     accType = acc_type;
@@ -252,7 +250,7 @@ export const getClearedNotes = async (cookie, acc_type) => {
   } else if (acc_type === "") {
     return {
       status: "Success",
-      data: "No request was sent, as no account details are captured.",
+      data: "No request was sent, as no account details are recieved.",
     };
   }
   returned_data = await data_fetch_function(
@@ -265,11 +263,12 @@ export const getClearedNotes = async (cookie, acc_type) => {
 
 // 9. Shop info update
 export const editShopInfo_Handler = async ({ request }) => {
-  let cookie, proprietorId, objectToSend;
+  let cookie, objectToSend;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const p_data = data.get("proprietor-data");
 
+  cookie = p_data;
   objectToSend = {
     ProprietorName: data_2.proprietorName,
     shopName: data_2.shopName,
@@ -279,8 +278,6 @@ export const editShopInfo_Handler = async ({ request }) => {
     proprietorGST: data_2.gst_number,
   };
 
-  cookie = p_data;
-
   const returned_data = await data_Send_request(
     "proprietor",
     "edit-proprietor-shop",
@@ -288,7 +285,7 @@ export const editShopInfo_Handler = async ({ request }) => {
     objectToSend,
     cookie
   );
-  console.log(returned_data);
+
   return returned_data;
 };
 
@@ -297,9 +294,9 @@ export const reviewSendHandler = async ({ request }) => {
   let cookie, proprietorId, objectToSend;
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
-  const propData = data.get("proprietor-data");
+  const p_data = data.get("proprietor-data");
 
-  let string_data = propData.split(",");
+  let string_data = p_data.split(",");
   cookie = string_data[0];
   proprietorId = string_data[1];
 
@@ -316,14 +313,14 @@ export const reviewSendHandler = async ({ request }) => {
     objectToSend,
     cookie
   );
-  console.log(data_1);
+
   return data_1;
 };
 
 // 11. Logout handler
 export const logout_handler = async (acc_type, cookie) => {
-  console.log(acc_type, cookie);
   let accType, additional_url_part;
+
   if (acc_type === "proprietor") {
     accType = "proprietor";
     additional_url_part = "proprietor-logout";
@@ -343,35 +340,26 @@ export const logout_handler = async (acc_type, cookie) => {
 
 // 12. Getting pending/paid/request notes
 export const get_notes_handler = async (cookie, reqType, customerNumber) => {
-  console.log(cookie, reqType, customerNumber);
-  let urlType, additional, methodtype, data_to_send;
+  let data_to_send;
 
   if (reqType === "non-accepted-notes") {
-    urlType = "customer";
-    additional = "all-pending-notes";
-    methodtype = "POST";
     data_to_send = {
       customerNumber: customerNumber,
       requestFor: reqType,
     };
   } else if (reqType === "accepted-notes") {
-    urlType = "customer";
-    additional = "all-pending-notes";
-    methodtype = "POST";
     data_to_send = {
       customerNumber: customerNumber,
       requestFor: reqType,
     };
   }
-  console.log(urlType, additional, methodtype, data_to_send);
   const data = await data_Send_request(
-    urlType,
-    additional,
-    methodtype,
+    "customer",
+    "all-pending-notes",
+    "POST",
     data_to_send,
     cookie
   );
-  console.log(data);
   return data;
 };
 
@@ -387,19 +375,21 @@ export const acceptingNoteHandler = async (noteId, cookie) => {
     dataToSend,
     cookie
   );
-  console.log(data);
+
   return data;
 };
 
 //14. Edit customer/proprietor info
 export const edit_user_info = async ({ request }) => {
   let cookie, accountType, urlType, additional, methodtype, data_to_send;
+
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
   const userData = data.get("user-data");
+
   cookie = userData.split(",")[1];
   accountType = userData.split(",")[0];
-  console.log(data_2);
+
   if (accountType === "customer") {
     data_to_send = {
       contactNumber: data_2.contactNumber,
@@ -408,7 +398,6 @@ export const edit_user_info = async ({ request }) => {
     urlType = "customer";
     additional = "update-customer-info";
     methodtype = "PATCH";
-    console.log(data_to_send);
   } else if (accountType === "proprietor") {
     data_to_send = {
       contactNumber: data_2.contactNumber,
@@ -429,13 +418,13 @@ export const edit_user_info = async ({ request }) => {
 };
 
 //15. Get customer MYCRDIT score
-export const getMycrditScore_handler = async (ck, contactNumber) => {
+export const getMycrditScore_handler = async (cookie, contactNumber) => {
   const data = await data_Send_request(
     "customer",
     "get-my-crdit-score",
     "POST",
     { contactNumber: contactNumber },
-    ck
+    cookie
   );
 
   return data;
