@@ -12,14 +12,14 @@ const noteSchema = mongoose.Schema({
   },
   customerName: {
     type: String,
-    required: [true, "Provde customer name."],
+    required: [true, "Provide customer name."],
     minLength: [5, "Minimum 5 characters are required."],
   },
   customerNumber: {
     type: Number,
     required: [true, "Please provide customer number."],
     minLength: [10, "10 characters are required."],
-    maxLength: [10, "10 characters are ."],
+    maxLength: [10, "10 characters reached."],
   },
   productBrand: {
     type: String,

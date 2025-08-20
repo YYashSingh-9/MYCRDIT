@@ -15,7 +15,7 @@ const proprietorSchema = mongoose.Schema({
   shopAddress: {
     type: String,
     required: [true, "Please enter Shop address"],
-    minLength: [20, "Address should not be in short"],
+    minLength: [20, "Address should be clear and specific."],
   },
   state: {
     type: String,
@@ -45,13 +45,13 @@ const proprietorSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, "Please enter password"],
-    minLength: [5, "Password must be at lease 5 characters long"],
+    minLength: [5, "Password must be at least 5 characters long"],
     maxLength: [16, "Password must not exceed 16 characters."],
   },
   confirmPassword: {
     type: String,
     required: [true, "Please enter password"],
-    minLength: [5, "Password must be at lease 5 characters long"],
+    minLength: [5, "Password must be at least 5 characters long"],
     maxLength: [16, "Password must not exceed 16 characters."],
     validate: function (el) {
       return el === this.password;
@@ -59,17 +59,17 @@ const proprietorSchema = mongoose.Schema({
   },
   mostSellingProduct: {
     type: String,
-    minLength: [5, "Better description required for most selling product"],
-    maxLength: [20, "Product name getting too long"],
+    minLength: [5, "Better and more description required."],
+    maxLength: [20, "Product description getting too long"],
   },
   leastSellingProduct: {
     type: String,
-    minLength: [5, "Better description required for least selling product."],
-    maxLength: [20, "Product name getting too long"],
+    minLength: [5, "Better and more description required."],
+    maxLength: [20, "Product description getting too long"],
   },
   proprietorDemand: {
     type: String,
-    minLength: [5, "Better description required for proprietor demand."],
+    minLength: [5, "Better and more description required."],
     maxLength: [50, "Max characters reached"],
   },
   proprietorGST: {
