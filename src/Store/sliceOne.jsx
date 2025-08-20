@@ -62,23 +62,23 @@ const sliceOne = createSlice({
     },
     saveAllRunningNotes(state, action) {
       const dataArray = action.payload;
-      console.log(dataArray);
+
       state.proprietors_running_Notes_Array = dataArray.data;
       state.dummy_Proprietor_Notes_Array = dataArray.data;
     },
     updateUserStoredInfo_handler(state, action) {
-      let objectToUpdate, user_info_Object;
+      let newObject, user_new_info_Object;
       const userData_ = JSON.parse(localStorage.getItem("user_Data"));
-      user_info_Object = action.payload;
+      user_new_info_Object = action.payload;
 
-      objectToUpdate = {
-        data: user_info_Object.data,
+      newObject = {
+        data: user_new_info_Object.data,
         token: userData_.token,
         status: userData_.status,
       };
 
       localStorage.clear();
-      localStorage.setItem("user_Data", JSON.stringify(objectToUpdate));
+      localStorage.setItem("user_Data", JSON.stringify(newObject));
       const userData = JSON.parse(localStorage.getItem("user_Data"));
 
       if (userData.data.ProprietorName) {

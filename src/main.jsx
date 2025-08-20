@@ -1,5 +1,4 @@
 import "./index.css";
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import FNDPart from "./Components/TopLevel/FNDPart.jsx";
@@ -20,7 +19,7 @@ import NoteRequestPage from "./Components/UserUIComponents/NoteRequestPage.jsx";
 import CustomerAccountEdit from "./Components/EditAccountComponents/CustomerAccountEdit.jsx";
 import ProprietorAccountEdit from "./Components/EditAccountComponents/ProprietorAccountEdit.jsx";
 import MCScorePage from "./Components/UserUIComponents/MCScorePage.jsx";
-import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import mainStore from "./Store/mainStore.jsx";
 import Administrator from "./Components/Administrator/Administrator.jsx";
@@ -106,6 +105,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <Provider store={mainStore}>
