@@ -43,6 +43,7 @@ customerRouter
   .route("/all-cleared-notes")
   .get(NotesController.getAllClearedNotes);
 
+//4. Credit score
 customerRouter
   .route("/get-my-crdit-score")
   .post(ScoreCountController.totalMycrditScore);

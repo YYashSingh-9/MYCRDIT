@@ -33,7 +33,7 @@ const limiter = rateLimiter({
   max: 100,
   windowMs: 60 * 1000,
   message:
-    "Request limits reached from this IP Address, try again after some time.",
+    "Request limits reached from this IP Address, try again after a minute.",
 });
 
 app.use("/mycrdit/api", limiter);
@@ -41,7 +41,7 @@ app.use("/mycrdit/api", limiter);
 //Routes
 app.use("/mycrdit/api/customer", customerRouter);
 app.use("/mycrdit/api/proprietor", proprietorRouter);
-app.use("/mycrdit/api/debt-notes", DebtNoteRouter);
+// app.use("/mycrdit/api/debt-notes", DebtNoteRouter); // not in use
 
 app.use("*", (req, res, next) => {
   const err = new appError(`Invalid route ${req.originalUrl} requested`, 404);

@@ -21,7 +21,7 @@ const proprietorReviewSchema = mongoose.Schema({
     type: String,
     minLength: [5, "Minimum 5 characters required."],
     required: [true, "Enter title."],
-    maxLength: [30, "Maxinmum 30 characters reached."],
+    maxLength: [30, "Maximum 30 characters reached."],
   },
   reviewContent: {
     type: String,

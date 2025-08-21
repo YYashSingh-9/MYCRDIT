@@ -15,7 +15,7 @@ proprietorRouter // login
   .route("/proprietor-verification")
   .post(userAuthController.proprietorVerification);
 
-// Authorized accessible routes.
+// Authorized only accessible routes.
 proprietorRouter.use(userAuthController.protect);
 
 proprietorRouter
@@ -33,7 +33,6 @@ proprietorRouter
 proprietorRouter
   .route("/edit-proprietor-shop")
   .patch(functionalController.updateShopInfo);
-module.exports = proprietorRouter;
 
 // Proprietor debt notes routes
 proprietorRouter
@@ -60,3 +59,5 @@ proprietorRouter.route("/delete-note").patch(NotesController.deleteNote);
 proprietorRouter
   .route("/get-all-specific-customer-notes")
   .post(NotesController.getAllSpecific_CustomerNotes);
+
+module.exports = proprietorRouter;
