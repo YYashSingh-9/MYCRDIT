@@ -9,8 +9,8 @@ const PaidNote = require("../Models/paidNoteModel");
 /* Important terminology:-
  1. T block is array consisting 3 paid credit transactions objects.
  2. Month means 1 transaction will at least take 20 days to complete so it is around 30 days.
- 3. Consecutive score means checking if a customer completed 2 t blocks(6 transactions/ 20 to 30 days each) consecutively 
-    it is  important to check because this good payments will give him additional score.
+ 3. Consecutive score means checking if a customer completed 2 T-blocks(6 transactions/ 20 to 30 days each) consecutively 
+    it is  important to check because this consecutive timely payments will give him additional score.
  4.customerTScore is customer's transactional score.
  */
 
@@ -23,7 +23,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   let fortyDayDuration = 40;
 
   if (!req.body.debtNote_Id) {
-    next(new appError("Error from client side note id missing.", 400));
+    next(new appError("Error from client side, note id missing.", 400));
   }
 
   //1. Extract debt note id,customer number to find this note & customer  .
@@ -110,7 +110,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
-  // console.log(customer, customerPreviousTScore, customerCurrentTotal_TScore);
+
   const doc = await Customer.findOneAndUpdate(
     { contactNumber: customer.contactNumber },
     { transactionalScore: customerCurrentTotal_TScore },
@@ -129,7 +129,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   };
 
   req.body = dummyObj;
-  // console.log(doc);
+
   next();
 });
 

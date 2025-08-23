@@ -2,10 +2,9 @@ const customer = require("../Models/customerModel");
 const proprietor = require("../Models/proprietorModel");
 const catchAsync = require("../Utilities/catchAsync");
 const appError = require("../Utilities/appError");
-
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
-const { promisify } = require("util");
+
 dotenv.config({ path: "./config.env" });
 
 //Helper functions..
@@ -18,12 +17,12 @@ const signtoken = (id) => {
 
 const cookieAndToken = (res, user, statuscode) => {
   const token = signtoken(user.id);
-  console.log(user.id, token);
+
   const cookieOptions = {
     httpOnly: true,
     sameSite: "none",
     expire: new Date(
-      Date.now() + 24 * 60 * 60 * 1000 + process.env.JWT_EXPIRES_IN
+      Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
   };
 
@@ -50,10 +49,13 @@ exports.customerVerification_N_Authentication = catchAsync(
   async (req, res, next) => {
     const { contactNumber } = req.body;
     let data;
-    if (!contactNumber) next(new Error("Contact number is missing, retry."));
+    if (!contactNumber)
+      next(new appError("Contact number is missing, retry.", 400));
 
-    data = await customer.findOne({ contactNumber });
+    data = await customer.findOne({ contactNumber }); // for login
+
     if (!data) {
+      // for signup
       let body = {
         customerName: "MYCRDIT Customer", // this is dummy and editable from customer side
         contactNumber: contactNumber,
@@ -81,7 +83,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
       },
       { runValidators: true, new: true }
     );
-    console.log(contact_number, req.body.proprietorName);
+
     res.status(200).json({
       status: "Success",
       data: doc,
@@ -90,7 +92,6 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
 
   //2. Checking if user is customer
   if (req.userType === "Customer") {
-    console.log("running", req.body);
     contact_number = req.body.contactNumber;
     name = req.body.customerName;
 
@@ -102,7 +103,7 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
       },
       { runValidators: true, new: true }
     );
-    console.log(doc);
+
     res.status(200).json({
       status: "Success",
       data: doc,
@@ -111,7 +112,6 @@ exports.updateUserInfo = catchAsync(async (req, res, next) => {
 });
 
 exports.logout_Customer = catchAsync(async (req, res, next) => {
-  console.log("this worked");
   const token = signtoken("logout"); // explained in notes (note no 2)
 
   res.cookie("jwt", "logout", {
@@ -136,7 +136,7 @@ exports.proprietorAuthentication = catchAsync(async (req, res, next) => {
 
 exports.proprietorVerification = catchAsync(async (req, res, next) => {
   const { contactNumber, password } = req.body;
-  if (!contactNumber && password)
+  if (!contactNumber || !password)
     return next(new appError("Credentials are missing.", 400));
 
   const user = await proprietor.findOne({ contactNumber }).select("+password");
@@ -145,14 +145,13 @@ exports.proprietorVerification = catchAsync(async (req, res, next) => {
       new appError("Could not login, check if filled right or not.", 400)
     );
 
-  const pwCorrect = await user.correctPassword(password, user.password);
-  if (!pwCorrect) return next(new appError("Password incorrect retry.", 400));
+  const correctPW = await user.correctPassword(password, user.password);
+  if (!correctPW) return next(new appError("Password incorrect retry.", 400));
 
   cookieAndToken(res, user, 200);
 });
 
 exports.logout_Proprietor = catchAsync(async (req, res, next) => {
-  console.log("this worked");
   const token = signtoken("logout"); // explained in notes (note no 2)
 
   res.cookie("jwt", "logout", {
@@ -166,9 +165,11 @@ exports.logout_Proprietor = catchAsync(async (req, res, next) => {
 });
 
 //PROTECTION LAYER MIDDLEWARE FOR SPECIFIC ROUTES
-// Proprietor Protect middleware
+
+// Proprietor Protect middleware.
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
+
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
@@ -185,7 +186,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   req.userType = "Proprietor";
   req.user = user;
-  console.log(req.body);
+
   next();
 });
 
@@ -207,6 +208,6 @@ exports.customerProtectMiddleware = catchAsync(async (req, res, next) => {
   const user = await customer.findById(decodedToken.id);
   req.userType = "Customer";
   req.user = user;
-  console.log(req.userType, req.user);
+
   next();
 });
