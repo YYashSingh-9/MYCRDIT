@@ -143,14 +143,15 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   let plus_score = 0;
   let totalScore = 0;
 
-  console.log("FUNCTION STARTED FROM HERE -> ✅");
-  console.log(req.body, "REQUEST BODY");
+  // console.log("FUNCTION STARTED FROM HERE -> ✅");
+  // console.log(req.body, "REQUEST BODY");
 
   if (!req.body.contactNumber) {
     return next(new appError("Customer number is missing.", 404));
   }
   const customerNum = req.body.contactNumber;
-  //1. Calculate " Behavioural credit score ".
+
+  // Calculate " Behavioural credit score ".
 
   // Step 1:- Getting customer & all t-blocks from array of transactions .
   const allPaidNotes = await PaidNote.find({
@@ -158,7 +159,9 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   });
   const customerArr = await Customer.find({ contactNumber: customerNum });
   const customer = customerArr[0];
-  console.log(customer, allPaidNotes.length, "CUSTOMER & NOTES HERE..");
+
+  // console.log(customer, allPaidNotes.length, "CUSTOMER & NOTES HERE..");
+
   if (allPaidNotes.length < 100) {
     return next(
       new appError(
@@ -172,7 +175,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
   }
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
-  // cleared:false on uncleared t-block.
+  // & cleared:false on uncleared t-block.
   if (parentTBlockArray.length === 0) {
     return next(
       appError(
@@ -201,7 +204,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
   //Assigning it.
   updatedTBlockArray = [...parentTBlockArray];
-  // console.log(updatedTBlockArray[0]);
 
   // Step 3:- Giving score on 2 consecutively cleared T-blocks (2 tblocks = 3+3 months = 6months 0r 6 transactions);
 
@@ -223,11 +225,10 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
 
     if (countOfTwo === 2) {
       let num = countOfTwo * 0.2;
-      // console.log("jjjjjj");
       consecutiveScore = consecutiveScore + num;
     }
+
     if (oddCount === true) {
-      // console.log("bdbd");
       consecutiveScore = consecutiveScore + 0.2;
     }
   }
@@ -243,11 +244,6 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     }
   });
 
-  console.log(
-    "CLEARED AND UNCLEARED TBLOCKS -> ",
-    clearedTblocks.length,
-    unclearedTblocks.length
-  );
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 

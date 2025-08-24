@@ -22,7 +22,7 @@ exports.allClearedNotes = catchAsync(async (req, res, next) => {
 
   if (!_id)
     return next(
-      new appError("Proprietor Id id missing from client side, retry.", 400)
+      new appError("Proprietor Id missing from client side, retry.", 400)
     );
 
   const doc = await debtNote.find({
@@ -44,7 +44,7 @@ exports.createNote = catchAsync(async (req, res, next) => {
     );
 
   const doc = await debtNote.create(req.body);
-  console.log(doc, "✅✅✅");
+
   res.status(200).json({
     status: "Success",
     data: doc,
@@ -58,7 +58,7 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
     return next(new appError("Some credentials are missing, retry.", 400));
 
   //1. changing cleared status.
-  const doc22 = await debtNote.findOneAndUpdate(
+  const doc__ = await debtNote.findOneAndUpdate(
     { _id: debtNote_Id },
     { cleared: true },
     {
@@ -128,6 +128,7 @@ exports.createNoteMiddleware = (req, res, next) => {
 
 exports.deleteNote = catchAsync(async (req, res, next) => {
   const { noteId } = req.body;
+
   if (!noteId) {
     return next(
       new appError("Error occured while deleting, something missing", 404)
@@ -140,7 +141,6 @@ exports.deleteNote = catchAsync(async (req, res, next) => {
     { runValidators: true, new: true }
   );
 
-  console.log(data);
   res.status(200).json({
     status: "Success",
     data: data,
