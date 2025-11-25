@@ -52,6 +52,9 @@ const noteSchema = mongoose.Schema({
   deleted: {
     type: Boolean,
   },
+  rated: {
+    type: Boolean,
+  },
 });
 
 const DebtNote = mongoose.model("DebtNote", noteSchema);
