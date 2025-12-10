@@ -1,5 +1,6 @@
 const debtNote = require("../Models/noteModel");
 const paidNote = require("../Models/paidNoteModel");
+const proprietor = require("../Models/proprietorModel");
 const catchAsync = require("../Utilities/catchAsync");
 const appError = require("../Utilities/appError");
 
@@ -109,22 +110,23 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
 //   next();
 // });
 
-exports.createNoteMiddleware = (req, res, next) => {
+exports.createNoteMiddleware = catchAsync(async (req, res, next) => {
   const doc = req.body;
   if (!doc) return next(new appError("Content from client side missing", 400));
   const dummyDoc1 = { ...doc };
-
+  const proprietorDetail = await proprietor.findById(dummyDoc1.proprietorId);
   // Client must accept this note first, after that acceptanceStatus : true
   const dummydoc2 = {
     ...dummyDoc1,
+    proprietor_name: proprietorDetail.ProprietorName,
     cleared: false,
     acceptanceStatus: false,
     deleted: false,
   };
-
+  console.log(dummydoc2);
   req.body = dummydoc2;
   next();
-};
+});
 
 exports.deleteNote = catchAsync(async (req, res, next) => {
   const { noteId } = req.body;

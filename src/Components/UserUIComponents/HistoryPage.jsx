@@ -17,7 +17,7 @@ export const ListItem = (props) => {
 
   clearState = obj.cleared === true ? true : false;
   const date = obj.date.slice(0, 10);
-
+  console.log(obj);
   return (
     <>
       <Box className={classes.liBox}>
@@ -33,6 +33,11 @@ export const ListItem = (props) => {
             {!clearState && <PendingActionsIcon className={classes.pending} />}
             {props.btnTitle}
           </button>
+        </Box>
+        <Box className={classes.info_left}>
+          <Box className={classes.subtitle}>
+            <h4>Sold by:</h4>
+          </Box>
         </Box>
       </Box>
     </>

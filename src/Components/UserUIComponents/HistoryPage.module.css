@@ -27,12 +27,14 @@
   margin: auto;
   display: flex;
   align-items: center;
-  height: 4rem;
+  justify-content: space-between;
+  height: 8rem;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
 .info_left {
-  width: 70%;
+  width: 60%;
   padding-left: 2rem;
 }
 .liBox h4,
@@ -48,9 +50,10 @@ h3 {
   font-size: 0.7rem;
 }
 .info_right {
-  width: 30%;
+  width: 20%;
   text-align: right;
   padding-right: 1rem;
+  border: 0.1rem solid green;
 }
 
 .clearIndicatorBtn {
