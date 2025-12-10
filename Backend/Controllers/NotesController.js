@@ -122,6 +122,7 @@ exports.createNoteMiddleware = catchAsync(async (req, res, next) => {
     cleared: false,
     acceptanceStatus: false,
     deleted: false,
+    rated: false,
   };
   console.log(dummydoc2);
   req.body = dummydoc2;

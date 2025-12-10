@@ -55,6 +55,10 @@ const noteSchema = mongoose.Schema({
   rated: {
     type: Boolean,
   },
+  proprietor_name: {
+    type: String,
+    required: [true, "Proprietor name is missing."],
+  },
 });
 
 const DebtNote = mongoose.model("DebtNote", noteSchema);
