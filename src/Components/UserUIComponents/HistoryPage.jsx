@@ -37,6 +37,7 @@ export const ListItem = (props) => {
         <Box className={classes.info_left}>
           <Box className={classes.subtitle}>
             <h4>Sold by:</h4>
+            <h4>{obj.proprietor_name}</h4>
           </Box>
         </Box>
       </Box>
