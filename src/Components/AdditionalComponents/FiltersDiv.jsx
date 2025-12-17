@@ -48,7 +48,7 @@ const HelperFilterInput = (props) => {
 const styles = {
   heading: {
     fontWeight: 800,
-    color: "white",
+    color: "#404040",
     fontFamily: "Manrope",
     paddingTop: 1,
     "@media only screen and (min-width: 280px) and (max-width: 576px)": {

@@ -1,10 +1,12 @@
 .NotesListContainerBackground {
   height: 100%;
-  background-color: rgba(29, 185, 84, 1);
+  /* background-color: rgba(29, 185, 84, 1); */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   border-radius: 1rem;
+  border: 0.1rem solid rgb(241, 241, 241);
   margin-top: 1rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
