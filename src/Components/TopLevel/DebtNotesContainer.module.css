@@ -11,7 +11,7 @@
 }
 .headingPart {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,11 +33,12 @@ a {
 
 .userTag {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
-  height: 2.5rem;
+  height: 2.3rem;
   color: #191414;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   background-color: rgb(237, 237, 237);
   border: none;
   outline: none;
@@ -49,6 +50,12 @@ a {
   text-transform: capitalize;
   cursor: not-allowed;
 }
+
+.btnBackground {
+  background-color: #1db954;
+  color: rgb(255, 255, 255);
+}
+
 .tags {
   display: flex;
   justify-content: center;

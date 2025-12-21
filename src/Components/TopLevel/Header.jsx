@@ -19,6 +19,8 @@ const styles = {
   },
   detailsButtonFont: {
     fontFamily: "poppins",
+    textTransform: "capitalize",
+    fontSize: 13,
     fontWeight: "400",
     "@media only screen and (min-width: 280px) and (max-width: 576px)": {
       fontSize: 0,

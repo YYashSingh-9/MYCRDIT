@@ -27,10 +27,11 @@ const notifyFunction = () => {
 
 const TagButton = (props) => {
   const conditionalStyle = props.click ? classes.clickEffect : "";
+  const btnStyle = props.style ? classes.btnBackground : "";
 
   return (
     <>
-      <button className={`${classes.userTag} ${conditionalStyle}`}>
+      <button className={`${classes.userTag} ${conditionalStyle} ${btnStyle}`}>
         {props.iconTitle === "store" && (
           <StorefrontIcon sx={{ marginRight: 1 }} />
         )}
@@ -115,6 +116,7 @@ const DebtNotesContainer = () => {
                     iconTitle="create"
                     tagTitle="Create Note"
                     click={true}
+                    style={true}
                   />
                 </Link>
               </Box>
