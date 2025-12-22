@@ -1,3 +1,7 @@
+* {
+  font-family: "poppins";
+}
+
 .formBox {
   width: 100%;
   display: flex;
@@ -16,17 +20,22 @@
 }
 .formBox button {
   outline: none;
-  border: 0.1rem solid rgb(211, 211, 211);
+  border: none;
+  width: 15%;
+  border-radius: 0;
+  color: #191414;
+  border-bottom: 0.1rem solid rgb(211, 211, 211);
+  background-color: transparent;
+  cursor: pointer;
 }
 .txt_area {
   resize: none;
   font-size: 0.8rem;
-  font-family: "poppins";
   width: 100%;
   scrollbar-width: none;
   padding: 1rem;
-  border-radius: 1rem;
-  border: 0.1rem solid rgb(211, 211, 211);
+  border: none;
+  outline: none;
 }
 .txt_area::-webkit-scrollbar {
   display: none;
