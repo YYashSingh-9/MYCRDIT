@@ -17,11 +17,11 @@ import {
 } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
+import NewDebtNoteForm from "./NewDebtNoteForm";
 import { useEffect } from "react";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast, Slide } from "react-toastify";
-
 const toastFn = (message) => {
   return toast(`${message}`, {
     position: "top-right",
@@ -91,7 +91,8 @@ const FormMain = () => {
               className={classes.formDiv}
             >
               <Form method="POST" className={classes.form_main}>
-                <label htmlFor="Note Title">Note title</label>
+                <NewDebtNoteForm />
+                {/* <label htmlFor="Note Title">Note title</label>
                 <br />
 
                 <TextField id="outlined" name="noteTitle" />
@@ -142,7 +143,7 @@ const FormMain = () => {
                 />
                 <Link to={".."}>
                   <GeneralButton btn_title="Back" />
-                </Link>
+                </Link> */}
               </Form>
             </Grid>
           </Grid>
