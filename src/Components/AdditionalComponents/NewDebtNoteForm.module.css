@@ -11,11 +11,13 @@
   padding: 0.5rem;
   border-radius: 1rem;
   border: 0.1rem solid rgb(211, 211, 211);
+  margin-top: auto;
 }
 .parentBox {
   width: 100%;
-  height: 100%;
+  height: 40vh;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .formBox button {
@@ -23,7 +25,7 @@
   border: none;
   width: 15%;
   border-radius: 0;
-  color: #191414;
+  color: rgb(61, 61, 61);
   border-bottom: 0.1rem solid rgb(211, 211, 211);
   background-color: transparent;
   cursor: pointer;
@@ -42,4 +44,8 @@
 }
 .txt_area:focus {
   outline: none;
+}
+.new_note_heading h3 {
+  color: rgb(61, 61, 61);
+  text-align: center;
 }
