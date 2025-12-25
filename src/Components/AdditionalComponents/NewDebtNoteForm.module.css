@@ -4,9 +4,8 @@
 
 .formBox {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+
   height: 10rem;
   padding: 0.5rem;
   border-radius: 1rem;
@@ -29,6 +28,8 @@
   border-bottom: 0.1rem solid rgb(211, 211, 211);
   background-color: transparent;
   cursor: pointer;
+
+  display: block;
 }
 .txt_area {
   resize: none;

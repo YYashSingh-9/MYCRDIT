@@ -12,7 +12,12 @@ const NewDebtNoteForm = () => {
           </h3>
         </Box>
         <Box className={classes.formBox}>
-          <textarea className={classes.txt_area} />
+          <textarea
+            className={classes.txt_area}
+            placeholder="Write like - 1 bag of lays chips 20"
+            name="noteTitle"
+          />
+          <TextField id="outlined" name="customerNumber" />
           <button>Add note</button>
         </Box>
       </Box>
