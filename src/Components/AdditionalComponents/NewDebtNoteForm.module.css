@@ -5,12 +5,21 @@
 .formBox {
   width: 100%;
   display: grid;
-
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  text-align: center;
   height: 10rem;
   padding: 0.5rem;
   border-radius: 1rem;
   border: 0.1rem solid rgb(211, 211, 211);
   margin-top: auto;
+}
+.formBox :nth-child(2) {
+  border: none;
+  padding: 1rem;
+}
+.formBox :nth-child(2):focus {
+  outline: none;
 }
 .parentBox {
   width: 100%;
@@ -28,7 +37,7 @@
   border-bottom: 0.1rem solid rgb(211, 211, 211);
   background-color: transparent;
   cursor: pointer;
-
+  margin: auto;
   display: block;
 }
 .txt_area {
@@ -49,4 +58,32 @@
 .new_note_heading h3 {
   color: rgb(61, 61, 61);
   text-align: center;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 400px) {
+  .formBox {
+    width: 100%;
+    font-family: 0.7rem;
+    row-gap: 1rem;
+    height: 15rem;
+  }
+  .txt_area {
+    width: 90%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .formBox :nth-child(2) {
+    width: 90%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .formBox button {
+    width: 80%;
+  }
+  .parentBox {
+    height: 45vh;
+  }
+  .new_note_heading h3 {
+    font-size: 0.8rem;
+  }
 }
