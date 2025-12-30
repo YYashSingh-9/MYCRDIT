@@ -58,6 +58,10 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
+.form_btnBox {
+  width: 60%;
+  margin: auto;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .title {

@@ -22,7 +22,7 @@ const NewDebtNoteForm = () => {
             name="customerNumber"
             placeholder="Customer Number"
           />
-          <button>Add note</button>
+          {/* <button>Add note</button> */}
         </Box>
       </Box>
     </>

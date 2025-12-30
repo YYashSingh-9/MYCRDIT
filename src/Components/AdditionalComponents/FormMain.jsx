@@ -144,6 +144,14 @@ const FormMain = () => {
                 <Link to={".."}>
                   <GeneralButton btn_title="Back" />
                 </Link> */}
+                <Box className={classes.form_btnBox}>
+                  <GeneralButton
+                    typeBtn="submit"
+                    btn_title="Save"
+                    name="proprietor-data"
+                    value={btnDataToSend}
+                  />
+                </Box>
               </Form>
             </Grid>
           </Grid>
