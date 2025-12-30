@@ -15,6 +15,7 @@ import GeneralButton from "../AdditionalComponents/GeneralButton";
 import MoodIcon from "@mui/icons-material/Mood";
 import Spinner from "../AdditionalComponents/Spinner";
 import { ToastContainer, toast, Slide } from "react-toastify";
+import { Scale } from "@mui/icons-material";
 
 const notifyFunction = () => {
   return toast("Logged in successfully.✅", {
