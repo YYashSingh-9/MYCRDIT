@@ -17,13 +17,16 @@ export const ListItem = (props) => {
 
   clearState = obj.cleared === true ? true : false;
   const date = obj.date.slice(0, 10);
-  console.log(obj);
   return (
     <>
       <Box className={classes.liBox}>
         <Box className={classes.info_left}>
           <h3>{obj.noteTitle}</h3>
           <h4>{date}</h4>
+          <Box className={classes.subtitle}>
+            <h4>Sold by:</h4>
+            <h4>{obj.proprietor_name}</h4>
+          </Box>
         </Box>
 
         <Box className={classes.info_right}>
@@ -34,12 +37,12 @@ export const ListItem = (props) => {
             {props.btnTitle}
           </button>
         </Box>
-        <Box className={classes.info_left}>
+        {/* <Box className={classes.info_left}>
           <Box className={classes.subtitle}>
             <h4>Sold by:</h4>
             <h4>{obj.proprietor_name}</h4>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );
