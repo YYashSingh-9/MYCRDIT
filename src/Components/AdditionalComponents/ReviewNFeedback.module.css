@@ -11,6 +11,9 @@
   padding: 0.5rem;
   font-size: 0.8rem;
   width: 30rem;
+  border-radius: 0.3rem;
+
+  border: 0.1rem solid rgb(181, 181, 181);
 }
 .syvform label {
   margin-top: 3rem;

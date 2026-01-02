@@ -83,11 +83,19 @@ const ReviewNFeedback = () => {
                 <Form method="POST" className={classes.syvform}>
                   <label htmlFor="Brand Name">Brand Name</label>
                   <br />
-                  <TextField id="outlined" name="brandName" />
+                  {/* <TextField
+                    id="outlined"
+                    name="brandName"
+                    className={classes.inpStyle}
+                    
+                  /> */}
+                  <input name="brandName" />
                   <br />
                   <label htmlFor="Your Issue">Your Issue title</label>
                   <br />
-                  <TextField id="outlined" name="issue_title" />
+                  <input name="issue_title" />
+
+                  {/* <TextField id="outlined" name="issue_title" /> */}
 
                   <br />
                   <br />
