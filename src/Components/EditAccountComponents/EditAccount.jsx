@@ -55,9 +55,12 @@ const EditCustomer = (props) => {
                   <Box key={i}>
                     <label htmlFor={el}>{el}</label>
                     <br />
-
-                    <TextField id="outlined" defaultValue={val} name={el} />
-                    <hr />
+                    <TextField
+                      id="outlined"
+                      defaultValue={val}
+                      name={el}
+                      sx={{ mb: 1 }}
+                    />
                   </Box>
                 );
               })}
