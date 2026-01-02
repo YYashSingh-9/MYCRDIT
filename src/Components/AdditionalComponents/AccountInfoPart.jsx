@@ -95,6 +95,26 @@ const AccountInfoPart = (props) => {
           xs={12}
           className={classes.accountBtnContainer}
         >
+          {accountType === "customer" ? (
+            <Link to={`/your-history-details/${paramsToSend}`}>
+              <button className={classes.myReward_btn}>My rewards</button>
+              {/* <GeneralButton icnTitle={"history"} btn_title={"Check History"} /> */}
+            </Link>
+          ) : (
+            <Link to={`/your-history-details/${paramsToSend}`}>
+              <button className={classes.myReward_btn}>My rewards</button>
+            </Link>
+          )}
+        </Grid>
+
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className={classes.accountBtnContainer}
+        >
           {accountType === "customer" && (
             <Link to={`/my-note-requests/${paramsToSend}`}>
               <GeneralButton
