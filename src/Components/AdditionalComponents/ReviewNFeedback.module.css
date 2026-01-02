@@ -34,7 +34,10 @@
   overflow-y: scroll;
 }
 .formBox textarea:focus {
-  outline: 0.13rem solid rgb(23, 103, 232);
+  outline: none;
+}
+.syvform input:focus {
+  outline: none;
 }
 
 .formBox textarea::-webkit-scrollbar {
@@ -49,7 +52,7 @@
   border-radius: 0rem;
   background-color: none;
 }
-.syvform button,
+/* .syvform button,
 .backbtn {
   width: 30%;
   outline: none;
@@ -64,16 +67,19 @@
   border-radius: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.syvform button:hover,
+} */
+/* .syvform button:hover,
 .backbtn:hover {
   background-color: rgb(36, 194, 92);
 }
 .syvform button:active,
 .backbtn:active {
   background-color: #137a37;
+} */
+.btnBox {
+  width: 35%;
+  margin: auto;
 }
-
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .disclaimerBox {
     width: 90%;

@@ -13,6 +13,8 @@ import NotLoggedInLandingPage from "./NotLoggedInLandingPage";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
 import { sliceOneActions } from "../../Store/sliceOne";
+import GeneralButton from "./GeneralButton";
+import { Box } from "@mui/material";
 
 const ReviewNFeedback = () => {
   let btnVal;
@@ -91,13 +93,21 @@ const ReviewNFeedback = () => {
                   <br />
                   <textarea htmlFor="Issue explained" name="issue_content" />
                   <br />
-                  <button type="submit" name="proprietor-data" value={btnVal}>
-                    Send
-                  </button>
+                  <Box className={classes.btnBox}>
+                    <GeneralButton
+                      typeBtn="submit"
+                      btn_title="Send"
+                      name="proprietor-data"
+                      value={btnVal}
+                    >
+                      Send
+                    </GeneralButton>
+                    <Link to={linkTo}>
+                      <GeneralButton typeBtn="button" btn_title="Back" />
+                      {/* <button className={classes.backbtn}>Back</button> */}
+                    </Link>
+                  </Box>
                 </Form>
-                <Link to={linkTo}>
-                  <button className={classes.backbtn}>Back</button>
-                </Link>
               </Grid>
             </>
           )}
