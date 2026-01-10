@@ -1,4 +1,5 @@
 import classes from "./AccountInfoPart.module.css";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
 import GeneralButton from "./GeneralButton";
@@ -97,12 +98,22 @@ const AccountInfoPart = (props) => {
         >
           {accountType === "customer" ? (
             <Link to={`/your-history-details/${paramsToSend}`}>
-              <button className={classes.myReward_btn}>My rewards</button>
+              <button className={classes.myReward_btn}>
+                <span>
+                  <EmojiEventsIcon className={classes.rewardIcon} />
+                  My rewards
+                </span>
+              </button>
               {/* <GeneralButton icnTitle={"history"} btn_title={"Check History"} /> */}
             </Link>
           ) : (
             <Link to={`/your-history-details/${paramsToSend}`}>
-              <button className={classes.myReward_btn}>My rewards</button>
+              <button className={classes.myReward_btn}>
+                <span>
+                  <EmojiEventsIcon className={classes.rewardIcon} />
+                  My rewards
+                </span>
+              </button>
             </Link>
           )}
         </Grid>

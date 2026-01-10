@@ -15,6 +15,7 @@
   margin-bottom: 1rem;
 }
 .row td {
+  font-size: 0.9rem;
   font-weight: 400;
   margin-left: 1rem;
   border: 0.1rem solid rgb(221, 221, 221);
@@ -24,7 +25,7 @@
 }
 .accountBtnContainer {
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.7rem;
   padding-top: 0.7rem;
   border-top: 0.1rem solid rgb(211, 211, 211);
 }
@@ -44,8 +45,28 @@
 }
 
 .myReward_btn {
+  outline: none;
+  border: none;
+  margin: auto;
+  width: 95%;
+  padding: 0.7rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-family: "poppins";
+  display: flex;
+  background-color: #1db954;
+  justify-content: center;
 }
-
+.myReward_btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.rewardIcon {
+  color: #2a2a2a;
+  margin-right: 0.2rem;
+}
 /* Responsive styling from here. */
 @media only screen and (min-width: 280px) and (max-width: 576px) {
   .mainGrid {
