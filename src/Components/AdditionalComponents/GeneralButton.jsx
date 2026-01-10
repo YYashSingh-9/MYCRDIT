@@ -23,31 +23,36 @@ const GeneralButton = (props) => {
     <>
       <Box className={classes.btnParent}>
         <button className={classes.btn} type={btnType} value={val} name={nam}>
-          {iconTitle === "bacck" && <ArrowBackIcon className={classes.icn} />}
-          {iconTitle === "home" && <HomeIcon className={classes.icn} />}
-          {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
-          {iconTitle === "runningDebt" && (
-            <TimelineIcon className={classes.icn} />
-          )}
-          {iconTitle === "shopInfo" && (
-            <AddBusinessIcon className={classes.icn} />
-          )}
-          {iconTitle === "money" && (
-            <MonetizationOnIcon className={classes.icn} />
-          )}
-          {iconTitle === "review" && <RateReviewIcon className={classes.icn} />}
-          {iconTitle === "edit" && <EditIcon className={classes.icn} />}
-          {iconTitle === "account" && (
-            <AccountBoxIcon className={classes.icn} />
-          )}
-          {iconTitle === "pending requests" && (
-            <ListAltIcon className={classes.icn} />
-          )}
-          {iconTitle === "edit account" && (
-            <DriveFileRenameOutlineIcon className={classes.icn} />
-          )}
+          <span>
+            {iconTitle === "bacck" && <ArrowBackIcon className={classes.icn} />}
+            {iconTitle === "home" && <HomeIcon className={classes.icn} />}
+            {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
+            {iconTitle === "runningDebt" && (
+              <TimelineIcon className={classes.icn} />
+            )}
+            {iconTitle === "shopInfo" && (
+              <AddBusinessIcon className={classes.icn} />
+            )}
+            {iconTitle === "money" && (
+              <MonetizationOnIcon className={classes.icn} />
+            )}
+            {iconTitle === "review" && (
+              <RateReviewIcon className={classes.icn} />
+            )}
+            {iconTitle === "edit" && <EditIcon className={classes.icn} />}
+            {iconTitle === "account" && (
+              <AccountBoxIcon className={classes.icn} />
+            )}
+            {iconTitle === "pending requests" && (
+              <ListAltIcon className={classes.icn} />
+            )}
+            {iconTitle === "edit account" && (
+              <DriveFileRenameOutlineIcon className={classes.icn} />
+            )}
 
-          {props.btn_title}
+            {props.btn_title}
+          </span>
+          <ArrowRightAltIcon />
         </button>
       </Box>
     </>
