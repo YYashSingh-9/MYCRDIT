@@ -48,7 +48,7 @@
   outline: none;
   border: none;
   margin: auto;
-  width: 60%;
+  width: 95%;
   padding: 0.5rem;
   border-radius: 2rem;
   font-size: 0.9rem;
@@ -57,10 +57,12 @@
   background-color: #1db954;
   justify-content: center;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 .myReward_btn:active {
-  background-color: #189f48;
+  background-color: #169141;
 }
+
 .myReward_btn span {
   display: flex;
   justify-content: center;

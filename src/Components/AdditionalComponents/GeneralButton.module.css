@@ -20,8 +20,11 @@
   transition: 0.1s ease;
   cursor: pointer;
 }
+.btn:hover {
+  background-color: #e5e5e5;
+}
 .btn:active {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(200, 200, 200);
 }
 .btnInfo {
   display: flex;
