@@ -11,6 +11,8 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+
 import { Box } from "@mui/material";
 
 const GeneralButton = (props) => {
@@ -18,13 +20,20 @@ const GeneralButton = (props) => {
   const btnType = props.typeBtn ? props.typeBtn : "button";
   const val = props.value ? props.value : "";
   const nam = props.name ? props.name : "";
-
+  const btnBackClass = iconTitle === "back" ? classes.backBtnExtraClass : "";
   return (
     <>
       <Box className={classes.btnParent}>
-        <button className={classes.btn} type={btnType} value={val} name={nam}>
-          <span>
-            {iconTitle === "bacck" && <ArrowBackIcon className={classes.icn} />}
+        <button
+          className={`${classes.btn} ${btnBackClass}`}
+          type={btnType}
+          value={val}
+          name={nam}
+        >
+          <span className={classes.btnInfo}>
+            {/* {iconTitle === "back" && (
+              <NavigateBeforeIcon className={classes.icn} />
+            )} */}
             {iconTitle === "home" && <HomeIcon className={classes.icn} />}
             {iconTitle === "history" && <HistoryIcon className={classes.icn} />}
             {iconTitle === "runningDebt" && (
@@ -52,7 +61,8 @@ const GeneralButton = (props) => {
 
             {props.btn_title}
           </span>
-          <ArrowRightAltIcon />
+
+          {iconTitle === "back" ? "" : <ArrowRightAltIcon />}
         </button>
       </Box>
     </>

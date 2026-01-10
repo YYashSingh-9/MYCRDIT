@@ -127,7 +127,7 @@ const HistoryPage = () => {
                     marginBottom={2}
                   >
                     <Link to={`/your-account-details/${id}`}>
-                      <GeneralButton btn_title={"back"} />
+                      <GeneralButton btn_title={"back"} icnTitle={"back"} />
                     </Link>
                   </Grid>
                 </>
