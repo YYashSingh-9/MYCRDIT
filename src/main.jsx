@@ -19,6 +19,7 @@ import NoteRequestPage from "./Components/UserUIComponents/NoteRequestPage.jsx";
 import CustomerAccountEdit from "./Components/EditAccountComponents/CustomerAccountEdit.jsx";
 import ProprietorAccountEdit from "./Components/EditAccountComponents/ProprietorAccountEdit.jsx";
 import MCScorePage from "./Components/UserUIComponents/MCScorePage.jsx";
+import MyRewards from "./Components/AdditionalComponents/MyRewards.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import mainStore from "./Store/mainStore.jsx";
@@ -102,6 +103,7 @@ const router = createBrowserRouter([
         path: "/forbidden-path-xyx-administrator-panel",
         element: <Administrator />,
       },
+      { path: "/my-rewards/:id", element: <MyRewards /> },
     ],
   },
 ]);
