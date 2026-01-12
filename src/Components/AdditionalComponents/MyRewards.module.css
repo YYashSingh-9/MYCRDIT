@@ -1,0 +1,27 @@
+.subtitleBox {
+  border: 0.1rem solid rgb(211, 211, 211);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.boxLeft {
+  width: 50%;
+  background-color: aqua;
+}
+.boxRight {
+  background-color: blue;
+  width: 50%;
+  height: 5rem;
+  display: flex;
+}
+
+.boxRight :nth-child(1),
+.boxRight :nth-child(2) {
+  transform: scale(1.1);
+
+  height: 3rem;
+}
