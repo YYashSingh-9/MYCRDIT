@@ -1,7 +1,10 @@
+* {
+  font-family: "poppins";
+}
 .subtitleBox {
   border: 0.1rem solid rgb(211, 211, 211);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,19 +12,45 @@
 }
 
 .boxLeft {
-  width: 50%;
-  background-color: aqua;
+  width: 80%;
 }
+
+.boxLeft h2 {
+  font-size: 1.3rem;
+}
+.boxLeft p {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+}
+
 .boxRight {
-  background-color: blue;
-  width: 50%;
+  width: 20%;
   height: 5rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .boxRight :nth-child(1),
 .boxRight :nth-child(2) {
-  transform: scale(1.1);
+  transform: scale(1);
+  width: 10rem;
+  margin-left: auto;
+  height: 4.3rem;
+}
 
-  height: 3rem;
+.parent_reward_Box {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 12rem;
+  border: 0.1rem solid rgb(211, 211, 211);
+}
+.parent_reward_Box h2 {
+  font-size: 1.1rem;
+}
+
+.parent_reward_Box p {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }

@@ -4,6 +4,23 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import BasicCoverDiv from "./BasicCoverDiv";
 import { useParams } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
+import GeneralButton from "./GeneralButton";
+
+const RewardBox = () => {
+  return (
+    <>
+      <Box className={classes.parent_reward_Box}>
+        <Box>
+          <h2>Reward title</h2>
+          <p>Reward description like etc</p>
+        </Box>
+        <Box>
+          <GeneralButton btn_title="Redeem" />
+        </Box>
+      </Box>
+    </>
+  );
+};
 
 const MyRewards = () => {
   const { id } = useParams();
@@ -14,15 +31,19 @@ const MyRewards = () => {
           <Box className={classes.subtitleBox}>
             <Box className={classes.boxLeft}>
               <h2>Available rewards</h2>
-              <h4>
-                Rewards are Available only for some time, use them before
+              <p>
+                Rewards are available only for some time, use them before
                 expire.
-              </h4>
+              </p>
             </Box>
             <Box className={classes.boxRight}>
-              <AutoAwesomeRoundedIcon />
               <EmojiEventsIcon />
             </Box>
+          </Box>
+        </Grid>
+        <Grid item xs="12" sm="12" md="12" lg="12">
+          <Box className={classes.rewardsBox}>
+            <RewardBox />
           </Box>
         </Grid>
       </BasicCoverDiv>
