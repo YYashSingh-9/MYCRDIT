@@ -39,11 +39,34 @@
   height: 4.3rem;
 }
 
+.rewardsBox {
+  margin-top: 1rem;
+  width: 45vw;
+  min-height: 10rem;
+  max-height: 70vh;
+  /* border: 0.1rem solid rgb(211, 211, 211); */
+  border-radius: 1rem;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+  justify-items: center;
+}
+.rewardsBox::-webkit-scrollbar {
+  display: none;
+  width: 0rem;
+}
+
 .parent_reward_Box {
-  padding: 0.5rem;
+  padding: 0.7rem;
   border-radius: 1rem;
   width: 12rem;
-  border: 0.1rem solid rgb(211, 211, 211);
+  margin-bottom: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .parent_reward_Box h2 {
   font-size: 1.1rem;
