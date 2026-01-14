@@ -44,6 +44,7 @@ const FormMain = () => {
     proprietorId = data.data._id;
   }
   const btnDataToSend = `${cookie},${proprietorId}`;
+
   useEffect(() => {
     if (formData !== undefined) {
       if (formData.status === "Fail" || formData.status === "error")
@@ -55,6 +56,7 @@ const FormMain = () => {
       }
     }
   }, [formData]);
+
   return (
     <>
       <InitialSlider />

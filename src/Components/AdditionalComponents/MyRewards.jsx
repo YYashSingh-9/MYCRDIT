@@ -14,8 +14,9 @@ const RewardBox = () => {
           <h2>Reward title</h2>
           <p>Reward description like etc</p>
         </Box>
-        <Box>
-          <GeneralButton btn_title="Redeem" />
+        <Box className={classes.btnBox}>
+          <button>Redeem</button>
+          {/* <GeneralButton btn_title="Redeem" /> */}
         </Box>
       </Box>
     </>
