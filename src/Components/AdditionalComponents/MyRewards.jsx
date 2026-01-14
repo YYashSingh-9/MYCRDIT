@@ -28,7 +28,7 @@ const MyRewards = () => {
   return (
     <>
       <BasicCoverDiv heading={"Your  "} heading_highlight={"  Rewards"}>
-        <Grid item xs="12" sm="12" md="12" lg="12">
+        <Grid item>
           <Box className={classes.subtitleBox}>
             <Box className={classes.boxLeft}>
               <h2>Available rewards</h2>
@@ -42,7 +42,7 @@ const MyRewards = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs="12" sm="12" md="12" lg="12">
+        <Grid item>
           <Box className={classes.rewardsBox}>
             <RewardBox />
             <RewardBox />
