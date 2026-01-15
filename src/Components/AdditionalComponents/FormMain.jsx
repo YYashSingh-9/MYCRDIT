@@ -14,6 +14,7 @@ import {
   useActionData,
   useNavigate,
   useNavigation,
+  useParams,
 } from "react-router-dom";
 import GeneralButton from "./GeneralButton";
 import InitialSlider from "./InitialSlider";
@@ -32,12 +33,18 @@ const toastFn = (message) => {
 };
 
 const FormMain = () => {
-  let cookie, proprietorId;
+  let cookie, proprietorId, customerNum;
   const data = useSelector((state) => state.sliceOne.accountUserData);
   const formData = useActionData();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const { id } = useParams();
+
+  if (id) {
+    customerNum = Number(id.split(",")[0]);
+    console.log(customerNum);
+  }
 
   if (data.status === "Success") {
     cookie = data.token;
@@ -93,7 +100,7 @@ const FormMain = () => {
               className={classes.formDiv}
             >
               <Form method="POST" className={classes.form_main}>
-                <NewDebtNoteForm />
+                <NewDebtNoteForm customer_number={customerNum} />
                 {/* <label htmlFor="Note Title">Note title</label>
                 <br />
 
@@ -143,9 +150,7 @@ const FormMain = () => {
                   name="proprietor-data"
                   value={btnDataToSend}
                 />
-                <Link to={".."}>
-                  <GeneralButton btn_title="Back" />
-                </Link> */}
+                 */}
                 <Box className={classes.form_btnBox}>
                   <GeneralButton
                     typeBtn="submit"
@@ -153,6 +158,9 @@ const FormMain = () => {
                     name="proprietor-data"
                     value={btnDataToSend}
                   />
+                  {/* <Link to={".."}>
+                    <GeneralButton btn_title="Back" />
+                  </Link> */}
                 </Box>
               </Form>
             </Grid>

@@ -31,9 +31,11 @@ const toastFn = (message) => {
 };
 
 const DebtDetailsPage = () => {
-  let isFormActive = false;
-  let arrayOfNotes = [];
-  let customerName = "";
+  let customerNum,
+    customerName = "",
+    arrayOfNotes = [],
+    isFormActive = false,
+    route_id;
   const cookie = useSelector((state) => state.sliceOne.accountUserCookie);
   const accType = useSelector((state) => state.sliceOne.accountType);
   const newNoteState = useSelector((state) => state.sliceOne.newNoteAddedState);
@@ -80,6 +82,7 @@ const DebtDetailsPage = () => {
     );
     if (arrayOfNotes.length >= 1) {
       customerName = arrayOfNotes[0].customerName.split(" ")[0];
+      customerNum = arrayOfNotes[0].customerNumber;
     }
   }
 
@@ -101,6 +104,8 @@ const DebtDetailsPage = () => {
     patch_requestHandle(obj);
   };
 
+  //4. route parameter
+  route_id = `${customerNum},${id}`;
   useEffect(() => {
     dispatch(sliceOneActions.userStorageInfo_Get_handler());
 
@@ -152,7 +157,7 @@ const DebtDetailsPage = () => {
                       Back
                     </button>
                   </Link>
-                  <Link to={`/${id}/details/add-note`}>
+                  <Link to={`/${route_id}/details/add-note`}>
                     <button>
                       <EditIcon className={classes.iccn} />
                       Add

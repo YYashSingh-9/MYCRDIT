@@ -43,18 +43,18 @@ const DetailedNote = (props) => {
         <Box className={classes.infoContainer}>
           <table className={classes.infoBox}>
             <tbody>
-              <tr className={classes.row}>
+              {/* <tr className={classes.row}>
                 <td>Customer Name :</td>
                 <td>{note_Data.customerName}</td>
-              </tr>
+              </tr> */}
               <tr className={classes.row}>
                 <td>Customer Number :</td>
                 <td>{note_Data.customerNumber}</td>
               </tr>
-              <tr className={classes.row}>
+              {/* <tr className={classes.row}>
                 <td>Product :</td>
                 <td>{note_Data.productName}</td>
-              </tr>
+              </tr> */}
               <tr className={classes.row}>
                 <td>Amount :</td>
                 <td>{note_Data.amount}/-</td>

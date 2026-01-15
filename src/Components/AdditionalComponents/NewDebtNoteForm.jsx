@@ -1,7 +1,9 @@
 import { Box, TextField } from "@mui/material";
 import classes from "./NewDebtNoteForm.module.css";
 
-const NewDebtNoteForm = () => {
+const NewDebtNoteForm = (props) => {
+  const customer_number = props.customer_number;
+  const numberVal = customer_number ? customer_number : "";
   return (
     <>
       <Box className={classes.parentBox}>
@@ -21,6 +23,7 @@ const NewDebtNoteForm = () => {
             id="outlined"
             name="customerNumber"
             placeholder="Customer Number"
+            defaultValue={numberVal}
           />
           {/* <button>Add note</button> */}
         </Box>
