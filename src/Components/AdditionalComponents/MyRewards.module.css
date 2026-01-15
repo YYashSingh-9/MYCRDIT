@@ -149,6 +149,16 @@
     font-size: 0.7rem;
   }
 }
+@media only screen and (min-width: 280px) and (max-width: 350px) {
+  .rewardsBox {
+    width: 95vw;
+    padding: 0.2rem;
+    padding-top: 0.5rem;
+    row-gap: 0.2rem;
+    column-gap: 0.1rem;
+    grid-template-columns: 1fr;
+  }
+}
 @media only screen and (min-width: 500px) and (max-width: 576px) {
   .rewardsBox {
     width: 95vw;
@@ -301,5 +311,10 @@
   }
   .parent_reward_Box p {
     font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .rewardsBox {
+    width: 57vw;
   }
 }
