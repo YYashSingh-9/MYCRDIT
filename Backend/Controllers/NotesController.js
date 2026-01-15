@@ -112,9 +112,17 @@ exports.notePaidController = catchAsync(async (req, res, next) => {
 
 exports.createNoteMiddleware = catchAsync(async (req, res, next) => {
   const doc = req.body;
+
   if (!doc) return next(new appError("Content from client side missing", 400));
+
   const dummyDoc1 = { ...doc };
+
   const proprietorDetail = await proprietor.findById(dummyDoc1.proprietorId);
+
+  // Current date.
+  const today = new Date().toISOString();
+  const date = today.slice(0, 10);
+
   // Client must accept this note first, after that acceptanceStatus : true
   const dummydoc2 = {
     ...dummyDoc1,

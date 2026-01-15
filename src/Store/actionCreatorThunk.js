@@ -208,6 +208,10 @@ export const createNote_Handler = async ({ request }) => {
   cookie = p_data.split(",")[0];
   proprietorId = p_data.split(",")[1];
 
+  /* Imp update:- Got to shift this part from front end part to backend part because of 
+  potential misuse/bug (if user changes his device's time then there is possibility to 
+  cheat this code.*/
+
   // Current date.
   const today = new Date().toISOString();
   const date = today.slice(0, 10);
