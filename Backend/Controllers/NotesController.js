@@ -127,10 +127,14 @@ exports.createNoteMiddleware = catchAsync(async (req, res, next) => {
   const dummydoc2 = {
     ...dummyDoc1,
     proprietor_name: proprietorDetail.ProprietorName,
+    productBrand: "Default Brand",
+    productName: "Default brand name",
+    customerName: "Customer_",
     cleared: false,
     acceptanceStatus: false,
     deleted: false,
     rated: false,
+    date: date,
   };
   console.log(dummydoc2);
   req.body = dummydoc2;

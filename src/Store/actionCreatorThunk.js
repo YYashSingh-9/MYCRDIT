@@ -199,7 +199,7 @@ export const patch_RequestHandler = async (
 // 7. Create DebtNote request (proprietor)
 
 export const createNote_Handler = async ({ request }) => {
-  let cookie, proprietorId, objectToSend;
+  let cookie, proprietorId, objectToSend, extractedString_amount;
 
   const data = await request.formData();
   const data_2 = Object.fromEntries(data);
@@ -208,23 +208,29 @@ export const createNote_Handler = async ({ request }) => {
   cookie = p_data.split(",")[0];
   proprietorId = p_data.split(",")[1];
 
-  /* Imp update:- Got to shift this part from front end part to backend part because of 
-  potential misuse/bug (if user changes his device's time then there is possibility to 
-  cheat this code.*/
+  const extractedString_ = data_2.noteTitle.match(/[\d.]+/g);
 
-  // Current date.
+  if (extractedString_ === null) {
+    extractedString_amount = "";
+    console.log("mmm");
+  } else if (extractedString_) {
+    extractedString_amount = extractedString_.join("");
+    console.log("mmm22");
+  }
+  console.log(extractedString_amount);
+  /* 
+  Imp update:- Got to shift this part from front end part to backend part because of 
+  potential misuse/bug (if user changes his device's time then there is possibility to 
+  cheat this code. --->  // Current date.
   const today = new Date().toISOString();
   const date = today.slice(0, 10);
+  */
 
   objectToSend = {
     proprietorId: proprietorId,
     noteTitle: data_2.noteTitle,
-    customerName: data_2.customerName,
     customerNumber: data_2.customerNumber,
-    date: date,
-    productBrand: data_2.productBrand,
-    productName: data_2.productName,
-    amount: data_2.amount,
+    amount: extractedString_amount,
   };
 
   const data_ = await data_Send_request(
@@ -234,6 +240,7 @@ export const createNote_Handler = async ({ request }) => {
     objectToSend,
     cookie
   );
+
   return data_;
 };
 
