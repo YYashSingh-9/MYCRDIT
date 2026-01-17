@@ -109,7 +109,7 @@
   }
   .listBtn {
     border-radius: 1.5rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.3rem 0.6rem;
     font-size: 0.6rem;
   }
   .listItem {
@@ -125,7 +125,27 @@
 @media only screen and (min-width: 577px) and (max-width: 720px) {
   .listBtn {
     border-radius: 1.5rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  .listItem h4 {
+    margin: 0;
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+  }
+  .subTitle_one,
+  .subTitle_two {
     font-size: 0.8rem;
+  }
+
+  .subTitle_two {
+    font-size: 0.7rem;
+  }
+  .listItem h3 {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .listBox {
+    margin-top: 2rem;
   }
 }

@@ -113,13 +113,16 @@ a {
 
   .userTag {
     height: 1.5rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 0.9rem 1rem;
     width: 9rem;
     justify-content: center;
   }
-  .noteIcn {
+  .userTag :nth-child(1) {
     transform: scale(0.9);
+  }
+  .noteIcn {
+    transform: scale(0.8);
     margin-bottom: 0.2rem;
   }
   .headingPart {
@@ -156,10 +159,13 @@ a {
   }
   .userTag {
     height: 1.8rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 1rem 1rem;
     width: 10rem;
     justify-content: center;
+  }
+  .userTag :nth-child(1) {
+    transform: scale(0.9);
   }
   .headingPart h3 {
     font-size: 1.2rem;
