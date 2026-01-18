@@ -183,10 +183,13 @@ a {
   }
   .userTag {
     height: 2rem;
-    font-size: 0.9rem;
-    padding: 1.2rem 1rem;
-    width: 11rem;
+    font-size: 0.8rem;
+    padding: 1.1rem 0.9rem;
+    width: 10rem;
     justify-content: center;
+  }
+  .userTag :nth-child(1) {
+    transform: scale(0.9);
   }
   .headingPart h3 {
     font-size: 1.2rem;
