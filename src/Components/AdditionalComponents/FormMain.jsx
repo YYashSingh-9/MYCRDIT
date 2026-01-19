@@ -1,16 +1,9 @@
-import {
-  Box,
-  Grid,
-  TextField,
-  OutlinedInput,
-  InputAdornment,
-} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import classes from "./FormMain.module.css";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 import Spinner from "./Spinner";
 import {
   Form,
-  Link,
   useActionData,
   useNavigate,
   useNavigation,
@@ -23,6 +16,8 @@ import { useEffect } from "react";
 import { sliceOneActions } from "../../Store/sliceOne";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast, Slide } from "react-toastify";
+import WhenNoItemToDisplay from "./WhenNoItemToDisplay";
+
 const toastFn = (message) => {
   return toast(`${message}`, {
     position: "top-right",
@@ -45,7 +40,7 @@ const FormMain = () => {
     customerNum = Number(id.split(",")[0]);
     console.log(customerNum);
   }
-
+  console.log(Object.keys(data).length < 1 ? "hello" : "bye");
   if (data.status === "Success") {
     cookie = data.token;
     proprietorId = data.data._id;
@@ -71,37 +66,44 @@ const FormMain = () => {
         <Spinner />
       ) : (
         <>
-          <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            className={classes.mainGrid}
-          >
+          {Object.keys(data).length < 1 ? (
+            <WhenNoItemToDisplay
+              userName="customer"
+              title="Something went wrong"
+              subtitle="Some error occured while refreshing."
+            />
+          ) : (
             <Grid
-              item
-              xs={12}
-              sm={12}
-              md={12}
-              lg={12}
-              className={classes.header}
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              className={classes.mainGrid}
             >
-              <Box className={classes.title}>
-                <FiberNewIcon className={classes.icn} />
-                <h3>New Debt Note</h3>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={12}
-              lg={12}
-              className={classes.formDiv}
-            >
-              <Form method="POST" className={classes.form_main}>
-                <NewDebtNoteForm customer_number={customerNum} />
-                {/* <label htmlFor="Note Title">Note title</label>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                className={classes.header}
+              >
+                <Box className={classes.title}>
+                  <FiberNewIcon className={classes.icn} />
+                  <h3>New Debt Note</h3>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                className={classes.formDiv}
+              >
+                <Form method="POST" className={classes.form_main}>
+                  <NewDebtNoteForm customer_number={customerNum} />
+                  {/* <label htmlFor="Note Title">Note title</label>
                 <br />
 
                 <TextField id="outlined" name="noteTitle" />
@@ -151,20 +153,22 @@ const FormMain = () => {
                   value={btnDataToSend}
                 />
                  */}
-                <Box className={classes.form_btnBox}>
-                  <GeneralButton
-                    typeBtn="submit"
-                    btn_title="Save"
-                    name="proprietor-data"
-                    value={btnDataToSend}
-                  />
-                  {/* <Link to={".."}>
+                  <Box className={classes.form_btnBox}>
+                    <GeneralButton
+                      typeBtn="submit"
+                      btn_title="Save"
+                      name="proprietor-data"
+                      value={btnDataToSend}
+                    />
+                    {/* <Link to={".."}>
                     <GeneralButton btn_title="Back" />
                   </Link> */}
-                </Box>
-              </Form>
+                  </Box>
+                </Form>
+              </Grid>
             </Grid>
-          </Grid>
+          )}
+
           <ToastContainer />
         </>
       )}
