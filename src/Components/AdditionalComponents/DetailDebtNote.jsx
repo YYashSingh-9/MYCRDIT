@@ -27,6 +27,8 @@ const DetailedNote = (props) => {
     props.patch_func(note_Data._id, "paying");
   };
 
+  //4. Adding timer of 15 days for pay-button
+
   return (
     <>
       <Grid
