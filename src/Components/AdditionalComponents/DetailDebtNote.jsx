@@ -29,6 +29,17 @@ const DetailedNote = (props) => {
 
   //4. Adding timer of 15 days for pay-button
 
+  //1. Converting debt note date in ms.
+  let dateFe = new Date(date);
+  let dateDef = dateFe.getTime();
+
+  //2. 15 days in ms
+  let fifteenDays = 1000 * 60 * 60 * 24 * 15;
+
+  //3. Finding 15 days from debt note date in ms
+  let final_date_in_ms = dateDef + fifteenDays;
+
+  console.log(fifteenDays, dateDef, final_date_in_ms, date);
   return (
     <>
       <Grid
