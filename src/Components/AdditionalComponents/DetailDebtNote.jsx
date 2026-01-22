@@ -3,7 +3,7 @@ import classes from "./DetailDebtNote.module.css";
 
 const DetailedNote = (props) => {
   const note_Data = props.data;
-  let acceptanceStatus, date, disableStatus;
+  let acceptanceStatus, date, disableStatus, dateFe, dateDef, currentDate;
 
   //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
@@ -30,14 +30,16 @@ const DetailedNote = (props) => {
   //4. Adding timer of 15 days for pay-button
 
   //1. Converting debt note date in ms.
-  let dateFe = new Date(date);
-  let dateDef = dateFe.getTime();
-
+  dateFe = new Date(date);
+  dateDef = dateFe.getTime();
   //2. 15 days in ms
   let fifteenDays = 1000 * 60 * 60 * 24 * 15;
 
   //3. Finding 15 days from debt note date in ms
   let final_date_in_ms = dateDef + fifteenDays;
+
+  //4. current date then comparing dates
+  currentDate = new Date.now();
 
   console.log(fifteenDays, dateDef, final_date_in_ms, date);
   return (
