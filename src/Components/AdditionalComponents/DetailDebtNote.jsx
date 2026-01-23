@@ -40,6 +40,7 @@ const DetailedNote = (props) => {
 
   //4. current date then comparing dates
   currentDate = new Date.now();
+  disableStatus = currentDate >= final_date_in_ms ? false : true;
 
   console.log(fifteenDays, dateDef, final_date_in_ms, date);
   return (
