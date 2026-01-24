@@ -39,7 +39,7 @@ const DetailedNote = (props) => {
   let final_date_in_ms = dateDef + fifteenDays;
 
   //4. current date then comparing dates
-  currentDate = new Date.now();
+  currentDate = Date.now();
   disableStatus = currentDate >= final_date_in_ms ? false : true;
 
   console.log(fifteenDays, dateDef, final_date_in_ms, date);
