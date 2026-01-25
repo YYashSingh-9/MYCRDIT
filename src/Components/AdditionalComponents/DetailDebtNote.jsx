@@ -3,21 +3,61 @@ import classes from "./DetailDebtNote.module.css";
 
 const DetailedNote = (props) => {
   const note_Data = props.data;
-  let acceptanceStatus, date, disableStatus, dateFe, dateDef, currentDate;
+  let acceptanceStatus,
+    date,
+    disableStatus,
+    dateFe,
+    dateDef,
+    currentDate,
+    minimum_days_status,
+    time_left_ms,
+    days_remaining;
 
   //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
+
   //2. Accepted indicator and button disable
   acceptanceStatus =
     note_Data.acceptanceStatus === true ? "Accepted " : "Not accepted";
 
   disableStatus = note_Data.acceptanceStatus === false ? true : false;
 
-  //3. Button style and title as per state.
+  //3. Adding timer of 15 days for pay-button
+
+  //a. Converting debt note date in ms.
+  dateFe = new Date(date);
+  dateDef = dateFe.getTime();
+  //b. 15 days in ms
+  let fifteenDays = 1000 * 60 * 60 * 24 * 15;
+
+  //c. Finding 15 days from debt note date in ms
+  let final_date_in_ms = dateDef + fifteenDays;
+
+  //d. current date then comparing dates
+  currentDate = Date.now();
+
+  disableStatus = currentDate >= final_date_in_ms ? false : true;
+
+  //e. Days left for 15 days completion
+  let finalDate_Is_greater = final_date_in_ms >= currentDate ? true : false;
+
+  if (finalDate_Is_greater) {
+    time_left_ms = final_date_in_ms - currentDate;
+    days_remaining = time_left_ms / (1000 * 60 * 60 * 24);
+    days_remaining = days_remaining.toFixed(1);
+  }
+
+  minimum_days_status =
+    currentDate <= final_date_in_ms
+      ? `${days_remaining} days left`
+      : "Completed";
+
+  //4. Button style and title as per state.
   const buttonClass =
     note_Data.acceptanceStatus === false
       ? classes.disableClass
       : classes.normalClass;
+
   const btnTitle = disableStatus === true ? "Not allowed" : "Pay";
 
   const deleteHandler = () => {
@@ -27,22 +67,6 @@ const DetailedNote = (props) => {
     props.patch_func(note_Data._id, "paying");
   };
 
-  //4. Adding timer of 15 days for pay-button
-
-  //1. Converting debt note date in ms.
-  dateFe = new Date(date);
-  dateDef = dateFe.getTime();
-  //2. 15 days in ms
-  let fifteenDays = 1000 * 60 * 60 * 24 * 15;
-
-  //3. Finding 15 days from debt note date in ms
-  let final_date_in_ms = dateDef + fifteenDays;
-
-  //4. current date then comparing dates
-  currentDate = Date.now();
-  disableStatus = currentDate >= final_date_in_ms ? false : true;
-
-  console.log(fifteenDays, dateDef, final_date_in_ms, date);
   return (
     <>
       <Grid
@@ -82,6 +106,10 @@ const DetailedNote = (props) => {
               <tr className={classes.row}>
                 <td>Status</td>
                 <td>{acceptanceStatus}</td>
+              </tr>
+              <tr className={classes.row}>
+                <td>15 Days Status</td>
+                <td>{minimum_days_status}</td>
               </tr>
             </tbody>
           </table>
