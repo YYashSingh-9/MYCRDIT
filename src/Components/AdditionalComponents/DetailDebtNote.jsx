@@ -2,7 +2,6 @@ import { Grid, Box } from "@mui/material";
 import classes from "./DetailDebtNote.module.css";
 
 const DetailedNote = (props) => {
-  const note_Data = props.data;
   let acceptanceStatus,
     date,
     disableStatus,
@@ -11,7 +10,12 @@ const DetailedNote = (props) => {
     currentDate,
     minimum_days_status,
     time_left_ms,
-    days_remaining;
+    days_remaining,
+    finalDate_Is_greater,
+    final_date_in_ms,
+    fifteenDays;
+
+  const note_Data = props.data;
 
   //1. Date
   date = new Date(note_Data.date).toISOString().substring(0, 10);
@@ -27,11 +31,12 @@ const DetailedNote = (props) => {
   //a. Converting debt note date in ms.
   dateFe = new Date(date);
   dateDef = dateFe.getTime();
-  //b. 15 days in ms
-  let fifteenDays = 1000 * 60 * 60 * 24 * 15;
 
-  //c. Finding 15 days from debt note date in ms
-  let final_date_in_ms = dateDef + fifteenDays;
+  //b. 15 days in ms
+  fifteenDays = 1000 * 60 * 60 * 24 * 15;
+
+  //c. Finding 15 days date from debt note date in ms.
+  final_date_in_ms = dateDef + fifteenDays;
 
   //d. current date then comparing dates
   currentDate = Date.now();
@@ -39,7 +44,7 @@ const DetailedNote = (props) => {
   disableStatus = currentDate >= final_date_in_ms ? false : true;
 
   //e. Days left for 15 days completion
-  let finalDate_Is_greater = final_date_in_ms >= currentDate ? true : false;
+  finalDate_Is_greater = final_date_in_ms >= currentDate ? true : false;
 
   if (finalDate_Is_greater) {
     time_left_ms = final_date_in_ms - currentDate;

@@ -18,7 +18,14 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   console.log("Function Started from here... ✅");
 
   let pre_score_count = 0;
-  let seconds, minutes, hours, days, _ThirtyDays, _FortyDays, within_FortyDays;
+  let seconds,
+    minutes,
+    hours,
+    days,
+    _ThirtyDays,
+    _FortyDays,
+    within_FortyDays,
+    _fifteenDays;
   let thirtyDayDuration = 30;
   let fortyDayDuration = 40;
 
@@ -62,7 +69,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("TOTAL PAYMENT IN MS -> ", totalPaymentDuration_ms);
   const lengthOfPayment = days;
   const thirtyDayPayment =
-    lengthOfPayment > 20 && lengthOfPayment <= 30 ? true : false;
+    lengthOfPayment > 15 && lengthOfPayment <= 30 ? true : false;
+  const fifteenDays_payment_duration =
+    lengthOfPayment > 15 && lengthOfPayment <= 17 ? true : false;
   // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
@@ -82,7 +91,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   if (lengthOfPayment > fortyDayDuration) {
     _FortyDays = true;
   }
-
+  if (fifteenDays_payment_duration) {
+    _fifteenDays = true;
+  }
   //3. Forwarding amount to filter brackets & giving score point as per.
 
   if (note_amount <= 500 && _ThirtyDays) {
@@ -117,7 +128,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     {
       runValidators: true,
       new: true,
-    }
+    },
   );
 
   const dummyObj = {
@@ -166,8 +177,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     return next(
       new appError(
         "Could not get your total score, minimum of 100 paid transactions required.",
-        404
-      )
+        404,
+      ),
     );
   }
 
@@ -180,8 +191,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     return next(
       appError(
         "Error while calculating behvaioural credit score , error t-block array length ",
-        404
-      )
+        404,
+      ),
     );
   }
 
@@ -257,7 +268,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     minus_score,
     "CONSECUTIVE SCORE -> ",
     clearedTblocks.length * 0.2,
-    consecutiveScore
+    consecutiveScore,
   );
   // Step 6:- Adding transactional Score with Behavioural score to get MyCrditScore.
   const customerTScore = customer.transactionalScore;
