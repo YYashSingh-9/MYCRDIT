@@ -95,7 +95,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     _fifteenDays = true;
   }
   //3. Forwarding amount to filter brackets & giving score point as per.
-
+  if (_fifteenDays) {
+    pre_score_count += 1;
+  }
   if (note_amount <= 500 && _ThirtyDays) {
     pre_score_count += 0.1;
   } else if (note_amount > 500 && note_amount <= 2000 && _ThirtyDays) {
@@ -117,8 +119,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   } else if (within_FortyDays) {
     pre_score_count += 0.05;
   }
-  if (_fifteenDays) {
-  }
+
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
