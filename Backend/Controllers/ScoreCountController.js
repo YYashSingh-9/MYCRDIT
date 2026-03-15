@@ -22,6 +22,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     minutes,
     hours,
     days,
+    dummycount,
     _ThirtyDays,
     _FortyDays,
     within_FortyDays,
@@ -95,31 +96,44 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     _fifteenDays = true;
   }
   //3. Forwarding amount to filter brackets & giving score point as per.
-  if (_fifteenDays) {
-    pre_score_count += 1;
-  }
-  if (note_amount <= 500 && _ThirtyDays) {
-    pre_score_count += 0.1;
-  } else if (note_amount > 500 && note_amount <= 2000 && _ThirtyDays) {
-    pre_score_count += 0.1;
-  } else if (note_amount > 2000 && note_amount <= 5000 && _ThirtyDays) {
-    pre_score_count += 0.2;
-  } else if (note_amount > 5000 && note_amount <= 9000 && _ThirtyDays) {
-    pre_score_count += 0.3;
-  } else if (note_amount > 9000 && note_amount <= 15000 && _ThirtyDays) {
-    pre_score_count += 0.4;
-  } else if (note_amount > 15000 && note_amount <= 25000 && _ThirtyDays) {
-    pre_score_count += 0.6;
-  } else if (note_amount > 25000 && note_amount <= 35000 && _ThirtyDays) {
-    pre_score_count += 1;
-  } else if (note_amount > 35000 && _ThirtyDays) {
-    pre_score_count += 2;
+
+  if (note_amount <= 500) {
+    _fifteenDays ? (dummycount = 1) : 0;
+    _ThirtyDays ? (dummycount = 0.1) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 500 && note_amount <= 2000) {
+    _fifteenDays ? (dummycount = 1.5) : 0;
+    _ThirtyDays ? (dummycount = 0.3) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 2000 && note_amount <= 5000) {
+    _fifteenDays ? (dummycount = 1.7) : 0;
+    _ThirtyDays ? (dummycount = 0.4) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 5000 && note_amount <= 9000) {
+    _fifteenDays ? (dummycount = 1.9) : 0;
+    _ThirtyDays ? (dummycount = 0.6) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 9000 && note_amount <= 15000) {
+    _fifteenDays ? (dummycount = 2) : 0;
+    _ThirtyDays ? (dummycount = 0.8) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 15000 && note_amount <= 25000) {
+    _fifteenDays ? (dummycount = 3) : 0;
+    _ThirtyDays ? (dummycount = 1) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 25000 && note_amount <= 35000) {
+    _fifteenDays ? (dummycount = 4) : 0;
+    _ThirtyDays ? (dummycount = 1.5) : 0;
+    pre_score_count = pre_score_count + dummycount;
+  } else if (note_amount > 35000) {
+    _fifteenDays ? (dummycount = 5) : 0;
+    _ThirtyDays ? (dummycount = 2) : 0;
+    pre_score_count = pre_score_count + dummycount;
   } else if (_FortyDays) {
     pre_score_count -= -0.1;
   } else if (within_FortyDays) {
     pre_score_count += 0.05;
   }
-
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
@@ -237,12 +251,12 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     });
 
     if (countOfTwo === 2) {
-      let num = countOfTwo * 0.2;
+      let num = countOfTwo * 1;
       consecutiveScore = consecutiveScore + num;
     }
 
     if (oddCount === true) {
-      consecutiveScore = consecutiveScore + 0.2;
+      consecutiveScore = consecutiveScore + 1;
     }
   }
   console.log("THIS IS SECOND", updatedTBlockArray[0]);
@@ -260,8 +274,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 
-  plus_score = clearedTblocks.length * 0.2 + consecutiveScore;
-  minus_score = unclearedTblocks.length * 0.1;
+  plus_score = clearedTblocks.length * 0.5 + consecutiveScore;
+  minus_score = unclearedTblocks.length * 0.2;
 
   totalScore = plus_score - minus_score;
   console.log(
