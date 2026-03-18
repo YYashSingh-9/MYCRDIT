@@ -40,10 +40,16 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const customerNumber = req.body.customerNumber;
 
   //b).
-  const note_ = await DebtNote.findById(note_Id);
-  const cust = await Customer.find({
-    contactNumber: { $in: customerNumber },
-  });
+  const [note_, cust] = await Promise.all([
+    DebtNote.findById(note_Id),
+    Customer.find({
+      contactNumber: { $in: customerNumber },
+    }),
+  ]);
+  // const note_ = await DebtNote.findById(note_Id);
+  // const cust = await Customer.find({
+  //   contactNumber: { $in: customerNumber },
+  // }); (previous method, due to sequential execution it used to pause the execution and slows down the performance)
   const customer = cust[0];
 
   //2. Extract amount and payment duration.
