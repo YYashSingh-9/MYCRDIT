@@ -203,10 +203,11 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
       ),
     );
   }
-
+  // extracting t blocks and making parent t block array.
   for (let i = 0; i < allPaidNotes.length; i += 3) {
     parentTBlockArray.push(allPaidNotes.slice(i, i + 3));
   }
+
   // Step 2:- Run filter checks on each t-block and add cleared:true on cleared t-blocks
   // & cleared:false on uncleared t-block.
   if (parentTBlockArray.length === 0) {
@@ -218,7 +219,7 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
     );
   }
 
-  // Adding cleared status;
+  // Adding " cleared " status;
   for (const child_Tblock of parentTBlockArray) {
     let allPaid = true;
     for (const obj of child_Tblock) {
