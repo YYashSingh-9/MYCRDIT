@@ -15,7 +15,7 @@ const PaidNote = require("../Models/paidNoteModel");
  */
 
 exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
-  console.log("Function Started from here... ✅");
+  console.log("Function Started from here... ✅", req.body);
 
   let pre_score_count = 0;
   let seconds,
