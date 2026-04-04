@@ -22,7 +22,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
     minutes,
     hours,
     days,
-    dummycount,
+    dummycount = 0,
     _ThirtyDays,
     _FortyDays,
     within_FortyDays,
@@ -46,6 +46,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
       contactNumber: { $in: customerNumber },
     }),
   ]);
+  console.log("HERE IT IS ->", note_, cust);
   // const note_ = await DebtNote.findById(note_Id);
   // const cust = await Customer.find({
   //   contactNumber: { $in: customerNumber },
@@ -82,7 +83,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
-
+  console.log("LENGTH OF PAYMENT", lengthOfPayment);
   if (lengthOfPayment < thirtyDayDuration) {
     _ThirtyDays = true;
   }
@@ -106,44 +107,70 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   if (note_amount <= 500) {
     _fifteenDays ? (dummycount += 1) : 0;
     _ThirtyDays ? (dummycount += 0.1) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 500 && note_amount <= 2000) {
     _fifteenDays ? (dummycount += 1.5) : 0;
     _ThirtyDays ? (dummycount += 0.3) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 2000 && note_amount <= 5000) {
     _fifteenDays ? (dummycount += 1.7) : 0;
     _ThirtyDays ? (dummycount += 0.4) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 5000 && note_amount <= 9000) {
     _fifteenDays ? (dummycount += 1.9) : 0;
     _ThirtyDays ? (dummycount += 0.6) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 9000 && note_amount <= 15000) {
     _fifteenDays ? (dummycount += 2) : 0;
     _ThirtyDays ? (dummycount += 0.8) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 15000 && note_amount <= 25000) {
     _fifteenDays ? (dummycount += 3) : 0;
     _ThirtyDays ? (dummycount += 1) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 25000 && note_amount <= 35000) {
     _fifteenDays ? (dummycount += 4) : 0;
     _ThirtyDays ? (dummycount += 1.5) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
   } else if (note_amount > 35000) {
     _fifteenDays ? (dummycount += 5) : 0;
     _ThirtyDays ? (dummycount += 2) : 0;
+    within_FortyDays ? (dummycount += 0.05) : 0;
+    _FortyDays ? (dummycount -= 0.1) : 0;
+
     pre_score_count = pre_score_count + dummycount;
-  } else if (_FortyDays) {
-    pre_score_count -= -0.1;
-  } else if (within_FortyDays) {
-    pre_score_count += 0.05;
   }
+
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
-
+  console.log(
+    "HERE IT IS 222222----- ",
+    customerCurrentTotal_TScore,
+    customerPreviousTScore,
+    pre_score_count,
+  );
   const doc = await Customer.findOneAndUpdate(
     { contactNumber: customer.contactNumber },
     { transactionalScore: customerCurrentTotal_TScore },
