@@ -46,7 +46,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
       contactNumber: { $in: customerNumber },
     }),
   ]);
-  console.log("HERE IT IS ->", note_, cust);
+
   // const note_ = await DebtNote.findById(note_Id);
   // const cust = await Customer.find({
   //   contactNumber: { $in: customerNumber },
@@ -83,7 +83,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
 
   // Sorting payment duration in category.
-  console.log("LENGTH OF PAYMENT", lengthOfPayment);
+
   if (lengthOfPayment < thirtyDayDuration) {
     _ThirtyDays = true;
   }
@@ -165,12 +165,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // 4. Extract current customer's transactional Score & add new calculated score to that.
   const customerPreviousTScore = customer.transactionalScore;
   const customerCurrentTotal_TScore = customerPreviousTScore + pre_score_count;
-  console.log(
-    "HERE IT IS 222222----- ",
-    customerCurrentTotal_TScore,
-    customerPreviousTScore,
-    pre_score_count,
-  );
+
   const doc = await Customer.findOneAndUpdate(
     { contactNumber: customer.contactNumber },
     { transactionalScore: customerCurrentTotal_TScore },
