@@ -50,7 +50,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   // const note_ = await DebtNote.findById(note_Id);
   // const cust = await Customer.find({
   //   contactNumber: { $in: customerNumber },
-  // }); (previous method, due to sequential execution it used to pause the execution and slows down the performance)
+  // }); (previous method, due to sequential execution it used to pause the execution and slow down the performance)
   const customer = cust[0];
 
   //2. Extract amount and payment duration.
@@ -79,9 +79,9 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
   const thirtyDayPayment =
     lengthOfPayment >= 15 && lengthOfPayment <= 30 ? true : false;
   const fifteenDays_payment_duration =
-    lengthOfPayment > 15 && lengthOfPayment <= 17 ? true : false;
+    lengthOfPayment >= 15 && lengthOfPayment <= 17 ? true : false;
   // console.log("LENGTH OF PAYMENT IN DAYS -> ", lengthOfPayment);
-
+  console.log(lengthOfPayment, fifteenDays_payment_duration, thirtyDayPayment);
   // Sorting payment duration in category.
 
   if (lengthOfPayment < thirtyDayDuration) {
@@ -106,60 +106,82 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
 
   if (note_amount <= 500) {
     _fifteenDays ? (dummycount += 1) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 0.1) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 500 && note_amount <= 2000) {
     _fifteenDays ? (dummycount += 1.5) : 0;
     _ThirtyDays ? (dummycount += 0.3) : 0;
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
-
+    console.log(dummycount);
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 2000 && note_amount <= 5000) {
     _fifteenDays ? (dummycount += 1.7) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 0.4) : 0;
+    console.log(dummycount);
+
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
-
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 5000 && note_amount <= 9000) {
     _fifteenDays ? (dummycount += 1.9) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 0.6) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 9000 && note_amount <= 15000) {
     _fifteenDays ? (dummycount += 2) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 0.8) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 15000 && note_amount <= 25000) {
     _fifteenDays ? (dummycount += 3) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 1) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 25000 && note_amount <= 35000) {
     _fifteenDays ? (dummycount += 4) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 1.5) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(pre_score_count);
   } else if (note_amount > 35000) {
     _fifteenDays ? (dummycount += 5) : 0;
+    console.log(dummycount);
     _ThirtyDays ? (dummycount += 2) : 0;
+    console.log(dummycount);
     within_FortyDays ? (dummycount += 0.05) : 0;
     _FortyDays ? (dummycount -= 0.1) : 0;
 
     pre_score_count = pre_score_count + dummycount;
+    console.log(dummycount);
   }
 
   // 4. Extract current customer's transactional Score & add new calculated score to that.
