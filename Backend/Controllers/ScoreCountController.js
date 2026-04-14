@@ -196,7 +196,7 @@ exports.transactionalCreditScore_Count = catchAsync(async (req, res, next) => {
       new: true,
     },
   );
-
+  console.log(customerCurrentTotal_TScore);
   const dummyObj = {
     debtNote_Id: note_Id,
     customerNumber: customerNumber,
