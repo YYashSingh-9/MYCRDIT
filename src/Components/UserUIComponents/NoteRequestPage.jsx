@@ -32,7 +32,7 @@ const NoteRequestPage = () => {
     isNoteRequests_availabe;
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const noteRequestsArray = useSelector(
-    (state) => state.sliceOne.customerNote_requests
+    (state) => state.sliceOne.customerNote_requests,
   );
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -48,16 +48,18 @@ const NoteRequestPage = () => {
       return get_notes_handler(
         userCookie,
         "non-accepted-notes",
-        userData.data.contactNumber
+        userData.data.contactNumber,
       );
     },
   });
+  console.log(data);
 
   if (data && data.status === "Success") {
     pending_notes_array = data.data;
     isNoteRequests_availabe = true;
     dispatch(sliceOneActions.note_requests_insert_handler(data.data));
   }
+  console.log(data, "this is 2");
 
   const acceptingRequestHandler = () => {
     mutate();
