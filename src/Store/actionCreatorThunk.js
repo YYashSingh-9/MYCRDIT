@@ -7,8 +7,9 @@ export const client = new QueryClient();
 // 1. Fetch request function (GET).
 
 export const data_fetch_function = async (urlType, cookie, additional) => {
-  let url = `http://localhost:3000/mycrdit/api/${urlType}`;
-
+  // let url = `http://localhost:3000/mycrdit/api/${urlType}`;
+  //mycrdit-backend.onrender.com
+  let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
   additional ? (url += `/${additional}`) : "";
 
   const document = await fetch(url, {
@@ -33,11 +34,11 @@ export const data_Send_request = async (
   additional,
   methodtype,
   data_to_send,
-  cookie
+  cookie,
 ) => {
   try {
-    let url = `http://localhost:3000/mycrdit/api/${urlType}`;
-
+    // let url = `http://localhost:3000/mycrdit/api/${urlType}`;
+    let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
     additional ? (url += `/${additional}`) : "";
 
     const dataToBeSent = data_to_send
@@ -83,19 +84,19 @@ export const login_signup_fetchRequest = async ({ request }) => {
   if (data_length === 3) {
     //Proprietor login
     request_of = "proprietor";
-    additional_url_part = "/proprietor-verification";
+    additional_url_part = "proprietor-verification";
     sendingDataObject = { ...data_2 };
   }
   if (data_length < 2) {
     // Customer Authentication (login/signup);
     request_of = "customer";
-    additional_url_part = "/verification-user";
+    additional_url_part = "verification-user";
     sendingDataObject = { ...data_2 };
   }
   if (data_length > 3 && data_length <= 15) {
     // Proprietor Signup
     request_of = "proprietor";
-    additional_url_part = "/proprietor-authentication";
+    additional_url_part = "proprietor-authentication";
     sendingDataObject = {
       ProprietorName: data_2.ProprietorName,
       shopName: data_2.shopName,
@@ -120,7 +121,7 @@ export const login_signup_fetchRequest = async ({ request }) => {
     additional_url_part,
     "POST",
     sendingDataObject,
-    ""
+    "",
   );
   return returnedData;
 };
@@ -131,7 +132,7 @@ export const getHomePage_Data_Proprietor = async (cookie, accType) => {
   let returnData;
   accType = "proprietor";
   if (accType === "proprietor") {
-    returnData = data_fetch_function(accType, cookie, "/get-all-notes");
+    returnData = data_fetch_function(accType, cookie, "get-all-notes");
   } else return (returnData = "Data fetching not required");
   return returnData;
 };
@@ -147,7 +148,7 @@ export const getAllCustomerNotes = async (customerNum, cookie) => {
     "get-all-specific-customer-notes",
     "POST",
     obj,
-    cookie
+    cookie,
   );
 
   return data;
@@ -159,7 +160,7 @@ export const patch_RequestHandler = async (
   accType,
   data,
   cookie,
-  request_for
+  request_for,
 ) => {
   let objectToSend, request_of, additionalUrlPart, paymentDate;
   paymentDate = new Date();
@@ -191,7 +192,7 @@ export const patch_RequestHandler = async (
     additionalUrlPart,
     "PATCH",
     objectToSend,
-    cookie
+    cookie,
   );
   return returned_Data;
 };
@@ -238,7 +239,7 @@ export const createNote_Handler = async ({ request }) => {
     "create-note",
     "POST",
     objectToSend,
-    cookie
+    cookie,
   );
 
   return data_;
@@ -252,12 +253,12 @@ export const getClearedNotes = async (cookie, acc_type) => {
   if (acc_type === "proprietor") {
     cookieToSend = cookie;
     accType = acc_type;
-    addtitionalUrl_Part = "/get-all-cleared-notes";
+    addtitionalUrl_Part = "get-all-cleared-notes";
   }
   if (acc_type === "customer") {
     cookieToSend = cookie;
     accType = acc_type;
-    addtitionalUrl_Part = "/all-cleared-notes";
+    addtitionalUrl_Part = "all-cleared-notes";
   } else if (acc_type === "") {
     return {
       status: "Success",
@@ -267,7 +268,7 @@ export const getClearedNotes = async (cookie, acc_type) => {
   returned_data = await data_fetch_function(
     accType,
     cookieToSend,
-    addtitionalUrl_Part
+    addtitionalUrl_Part,
   );
   return returned_data;
 };
@@ -294,7 +295,7 @@ export const editShopInfo_Handler = async ({ request }) => {
     "edit-proprietor-shop",
     "PATCH",
     objectToSend,
-    cookie
+    cookie,
   );
 
   return returned_data;
@@ -319,10 +320,10 @@ export const reviewSendHandler = async ({ request }) => {
   };
   const data_1 = await data_Send_request(
     "proprietor",
-    "/share-your-review",
+    "share-your-review",
     "POST",
     objectToSend,
-    cookie
+    cookie,
   );
 
   return data_1;
@@ -344,7 +345,7 @@ export const logout_handler = async (acc_type, cookie) => {
     additional_url_part,
     "POST",
     {},
-    cookie
+    cookie,
   );
   return data;
 };
@@ -369,7 +370,7 @@ export const get_notes_handler = async (cookie, reqType, customerNumber) => {
     "all-pending-notes",
     "POST",
     data_to_send,
-    cookie
+    cookie,
   );
   return data;
 };
@@ -384,7 +385,7 @@ export const acceptingNoteHandler = async (noteId, cookie) => {
     "note-approval-request",
     "PATCH",
     dataToSend,
-    cookie
+    cookie,
   );
 
   return data;
@@ -423,7 +424,7 @@ export const edit_user_info = async ({ request }) => {
     additional,
     methodtype,
     data_to_send,
-    cookie
+    cookie,
   );
   return returned_data;
 };
@@ -435,7 +436,7 @@ export const getMycrditScore_handler = async (cookie, contactNumber) => {
     "get-my-crdit-score",
     "POST",
     { contactNumber: contactNumber },
-    cookie
+    cookie,
   );
 
   return data;
