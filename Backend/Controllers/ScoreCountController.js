@@ -325,8 +325,8 @@ exports.totalMycrditScore = catchAsync(async (req, res, next) => {
   // Step 5:- Give score of addition of all cleared t-blocks and total addition of uncleared
   // t-blocks then deduct total of uncleared from cleared to get total score;
 
-  plus_score = clearedTblocks.length * 0.5 + consecutiveScore;
-  minus_score = unclearedTblocks.length * 0.2;
+  plus_score = clearedTblocks.length * 1.5 + consecutiveScore;
+  minus_score = unclearedTblocks.length * 0.5;
 
   totalScore = plus_score - minus_score;
   console.log(
