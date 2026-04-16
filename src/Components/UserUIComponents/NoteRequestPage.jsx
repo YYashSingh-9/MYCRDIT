@@ -62,8 +62,11 @@ const NoteRequestPage = () => {
   console.log(data, "this is 2");
 
   const acceptingRequestHandler = () => {
-    mutate();
-    toastFn("Note accepted. 👍");
+    mutate(undefined, {
+      onSuccess: () => {
+        toastFn("Note accepted. 👍");
+      },
+    });
   };
 
   useEffect(() => {
@@ -72,6 +75,11 @@ const NoteRequestPage = () => {
     }
   }, [userData]);
 
+  useEffect(() => {
+    if (data && data.status === "Success") {
+      dispatch(sliceOneActions.note_requests_insert_handler(data.data));
+    }
+  }, [data, dispatch]);
   let loginState = userData.status === "Success" ? true : false;
 
   return (
