@@ -37,8 +37,8 @@ export const data_Send_request = async (
   cookie,
 ) => {
   try {
-    let url = `http://localhost:3000/mycrdit/api/${urlType}`;
-    // let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
+    // let url = `http://localhost:3000/mycrdit/api/${urlType}`;
+    let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
     additional ? (url += `/${additional}`) : "";
 
     const dataToBeSent = data_to_send
