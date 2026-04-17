@@ -53,14 +53,7 @@ const NoteRequestPage = () => {
     },
   });
   console.log(data);
-
-  if (data && data.status === "Success") {
-    pending_notes_array = data.data;
-    isNoteRequests_availabe = true;
-    dispatch(sliceOneActions.note_requests_insert_handler(data.data));
-  }
-  console.log(data, "this is 2");
-
+  console.log(noteRequestsArray);
   const acceptingRequestHandler = () => {
     mutate(undefined, {
       onSuccess: () => {
