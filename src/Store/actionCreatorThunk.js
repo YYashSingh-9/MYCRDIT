@@ -7,9 +7,9 @@ export const client = new QueryClient();
 // 1. Fetch request function (GET).
 
 export const data_fetch_function = async (urlType, cookie, additional) => {
-  let url = `http://localhost:3000/mycrdit/api/${urlType}`;
+  // let url = `http://localhost:3000/mycrdit/api/${urlType}`;
   //mycrdit-backend.onrender.com
-  // let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
+  let url = `https://mycrdit-backend.onrender.com/mycrdit/api/${urlType}`;
   additional ? (url += `/${additional}`) : "";
 
   const document = await fetch(url, {
