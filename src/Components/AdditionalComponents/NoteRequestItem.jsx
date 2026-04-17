@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const NoteRequestItem = (props) => {
   const date = props.data.date.slice(0, 10);
 
-  const { data, mutate, isPending } = useMutation({
+  const { data, mutate } = useMutation({
     mutationKey: ["accepting-notes"],
     mutationFn: () => {
       return acceptingNoteHandler(props.data._id, props.cookie);

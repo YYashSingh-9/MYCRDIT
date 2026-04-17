@@ -24,12 +24,7 @@ const toastFn = (message) => {
 };
 
 const NoteRequestPage = () => {
-  let accType,
-    userCookie,
-    id_String,
-    backLink_Id,
-    pending_notes_array,
-    isNoteRequests_availabe;
+  let accType, userCookie, id_String, backLink_Id;
   const userData = useSelector((state) => state.sliceOne.accountUserData);
   const noteRequestsArray = useSelector(
     (state) => state.sliceOne.customerNote_requests,
@@ -52,8 +47,7 @@ const NoteRequestPage = () => {
       );
     },
   });
-  console.log(data);
-  console.log(noteRequestsArray);
+
   const acceptingRequestHandler = () => {
     mutate(undefined, {
       onSuccess: () => {
