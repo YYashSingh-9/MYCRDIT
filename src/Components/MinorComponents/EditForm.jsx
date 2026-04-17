@@ -17,7 +17,7 @@ import NotLoggedInLandingPage from "../AdditionalComponents/NotLoggedInLandingPa
 
 const EditForm = () => {
   const userAccountData = useSelector(
-    (state) => state.sliceOne.accountUserData
+    (state) => state.sliceOne.accountUserData,
   );
   const accType = useSelector((state) => state.sliceOne.accountType);
   const navigation = useNavigation();
@@ -26,10 +26,10 @@ const EditForm = () => {
   const data = useActionData();
   const userInfo = userAccountData.data;
   const data_toSend = userAccountData.token;
+  console.log(userAccountData);
 
   let gstDefaultValue =
     userInfo.data.proprietorGST.length > 5 ? userInfo.data.proprietorGST : "";
-
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
