@@ -18,11 +18,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../AdditionalComponents/Spinner";
 
+let toastId;
+
 const notifyFunction = (message) => {
-  return toast(message, {
-    position: "top-right",
-    autoClose: 1500,
-  });
+  if (!toast.isActive(toastId)) {
+    toastId = toast(message, {
+      position: "top-right",
+      autoClose: 1000,
+    });
+  }
 };
 
 const ProprietorUI = (props) => {
@@ -192,7 +196,7 @@ const LoginPage = () => {
     if (actionData) {
       if (actionData.status === "Success" && actionData.data.ProprietorName) {
         dispatch(
-          sliceOneActions.authentication_Info_Storage_handler(actionData)
+          sliceOneActions.authentication_Info_Storage_handler(actionData),
         );
         dispatch(sliceOneActions.loginState_setter());
 
@@ -200,13 +204,13 @@ const LoginPage = () => {
       }
       if (actionData.status === "Success" && actionData.data.customerName) {
         dispatch(
-          sliceOneActions.authentication_Info_Storage_handler(actionData)
+          sliceOneActions.authentication_Info_Storage_handler(actionData),
         );
         dispatch(sliceOneActions.loginState_setter());
         Navigate("/otp-authentication");
       }
       if (actionData.status === "Fail" || actionData.status === "error") {
-        notifyFunction(actionData.message[0]);
+        notifyFunction(actionData.message);
       }
     }
   }, [actionData]);
