@@ -74,6 +74,7 @@ const proprietorSchema = mongoose.Schema({
   },
   proprietorGST: {
     type: Number,
+    default: 0,
     minLength: [15, "15 digit number is required"],
     maxLength: [15, "15 digit number is required"],
   },
@@ -94,7 +95,7 @@ proprietorSchema.pre("save", async function (next) {
 });
 proprietorSchema.methods.correctPassword = async function (
   enteredPassword,
-  user_password
+  user_password,
 ) {
   return bcrypt.compare(enteredPassword, user_password);
 };

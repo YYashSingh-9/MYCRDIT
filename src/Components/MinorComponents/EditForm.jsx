@@ -26,10 +26,14 @@ const EditForm = () => {
   const data = useActionData();
   const userInfo = userAccountData.data;
   const data_toSend = userAccountData.token;
-  console.log(userAccountData);
+  console.log(userAccountData, userInfo);
 
-  let gstDefaultValue =
-    userInfo.data.proprietorGST.length > 5 ? userInfo.data.proprietorGST : "";
+  let gstDefaultValue = userInfo.proprietorGST;
+
+  if (userInfo.proprietorGST === null || userInfo.proprietorGST.length < 10) {
+    gstDefaultValue = "";
+  }
+  console.log(gstDefaultValue);
   useEffect(() => {
     if (data) {
       if (data.status === "Success") {
