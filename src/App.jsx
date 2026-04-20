@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import { client } from "./Store/actionCreatorThunk";
 import { Outlet } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Header />
           <Outlet />
           <Footer />
+          <ToastContainer />
         </Box>
       </QueryClientProvider>
     </>

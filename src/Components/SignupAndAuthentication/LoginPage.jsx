@@ -13,7 +13,7 @@ import { sliceOneActions } from "../../Store/sliceOne";
 import GeneralButton from "../AdditionalComponents/GeneralButton";
 import quickinLogo from "../../assets/QUICK-IN__1_-removebg-preview.png";
 import InitialSlider from "../AdditionalComponents/InitialSlider";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../AdditionalComponents/Spinner";
@@ -184,6 +184,7 @@ const LoginPage = () => {
   const actionData = useActionData();
   const accountType_UI = useSelector((state) => state.sliceOne.accountType);
   const dispatch = useDispatch();
+  const hasShownToast = useRef(false);
 
   const toProprietor = () => {
     dispatch(sliceOneActions.accountTypeToggler("proprietor"));
@@ -192,26 +193,57 @@ const LoginPage = () => {
     dispatch(sliceOneActions.accountTypeToggler("customer"));
   };
 
-  useEffect(() => {
-    if (actionData) {
-      if (actionData.status === "Success" && actionData.data.ProprietorName) {
-        dispatch(
-          sliceOneActions.authentication_Info_Storage_handler(actionData),
-        );
-        dispatch(sliceOneActions.loginState_setter());
+  // useEffect(() => {
+  //   if (actionData) {
+  //     if (actionData.status === "Success" && actionData.data.ProprietorName) {
+  //       dispatch(
+  //         sliceOneActions.authentication_Info_Storage_handler(actionData),
+  //       );
+  //       dispatch(sliceOneActions.loginState_setter());
 
-        Navigate("/");
-      }
-      if (actionData.status === "Success" && actionData.data.customerName) {
-        dispatch(
-          sliceOneActions.authentication_Info_Storage_handler(actionData),
-        );
-        dispatch(sliceOneActions.loginState_setter());
-        Navigate("/otp-authentication");
-      }
-      if (actionData.status === "Fail" || actionData.status === "error") {
-        notifyFunction(actionData.message);
-      }
+  //       Navigate("/");
+  //     } else if (
+  //       actionData.status === "Success" &&
+  //       actionData.data.customerName
+  //     ) {
+  //       dispatch(
+  //         sliceOneActions.authentication_Info_Storage_handler(actionData),
+  //       );
+  //       dispatch(sliceOneActions.loginState_setter());
+  //       Navigate("/otp-authentication");
+  //     } else if (
+  //       actionData.status === "Fail" ||
+  //       actionData.status === "error"
+  //     ) {
+  //       notifyFunction(actionData.message);
+  //     }
+  //   }
+  // }, [actionData]);
+
+  useEffect(() => {
+    if (!actionData) return;
+
+    if (
+      (actionData.status === "Fail" || actionData.status === "error") &&
+      !hasShownToast.current
+    ) {
+      notifyFunction(actionData.message);
+      hasShownToast.current = true;
+      return;
+    }
+    if (actionData.status === "Success" && actionData.data.ProprietorName) {
+      dispatch(sliceOneActions.authentication_Info_Storage_handler(actionData));
+      dispatch(sliceOneActions.loginState_setter());
+      hasShownToast = false;
+      Navigate("/");
+    } else if (
+      actionData.status === "Success" &&
+      actionData.data.customerName
+    ) {
+      dispatch(sliceOneActions.authentication_Info_Storage_handler(actionData));
+      dispatch(sliceOneActions.loginState_setter());
+      hasShownToast = false;
+      Navigate("/otp-authentication");
     }
   }, [actionData]);
 
@@ -227,7 +259,6 @@ const LoginPage = () => {
         {navigation.state !== "submitting" && accountType_UI !== "customer" && (
           <ProprietorUI onclick={toCustomer} />
         )}
-        <ToastContainer />
       </BasicCoverDiv>
     </>
   );
