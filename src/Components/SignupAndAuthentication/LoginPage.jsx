@@ -184,7 +184,7 @@ const LoginPage = () => {
   const actionData = useActionData();
   const accountType_UI = useSelector((state) => state.sliceOne.accountType);
   const dispatch = useDispatch();
-  const hasShownToast = useRef(false);
+  let hasShownToast = useRef(false);
 
   const toProprietor = () => {
     dispatch(sliceOneActions.accountTypeToggler("proprietor"));

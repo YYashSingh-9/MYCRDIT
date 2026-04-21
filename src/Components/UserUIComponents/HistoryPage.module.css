@@ -106,7 +106,7 @@ h3 {
     background-color: none;
   }
   .liBox {
-    height: 4.2rem;
+    height: 6.2rem;
     width: 95%;
   }
   .liBox h4 {
@@ -150,14 +150,14 @@ h3 {
     background-color: none;
   }
   .liBox {
-    height: 4.5rem;
+    height: 6.5rem;
     width: 95%;
   }
   .liBox h4 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .liBox h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .clearIndicatorBtn {
     font-size: 0.7rem;
@@ -173,5 +173,13 @@ h3 {
   }
   .info_left {
     padding-left: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+  .liBox h4 {
+    font-size: 0.8rem;
+  }
+  .liBox h3 {
+    font-size: 1rem;
   }
 }
